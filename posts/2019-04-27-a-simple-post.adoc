@@ -20,7 +20,7 @@ entries.
 (((Big cats,Tigers,Siberian Tiger)))
 Note that multi-entry terms generate separate index entries.
 
-Here are a couple of image examples: an image:assets/images/branding-img.png[]
+Here are a couple of image examples: an image:../media/2019-04-27-a-simple-blog-post/an-image.png[]
 
 [source,scala]
 ----
