@@ -76,28 +76,28 @@ $ cd dcos-vagrant
 
 Install `vagrant-hostmanager`, a plugin that makes it possible for you to access virtual machines from your computer via ssh.
 
-[source,scala]
+[source,bash]
 ----
 $ vagrant plugin install vagrant-hostmanager
 ----
 
 The following command populates your hosts file with the DNS routes to each of your cluster nodes.
 
-[source,scala]
+[source,bash]
 ----
 $ vagrant hostmanager
 ----
 
 This next command appends to cluster configuration file a property that disables OAuth authentication for your DC/OS cluster.
 
-[source,scala]
+[source,bash]
 ----
 $ echo "oauth_enabled: 'false'" >> etc/config-1.9.yaml
 ----
 
 Register temporary environment variables for provisioning your cluster. These two commands are required in order to set up a specific DC/OS version and for making use of the configuration we edited to not use OAuth. (see above command)
 
-[source,scala]
+[source,bash]
 ----
 $ export DCOS_GENERATE_CONFIG_PATH=installers/dcos/dcos_generate_config-1.9.2.sh
 
@@ -105,7 +105,7 @@ $ export DCOS_CONFIG_PATH=etc/config-1.9.yaml
 ----
 Copy a predefined template for a DC/OS cluster describing the nodes (m = master, a = private agent, p = public agent) under the appropriate yaml filename. Vagrant searches for a file called VagrantConfig.yaml that is used to figure out which virtual machines to create.
 
-[source,scala]
+[source,bash]
 ----
 $ cp VagrantConfig-1m-2a-1p.yaml VagrantConfig.yaml
 ----
@@ -117,14 +117,14 @@ Run `$ vagrant up` and wait until the command completes successfully. NOTE: You 
 ## Visualizing your provisioned DC/OS cluster
 If all is well, you should be able to access http://m1.dcos/in your web browser (Safari, Chrome, etc...)
 
-image::https://prismic-io.s3.amazonaws.com/lunatech%2F4f2c172b-0730-4fbb-bd7e-168f5ba59380_1visualizecluster.png[]
+image::https://prismic-io.s3.amazonaws.com/lunatech%2F4f2c172b-0730-4fbb-bd7e-168f5ba59380_1visualizecluster.png[alt=Visualizer,width=1280,height=920]
 
 This is the front user interface of the DC/OS cluster you just prepared.
 
 From here, you have a range of things you can do with your newly provisioned cluster including but not limited to viewing the state of your running services, nodes, management package and or services, etc...
 
 Alternatively, you can install the dcos CLI tool to perform the same said tasks via terminal:
-[source,scala]
+[source,bash]
 ----
 ci/dcos-install-cli.sh
 ----
