@@ -41,7 +41,7 @@ case class Post(slug: String, title: String, date: DateTime, author: Author, mai
 example inline image followed by an example block image:
 
 .Tiger block image
-image::assets/images/code.png[alt=Flower,width=640,height=480]
+image::../media/2019-04-27-a-simple-post/a-second-image.png[alt=Flower,width=640,height=480]
 
 Followed by an example table:
 
