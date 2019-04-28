@@ -1,20 +1,20 @@
 = Functional IO with FS2 Streams
-Nicolas Leroux <nicolas@lunatech.com>
+Pepite
 v1.0, 2016-11-14
 :title: Functional IO with FS2 Streams
 :tags: [fp, scala]
 
-One of the main principles of functional programming is to avoid side-effects. For the most part, working with immutable instances would be sufficient to satisfy that principle. But sometimes it's needed to do some side effects e.g. when we want to read from file. One straight-forward way of doing it is to get a `BufferedSource`, and process it using an iterator as shown below. 
+One of the main principles of functional programming is to avoid side-effects. For the most part, working with immutable instances would be sufficient to satisfy that principle. But sometimes it's needed to do some side effects e.g. when we want to read from file. One straight-forward way of doing it is to get a `BufferedSource`, and process it using an iterator as shown below.
 
 [source,scala]
 ----
 def readFromFile(fileName: String) {
 	val src: BufferedSource = io.Source.fromFile(fileName)
-	val it: Iterator[String] = src.getLines 
-	val _ = while(it.hasNext) { 
-		val line = it.next()  
-		println(line)  
-	}  
+	val it: Iterator[String] = src.getLines
+	val _ = while(it.hasNext) {
+		val line = it.next()
+		println(line)
+	}
 	src.close()
 }
 ----
@@ -27,7 +27,7 @@ Then it is not too difficult to recursively convert the iterator to a Scala Stre
 ----
 There are few problems that can arise from this function:
 
-- First, if an exception occurs and we still haven't reached the end of the resulting Stream, or if we forget to close the `BufferedSource`, then the file would stay open, which is called resource leaking. Therefore, the above function is not resource-safe.- Second and more tricky, when we call the function read for a 2nd time, it may return a different result as someone may have modified the file between the two calls. We are forced to have some intrinsic knowledge about the file, therefore, the function `read` breaks referential transparency. 
+- First, if an exception occurs and we still haven't reached the end of the resulting Stream, or if we forget to close the `BufferedSource`, then the file would stay open, which is called resource leaking. Therefore, the above function is not resource-safe.- Second and more tricky, when we call the function read for a 2nd time, it may return a different result as someone may have modified the file between the two calls. We are forced to have some intrinsic knowledge about the file, therefore, the function `read` breaks referential transparency.
 
 In this blog-post we are going to tackle those two problems and learn how to avoid imperative troublesome IO using a specialized Scala library - FS2 (previously known as Scalaz-Stream).
 
@@ -63,8 +63,8 @@ Then we define the pipeline of transformations:
 
 [source,scala]
 ----
-val lines: Stream[Task, String] = 
-	io.file.readAllAsync[Task](pathToFile, 4096) 
+val lines: Stream[Task, String] =
+	io.file.readAllAsync[Task](pathToFile, 4096)
 						.through(text.utf8Decode)
  						.through(text.lines)
 ----
@@ -91,25 +91,25 @@ Another very useful and powerful functionality that FS2 supports is pulling. Som
 
 Note that we wrote FS2Stream, so to avoid mixing it with the standard Scala `Stream`.
 
-Now comes the tricky part - how to define the auxiliary function `using`. The simplest  way to explain that function is to say `Handle` knows how to retrieve the next element in a FS2Stream, and `Pull` knows how to pick up elements that we want to select and output as a side-effect of the pulling. 
+Now comes the tricky part - how to define the auxiliary function `using`. The simplest  way to explain that function is to say `Handle` knows how to retrieve the next element in a FS2Stream, and `Pull` knows how to pick up elements that we want to select and output as a side-effect of the pulling.
 
 For example, imagine we want to output elements produced in the process of iterating, but produce element only in some steps of the iteration. Then we can do the following:
 
 [source,scala]
 ----
-def using(): (Handle[Task, A], accumulator: FS2Stream[Task, B]) => Pull[Task, A, Nothing] = {  
-	newHandle: Handle[Task, A] =>    
+def using(): (Handle[Task, A], accumulator: FS2Stream[Task, B]) => Pull[Task, A, Nothing] = {
+	newHandle: Handle[Task, A] =>
     	val nextPull: Pull[Task, A, Handle[Task, A]] =
-          for {      
-              (nextElement: A, newHandle: Handle[Task, A]) <- newHandle.await1   			  updatedAcc = ...		
-              //update the accumulator and pass back the updated one      
-              _ <- someCheckingOfA match {     
-                      case ... => Pull.pure(())   
-                      //nothing to pick up        
-                      case ... =>  Pull.output1(something)  
-                      //pick up something      
-              }   
-          } yield (nextHandle, updatedAcc) 
+          for {
+              (nextElement: A, newHandle: Handle[Task, A]) <- newHandle.await1   			  updatedAcc = ...
+              //update the accumulator and pass back the updated one
+              _ <- someCheckingOfA match {
+                      case ... => Pull.pure(())
+                      //nothing to pick up
+                      case ... =>  Pull.output1(something)
+                      //pick up something
+              }
+          } yield (nextHandle, updatedAcc)
         nextPull.flatMap((nextHandle: Handle[Task, A]) => using()(nextHandle))
 }
 ----
@@ -132,4 +132,3 @@ someFS2Stream.pull[Task, A]((handle: Handle[Task, A]) => using()(handle, emptyAc
 -  https://github.com/functional-streams-for-scala/fs2Github[official repository for FS2]
 -  https://gist.github.com/djspiewak/d93a9c4983f63721c41cTutorial[for scalaz-stream]
 - https://github.com/eamelink/fs2-keystores-poc/blob/master/src/main/scala/MyApp.scala[Example of FS2 pulling]
-

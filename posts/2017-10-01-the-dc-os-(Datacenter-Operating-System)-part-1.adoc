@@ -1,5 +1,5 @@
 = The DC/OS (Datacenter Operating System)-Part 1
-Nicolas Leroux <leroux.nicolas@gmail.com>
+Pepite
 v1.0, 2017-10-01
 :title: The DC/OS (Datacenter Operating System)-Part 1
 :tags: [java, scala]
@@ -146,4 +146,3 @@ To do so, simply run the command `vagrant destroy` -f from within the `dcos-vagr
 * Part 2 - Running services on your DC/OS cluster
 
 * Part 3 - Enforcing Network Policies with Calico
-
