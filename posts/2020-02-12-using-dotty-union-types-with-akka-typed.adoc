@@ -1,5 +1,5 @@
 = Using Dotty Union types with Akka Typed
-eric.loots@gmail.com
+eloots
 v1.0, 2020-02-12
 :title: Using Dotty Union types with Akka Typed
 :tags: [tag1, tag2]
