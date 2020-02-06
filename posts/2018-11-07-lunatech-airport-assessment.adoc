@@ -8,6 +8,7 @@ As part of the recruitment team our goal is to assess candidates on multiple dim
 For several years we used a single exercise on this process, which we had to retire due to a number of reasons; in this article I will build the assessment like we’d intend to receive it, giving a glimpse on how we recruit at Lunatech.
 
 == Assessment
+
 The assessment’s text went as follows:
 
 . Download three CSV files from Amazon S3 :
@@ -30,7 +31,9 @@ Here we’re told to download three CSV files and that the goal is to write a we
 As software developers we usually work with some kind of process (eg. Scrum) where we take tickets or issues out of a board or backlog. These specify what we ought to build, bad reading or interpretation of this description can turn into an implementation that doesn’t fit what the client hoped to get. Without even touching a single line of code this is our first evaluation dimension, how well can you read and interpret software requirements.
 
 “Carefully read the assessment, take the time to understand what you have to build”.
+
 == Implementation
+
 Now that we know what we have to do, let’s choose the technologies which we will use:
 
 * Java
@@ -51,6 +54,7 @@ And finally, my experience is mainly on Oracle DB, but I want to use an open sou
 Familiarity and experience are good reasons to pick technologies; and on the other hand, there is nothing wrong with picking less familiar ones. The point is that you should be able to tell why you pick them and how they apply to the requirements. Implementing the assessment in https://en.wikipedia.org/wiki/LOLCODE[LOLCODE] may be fun but you must be able to pull it off.
 
 === I - Data Entry
+
 Taking a look at the headers of the three CSV files we can deduce that we’ve three relational tables like:
 
 image::../media/2018-11-07-lunatech-airport-assessment/diagramUML.png[]
@@ -117,11 +121,12 @@ count
    247
  46505
  39536
-----
+-------
 
 Looks good (the extra line in the first command is due to the header), let’s move onto our next step.
 
 === II - Project Setup And Architecture
+
 Deriving our domain models from our schema is pretty easy, creating Country, Airport and Runway, and Spring Boot integration with Hibernate/JPA makes the ORM just as easy.
 
 Implementing the web layer (ie. Controllers) and User Interface (HTML) is also done with a little of Spring magic (more on this later) and some annotations.
@@ -164,6 +169,7 @@ Feel free to take a look at the full source code https://github.com/lunatech-lab
 Finally, this is only one of the multiple ways to achieve the same result; the technology stack could be different (Scala instead of Java, Play! Instead of Spring or MongoDB instead of PostgreSQL) or even have something more extravagant like using Apache Lucene to implement Fuzzy search.
 
 === III - Closing Comments
+
 On this article we hoped to give a peek on how we recruit at Lunatech, what we look for on candidates, namely the aforementioned dimensions, the mindset we wish people to approach the process.
 
 The most important takeaway from all this is that the assessment is an excuse to engage a discussion, we never strive to find a perfect solution. We actually want to have a casual conversation with a possible colleague about software engineering, good practices and what are the pros and cons about this or that approach. The assessment would be a transport for doing that and more, we could even talk about what does this project lack to be a real world project, such as documentation, tests or Docker images.
