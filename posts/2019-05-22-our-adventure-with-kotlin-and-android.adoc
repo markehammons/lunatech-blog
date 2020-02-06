@@ -1,5 +1,5 @@
 = Our adventure with Kotlin and Android
-Vincent Brule <vincent.brule@lunatech.nl>
+VincentBrule 
 v1.0, 2019-05-22
 :title: Our adventure with Kotlin and Android
 :tags: [tag1, tag2]

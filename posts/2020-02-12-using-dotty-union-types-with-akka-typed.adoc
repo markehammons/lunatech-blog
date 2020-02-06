@@ -3,7 +3,7 @@ eric.loots@gmail.com
 v1.0, 2020-02-12
 :title: Using Dotty Union types with Akka Typed
 :tags: [tag1, tag2]
-:Author:    Eric Loots
+:Author: Eric Loots
 
 image::../media/2020-02-12-using-dotty-union-types-with-akka-typed/background.png[]
 
