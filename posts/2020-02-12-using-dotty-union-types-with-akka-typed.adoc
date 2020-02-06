@@ -5,9 +5,6 @@ v1.0, 2020-02-12
 :tags: [tag1, tag2]
 :Author: Eric Loots
 
-image::../media/2020-02-12-using-dotty-union-types-with-akka-typed/background.png[]
-
-
 == Introduction
 
 I've been using _Akka Typed_ for some time, and when I read the blog article
