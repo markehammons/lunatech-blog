@@ -13,3 +13,4 @@ To add you blog post:
 * Checkout the forked repo
 * In the repo directory `g8 file://.`
 * Write your blog post
+* Submit a pull request
