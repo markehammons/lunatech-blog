@@ -2,8 +2,7 @@
 eloots
 v1.0, 2020-02-12
 :title: Using Dotty Union types with Akka Typed
-:tags: [tag1, tag2]
-:Author: Eric Loots
+:tags: [dotty, akka]
 
 == Introduction
 
