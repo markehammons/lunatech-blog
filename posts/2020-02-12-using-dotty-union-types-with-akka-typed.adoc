@@ -18,7 +18,7 @@ simplification of the way responses to messages are handled in _Akka Typed_
 with Scala 2.
 
 We'll start from a simple actor based application written in Scala 2 that uses
-Akka 2.16.1, and we'll walk through 3 stages:
+Akka 2.6.1, and we'll walk through 3 stages:
 
 * Initial Scala 2/Akka 2.6.1 application
 * Make the application run as-is on Dotty/Akka 2.6.1
