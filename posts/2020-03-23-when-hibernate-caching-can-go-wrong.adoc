@@ -19,7 +19,10 @@ To demonstrate certain things I've created a simple Java project where I am usin
 * Hibernate version: 5.4.11.Final
 * Ehcache version: 3.8.1
 * PostgreSQL version: 10
-* My data structure is also simple:
+
+My data structure is also simple:
+
+image::../media/2020-03-23-when-hibernate-caching-can-go-wrong/entities.png[]
 
 
 In my application I have configured two caches, one is for entity caching: cachedEntities and a query cache: queryCache.
