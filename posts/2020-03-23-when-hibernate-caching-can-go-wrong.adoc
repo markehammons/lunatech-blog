@@ -106,9 +106,10 @@ where department0_.company=?
 ...
 ```
 
-The same as before, but the first query doesn't run again because it's result was cached. The queries we see now are running because of eager fetch type. If Department had the set of employees with FetchType.EAGER as well then following the chain of eager fetches, employees would be queried too.
+The same as before, but the first query doesn't run again because it's result was cached. The queries we see now are running because of eager fetch type. If Department had the set of employees with `FetchType.EAGER` as well then following the chain of eager fetches, employees would be queried too.
 
 You may wonder why our properly set up entity cache doesn't help? Because we see in the log the queries which get departments by company id's. Entity cache won't be helpful here, it would be helpful for querying departments by department id's.
+
 So if you have `FetchType.EAGER` for collection (you must have a strong reason for that which is unlikely) don't expect that caching will be much of a help. 
 
 === Takeaway:
