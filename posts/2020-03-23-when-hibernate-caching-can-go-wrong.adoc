@@ -15,6 +15,7 @@ Developers trying to set up Hibernate caching in their app who are curious about
 == Experimental setup
 
 To demonstrate certain things I've created a simple Java project where I am using:
+
 * Hibernate version: 5.4.11.Final
 * Ehcache version: 3.8.1
 * PostgreSQL version: 10
@@ -28,9 +29,11 @@ Of course I've activated both caches in my persistence.xml:
 <property name="hibernate.cache.use_second_level_cache" value="true"/>
 <property name="hibernate.cache.use_query_cache" value="true"/>
 ```
+
 and enabled hibernate query logging to see what exactly is happening.
 
 In Java code I've annotated all three entities with
+
 ```
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "cachedEntities")
 ```
@@ -62,7 +65,7 @@ entityManager.createQuery("select company from Company company where company.id 
 .getResultList();
 ```
 
-Like that no weird queries will be issued to the database when the caching properly works. But be careful: once you make a FetchType.EAGER it will change the game.
+Like that no weird queries will be issued to the database when the caching properly works. But be careful: once you make a `FetchType.EAGER` it will change the game.
 
 First run:
 ```
@@ -83,7 +86,7 @@ where department0_.company=?
 ...
 ```
 
-So, first we get all company data and then use company id's to query all departments belonging to every company. Why is this happening? Our query didn't contain anything related to departments, but they are queried because of the EAGER fetch type and it will do it EVERY time you issue your query for getting just companies. Even after the query result is cached.
+So, first we get all company data and then use company id's to query all departments belonging to every company. Why is this happening? Our query didn't contain anything related to departments, but they are queried because of the `EAGER` fetch type and it will do it *EVERY* time you issue your query for getting just companies. Even after the query result is cached.
 
 Second run:
 
@@ -101,17 +104,19 @@ where department0_.company=?
 ```
 
 The same as before, but the first query doesn't run again because it's result was cached. The queries we see now are running because of eager fetch type. If Department had the set of employees with FetchType.EAGER as well then following the chain of eager fetches, employees would be queried too.
+
 You may wonder why our properly set up entity cache doesn't help? Because we see in the log the queries which get departments by company id's. Entity cache won't be helpful here, it would be helpful for querying departments by department id's.
-So if you have FetchType.EAGER for collection (you must have a strong reason for that which is unlikely) don't expect that caching will be much of a help. 
+So if you have `FetchType.EAGER` for collection (you must have a strong reason for that which is unlikely) don't expect that caching will be much of a help. 
 
 === Takeaway:
-Avoid using EAGER fetch type for collections. Prefer making queries instead, carefully adjusting them to your purpose and caching query results in the right way (the wrong ways are explained in Catch #3 and Catch #4).
+
+Avoid using `EAGER` fetch type for collections. Prefer making queries instead, carefully adjusting them to your purpose and caching query results in the right way (the wrong ways are explained in Catch #3 and Catch #4).
 
 == Catch #2
 
 ==== what about single-valued associations?
 
-With EAGER fetch type every time you are fetching your entity, all the associated entities will be fetched too. Single-valued associations are easier to control so @ManyToOne and @OneToOne are EAGER by default. But you should still be careful otherwise caching won't save you from repetitive queries to the database.
+With `EAGER` fetch type every time you are fetching your entity, all the associated entities will be fetched too. Single-valued associations are easier to control so `@ManyToOne` and `@OneToOne` are `EAGER` by default. But you should still be careful otherwise caching won't save you from repetitive queries to the database.
 
 Let's try to get an Employee by id:
 ```
@@ -129,8 +134,10 @@ left outer join company company2_ on department1_.company=company2_.id where emp
 ```
 
 We can see it actually queries employee, department and company tables because Employee has association to Department and Department - to Company which are by default eagerly fetched.
+
 Second time it takes all values from the cache so it logs no queries to the DB which is exactly what we expect because we've marked all them as cacheable.
-Now let's remove @Cache annotation from Department. It means that this entity won't be cached in the entity cache. And we try to find Employee by id again.
+
+Now let's remove `@Cache` annotation from Department. It means that this entity won't be cached in the entity cache. And we try to find Employee by id again.
 
 First run:
 ```
@@ -150,7 +157,9 @@ left outer join company company1_ on department0_.company=company1_.id where dep
 ```
 
 First time it queries employee, department and company as normal. 
+
 The second time it queries department and company tables.
+
 So yes we cached Employee properly but we had cached only an id of department which an employee belongs to. Means, having this id, our application can either get an entity by id from an entity cache or it will go to the database again to gather missing data. Our department wasn't ever put to the entity cache so our app went to the DB.
 
 === Takeaway:
@@ -160,6 +169,7 @@ When you want to cache an entity, check all ...ToOne relations which are eagerly
 == Catch #3 (my favourite)
 
 === query caching is killing the application performance
+
 Let's change the set up for our entities, so they are not stored in the entity cache. Now we are going to use the query cache.
 To set up a query caching you need to explicitly add hints to enable query caching for each query and optionally specify the region where it is cached.
 
@@ -212,11 +222,12 @@ Use entity cache if you are using query cache otherwise query caching will be a 
 
 It may be too obvious now that queries with parameters are not really well compatible with query caching unless you often run them with the same values in your application. That can be when you filter by some small set of values.
 
-Example: you have only 3 Companies and query all departments with company id as parameter - it's probably ok. But if you have 100000 Companies and any of them can end up as parameter - it's not a good idea then. Your application will be busy caching every query as a different one and this will worsen your performance.
+_Example:_ you have only 3 Companies and query all departments with company id as parameter - it's probably ok. But if you have 100000 Companies and any of them can end up as parameter - it's not a good idea then. Your application will be busy caching every query as a different one and this will worsen your performance.
 
 Sometimes it is all about deciding what would perform better, for instance, if we fetch all Departments and have a cacheable query for that and then filter result further in the application... or we don't have query caching for this query at all but do a proper filtering in a query itself. It all really depends on your data and amounts of it.
 
 === Takeaway:
+
 Be careful using query cache and queries with parameters.
 
 == Catch #5
