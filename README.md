@@ -14,3 +14,19 @@ To add you blog post:
 * In the repo directory `g8 file://.`
 * Write your blog post
 * Submit a pull request
+
+# Information regarding giter8
+
+If you see this error :
+
+  Error: giter8 has been disabled because it fetches unversioned dependencies at runtime!
+  
+Then you can bypass the warning message as follow
+
+  brew edit giter8
+  
+and delete this line  
+  disable! because: "fetches unversioned dependencies at runtime"
+  
+then run brew install giter8 again
+
