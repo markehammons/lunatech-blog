@@ -1,9 +1,14 @@
 = The tale about Hibernate and Temporal Tables
 smthelusive
-Nataliia Dziubenko <nataliia.dziubenko@lunatech.nl>
 v1.0, 2020-10-02
 :title: The tale about Hibernate and Temporal Tables
 :tags: [hibernate, java, temporal, mssql]
+ifdef::backend-html5[]
+:in-between-width: width='85%'
+:half-width: width='50%'
+:half-size:
+:thumbnail: width='60'
+endif::[]
 
 _thanks Willem-Jan Glerum for introducing me to this interesting behaviour_
 
