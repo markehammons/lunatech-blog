@@ -1,7 +1,7 @@
-= Unforgiven: user-interface labels
-kaas
+= Unforgiven - user-interface labels
+hilton
 v1.0, 2005-06-24
-:title: Unforgiven: user-interface labels
+:title: Unforgiven - user-interface labels
 :tags: [ui]
 ifdef::backend-html5[]
 :in-between-width: width='85%'
