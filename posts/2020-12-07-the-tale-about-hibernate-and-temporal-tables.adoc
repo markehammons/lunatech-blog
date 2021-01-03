@@ -59,7 +59,7 @@ select * from departmenthistory;
 ----
 we will see information like this:
 
-image::../media/2020-10-02-the-tale-about-hibernate-and-temporal-tables/db_result_1.png[]
+image::../media/2020-12-07-the-tale-about-hibernate-and-temporal-tables/db_result_1.png[]
 
 The department with `DeptId = 1` was updated twice, so both old values are here and department with `DeptId = 2` was updated once, so one old value of this record is also in the history table now.
 
