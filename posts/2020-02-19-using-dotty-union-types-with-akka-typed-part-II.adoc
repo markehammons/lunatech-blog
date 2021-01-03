@@ -12,7 +12,7 @@ endif::[]
 
 == Introduction
 
-After posting the first article on https://www.lunatech.com/2020/02/using-dotty-union-types-with-akka-typed[Using Dotty Union types with Akka Typed], I received https://twitter.com/hseeberger/status/1227660145125199877?s=20[valuable feedback] via Twitter which made me decide to write this follow-up article. I will clean up a few loose ends and add some new insights.
+After posting the first article on https://blog.lunatech.com/2020-02-12-using-dotty-union-types-with-akka-typed[Using Dotty Union types with Akka Typed], I received https://twitter.com/hseeberger/status/1227660145125199877?s=20[valuable feedback] via Twitter which made me decide to write this follow-up article. I will clean up a few loose ends and add some new insights.
 
 Let's take a bird's eye view of this follow-on content.
 
@@ -25,7 +25,7 @@ Both the Scala 2 and the Dotty version of the `Pinger` actor suffer from the sam
 
 [#img-PingerProtocol]
 .The `Pinger` actor protocol
-image::../media/2020-02-12-using-dotty-union-types-with-akka-typed-part-II/PingerProtocol.png[{half-width}]
+image::../media/2020-02-19-using-dotty-union-types-with-akka-typed-part-II/PingerProtocol.png[{half-width}]
 
 === Solutions and insights
 
