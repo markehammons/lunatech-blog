@@ -10,6 +10,10 @@ ifdef::backend-html5[]
 :thumbnail: width='60'
 endif::[]
 
+++++
+<div id="top"></div>
+++++
+
 It goes without saying that a desktop software application has keyboard shortcuts. Notwithstanding some old evidence that it is faster to use the mouse, it is surprisingly frustrating to use an application with no accelerator keys. That is why it is odd how long it has taken web applications to start using keyboard shortcuts, which have been available in HTML since 1997.
 
 The following HTML elements may have keyboard shortcuts specified by an `accesskey` attribute: `A AREA BUTTON INPUT LABEL LEGEND TEXTAREA`. 
