@@ -1,4 +1,4 @@
-= Progressive - the dark side of new software"
+= Progressive - the dark side of new software
 hilton
 v1.0, 2005-08-12
 :title: Progressive - the dark side of new software
