@@ -70,7 +70,7 @@ select * from departmenthistory where deptid = 1;
 ----
 And will get this result:
 
-image::../media/2020-10-02-the-tale-about-hibernate-and-temporal-tables/db_result_2.png[]
+image::../media/2020-12-07-the-tale-about-hibernate-and-temporal-tables/db_result_2.png[]
 
 So, that works as advertised! Now let's use Hibernate with just a small piece of code to run a native query:
 [source,java]
@@ -136,7 +136,7 @@ We provide Hibernate with another (fake) DeptId, which is in fact the row count.
 ----
 If we run this query without hibernate, this is what we will see:
 
-image::../media/2020-10-02-the-tale-about-hibernate-and-temporal-tables/db_result_3.png[]
+image::../media/2020-12-07-the-tale-about-hibernate-and-temporal-tables/db_result_3.png[]
 
 There is a duplicate column for DeptId, and only the first one is used by Hibernate.
 
