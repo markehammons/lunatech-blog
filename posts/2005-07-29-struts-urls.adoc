@@ -18,7 +18,8 @@ The first step is to remove the redundant `.do` from the URL. After all, http://
 
 The `.do` is there to map certain URLs to the Struts ActionServlet, which is achieved by the following `web.xml` entries:
 
-```
+[source,xml]
+----
 	<servlet>
 	    <servlet-name>action</servlet-name>
 		<servlet-class>org.apache.struts.action.ActionServle</servlet-class>
@@ -27,7 +28,7 @@ The `.do` is there to map certain URLs to the Struts ActionServlet, which is ach
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-```
+----
 
 The most obvious option is to replace the Servlet mapping's extension mapping to a prefix mapping like `<url-patter>/do/*</url-pattern>` to get a URL like `/do/customer?method=edit&id=42`. However, this just moves the problem around rather than fixing anything. After all, if your server name is only used for one Struts application, then it is a shame to have to start all URLs with `/somearbitrarysubpath`. It is, however, the clue to a better solution.
 
