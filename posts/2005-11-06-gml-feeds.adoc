@@ -10,6 +10,8 @@ ifdef::backend-html5[]
 :thumbnail: width='60'
 endif::[]
 
+Geographic Informations Systems (GIS) are nothing new, but in the past involved expensive software only available to professionals solving serious problems. Maps on web pages are nothing new either, but the maps themselves are usually small bitmaps - low-resolution data that is miles from serious GIS data sets. O'Reilly's recent book http://www.oreilly.com/catalog/webmapping/[Web Mapping Illustrated], however, is a fast introduction to open-source digital mapping for geeks that describes software and standards that may soon become mainstream and change maps on the web the same way that http://en.wikipedia.org/wiki/RSS_%28file_format%29[RSS] changed news feeds on the web.
+
 ++++
 <p>What RSS did for news feeds was to separate the content from presentation in a way that allowed a list of news items to be presentated in a separate web site, a separate application such as a dedicated RSS feed reader, or just as input to other software for further processing. News items on web sites were just part of a web page until RSS separated their data for their presentation; so now my web browser knows how many of a sites items are new since my last visit. <a href="http://en.wikipedia.org/wiki/Geography_Markup_Language">Geographic Markup Language</a> (GML), and associated web services standards, may do the same for geographic (geospatial) data.</p>
 
