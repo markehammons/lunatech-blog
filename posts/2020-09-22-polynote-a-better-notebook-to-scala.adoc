@@ -50,12 +50,12 @@ The main advantage of this solution is to be polyglot. For the moment, https://p
 * Markdown
 * Scala
 * Python
-( Vega
+* Vega
 * SQL, I won’t talk about this one because I never use it with Polynote
 
 You can use these *five languages* in the *same notebook*.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/python-scala.png[Interaction between Python and Scala inside a Polynote notebook{in-between-width}]
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/python-scala.png[Interaction between Python and Scala inside a Polynote notebook]
 
 
 _Figure 3: Interaction between Python and Scala inside a Polynote notebook_
@@ -181,5 +181,5 @@ Finally, this project is Open source, https://polynote.org/contribute/[so feel f
 Thanks for reading and I hope you will want to try Polynote! Feel free to contact me if you have any question about this blog post or https://github.com/VincentBrule/polynote-talk[the example notebooks].
 
 == Resources
-1. https://netflixtechblog.com/open-sourcing-polynote-an-ide-inspired-polyglot-notebook-7f929d3f447#:~:text=Code%20editing%20in%20Polynote%20integrates,to%20easily%20insert%20LaTeX%20equations.[Open-sourcing Polynote: an IDE-inspired polyglot notebook]
+1. https://netflixtechblog.com/open-sourcing-polynote-an-ide-inspired-polyglot-notebook-7f929d3f447#:~:text=Code%20editing%20in%20Polynote%20integrates,to%20easily%20insert%20LaTeX%20equations[Open-sourcing Polynote: an IDE-inspired polyglot notebook]
 2. https://github.com/VincentBrule/polynote-talk[Notebooks to discover Polynote]
