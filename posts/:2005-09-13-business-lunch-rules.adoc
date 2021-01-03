@@ -1,6 +1,6 @@
 = Business lunch rules
 Michael Pentowski
-v1.0, 2005-09-10
+v1.0, 2005-09-13
 :title: Business lunch rules
 :tags: [opinion]
 ifdef::backend-html5[]
