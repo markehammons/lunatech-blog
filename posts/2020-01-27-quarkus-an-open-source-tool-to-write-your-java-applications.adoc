@@ -28,7 +28,7 @@ What can it be used for? Quarkus was thought from the beginning for hosting in t
 
 For also discussing with Stéphane Epardaud (Red Hat) and Emmanuel Bernard (Red Hat): it is clear that the *user/developer experience* is very important. It’s important to be productive, to go fast and also to allow to create several services, not just one. That’s why you might rediscover some old good ideas of Play such as the display of errors in the browser or the hot reloading.
 
-What strikes from the first minutes with Quarkus is *the speed of compilation*. This makes it possible to change a few lines, and instantly reload the page in the browser. It’s simple: I’ve re-enabled my “https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Live Reload]” extension on Chrome, so I don’t have to refresh the browser page.
+What strikes from the first minutes with Quarkus is *the speed of compilation*. This makes it possible to change a few lines, and instantly reload the page in the browser. It’s simple: I’ve re-enabled my https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Live Reload]” extension on Chrome, so I don’t have to refresh the browser page.
 
 Compared to Play2 based on SBT and Scala, Quarkus is much faster. Of course we’ll lose the verification at compilation time with the types, but on the other hand we’ll gain in feedback loop. Play2 remains better on the side “I check all the types at compilation” because it is based on Scala. But at the price of a compilation time 10 times slower (and I’m a nice, happy owner of an i9 core with an apple on it)
 
