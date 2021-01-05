@@ -1,4 +1,4 @@
-= BBooks for software developers
+= Books for software developers
 hilton
 v1.0, 2006-06-28
 :title: Books for software developers
