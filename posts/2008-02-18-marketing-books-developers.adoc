@@ -1,6 +1,6 @@
 = Marketing books for developers
 hilton
-v1.0, 2008-02-11
+v1.0, 2008-02-18
 :title: Marketing books for developers
 :tags: [opinion,book]
 
