@@ -1,7 +1,12 @@
---- layout: article drupal-format: Wordpress format title: "XML and
-Namespaces" tags: XML author: Bart Schuller summary: "This article
+= XML and Namespaces
+bartschuller
+v1.0, 2008-10-03
+:title: XML and Namespaces
+:tags: [xml]
+
+This article
 explains namespaces in XML: when to use namespaces, and how to declare a
-namespace." ---
+namespace.
 
 When you see a piece of XML like this:
 
@@ -88,6 +93,3 @@ abbreviate that to just _the foo namespace_.
 This is part one in a series of articles about XML for programmers. In
 the next parts, we will look at the available tools for working with XML
 and namespaces.
-
-_Bart Schuller is a Senior Software Engineer and Troubleshooter at
-Lunatech Research._

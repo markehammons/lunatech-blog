@@ -1,14 +1,19 @@
---- layout: article drupal-format: Wordpress format title:
-"Mini-conférence Java EE le 14 janvier 2009 à Sophia-Antipolis" tags:
-Java event author: Stéphane Épardaud summary: "[Lunatech
-Research](http://www.lunatech-research.com) et l'[IUT de Nice
-Sophia-Antipolis](http://www.iut.unice.fr) organisent une
-mini-conférence **gratuite** sur [Java EE](http://java.sun.com/javaee/)
-le **mercredi 14 janvier 2009** sur le site de l'[IUT de
-Sophia-Antipolis](http://portail.unice.fr/jahia/Jahia/site/iut/pid/9941)
-([Google
-Maps](http://maps.google.fr/maps?q=IUT+Sophia-Antipolis+650,+Route+des+Colles+06560+Valbonne@43.616365,7.071826))."
----
+= Mini-conférence Java EE le 14 janvier 2009 à Sophia-Antipolis
+FroMage
+v1.0, 2008-12-05
+:title: Mini-conférence Java EE le 14 janvier 2009 à Sophia-Antipolis
+:tags: [java,event,france]
+
+
+http://www.lunatech-research.com[Lunatech
+Research] et l'http://www.iut.unice.fr[IUT de Nice
+Sophia-Antipolis] organisent une
+mini-conférence **gratuite** sur http://java.sun.com/javaee/[Java EE]
+le **mercredi 14 janvier 2009** sur le site de l'http://portail.unice.fr/jahia/Jahia/site/iut/pid/9941[IUT de
+Sophia-Antipolis]
+http://maps.google.fr/maps?q=IUT+Sophia-Antipolis+650,+Route+des+Colles+06560+Valbonne@43.616365,7.071826[Google
+Maps].
+
 
 Nous attendons de nombreux développeurs et étudiants de Nice et
 Sophia-Antipolis. Venez nombreux, transmettez la nouvelle à tous les
@@ -25,7 +30,7 @@ rafraîchissements d'usage.
 N'hesitez pas à mailto:jbug-sophia@lunatech.com[nous contacter] pour de
 plus amples informations.
 
-== [#Audience]####Audience
+== Audience
 
 Nous attendons aussi bien des étudiants de l'http://www.iut.unice.fr[IUT
 Nice-Sophia-Antipolis] et de http://www.polytechnice.fr/[Polytech Nice],
@@ -51,7 +56,7 @@ par curiosité, et échanger des idées avec les intervenants entre les
 présentations, leur poser des questions, leur suggérer des
 améliorations. N'oubliez-pas, l'entrée est gratuite.
 
-== [#Programme]####Programme
+== Programme
 
 [width="100%",cols="50%,50%",]
 |===
@@ -69,9 +74,9 @@ améliorations. N'oubliez-pas, l'entrée est gratuite.
 |19:15 - 19:30 |Fin/Rencontres?
 |===
 
-== [#Programmed%C3%A9taill%C3%A9]####Programme détaillé
+== Programme détaillé
 
-=== [#Nouvellestechnologiesded%C3%A9veloppementJavaEE]####Nouvelles technologies de développement Java EE
+=== Nouvelles technologies de développement Java EE
 
 À travers la création d'un service web permettant de gérer les
 évènements que nous organisons, nous présentons plusieurs technologies
@@ -98,7 +103,7 @@ chaque fois de les présenter en montrant des exemples concrets et
 fonctionnels. Après ce tour d'horizon, vous saurez de quoi Java EE est
 capable.
 
-=== [#RESTfulwebservicesavecJAXRS]####RESTful web services avec JAX-RS
+=== RESTful web services avec JAX-RS
 
 http://en.wikipedia.org/wiki/REST[RESTful] est le dernier-cri des
 protocoles de http://en.wikipedia.org/wiki/Web_service[web services].
@@ -130,11 +135,11 @@ présentation basée sur celle de Bill Burke.
 GlassFish v3, son architecture modulaire (OSGi), ses fonctionnalités de
 serveur léger, ses modules Java EE 6 (JAX-RS, EJB 3.1, ...), etc...
 
-==== [#%C3%80proposdesintervenants]####À propos des intervenants
+==== À propos des intervenants
 
-===== [#JulienViet]####Julien Viet
+===== Julien Viet
 
-image:portrait-julien.jpg[image]
+image:../media/2008-12-05-mini-conférence-java-ee-le-14-janvier-2009-à-sophia-antipolis/portrait-julien.jpg[image]
 
 http://www.julienviet.com/[Julien Viet] a rejoint la
 http://www.jboss.org[communauté JBoss] en 2001 peu de temps après s'est
@@ -163,9 +168,9 @@ en septembre 2008;
 * _JBoss Portal talk_ à http://www.javapolis.com/[Javapolis] en 2005;
 * http://www.jbossworld.com/[_JBoss World_] plusieurs fois.
 
-===== [#NicolasLeroux]####Nicolas Leroux
+===== Nicolas Leroux
 
-image:portrait-nicolas.jpg[image]
+image:../media/2008-12-05-mini-conférence-java-ee-le-14-janvier-2009-à-sophia-antipolis/portrait-nicolas.jpg[image]
 
 Niçois d'origine, il est maintenant basé à Rotterdam, Pays-Bas où il
 travaille comme développeur senior à
@@ -187,9 +192,9 @@ Organisateur de plusieurs link:/2008/01/17/jbug-2008-02[Benelux JBug]
 http://www.parleys.com/display/PARLEYS/Home#talk=18972706;slide=1;title=Seam%20in%20Action%20-%20Part%202[Présentation]
 à http://www.javapolis.com/[Javapolis] en 2007.
 
-===== [#St%C3%A9phane%C3%89pardaud]####Stéphane Épardaud
+===== Stéphane Épardaud
 
-image:portrait-stef.jpg[image]
+image:../media/2008-12-05-mini-conférence-java-ee-le-14-janvier-2009-à-sophia-antipolis/portrait-stef.jpg[image]
 
 Senior développeur à http://www.lunatech-research.com[Lunatech Research]
 depuis 1998, aujourd'hui basé dans
@@ -218,7 +223,7 @@ open source auquels il contribue souvent.
 
 ===== Alexis Moussine-Pouchkine
 
-image:portrait-alexis.jpg[image]
+image:../media/2008-12-05-mini-conférence-java-ee-le-14-janvier-2009-à-sophia-antipolis/portrait-alexis.jpg[image]
 
 http://blogs.sun.com/alexismp[Alexis Moussine-Pouchkine] aime le bon vin
 et les architectures Java. Chez http://www.sun.com/[Sun Microsystems],

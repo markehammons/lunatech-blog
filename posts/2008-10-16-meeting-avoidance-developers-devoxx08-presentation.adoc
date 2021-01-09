@@ -1,11 +1,15 @@
---- layout: article drupal-format: Full HTML title: "Meeting-avoidance
-for developers - Devoxx08 presentation" tags: project-management
-meetings author: Peter Hilton summary: "Peter Hilton will be presenting
-a [Meeting-avoidance for self-managing
-developers](http://www.devoxx.com/display/JV08/Meeting-avoidance+for+self-managing+developers)
+= Meeting-avoidance for developers - Devoxx08 presentation
+hilton
+v1.0, 2008-10-16
+:title: Meeting-avoidance for developers - Devoxx08 presentation
+:tags: [project-management]
+
+Peter Hilton will be presenting
+a http://www.devoxx.com/display/JV08/Meeting-avoidance+for+self-managing+developers[Meeting-avoidance for self-managing
+developers]
 presentation at this year's
-[Devoxx08](http://www.devoxx.com/display/JV08/Home)
-formerly-known-as-JavaPolis conference. See you there!" ---
+http://www.devoxx.com/display/JV08/Home[Devoxx08]
+formerly-known-as-JavaPolis conference. See you there!
 
 == Presentation abstract
 
@@ -23,5 +27,3 @@ non-technical project manager who is not part of the development team.
 This presentation describes how a development team can self-manage in
 order to address this.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

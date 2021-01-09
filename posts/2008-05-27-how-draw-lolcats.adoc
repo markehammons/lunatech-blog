@@ -1,14 +1,19 @@
---- layout: article drupal-format: Wordpress format title: "How to draw
-lolcats" tags: graphics fun author: Peter Hilton summary: "In his
-excellent book [The Invisible
-Computer](http://www.jnd.org/books.html#434), Donald Norman explains the
+= How to draw lolcats
+hilton
+v1.0, 2008-05-27
+:title: How to draw lolcats
+:tags: [fun]
+
+In his
+excellent book http://www.jnd.org/books.html#434[The Invisible
+Computer], Donald Norman explains the
 computer changing from something you might have one of at home (a
 multi-purpose PC) to an unseen component in special-purpose devices from
 washing machines and refrigerators to portable telephones and music
 players. The same thing is happening with graphics software, and this
 article considers one specific example. Along the way, I also explain
-how to produce [cat macros](http://en.wikipedia.org/wiki/Cat_macro)."
----
+how to produce http://en.wikipedia.org/wiki/Cat_macro[cat macros].
+
 
 There used to only be one kind of graphics software, which I will call
 'Photoshop'. In principle, this is general-purpose software for anything
@@ -19,7 +24,7 @@ where http://www.adobe.com/products/photoshop/[Photoshop CS3], for
 example, is only really suitable for design professionals who can
 justify the time and expense, or similarly dedicated amateurs.
 
-image:lolcat-blog.jpg[bloggng - ur doin it wrong]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-blog.jpg[bloggng - ur doin it wrong]
 
 Cat macros (or http://www.lolcats.com/[lolcats]), as popularised by
 http://en.wikipedia.org/wiki/I_Can_Has_Cheezburger%3F[I Can Has
@@ -52,7 +57,7 @@ caption.
 . Select the text layer, then _Layer > Layer style... > Stroke_ and
 choose these settings:
 
-image:lolcat-photoshop.png[Photoshop Layer Style]
+image:../media/2008-05-27-how-draw-lolcats/slolcat-photoshop.png[Photoshop Layer Style]
 
 [start=5]
 . Position the caption.
@@ -61,7 +66,7 @@ a JPEG.
 
 This gives the expected result.
 
-image:lolcat-photoshop-text.png[Photoshop text output]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-photoshop-text.png[Photoshop text output]
 
 Drawing lolcats in Photoshop is pretty easy, but starting up Photoshop
 takes half the time, and it is too expensive to use for drawing lolcats.
@@ -85,7 +90,7 @@ right-hand inspector, and choose the following settings, and then select
 _Save as_ in the _Style Attributes_ section in the middle of the
 inspector and save a new _lolcat_ style.
 
-image:lolcat-comic-life.png[Comic Life lettering settings]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-comic-life.png[Comic Life lettering settings]
 
 Now draw the lolcat:
 
@@ -109,7 +114,7 @@ the photo is automatically cropped scaled to fill the frame. For this to
 work well, the frame has to have the correct proportions, which is why
 you need to set the page size first.
 
-image:lolcat-comic-life-text.png[Comic Life text output]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-comic-life-text.png[Comic Life text output]
 
 However, the text frame does not seem to fill the page well enough for a
 pixel-perfect export.
@@ -135,7 +140,7 @@ simple:
 . insert a text layer, and enter the caption
 . set the text attributes and add a _Stroke_ effect as follows:
 
-image:lolcat-drawit.png[Drawit layer settings]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-drawit.png[Drawit layer settings]
 
 [start=4]
 . export as a JPEG.
@@ -152,7 +157,7 @@ pixels, which makes it a kind of export preview.
 This post on http://icanhascheezburger.com[icanhascheezburger.com]
 suggests the possibility of built-in Office functionality:
 
-image:lolcat-office-assistant.jpg[Office Assistant]
+image:../media/2008-05-27-how-draw-lolcats/lolcat-office-assistant.jpg[Office Assistant]
 
 However, plausible though the parody is, even Microsoft Word does not
 have so much feature bloat that it includes lolcat support. Perhaps it
@@ -182,5 +187,4 @@ tool, but despite the likes of Photoshop Elements and the GIMP, there
 are enough niche applications and plenty of room for special-purpose
 graphics applications, even as web applications.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+

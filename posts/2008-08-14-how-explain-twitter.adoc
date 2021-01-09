@@ -1,10 +1,15 @@
---- layout: article drupal-format: Full HTML title: "How to explain
-Twitter" tags: opinion fun author: Peter Hilton summary: "After ignoring
-[Twitter](http://twitter.com/) at first, my curiosity about a new
+= How to explain Twitter
+hilton
+v1.0, 2008-08-14
+:title: How to explain Twitter
+:tags: [opinion,fun]
+
+After ignoring
+http://twitter.com/[Twitter] at first, my curiosity about a new
 communication channel led me to start using it this year. The easy thing
 about Twitter is working out how to use it. The hard thing about Twitter
 is to explain to other people what is going on and why. This article has
-a few suggestions." ---
+a few suggestions.
 
 A long-term technology trend, characteristically accelerated by the
 Internet, is the introduction of new ways to communicate that supplement
@@ -27,7 +32,7 @@ strong and dismissive.
 *Twitter is a way to quickly and frequently communicate what you are
 doing*, according to Twitter's own web site.
 
-image:twitter-what.png[What is Twitter?]
+image:../media/2008-08-14-how-explain-twitter/twitter-what.png[What is Twitter?]
 
 You even get a cute avian metaphor; Twitter posts are called 'tweets'.
 
@@ -44,7 +49,7 @@ behaviour.
 The analytical approach to explaining Twitter considers how it relates
 to established Internet-based communication channels.
 
-image:twitter-2x2.png[public/private vs verbose/concise]
+image:../media/2008-08-14-how-explain-twitter/twitter-2x2.png[public/private vs verbose/concise]
 
 *Twitter is like IM but public, and like blogging but less verbose.*
 This is mostly saying what Twitter is not, of course, but at least it
@@ -97,5 +102,3 @@ the context you need to understand someone's perspective.
 
 *Use Twitter to explain yourself, every day.*
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

@@ -1,10 +1,14 @@
---- layout: article drupal-format: Wordpress format title: "RESTful web
-services in Java EE with RESTEasy (JAX-RS)" tags: Java Seam REST
-web-applications author: Stéphane Épardaud summary: "This article
+= RESTful web services in Java EE with RESTEasy (JAX-RS)
+FroMage
+v1.0, 2008-03-20
+:title: RESTful web services in Java EE with RESTEasy (JAX-RS)
+:tags: [java,seam,rest]
+
+This article
 describes how we implemented
-[RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer)
-web services in our [Seam](http://seamframework.org/)-based [Java
-EE](http://java.sun.com/javaee) web application." ---
+http://en.wikipedia.org/wiki/Representational_State_Transfer[RESTful]
+web services in our http://seamframework.org/[Seam]-based http://java.sun.com/javaee[Java
+EE] web application." ---
 
 == Introduction
 

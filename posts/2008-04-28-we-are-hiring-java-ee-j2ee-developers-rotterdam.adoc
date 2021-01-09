@@ -1,10 +1,14 @@
---- layout: article drupal-format: Full HTML title: "We are hiring Java
-EE / J2EE developers (Rotterdam)" tags: opinion author: Michael
-Pentowski summary: "Lunatech is looking to hire some clever Java EE
+= We are hiring Java EE / J2EE developers (Rotterdam)
+Michael Pentowski 
+v1.0, 2008-03-28
+:title: We are hiring Java
+EE / J2EE developers (Rotterdam)
+:tags: [opinion]
+
+Lunatech is looking to hire some clever Java EE
 developers for our Rotterdam office. If you are interested in joining a
-great company, please have a look at our [job
-posting](http://www.lunatech-research.com/about/employment/developer-j2ee)."
----
+great company, please have a look at our http://www.lunatech-research.com/about/employment/developer-j2ee[job
+posting].
 
 It is hard to find qualified and motivated Java developers, but we know
 you are out there. If you have ever considered working in Rotterdam, the

@@ -1,8 +1,13 @@
---- layout: article drupal-format: Wordpress format title: "Benelux
-JBoss User Group, 20 June 2008" tags: event JBUG author: Nicolas Leroux
-summary: "We would like to invite you to our fourth Benelux JBoss User
+= Benelux JBoss User Group, 20 June 2008
+pepite
+v1.0, 2008-05-16
+:title: Benelux JBoss User Group, 20 June 2008
+:tags: [java,jboss,jbug,event]
+
+
+We would like to invite you to our fourth Benelux JBoss User
 Group meeting: an afternoon of free technical sessions presented by
-JBoss developers." ---
+JBoss developers.
 
 The JBoss User Group is growing and even our last location is now too
 small, so once again we arranged something special: we will meet in the

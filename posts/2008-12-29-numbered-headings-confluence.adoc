@@ -1,10 +1,15 @@
---- layout: article drupal-format: Wordpress format title: "Numbered
-Headings in Confluence" tags: Confluence author: Peter Kaas summary: "As
+= Numbered Headings in Confluence
+kaas
+v1.0, 2008-12-29
+:title: Numbered Headings in Confluence
+:tags: [wiki,confluence]
+
+As
 Confluence aficionados we usually write all of our documentation and
 proposals in its Wiki syntax first before polishing it in OpenOffice for
 PDF export. One of Confluence's shortcomings however is support for
 section/headline numbering, which makes authoring larger pages less
-pleasant." ---
+pleasant.
 
 == The Macro
 
@@ -120,7 +125,7 @@ h2. Second Option
 
 This should roughly come up as:
 
-image:numbered-headings-example.png[Numbered Headings Example]
+image:../media/2008-12-29-numbered-headings-confluence/numbered-headings-example.png[Numbered Headings Example]
 
 == Caveats
 

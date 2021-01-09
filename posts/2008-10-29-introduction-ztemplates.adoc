@@ -1,14 +1,17 @@
---- layout: article drupal-format: Wordpress format title: "Introduction
-to ZTemplates" tags: Java web-applications author: Matthias van der
-Vlies summary: "This article introduces
-[ztemplates](http://ztemplates.org), a multi-tier open source web
-application framework for Java. ztemplates is licensed under the [Apache
-2.0 license](http://www.apache.org/licenses/LICENSE-2.0). It uses Java
+= Introduction to ZTemplates
+killdashnine
+v1.0, 2008-10-29
+:title: Introduction to ZTemplates
+:tags: [java,web-applications]
+
+This article introduces
+http://ztemplates.org[ztemplates], a multi-tier open source web
+application framework for Java. ztemplates is licensed under the http://www.apache.org/licenses/LICENSE-2.0[Apache
+2.0 license]. It uses Java
 annotations, thus meaning at least Java 1.5 or higher is required.
 ztemplates has a lot of features, but we will only introduce the basics
 in this post. This article will not describe how to set-up a project.
-Instead, it will explain the basics of the architecture of ztemplates."
----
+Instead, it will explain the basics of the architecture of ztemplates.
 
 ztemplates is a good framework. The missing features are not critical
 issues, nor will they cause problems in your day-to-day work.

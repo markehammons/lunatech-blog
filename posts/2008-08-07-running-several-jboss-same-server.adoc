@@ -1,15 +1,19 @@
---- layout: article drupal-format: Wordpress format title: "Running
-several JBoss AS on the same server" tags: Java JBoss author: Nicolas
-Leroux summary: "This article shows you how to run multiple JBoss
+= Running several JBoss AS on the same server
+pepite
+v1.0, 2007-08-07
+:title: Running several JBoss AS on the same server
+:tags: [java,jboss,seam]
+
+This article shows you how to run multiple JBoss
 Application servers on the same machine. This might be really useful if
 you wish to execute two different versions of the JBoss Application
 Server, or if you want to experiment with clustering. The main problem
 when running two or more instances of the JBoss Application server comes
 from the fact that the servers are using the same ports. Two solutions
 are presented: binding the JBoss Application Server to an interface and
-using the binding service manager." ---
+using the binding service manager.
 
-== [#RunningseveralJBossASonthesameserver-BindingtheJBossApplicationServertoaninterface]####Binding the JBoss Application Server to an interface
+== Binding the JBoss Application Server to an interface
 
 The easiest solution is to bind your application server to an interface.
 This easily done by starting your JBoss instance with the `-b` option.
@@ -25,7 +29,7 @@ However, this method requires multiple interfaces on the server, which
 might not always be the case. The other solution is to use the binding
 service manager for port/host mapping that JBoss provides.
 
-== [#RunningseveralJBossASonthesameserver-Usingthebindingservicemanager]####Using the binding service manager
+== Using the binding service manager
 
 To deploy another instance of JBoss you need to change the ports that
 JBoss listens to. Here is a table of the ports you need to change:

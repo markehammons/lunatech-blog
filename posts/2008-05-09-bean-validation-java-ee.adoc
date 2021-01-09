@@ -1,14 +1,18 @@
---- layout: article drupal-format: Wordpress format title: "Bean
-validation in Java EE" tags: Java opinion web-applications author:
-Stéphane Épardaud summary: "This article talks about the process of
+= Bean validation in Java EE
+FroMage
+v1.0, 2008-03-20
+:title: Bean validation in Java EE
+:tags: [java,web-applications,opinion]
+
+This article talks about the process of
 validation in Java EE, more specifically about Hibernate Validation and
 Bean Validation. We start by describing why we need validation, what
 solutions are available, how we use them and why they are great. We then
 proceed to describe their limitations, and offer proposals for resolving
 those limitations in the hope that the future Bean Validation standard
-will incorporate our (or similar) solutions." ---
+will incorporate our (or similar) solutions.
 
-== [#Hibernatevalidation-WhatisvalidationandwhatiswrongwithJavaEEvalidation.]####What is validation and what is wrong with Java EE validation.
+== What is validation and what is wrong with Java EE validation.
 
 If you are writing your database persistence interface in Java, chances
 are you will be using the
@@ -47,7 +51,7 @@ a particular constraint.
 Additionally, it is not possible with Java persistence to specify custom
 validation rules for entities (the whole entity) or properties.
 
-== [#Hibernatevalidation-WhatisHibernatevalidationandwhatisitgoodfor%3F]####What is Hibernate validation and what is it good for?
+== What is Hibernate validation and what is it good for?
 
 http://www.hibernate.org[Hibernate] provides ways to do
 http://www.hibernate.org/412.html[custom validation] for entities and
@@ -60,7 +64,7 @@ We should start with a simple example of how to define and edit an
 entity with JPA, Hibernate and our framework of choice:
 http://www.seamframework.org/[Seam].
 
-=== [#Hibernatevalidation-Ourvalidatedentity]####Our validated entity
+=== Our validated entity
 
 Here we start simple by having only one interesting property:
 `emailAddress` which should not be null, and should be a valid email
@@ -108,7 +112,7 @@ reasons:
 by hand in SQL say)
 * They are automatically hooked in JSF views by Seam, for JSF validation
 
-=== [#Hibernatevalidation-Ourview]####Our view
+=== Our view
 
 Here in the view where we edit a Person we instruct Seam to validate
 each field (the `<s:validateAll>` tag), and place the validation
@@ -202,7 +206,7 @@ public PersonActionBean implements PersonAction {
 }
 ----
 
-== [#Hibernatevalidation-Moreelaboratevalidationusingcustomvalidators]####More elaborate validation using custom validators
+== More elaborate validation using custom validators
 
 Now that the basics about Hibernate Validation have been explained, we
 still have to explain two important features: custom validation
@@ -297,7 +301,7 @@ which is not the case here. The `isValid` method takes a value and
 checks whether this value is a valid non-local email address. All very
 straightforward and incredibly nice.
 
-== [#Hibernatevalidation-Whatarethelimitations%3F]####What are the limitations?
+== What are the limitations?
 
 Now that we hope to have convinced you that Hibernate Validation is the
 way to go because it is so nice and allows you to not duplicate your
@@ -306,7 +310,7 @@ we've hit (not _theoretical_ limitations, but limitations that forced us
 into duplicating our code and bypassing the automatic validation
 integration we've described earlier with Seam).
 
-=== [#Hibernatevalidation-IntegrationwithJPAconstraints]####Integration with JPA constraints
+=== Integration with JPA constraints
 
 JPA actually comes with several constraints declarations such as:
 
@@ -350,7 +354,7 @@ unicity constraint in Hibernate Validation, for sport mainly, and in
 order to check if that framework was really capable of providing an
 alternative to JPA's unicity constraints.
 
-=== [#Hibernatevalidation-OurattemptatcheckingforunicityinHibernateValidation]####Our attempt at checking for unicity in Hibernate Validation
+=== Our attempt at checking for unicity in Hibernate Validation
 
 Let us start simply by adding a single-column unicity constraint to
 Hibernate Validation on our entity:
@@ -506,7 +510,7 @@ specify more than one error (not just returning `false`) and map errors
 to property names, so that a bean-level validator could do just as much
 as property-level validators.
 
-=== [#Hibernatevalidation-Conditionalandeventbasedvalidation]####Conditional and event-based validation
+=== Conditional and event-based validation
 
 When we integrated web services in our application, we decided to go
 with bean validation all the way, and get rid of all the validation
@@ -574,7 +578,7 @@ is a JSR under way to standardise Bean Validation:
 http://jcp.org/en/jsr/detail?id=303[JSR-303], so we set out to look at
 it and see if it solves our problems.
 
-== [#Hibernatevalidation-BeanValidation%28JSR303%29]####Bean Validation (JSR-303)
+== Bean Validation (JSR-303)
 
 http://jcp.org/en/jsr/detail?id=303[JSR-303] is a new JSR which is aimed
 at providing a standard way to validate a Java Bean. It is edited by
@@ -602,7 +606,7 @@ While it may seem that validation groups are what we need, they are
 different in that they do not specify the conditions for which those
 groups should be enabled or not.
 
-== [#Hibernatevalidation-Conditionalvalidationproposal]####Conditional validation proposal
+== Conditional validation proposal
 
 We http://forum.hibernate.org/viewtopic.php?p=2381895#2381895[proposed]
 a framework for conditional validation which provides several types of
@@ -618,7 +622,7 @@ that want to depend on those conditions. For example, the
 `@NotNull(validationConditions={"admin"})` validation constraint is only
 enabled iff the `admin` validation condition is true.
 
-=== [#Hibernatevalidation-Validationconditiononbooleanvalue]####Validation condition on boolean value
+=== Validation condition on boolean value
 
 Validation conditions are then defined in various flavours, depending on
 the condition they are checking. The most simple example is the
@@ -657,7 +661,7 @@ public class User {
 }
 ----
 
-=== [#Hibernatevalidation-Validationconditiononexpression]####Validation condition on expression
+=== Validation condition on expression
 
 Now that we are familiar with the difference between referencing and
 defining a validation condition, let us look at more complex validation
@@ -700,7 +704,7 @@ prefer to have them located near their _source_, but naturally, should
 an UEL expression reference several properties, we would place the
 validation condition definition on the bean for clarity.
 
-=== [#Hibernatevalidation-Validationconditiononothervalidators]####Validation condition on other validators
+=== Validation condition on other validators
 
 We still have one more type of validation condition to see: a validation
 condition which depends on the success or failure of other validation.
@@ -786,7 +790,7 @@ than the current `message` attribute:
 `String name : default ""`. This is unfortunate, but we don't see any
 better alternative.
 
-=== [#Hibernatevalidation-ValidationEvents]####Validation Events
+=== Validation Events
 
 Sometimes it is not enough to support these conditions, and we would
 like to condition the validation based on some _external_ event outside
@@ -860,7 +864,7 @@ public class User {
 }
 ----
 
-=== [#Hibernatevalidation-Semantics]####Semantics
+=== Semantics
 
 Basically because a validation check (running a validator's `isValid`)
 method should be side-effect-free, we can take the simplistic view that
@@ -891,7 +895,7 @@ validation. The `ON_CHANGE` condition event would simply fetch the value
 currently persisted and use Java equality to check for any change in the
 value.
 
-== [#Hibernatevalidation-JPA2.0%28JSR317%29]####JPA 2.0 (JSR-317)
+== JPA 2.0 (JSR-317)
 
 JPA is set for another major revision through the
 http://jcp.org/en/jsr/detail?id=317[JSR-317]. We can only hope that some
@@ -907,7 +911,7 @@ pointers to the annotated object such as its type and value. Perhaps a
 question to ask the http://groups.csail.mit.edu/pag/jsr308/[new
 annotation JSR] project.
 
-== [#Hibernatevalidation-Author]####About the author
+== About the author
 
 _mailto:stephane%20_at-this-fine-place_%20lunatech.com[Stéphane
 Épardaud] is a senior software developer at Lunatech Research. Although

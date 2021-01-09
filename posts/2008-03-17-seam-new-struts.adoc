@@ -1,14 +1,19 @@
---- layout: article drupal-format: Wordpress format title: "Seam is the
-new Struts" tags: Java opinion Seam web-applications author: Peter
-Hilton summary: "After Nicolas and I said that
-‘[Seam](http://seamframework.org/) is the next Struts’ in our [JavaPolis
-presentation](/2007/12/14/javapolis-2007-seam),
-[Max](http://in.relation.to/Bloggers/Max) told us that
-‘[Gavin](http://in.relation.to/Bloggers/Gavin) will hate that’, which is
-funny because of how it takes our statement out of context. This article
-is the context." ---
+= Seam is the new Struts
+hilton
+v1.0, 2008-03-17
+:title: Seam is the new Struts
+:tags: [java,seam,opinion]
 
-image:seam-is-the-new-struts.png[Seam is the new Struts]
+
+After Nicolas and I said that
+‘(http://seamframework.org/)[Seam] is the next Struts’ in our https://blog.lunatech.com/2007-12-14-javapolis-2007-seam)[JavaPolis
+presentation],
+http://in.relation.to/Bloggers/Max[Max] told us that
+‘http://in.relation.to/Bloggers/Gavin[Gavin] will hate that’, which is
+funny because of how it takes our statement out of context. This article
+is the context.
+
+image:../media/2008-03-17-seam-new-struts/seam-is-the-new-struts.png[Seam is the new Struts]
 
 When we say that Seam is the new Struts, we mean that Seam will take
 over Struts’ position as the default choice for Java web applications.
@@ -128,6 +133,3 @@ documentation, a high-traffic users’ forum, the commitment of smart
 developers who get things done and, with the recent launch of the
 http://seamframework.org/[seamframework.org] web site, its own home -
 symbolic independence from its corporate sponsors.
-
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

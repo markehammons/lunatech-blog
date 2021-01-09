@@ -1,9 +1,13 @@
---- layout: article drupal-format: Wordpress format title: "My favorite
-FireFox add-ons for MacOS" tags: Mac author: Peter Kaas summary:
-"Although as a company we deliver most stuff to run on Linux servers, I
+= My favorite FireFox add-ons for MacOS
+kaas
+v1.0, 2009-01-13
+:title: My favorite FireFox add-ons for MacOS
+:tags: [mac,firefox]
+
+Although as a company we deliver most stuff to run on Linux servers, I
 see more and more Macs show up in the office. Our developers either
 [line-through]*blackmail*persuade us to get them these new toys or they
-decide to make the investment themselves." ---
+decide to make the investment themselves.
 
 Now, apart from some extensive abuse ten years ago, I have always been a
 big Apple fan. I started coding for the Macintosh prior to System 7 and

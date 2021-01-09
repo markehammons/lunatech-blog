@@ -1,16 +1,20 @@
---- layout: article drupal-format: Wordpress format title: "Generating
-KML for RESTful clients" tags: Java XML REST web-applications author:
-Stéphane Épardaud summary: "In this article we describe how to use
-[JAXB](https://jaxb.dev.java.net/) to generate a
-[KML](http://www.opengeospatial.org/standards/kml/) object
-representation that can be used to feed data to [Google
-Maps](http://maps.google.com) and [Google
-Earth](http://earth.google.com). We then show how to integrate KML
-generation into our [RESTful
-API](/2008/03/20/restful-web-sevices-resteasy-jax-rs) and how to create
-a mashup with those technologies. " ---
+= Generating KML for RESTful clients
+FroMage
+v1.0, 2008-10-17
+:title: Generating KML for RESTful clients
+:tags: [java,web-applications,xml,rest]
 
-== [#GeneratingKMLforRESTfulclients-Introduction]####Introduction
+In this article we describe how to use
+https://jaxb.dev.java.net/[JAXB] to generate a
+http://www.opengeospatial.org/standards/kml/[KML] object
+representation that can be used to feed data to http://maps.google.com[Google
+Maps] and http://earth.google.com[Google
+Earth]. We then show how to integrate KML
+generation into our /2008/03/20/restful-web-sevices-resteasy-jax-rs[RESTful
+API] and how to create
+a mashup with those technologies. 
+
+== Introduction
 
 We have already described how to
 link:/2008/03/20/restful-web-sevices-resteasy-jax-rs[integrate with
@@ -45,7 +49,7 @@ We decided it was time to integrate Google Earth and Google Maps
 in VisibleLogistics. In this article we describe how we implemented this
 integration.
 
-== [#GeneratingKMLforRESTfulclients-HowtotellGoogleEarthwhattodisplay]####How to tell Google Earth what to display
+== How to tell Google Earth what to display
 
 Integrating Google Maps or Google Earth in our web application means we
 need to find a way to control these _views_ — _widgets_ — in order to
@@ -80,7 +84,7 @@ We thus decided to generate KML for the visual objects we want to
 display. The next questions are of course how we generate these KML
 documents, and how we serve them.
 
-== [#GeneratingKMLforRESTfulclients-HowtogenerateKMLwithJavaEE5]####How to generate KML with JavaEE 5
+== How to generate KML with JavaEE 5
 
 After a quick trial with `stream.print("<kml>...")` and
 `document.createElement("kml")` (the DOM equivalent) it becomes clear
@@ -289,7 +293,7 @@ to do with the `ObjectFactory` and `JAXBElement` in some cases), it is
 still better than nothing. If you know the solution to this, do tell us
 please.
 
-== [#GeneratingKMLforRESTfulclients-HowtousetheKMLJAXBclasses]####How to use the KML JAXB classes
+== How to use the KML JAXB classes
 
 Now we can use all the goodness KML provides. In our case we want to
 show a shipping container whose geographical location changes over time.
@@ -385,9 +389,9 @@ public Kml getPlacementsKML(Resource container){
 
 And we are done.
 
-link:generating-kml-restful-clients-1.png[image:generating-kml-restful-clients-1-small.png[image]]
+link:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-1.png[image:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-1.png[image]]
 
-== [#GeneratingKMLforRESTfulclients-HowtoserveKML]####How to serve KML
+== How to serve KML
 
 Now that we know how to generate all this KML goodness we need to find a
 way to provide this KML to the user. Because we are using
@@ -465,7 +469,7 @@ so irrelevant, and it does allow us to create links within our web
 frontend that, when clicked by the browser, will load the data in Google
 Earth because the KML content-type will be returned by the server.
 
-== [#GeneratingKMLforRESTfulclients-Takingitupanotch]####Taking it up a notch
+== Taking it up a notch
 
 We wanted to do a mashup right? Now that we can generate KML let us just
 include a Google Earth plugin in our application which displays the same
@@ -511,9 +515,9 @@ web page:
 
 This gives us a nice Google Earth plugin view:
 
-link:generating-kml-restful-clients-2.png[image:generating-kml-restful-clients-2-small.png[image]]
+link:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-2.png[image:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-2.png[image]]
 
-== [#GeneratingKMLforRESTfulclients-GoogleMapsforthoseonLinuxorMacOS]####Google Maps for those on Linux or Mac OS
+== Google Maps for those on Linux or Mac OS
 
 The unfortunate thing when using unpopular operating systems is that we
 are always last to get the good stuff. The Google Earth plugin is not
@@ -605,7 +609,4 @@ JavaScript.
 With all this, we finally manage to have our Google Maps fallback for
 Linux and Mac OS users:
 
-link:generating-kml-restful-clients-3.png[image:generating-kml-restful-clients-3-small.png[image]]
-
-_mailto:stephane@epardaud.net[Stéphane Épardaud] is a senior software
-developer at Lunatech Research._
+link:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-3.png[image:../media/2008-10-17-generating-kml-restful-clients/generating-kml-restful-clients-3.png[image]]

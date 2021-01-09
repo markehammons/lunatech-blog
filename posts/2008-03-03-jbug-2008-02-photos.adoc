@@ -1,6 +1,6 @@
 = Benelux JBoss User Group, 29 February - photos
 hilton
-v1.0, 2008-02-03
+v1.0, 2008-03-03
 :title: Benelux JBoss User Group, 29 February - photos
 :tags: [java,jboss,jbug,event]
 

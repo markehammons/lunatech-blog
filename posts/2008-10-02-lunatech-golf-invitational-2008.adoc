@@ -1,12 +1,16 @@
---- layout: article drupal-format: Full HTML title: "Lunatech Golf
-Invitational 2008" tags: opinion ventures author: Michael Pentowski
-summary: "On September 26th, 2008, the [Lunatech Golf
-Invitational](http://www.lunatech-ventures.com/event/register/lunatech_invitational_2008)
-was held at the [Golfbaan Rottebergen](http://www.rottebergen.nl/).
+= Lunatech Golf Invitational 2008
+Michael Pentowski
+v1.0, 2008-10-02
+:title: Lunatech Golf Invitational 2008
+:tags: [ventures]
+
+On September 26th, 2008, the http://www.lunatech-ventures.com/event/register/lunatech_invitational_2008[Lunatech Golf
+Invitational]
+was held at the http://www.rottebergen.nl/[Golfbaan Rottebergen].
 After a few minute last minute cancellations, due to obligations on the
 European and American tours, 21 players set off to win the coveted
 event. There were two major prizes which the players were competing for:
-stableford scoring and stroke play." ---
+stableford scoring and stroke play.
 
 After drinking some coffee, confusion, late arrivals, and last minute
 shuffling of flights, the event kicked off at 12:01 under beautiful
@@ -28,7 +32,7 @@ Before dinner, the awards were handed out during the drinks reception:
 * Pascal won the closest to the pin
 * Rogier Van den Heuvel won the stableford AND strokeplay (see note)
 
-link:golf-2008.jpg[image:golf-2008.jpg[golf2008.jpg]]
+link:../media/2008-10-02-lunatech-golf-invitational-2008/golf-2008.jpg[image:../media/2008-10-02-lunatech-golf-invitational-2008/golf-2008.jpg[golf2008.jpg]]
 
 As said earlier, Ferdinand was playing well and on hole 10 he gave up
 after having a bad hole but only being 10 meters from the hole. Had he
