@@ -1,0 +1,14 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "New open-source libraries" tags: Java playframework
+author: Stéphane Épardaud summary: "Today we’ve released three new OSS
+libraries for the [Play! Framework](http://www.playframework.org/) in
+our OSS section:" ---
+
+* http://www.lunatech-labs.com/open-source/resteasy-play-module[RESTEasy
+Play! module]: Define your Play! Framework RESTful web services in
+JAX-RS using RESTEasy.
+* http://www.lunatech-labs.com/open-source/secure-permissions-play-module[Secure
+permissions Play! module]: Define your security policy using Drools
+security rules.
+* http://www.lunatech-labs.com/open-source/debian-play-module[Debian
+Play! module]: Debianise your Play! Framework applications and modules.

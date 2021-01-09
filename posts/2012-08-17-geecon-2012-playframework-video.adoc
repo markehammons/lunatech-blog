@@ -1,0 +1,21 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "GeeCON 2012 Play Framework 2.0 presentation video"
+tags: playframework conference video author: Peter Hilton summary: "On
+18 May 2012, Peter Hilton presented [Play Framework
+2.0](http://2012.geecon.org/speakers/peter-hilton) at [GeeCON
+2012](http://2012.geecon.org) in Poznań. GeeCON is a Java developer
+conference in Poland, started in 2009. Here is the video of the
+presentation." ---
+
+Video: http://vimeo.com/44790820[GeeCON 2012: Peter Hilton - Play
+Framework 2.0] from http://vimeo.com/geecon[GeeCON Conference on Vimeo].
+
+https://vimeo.com/44790820[]
+
+[[crawler_player]]
+Play
+
+image:https://f.vimeocdn.com/p/images/crawler_logo.png[Vimeo]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project._

@@ -1,0 +1,16 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Lunatech presents Play at Topconf 2012" tags:
+playframework conference author: Peter Hilton summary: "Next week, on
+1-2 November 2012, Peter Hilton will give two presentations at [Topconf
+2012](http://topconf.com/). The presentations are [Play Framework
+2](http://topconf.com/Conference/Abstracts/PlayFramework2/tabid/140/language/en-US/Default.aspx)
+and [Transparent development and the project management
+renaissance](http://topconf.com/Conference/Abstracts/Transparentdevelopmentandtheprojectmanagement/tabid/141/language/en-US/Default.aspx)."
+---
+
+http://topconf.com/[image:topconf-logo.png[Topconf]]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project and
+co-author of the book http://bit.ly/playforscala[Play for Scala]
+(Manning)._

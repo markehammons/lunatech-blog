@@ -1,0 +1,17 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Lunatech presents Play at GeeCON 2012" tags:
+playframework conference event author: Peter Hilton summary: "This week,
+on 18 May 2012, Peter Hilton will present [Play Framework
+2.0](http://2012.geecon.org/) at [geecon 2012](http://2012.geecon.org/)
+in Poznań, Poland. geecon is a Java developer conference in Poland,
+started in 2009." ---
+
+http://2012.geecon.org/[image:geecon2012.png[Play Framework 2.0]]
+
+image:geecon-2012-room.jpg[Before the start of the presentation, at
+geecon]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project and
+co-author of the book http://bit.ly/playforscala[Play for Scala]
+(Manning)._

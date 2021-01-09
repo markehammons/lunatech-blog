@@ -1,0 +1,17 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Lunatech presents Play at Jfokus 2012" tags:
+playframework conference event author: Peter Hilton summary: "Next week,
+on 14 February 2012, Peter Hilton will present [Play Framework
+2.0](http://www.jfokus.se/jfokus/talks.jsp?lang=en#Play%20Framework%202.0)
+at [Jfokus 2012](http://www.jfokus.se/jfokus/?lang=en&#page=page-1) in
+Stockholm. Jfokus is the biggest Java developer conference in Sweden,
+started in 2007." ---
+
+If you think it’s cold in Holland at the moment, then you should try
+Stockholm at this time of year. It’s not too late to book flights to
+Stockholm and register for the conference!
+
+image:Jfokus2012_450x200.jpg[Jfokus]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project._

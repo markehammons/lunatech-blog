@@ -1,0 +1,11 @@
+--- author: Michael Pentowski tags: ventures published: true title:
+"Kalydo presents \xE2\x80\x98GamePro\xE2\x80\x99 at Siggraph 2009" type:
+post layout: article meta: \{} status: publish summary: We are rather
+proud to announce that one of our colleagues, Michiel Roza, is going to
+present at the renowned [Siggraph
+convention](http://www.siggraph.org/s2009/) this week. This wednesday,
+August 5, Michiel will be talking about GamePro, the Realtime Visual
+Performance Profiler he developed during his graduation at Eximion. [Go
+to the Kalydo blog to read
+more](http://kalydo.blogspot.com/2009/08/kalydo-presents-gamepro-at-siggraph.html)…
+---

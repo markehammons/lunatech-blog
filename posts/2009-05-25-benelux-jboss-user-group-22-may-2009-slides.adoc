@@ -1,0 +1,27 @@
+--- layout: article drupal-format: Full HTML title: "Benelux JBoss User
+Group, 22 May 2009 slides" tags: Java JSF JBoss jBPM event JBUG author:
+Peter Hilton summary: "Last Friday’s Benelux JBoss User Group was
+well-attended, and the weather played along with our plan to have a
+barbeque and drinks outside in the garden at the Lunatech office in
+Rotterdam. Here are the slides for the three presentations." ---
+
+{empty}1. link:Reloaded-20090522.pdf[JBoss Reloaded] (PDF, 240 Kb):
+
+link:Reloaded-20090522.pdf[image:Reloaded-20090522.png[JBoss Reloaded
+slides]]
+
+{empty}2.
+http://www.slideshare.net/jorambarrez/presentation-jbpm-community-day-2009-first-steps-with-jbpm4?type=powerpoint[First
+steps with jBPM4] (slideshare.net):
+
+http://www.slideshare.net/jorambarrez/presentation-jbpm-community-day-2009-first-steps-with-jbpm4?type=powerpoint[image:First%20steps%20with%20jBPM4.png[First
+steps with jBPM4 slides]]
+
+{empty}3. link:Localisation%20-%20JBug%2022%20May%202009.pdf[Language
+localisation in Java, JSF and Seam] (PDF, 984 Kb):
+
+link:Localisation%20-%20JBug%2022%20May%202009.pdf[image:Localisation%20-%20JBug%2022%20May%202009.png[Language
+localisation in Java, JSF and Seam slides]]
+
+_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
+developer at Lunatech Research._

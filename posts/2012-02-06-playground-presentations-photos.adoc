@@ -1,0 +1,23 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "February Play!ground presentations and photos" tags:
+playground playframework event slides author: Peter Hilton summary: "On
+3 February 2012, Lunatech hosted a Play!ground event at Paddy Murphy’s
+Irish pub in Rotterdam - an event for developers interested in the [Play
+framework](http://www.playframework.org/). Here are the slides from the
+presentations." ---
+
+== Express-board
+
+Nicolas Martignole, http://www.express-board.fr/[express-board.fr].
+link:play-2012-02-expressboard.pdf[slides] (PDF, 3.4 MB)
+
+link:play-2012-02-expressboard.pdf[image:play-2012-02-expressboard.png[slides]]
+image:play-2012-02-nicolas.jpg[Nicolas presenting]
+
+== Connected GameStore
+
+Robert Bakker, BoosterMedia. link:play-2012-02-booster.pdf[slides] (PDF,
+3.4 MB)
+
+link:play-2012-02-booster.pdf[image:play-2012-02-booster.png[slides]]
+image:play-2012-02-robert.jpg[Robert presenting]

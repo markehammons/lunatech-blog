@@ -1,0 +1,13 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Lunatech presents Play at JAX London 2012" tags:
+playframework conference event author: Peter Hilton summary: "Next week,
+on 17 October 2012, Peter Hilton will present [Play Framework
+2](http://jaxlondon.com/2012/sessions/?tid=2675#session-23180) at [JAX
+London 2012](http://jaxlondon.com/)." ---
+
+http://jaxlondon.com/[image:jaxlondon-logo.png[JAX London]]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project and
+co-author of the book http://bit.ly/playforscala[Play for Scala]
+(Manning)._

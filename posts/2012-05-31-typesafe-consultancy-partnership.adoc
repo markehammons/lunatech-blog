@@ -1,0 +1,17 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Typesafe consultancy partnership" tags:
+playframework Scala author: Peter Hilton summary: "As you may have seen
+on the [Typesafe Partners](http://www.typesafe.com/company/partners)
+page, Lunatech Research is an official Typesafe consultancy partner.
+Typesafe is a services company that has built a modern application
+development stack based on the
+[Scala](http://www.typesafe.com/technology/scala),
+[Akka](http://www.typesafe.com/technology/akka) middleware and the
+[Play](http://www.typesafe.com/technology/play) web framework." ---
+
+image:typesafe.png[Typesafe]
+
+Lunatech has substantial expertise with the
+http://www.typesafe.com/stack[Typesafe Stack]. We have a team of Play
+Framework experts, including two open-source project committers, and are
+also successfully using Scala and Akka on customer projects.

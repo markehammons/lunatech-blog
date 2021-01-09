@@ -1,0 +1,7 @@
+--- author: Peter Kaas tags: ventures published: true title:
+RobotiCamera360 featured at Syntens type: post layout: article meta: \{}
+status: publish summary: Siebout Leseur van Leeuwen, the entrepreneur
+running [RobotiCamera360](http://www.rcam360.com/) presents and
+discusses his latest products on the [Syntens
+website](http://www.syntens.nl/Artikelen/Artikel/Grotere-veiligheid-Amerikaanse-politieagenten-dankzij-Nederlands-camerasysteem.aspx).
+---

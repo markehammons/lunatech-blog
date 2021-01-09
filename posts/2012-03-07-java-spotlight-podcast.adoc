@@ -1,0 +1,19 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Java Spotlight podcast: Play 2.0 & Akka 2.0" tags:
+playframework author: Peter Hilton summary: "In this week's [Java
+Spotlight podcast](https://blogs.oracle.com/javaspotlight/) from Oracle,
+Peter Hilton talks about Play 2.0. Peter joins Jonas Bonér, who talks
+about [Akka 2.0, released this
+week](http://blog.typesafe.com/introducing-akka-20-2756)." ---
+
+https://blogs.oracle.com/javaspotlight/entry/java_spotlight_episode_73_akka[Java
+Spotlight Episode 73: Akka 2.0 and Play 2.0, Live at #Jfokus]
+
+This podcast was recorded last month in front of a live audience at
+http://blog.lunatech.com/2012/02/21/jfokus-2012-what-are-java-developers[Jfokus
+2012].
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research, committer on the Play open-source project and
+co-author of a forthcoming Manning Publications book about Play 2 and
+Scala._

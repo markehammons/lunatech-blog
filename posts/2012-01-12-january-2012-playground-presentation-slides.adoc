@@ -1,0 +1,28 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "January 2012 Play!ground presentation slides" tags:
+playground playframework Scala event slides author: Vijay Kiran summary:
+"On 6 January 2012, Lunatech hosted the Play!ground in the Netherlands -
+an event for developers interested in the [Play
+framework](http://www.playframework.org/). Here are the slides from the
+presentations." ---
+
+== Persistence with Scala and Squeryl
+
+Francisco José Canedo Dominguez, Lunatech.
+link:20120106-play-scala-squeryl.pdf[slides] (PDF, 127 KB)
+
+link:20120106-play-scala-squeryl.pdf[image:squeryl-scala.PNG[slides]]
+
+== Play! with Sencha
+
+Vijay Kiran, Lunatech. link:play-with-sencha-vijay.pdf[slides] (PDF, 300
+KB)
+
+link:play-with-sencha-vijay.pdf[image:play-with-sencha-vijay.png[slides]]
+
+== DoS vulnerability in Play <= 1.2.4
+
+Erik Bakker, Lunatech. link:colliding-hashes-erik.pdf[slides] (PDF, 55
+KB)
+
+link:colliding-hashes-erik.pdf[image:colliding-hashses-erik.PNG[slides]]

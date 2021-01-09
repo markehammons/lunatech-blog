@@ -1,0 +1,13 @@
+--- author: Michael Pentowski tags: ventures published: true title:
+IT2Capital Partners and Technostars invest in Eximion type: post layout:
+article meta: \{} status: publish summary:
+"[Eximion](http://www.eximion.nl/) has successfully closed a significant
+investment round with [Technostartersfonds Zuid Nederland B.V.
+(TechnoStars)](http://www.technostars.nl/) and IT2 Capital Partners
+(IT2C). The investment will enable Eximion to release their first 3D
+casual games and also to further develop their
+[Kalydo](http://eximion.blogspot.com/) gaming platform, opening it to
+third-party game developers. We expect that the official launch of the
+Eximion gaming plaform will take place during the first half of 2008,
+introduction of the platform to third-party developers is planned for
+the second half of 2008. Watch this space!" ---

@@ -1,0 +1,23 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "JavaZone Play framework presentation video" tags:
+presentation playframework conference video event author: Peter Hilton
+summary: "Last week, Nicolas Leroux and Peter Hilton gave a [Play
+Framework](http://www.playframework.org/) presentation at
+[JavaZone](http://jz11.java.no/) in Oslo. Here is the video." ---
+
+https://vimeo.com/28769045[]
+
+[[crawler_player]]
+Play
+
+image:https://f.vimeocdn.com/p/images/crawler_logo.png[Vimeo]
+
+http://vimeo.com/28769045[Play! Framework: to infinity and beyond] from
+http://vimeo.com/javazone[JavaZone] on http://vimeo.com[Vimeo].
+
+There are many more http://vimeo.com/javazone[JavaZone videos]; we
+especially recommend http://vimeo.com/28772382[CoffeeScript: JavaScript
+without the Fail].
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project._

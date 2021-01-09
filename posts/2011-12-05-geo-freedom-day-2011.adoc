@@ -1,0 +1,10 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Geo Freedom Day 2011" tags: event author: Willem-Jan
+Veen summary: "Lunatech will be at the event [Geo Freedom Day
+2011](http://geofreedomday.nl/). The event is cool because we have done
+GeoMap related development for our Logistics division in the past and
+want to continue monitoring the progress in the field." ---
+
+Specifically, an interesting presentation will be about the work with
+the new Red programming language and the map libraries Champlain and
+OMS-GS-map.

@@ -1,0 +1,10 @@
+--- layout: article drupal-format: Full HTML title: "Seam presentation
+video on parleys.com" tags: Java opinion JBoss Seam web-applications
+author: Peter Hilton summary: "[parleys.com](http://parleys.com/) now
+has the full video of the [Seam In
+Action](http://parleys.com/display/PARLEYS/Home#title=Seam%20in%20Action%20-%20Part%202;talk=18972706;slide=1)
+presentation that Nicolas Leroux and Peter Hilton gave at JavaPolis
+2007." ---
+
+_http://hilton.org.uk/about_ph.phtml[Peter Hilton] and Nicolas Leroux
+are senior software developers at Lunatech Research._

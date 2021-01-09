@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+   <ShortName>Your Confluence</ShortName>
+   <Description>Search My Confluence</Description>
+   <Tags>Your confluence</Tags>
+   <Contact>webmaster@yourdomain.com</Contact>
+   <Url type="text/html" template="http://yourdomain/confluence/dosearchsite.action?quickSearch=true&amp;searchQuery.spaceKey=conf_global&amp;searchQuery.queryString={searchTerms}"/>
+   <moz:SearchForm>https://yourdomain/confluence/dosearchsite.action</moz:SearchForm>
+   <LongName>Search Your Confluence</LongName>
+   <Image height="16" width="16" type="image/png">https://yourdomain/confluence/images/icons/favicon.png</Image>
+   <Query role="example" searchTerms="lunatech"/>
+   <Developer>You</Developer>
+   <Attribution>Copyright 2007, YourCompany</Attribution>
+   <SyndicationRight>limited</SyndicationRight>
+   <AdultContent>false</AdultContent>
+   <Language>en</Language>
+   <OutputEncoding>UTF-8</OutputEncoding>
+   <InputEncoding>UTF-8</InputEncoding>
+ </OpenSearchDescription>

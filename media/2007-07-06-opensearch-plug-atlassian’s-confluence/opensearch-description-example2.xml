@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+   <ShortName>Confluence Open Search</ShortName>
+   <Description>Confluence Open Search</Description>
+   <Tags>confluence</Tags>
+   <Contact>admin@yourdomain.com</Contact>
+   <Url type="application/atom+xml"
+   		xmlns:custom="http://yourdomain/opensearchextensins/1.0/"
+        template="http://yourdomain/plugins/servlet/opensearch?searchfor={searchTerms}&amp;startIndex={startIndex}&amp;itemsPerPage={count}&amp;un={custom:userName}&amp;pw{custom:passWord}&amp;format=atom"/>
+   <Url type="application/rss+xml"
+   		xmlns:custom="http://yourdomain/opensearchextensins/1.0/"
+        template="http://yourdomain/plugins/servlet/opensearch?searchfor={searchTerms}&amp;startIndex={startIndex}&amp;itemsPerPage={count}&amp;un={custom:userName}&amp;pw{custom:passWord}&amp;format=rss"/>
+   <LongName>confluence.lunatech.com Web Search</LongName>
+   <Image height="16" width="16" type="image/png">https://yourdomain/confluence/images/icons/favicon.png</Image>
+   <Query role="example" searchTerms="lunatech" />
+   <Developer>lunatech-research.com Development Team</Developer>
+   <Attribution>Copyright 2007, lunatech-research.com, All Rights Reserved</Attribution>
+   <SyndicationRight>open</SyndicationRight>
+   <AdultContent>false</AdultContent>
+   <Language>en-us</Language>
+   <OutputEncoding>UTF-8</OutputEncoding>
+   <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>

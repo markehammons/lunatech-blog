@@ -1,0 +1,10 @@
+--- layout: article drupal-format: Full HTML title: "Lunatech at Devoxx
+2009" tags: presentation playframework conference author: Peter Hilton
+summary: "Several Lunatech staff are at [Devoxx](http://www.devoxx.com/)
+in Antwerp this week. Nicolas Leroux is presenting [Play! framework in
+practice](http://www.devoxx.com/display/DV09/Play+framework+in+practice)
+at a BOF session this evening - in Room 2 at 20:00, 17 November 2009.
+Nicolas will be introducing the Play! framework, which brings several
+new ideas to Java web application development that promise to provide
+better support for rapid and simple development than competing Java EE
+frameworks." ---

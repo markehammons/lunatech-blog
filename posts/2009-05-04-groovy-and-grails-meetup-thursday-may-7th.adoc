@@ -1,0 +1,8 @@
+--- layout: article drupal-format: Filtered HTML title: "Groovy and
+Grails meetup on Thursday May 7th" tags: fun event web-applications
+author: Bart Schuller summary: "This Thursday the [Dutch Groovy and
+Grails enthusiasts](http://www.meetup.com/nl-gug/) will meet at the
+[Lunatech office in Rotterdam](http://www.lunatech-research.com/contact)
+(for details, check [www.nlgug.org](http://www.nlgug.org/)). We'll have
+two sessions: one about Grails + Flex, and one about Groovy DSL's, with
+time left to have a drink and discuss all things related to G&G." ---

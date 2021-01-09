@@ -1,0 +1,21 @@
+--- layout: article drupal-format: Unfiltered HTML, with syntax
+highlighter title: "Øredev 2012 Play Framework 2 presentation video"
+tags: playframework conference video author: Peter Hilton summary: "On 7
+November 2012, Peter Hilton presented [Play Framework
+2](http://oredev.org/2012/sessions/play-framework-2) at [Øredev
+2012](http://oredev.org/2012/) in Malmö. Øredev is a cross-platform
+developer conference in Sweden, started in 2005. Here is the video of
+the presentation." ---
+
+Video: http://vimeo.com/53065671[Play Framework 2] from
+http://vimeo.com/user4280938[Øredev Conference on Vimeo].
+
+https://vimeo.com/53065671[]
+
+[[crawler_player]]
+Play
+
+image:https://f.vimeocdn.com/p/images/crawler_logo.png[Vimeo]
+
+_link:/author/peter-hilton[Peter Hilton] is a senior software developer
+at Lunatech Research and committer on the Play open-source project._

@@ -1,0 +1,10 @@
+--- author: Michael Pentowski tags: ventures published: true title:
+WipidoTV.com - over 1 million served type: post layout: article meta:
+\{} status: publish summary: "[WipidoTV](http://www.wipido.com/), our
+video streaming site, has reached its first major milestone, it streamed
+over 1 million videos during July. Wipido served up 1.25 million videos,
+our best month to date. Not too shabby for a service that is only a few
+months old. Watch this space as lots of exciting things are happening in
+WipidoLand." ---
+image:http://www.wipido.com/images/web/banner_atomfeeds.png[Wipido Atom
+feeds]
