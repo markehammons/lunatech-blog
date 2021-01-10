@@ -1,4 +1,12 @@
-image::http://blog.lunatech.com/2013/04/03/typesafe-at-010dev.jpg[James
+= Typesafe at 010DEV
+hilton
+v1.0, 2013-04-03
+:title: Typesafe at 010DEV
+:tags: [event]
+
+At yesterday’s 010DEV developer meet-up, Typesafe and Lunatech presented Play and Akka to a room full of developers.
+
+image:../media/2013-04-03-typesafe-at-010dev/typesafe-at-010dev.jpg[James
 Ward and Nicolas Leroux]
 
 *Photo: James Ward (left) and Nicolas Leroux (right) present Play

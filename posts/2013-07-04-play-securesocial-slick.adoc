@@ -1,3 +1,11 @@
+= Play 2, SecureSocial and Slick 
+targeter
+v1.0, 2013-07-04
+:title: Play 2, SecureSocial and Slick
+:tags: [playframework,scala]
+
+If you want to have any kind of login on your Play 2  app, and don’t want to spend the time coding one yourself, the http://securesocial.ws[SecureSocial] module is the way to go. This article will show you how to combine it with http://slick.typesafe.com/[Slick], a Scala persistence API, to store your user’s authentication details. 
+
 == SecureSocial
 
 SecureSocial is a Play 2 module that makes it very easy to add
@@ -15,15 +23,18 @@ instances of that model by providing it with an implementation of the
 
 == `Identity`
 
-Let’s start with the model class. SecureSocial uses
-`securesocial.core.Identity` objects to represent login details.
-`Identity` objects store all data that identifies a user: * A
-combination of identity provider and the user’s ID for that provider *
-First name * Last name * Full name * Email address * The authentication
-method (OAuth 1, OAuth2, OpenId or user name and password) * One of: *
-OAuth 1 information (identifier, secret) * OAuth 2 information
-(accessToken, tokenType, ttl, refreshToken) * Password information
-(password hasher, password, salt)
+Let’s start with the model class. SecureSocial uses `securesocial.core.Identity` objects to represent login details. `Identity` objects store all data that identifies a user:
+
+* A combination of identity provider and the user’s ID for that provider
+* First name
+* Last name
+* Full name
+* Email address
+* The authentication method (OAuth 1, OAuth2, OpenId or user name and password)
+* One of:
+  * OAuth 1 information (identifier, secret)
+  * OAuth 2 information (accessToken, tokenType, ttl, refreshToken)
+  * Password information (password hasher, password, salt) 
 
 If you are the kind of person that prefers code, take a look at the
 actual
@@ -32,12 +43,20 @@ code].
 
 This trait is easy to implement if we use a case class:
 
-\{% highlight scala %} case class User(uid: Option[Long] = None, id:
-UserId, firstName: String, lastName: String, fullName: String, email:
-Option[String], avatarUrl: Option[String], authMethod:
-AuthenticationMethod, oAuth1Info: Option[OAuth1Info], oAuth2Info:
-Option[OAuth2Info], passwordInfo: Option[PasswordInfo] = None) extends
-Identity \{% endhighlight %}
+[source,scala,linenums]
+----
+case class User(uid: Option[Long] = None,
+                id: UserId,
+                firstName: String,
+                lastName: String,
+                fullName: String,
+                email: Option[String],
+                avatarUrl: Option[String],
+                authMethod: AuthenticationMethod,
+                oAuth1Info: Option[OAuth1Info],
+                oAuth2Info: Option[OAuth2Info],
+                passwordInfo: Option[PasswordInfo] = None) extends Identity
+----
 
 Now that we have our model class, we’re going to have to find a way to
 store instances of it. This is managed by an implementation of the
@@ -56,14 +75,18 @@ all you need to do if define a `*` _projection_ method using the case
 class’ `apply` and `unapply` methods. That usually looks something like
 this:
 
-\{% highlight scala %} case class Address(id: Option[Long], street:
-String, postalCode: String, city: String, country: String)
+[source,scala,linenums]
+----
+-case class Address(id: Option[Long], street: String,
+  postalCode: String, city: String, country: String)
 
-object Organisations extends Tablelink:%22address%22[Address] \{ //
-table definitions would go here
+object Organisations extends Table[Address]("address") {
+  // table definitions would go here
 
-def * = id ~ street ~ postalCode ~ city ~ country <> (Address.apply
-_)(Organisation.unapply _) \{% endhighlight %}
+  def * = id ~ street ~ postalCode ~ city ~ 
+    country <> (Address.apply _)(Organisation.unapply _)
+
+----
 
 What that actually does is provide Slick with a function needed to go
 from a tuple of table type to the model class. That happens to be
@@ -79,33 +102,38 @@ First, let’s just `flatten' our datamodel, and map the properties for
 those classes as if they were part of our `User` class. The code is in
 the listing, below.
 
-\{% highlight scala %} object Users extends Tablelink:%22user%22[User]
-\{
+[source,scala,linenums]
+----
+object Users extends Table[User]("user") {
 
-def uid = columnlink:%22id%22,%20O.PrimaryKey,%20O.AutoInc[Long] def
-userId = columnlink:%22userId%22[String] def providerId =
-columnlink:%22providerId%22[String]
+  def uid = column[Long]("id", O.PrimaryKey, O.AutoInc)
+  def userId = column[String]("userId")
+  def providerId = column[String]("providerId")
 
-def email = columnlink:%22email%22[Option[String]] def firstName =
-columnlink:%22firstName%22[String] def lastName =
-columnlink:%22lastName%22[String] def fullName =
-columnlink:%22fullName%22[String] def avatarUrl =
-columnlink:%22avatarUrl%22[Option[String]]
+  def email = column[Option[String]]("email")
+  def firstName = column[String]("firstName")
+  def lastName = column[String]("lastName")
+  def fullName = column[String]("fullName")
+  def avatarUrl = column[Option[String]]("avatarUrl")
 
-def authMethod = columnlink:%22authMethod%22[AuthenticationMethod]
+  def authMethod = column[AuthenticationMethod]("authMethod")
 
-// oAuth 1 def token = columnlink:%22token%22[Option[String]] def secret
-= columnlink:%22secret%22[Option[String]]
+  // oAuth 1
+  def token = column[Option[String]]("token")
+  def secret = column[Option[String]]("secret")
 
-// oAuth 2 def accessToken =
-columnlink:%22accessToken%22[Option[String]] def tokenType =
-columnlink:%22tokenType%22[Option[String]] def expiresIn =
-columnlink:%22expiresIn%22[Option[Int]] def refreshToken =
-columnlink:%22refreshToken%22[Option[String]]
+  // oAuth 2
+  def accessToken = column[Option[String]]("accessToken")
+  def tokenType = column[Option[String]]("tokenType")
+  def expiresIn = column[Option[Int]]("expiresIn")
+  def refreshToken = column[Option[String]]("refreshToken")
 
-// passwordInfo def hasher = columnlink:%22hasher%22[String] def
-password = columnlink:%22password%22[String] def salt =
-columnlink:%22salt%22[String] } \{% endhighlight %}
+  // passwordInfo 
+  def hasher = column[String]("hasher")
+  def password = column[String]("password")
+  def salt = column[String]("salt")
+}
+----
 
 In order to create the projection, we need to write functions that go
 from this list of columns to a instance of `User`, and the other way
@@ -125,45 +153,78 @@ to just create methods for it. In fact, we could make the methods
 implicit conversions, and we would’t even have to call them ourselves.
 Here are the methods:
 
-\{% highlight scala %} implicit def tuple2UserId(tuple: (String,
-String)) = tuple match \{ case (userId, providerId) => UserId(userId,
-providerId) }
+[source,scala,linenums]
+----
+implicit def tuple2UserId(tuple: (String, String)) = tuple match {
+  case (userId, providerId) => UserId(userId, providerId)
+}
 
-implicit def string2AuthenticationMethod:
-TypeMapper[AuthenticationMethod] =
-MappedTypeMapper.baselink:authenticationMethod%20=%3E%20authenticationMethod.method,%20string%20=%3E%20AuthenticationMethod(string)[AuthenticationMethod,
-String]
+implicit def string2AuthenticationMethod: TypeMapper[AuthenticationMethod] =
+  MappedTypeMapper.base[AuthenticationMethod, String](
+    authenticationMethod => authenticationMethod.method,
+    string => AuthenticationMethod(string)
+  )
 
-implicit def tuple2OAuth1Info(tuple: (Option[String], Option[String])) =
-tuple match \{ case (Some(token), Some(secret)) =>
-Some(OAuth1Info(token, secret)) case _ => None }
+implicit def tuple2OAuth1Info(tuple: (Option[String], Option[String])) = 
+  tuple match {
+    case (Some(token), Some(secret)) => Some(OAuth1Info(token, secret))
+    case _ => None
+  }
 
 implicit def tuple2OAuth2Info(tuple: (Option[String], Option[String],
-Option[Int], Option[String])) = tuple match \{ case (Some(token),
-tokenType, expiresIn, refreshToken) => Some(OAuth2Info(token, tokenType,
-expiresIn, refreshToken)) case _ => None }
+  Option[Int], Option[String])) = tuple match {
+    case (Some(token), tokenType, expiresIn, refreshToken) => 
+      Some(OAuth2Info(token, tokenType, expiresIn, refreshToken))
+    case _ => None
+}
 
-implicit def tuple2PasswordInfo(tuple: (String, String, Option[String]))
-= tuple match \{ case (Some(hasher), Some(password), salt) =>
-Some(PasswordInfo(hasher, password, salt)) case _ => None }
+implicit def tuple2PasswordInfo(tuple: (String, String, Option[String])) =
+  tuple match {
+    case (Some(hasher), Some(password), salt) => 
+      Some(PasswordInfo(hasher, password, salt))
+    case _ => None
+  }
 
-\{% endhighlight %}
+----
+
 
 Now, we can write our projection. Given the number of fields, it’s not
 exactly the prettiest code, but it does its job. Here’s the code:
 
-\{% highlight scala %} def * = uid.? ~ userId ~ providerId ~ firstName ~
-lastName ~ fullName ~ email ~ avatarUrl ~ authMethod ~ token ~ secret ~
-accessToken ~ tokenType ~ expiresIn ~ refreshToken <>( u => User(u._1,
-(u._2, u._3), u._4, u._5, u._6, u._7, u._8, u._9, (u._10, u._11),
-(u._12, u._13, u._14, u._15), (u._16, u._17, u._18)), (u: User) =>
-Some((u.uid, u.id.id, u.id.providerId, u.firstName, u.lastName,
-u.fullName, u.email, u.authMethod, u.avatarUrl,
-u.oAuth1Info.map(_.token), u.oAuth1Info.map(_.secret),
-u.oAuth2Info.map(_.accessToken), u.oAuth2Info.flatMap(_.tokenType),
-u.oAuth2Info.flatMap(_.expiresIn), u.oAuth2Info.flatMap(_.refreshToken),
-u.passwordInfo.map(_.hasher), u.passwordInfo.map(_.password),
-u.passwordInfo.flatMap(_.salt)))) \{% endhighlight %}
+[source,scala,linenums]
+----
+def * = uid.? ~ userId ~ providerId ~ firstName ~ lastName ~ fullName ~
+ email ~ avatarUrl ~ authMethod ~ token ~ secret ~ accessToken ~ tokenType ~
+ expiresIn ~ refreshToken <>(
+    u => User(u._1, 
+      (u._2, u._3),
+      u._4, 
+      u._5,
+      u._6,
+      u._7,
+      u._8,
+      u._9,
+      (u._10, u._11),
+      (u._12, u._13, u._14, u._15),
+      (u._16, u._17, u._18)),
+    (u: User) => Some((u.uid, u.id.id,
+       u.id.providerId,
+       u.firstName,
+       u.lastName,
+       u.fullName,
+       u.email,
+       u.authMethod,
+       u.avatarUrl,
+       u.oAuth1Info.map(_.token),
+       u.oAuth1Info.map(_.secret),
+       u.oAuth2Info.map(_.accessToken),
+       u.oAuth2Info.flatMap(_.tokenType),
+       u.oAuth2Info.flatMap(_.expiresIn),
+       u.oAuth2Info.flatMap(_.refreshToken),
+       u.passwordInfo.map(_.hasher),
+       u.passwordInfo.map(_.password),
+       u.passwordInfo.flatMap(_.salt))))
+----
 
 As you can see, by putting the right fields in parentheses, we create
 tuples of the right form, which the implict methods then convert in the
@@ -173,49 +234,68 @@ mainly involves a lot of mapping and flatmapping from `Option` types.
 == Implementing `UserService`
 
 Now that we mapped this class, we can add `save` and `find` methods to
-the `User` class: \{% highlight scala %} def findByUserId(userId:
-UserId): Option[User] = DB.withSession \{ implicit session => val query
-= for \{ user <- Users if (user.userId is userId.id) && (user.providerId
-is userId.providerId) } yield user
+the `User` class: 
 
-query.firstOption }
+[source,scala,linenums]
+----
+def findByUserId(userId: UserId): Option[User] = DB.withSession {
+implicit session =>
+  val query = for {
+    user <- Users
+    if (user.userId is userId.id) && (user.providerId is userId.providerId)
+  } yield user
+
+  query.firstOption
+}
 
 def save(i: Identity): User = this.save(User(i))
 
-def save(user: User) = DB.withSession \{ implicit session =>
-findByUserId(user.id) match \{ case None => \{ // Insert a new user
-(sign-up) val uid = this.autoInc.insert(user) user.copy(uid = Some(uid))
-} case Some(existingUser) => \{ // Update an existing user val userRow =
-for \{ u <- Users if u.uid is existingUser.uid } yield u
+def save(user: User) = DB.withSession {
+implicit session =>
+  findByUserId(user.id) match {
+    case None => { // Insert a new user (sign-up)
+      val uid = this.autoInc.insert(user)
+      user.copy(uid = Some(uid))
+    }
+    case Some(existingUser) => { // Update an existing user
+      val userRow = for {
+        u <- Users
+        if u.uid is existingUser.uid
+      } yield u
 
-....
-  val updatedUser = user.copy(uid = existingUser.uid)
-  userRow.update(updatedUser)
-  updatedUser
+      val updatedUser = user.copy(uid = existingUser.uid)
+      userRow.update(updatedUser)
+      updatedUser
+    }
+  }
 }
-....
+----
 
-} } \{% endhighlight %}
 
 Now all that’s left to do is implement our `UserService`, which has
 become very simple now:
 
-\{% highlight scala %} class UserService(application: Application)
-extends UserServicePlugin(application) \{
+[source,scala,linenums]
+----
+class UserService(application: Application) 
+  extends UserServicePlugin(application) {
 
-def find(id: UserId) = Users.findByUserId(id) def save(user: Identity) =
-Users.save(user)
+  def find(id: UserId) = Users.findByUserId(id)
+  def save(user: Identity) = Users.save(user)
 
-// Ok, I’m cheating a little. I’m not explainig how to persist Token //
-But I’m sure you can figure out this part! def
-findByEmailAndProvider(email: String, providerId: String) = None def
-save(token: Token) = ???
+  // Ok, I'm cheating a little. I'm not explainig how to persist Token
+  // But I'm sure you can figure out this part!
+  def findByEmailAndProvider(email: String, providerId: String) = None
+  def save(token: Token) = ???
 
-def findToken(token: String) = ???
+  def findToken(token: String) = ???
 
-def deleteToken(uuid: String) = ???
+  def deleteToken(uuid: String) = ???
 
-def deleteExpiredTokens() = ??? } \{% endhighlight %}
+  def deleteExpiredTokens() = ???
+}
+----
+
 
 == Conclusion
 

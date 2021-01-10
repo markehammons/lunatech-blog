@@ -1,24 +1,10 @@
-[cols="",]
-|===
-|title: Good bug reports come in four parts
+= Good bug reports come in four parts 
+hilton
+v1.0, 2013-04-19
+:title: Good bug reports come in four parts
+:tags: [documentation]
 
-|tags: documentation
-
-|author: Peter Hilton
-
-|layout: article
-
-|signature: Peter Hilton is a senior software developer and Operations
-Director at Lunatech Research.
-
-|summary: "This article explains which information you need for a
-complete bug
-
-|report, because good bug reports come in four parts and incomplete bug
-reports
-
-|can waste a lot of time on communication overhead."
-|===
+This article explains which information you need for a complete bug report, because good bug reports come in four parts and incomplete bug reports can waste a lot of time on communication overhead.
 
 If you’re testing a software application and writing bug reports for a
 development team, then you should include four separate pieces of
@@ -110,7 +96,7 @@ huge difference in how long it takes to follow idiot-proof instructions
 and how long it takes to work it out for yourself.
 
 This level of detail is described in, er… detail, in
-http://blog.lunatech.com/2007/03/08/how-write-user-interface-instructions[How
+https://blog.lunatech.com/posts/2007-03-08-how-write-user-interface-instructions[How
 to write user-interface instructions].
 
 For example, this is going to save time:

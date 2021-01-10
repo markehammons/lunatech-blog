@@ -1,3 +1,13 @@
+= Using Play framework database evolutions with Slick 1.0.1  
+hilton
+v1.0, 2013-08-29
+:title: Using Play framework database evolutions with Slick 1.0.1  
+:tags: [slick,playframework]
+
+This tutorial for using [Slick](http://slick.typesafe.com) with a \
+    [Play Framework](http://www.playframework.com) application
+    shows you how to create your database and apply data model.
+
 A Play framework web application that uses a relational database will
 generally assume that the database already exists at runtime. The
 database, with its tables and other objects, is an application
@@ -6,7 +16,7 @@ installation. You automate this by providing SQL scripts that
 http://www.playframework.com/documentation/2.1.x/Evolutions[Play
 Evolutions] uses to create the database.
 
-http://blog.lunatech.com/2013/08/13/play-slick-scala-console[Using the
+https://blog.lunatech.com/posts/2013-08-13-play-slick-scala-console[Using the
 Scala console with Play and Slick] shows you how to use Slick to
 generate the SQL DDL statements that create tables in your database,
 which you can use to write your SQL database creation scripts. Most of
@@ -30,17 +40,24 @@ Source code: https://github.com/lunatech-labs/play-slick-examples.
 == Creating an initial Evolutions script
 
 In
-http://blog.lunatech.com/2013/08/08/play-slick-getting-started[Getting
+https://blog.lunatech.com/posts/2013-08-08-play-slick-getting-started[Getting
 started with Play and Slick] we started with a simple database table
 mapping:
 
-\{% highlight scala %} package models.database
+
+[source,scala,linenums]
+----
+package models.database
 
 import play.api.db.slick.Config.driver.simple._
 
-class Cocktails extends Tablelink:%22COCKTAIL%22[(Long, String)] \{ def
-id = columnlink:%22ID%22[Long] def name = columnlink:%22NAME%22[String]
-def * = id ~ name } \{% endhighlight %}
+class Cocktails extends Table[(Long, String)]("COCKTAIL") {
+  def id = column[Long]("ID")
+  def name = column[String]("NAME")
+  def * = id ~ name
+}
+----
+
 
 To use this at runtime, you need a `COCKTAIL` table with `ID` and `NAME`
 columns. Normally, when using evolutions, you write an SQL data
@@ -55,34 +72,40 @@ https://github.com/freekh/play-slick[play-slick] to generate it:
 
 [arabic]
 . follow the
-http://blog.lunatech.com/2013/08/08/play-slick-getting-started[getting
+https://blog.lunatech.com/2013-08-08-play-slick-getting-started[getting
 started instructions] to set-up your application
 . add the table mapping in `app/models/database/Cocktails.scala`
 . tell Slick where the table mappings are with the following addition to
 the Play configuration in `conf/application.conf`:
-+
-\{% highlight text %} slick.default="models.database.*" \{% endhighlight
-%}
+
+
+[source,text,linenums]
+----
+	slick.default="models.database.*"
+----
 
 Now run the application (in DEV mode) - Slick creates the initial script
 in `conf/evolutions/default/1.sql`:
 
-\{% highlight sql %} # — Created by Slick DDL # To stop Slick DDL
-generation, remove this comment and start using Evolutions
 
-== — !Ups
+[source,sql,linenums]
+----
+# --- Created by Slick DDL
+# To stop Slick DDL generation, remove this comment and start using Evolutions
 
-create table ``COCKTAIL'' (``ID'' BIGINT NOT NULL,``NAME'' VARCHAR NOT
-NULL);
+# --- !Ups
 
-== — !Downs
+create table "COCKTAIL" ("ID" BIGINT NOT NULL,"NAME" VARCHAR NOT NULL);
 
-drop table ``COCKTAIL''; \{% endhighlight %}
+# --- !Downs
+
+drop table "COCKTAIL";
+----
 
 After Slick creates this Script, Play will see that there is a new
 Evolutions script and offer to run it:
 
-image::http://blog.lunatech.com/2013/08/29/evolutions.png[Play offers to
+image:../media/2013-08-29-play-slick-evolutions/evolutions.png[Play offers to
 run the evolutions script]
 
 Now you have a database for your application to use at runtime.
@@ -100,14 +123,18 @@ stage, to avoid blank pages.
 To add initial data to your application, add it to your evolutions
 script. Start with three classic cocktails:
 
-\{% highlight sql %} insert into COCKTAIL values (1, `Margarita');
-insert into COCKTAIL values (2, `Caipirinha'); insert into COCKTAIL
-values (3, `Piña colada'); \{% endhighlight %}
+
+[source,sql,linenums]
+----
+insert into COCKTAIL values (1, 'Margarita');
+insert into COCKTAIL values (2, 'Caipirinha');
+insert into COCKTAIL values (3, 'Piña colada');
+----
 
 In DEV mode, Play will detect the change on the next request and offer
 to run the new script.
 
-image::http://blog.lunatech.com/2013/08/29/evolutions-test-data.png[Updated
+image:../media/2013-08-29-play-slick-evolutions/evolutions-test-data.png[Updated
 evolutions script]
 
 As you can see, Play will first run a `Downs` section that drops the
@@ -167,9 +194,12 @@ using H2 `create table cocktails` creates a table called `COCKTAILS`,
 not `cocktails`, which makes your queries fail at runtime if you use
 lower-case names in your Slick table definition:
 
-\{% highlight text %} [JdbcSQLException: Table ``cocktail'' not found;
-SQL statement: select x2.``id'', x2.``name'' from ``cocktail'' x2
-[42102-168]] \{% endhighlight %}
+
+[source,text,linenums]
+----
+[JdbcSQLException: Table "cocktail" not found; SQL statement: 
+select x2."id", x2."name" from "cocktail" x2 [42102-168]]
+----
 
 An alternative might be to have separate evolutions SQL scripts, but
 there isn’t an obvious way to do this and it’s duplication that you
@@ -210,10 +240,14 @@ only allows one date column to have a default value. This means that you
 have to add an additional update statement to fix the other column’s
 value.
 
-\{% highlight sql %} – MySQL syntax alter table COCKTAILS add column
-CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP; alter table
-COCKTAILS add column UPDATED TIMESTAMP; update COCKTAILS set UPDATED =
-CREATED where UPDATED = `0000-00-00 00:00:00'; \{% endhighlight %}
+
+[source,sql,linenums]
+----
+alter table COCKTAILS add column CREATED TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+alter table COCKTAILS add column UPDATED TIMESTAMP;
+update COCKTAILS set UPDATED = CREATED where UPDATED = '0000-00-00 00:00:00';
+----
+
 
 In general, you need to do something similar for every data model
 change: whenever you add or change a column, think about what the new
@@ -243,54 +277,60 @@ when the application starts in development mode. The following class is
 a Play `GlobalSettings` that does just that, based on the code from the
 play-slick’s `play.api.db.slick.SlickDDLPlugin` Play plug-in.
 
-\{% highlight scala %} import java.io.File import
-play.api.db.slick.plugin.TableScanner import play.api.libs.Files import
-play.api.\{Mode, Application, GlobalSettings}
 
-object Global extends GlobalSettings \{
+[source,scala,linenums]
+----
+import java.io.File
+import play.api.db.slick.plugin.TableScanner
+import play.api.libs.Files
+import play.api.{Mode, Application, GlobalSettings}
 
-private val configKey = ``slick'' private val ScriptDirectory =
-``conf/evolutions/'' private val CreateScript = ``create-database.sql''
-private val DropScript = ``drop-database.sql'' private val ScriptHeader
-= ``– SQL DDL script– Generated file - do not edit''
+object Global extends GlobalSettings {
 
-/** * Creates SQL DDL scripts on application start-up. */ override def
-onStart(application: Application) \{
+  private val configKey = "slick"
+  private val ScriptDirectory = "conf/evolutions/"
+  private val CreateScript = "create-database.sql"
+  private val DropScript = "drop-database.sql"
+  private val ScriptHeader = "-- SQL DDL script\n-- Generated file - do not edit\n\n"
 
-....
-if (application.mode != Mode.Prod) {
-  application.configuration.getConfig(configKey).foreach { configuration =>
-    configuration.keys.foreach { database =>
-      val databaseConfiguration = configuration.getString(database).getOrElse{
-        throw configuration.reportError(database, "No config: key " + database, None)
-      }
-      val packageNames = databaseConfiguration.split(",").toSet
-      val classloader = application.classloader
-      val ddls = TableScanner.reflectAllDDLMethods(packageNames, classloader)
+/**
+ * Creates SQL DDL scripts on application start-up.
+ */
+  override def onStart(application: Application) {
 
-      val scriptDirectory = application.getFile(ScriptDirectory + database)
-      Files.createDirectory(scriptDirectory)
+	if (application.mode != Mode.Prod) {
+	  application.configuration.getConfig(configKey).foreach { configuration =>
+		configuration.keys.foreach { database =>
+		  val databaseConfiguration = configuration.getString(database).getOrElse{
+			throw configuration.reportError(database, "No config: key " + database, None)
+		  }
+		  val packageNames = databaseConfiguration.split(",").toSet
+		  val classloader = application.classloader
+		  val ddls = TableScanner.reflectAllDDLMethods(packageNames, classloader)
 
-      writeScript(ddls.map(_.createStatements), scriptDirectory, CreateScript)
-      writeScript(ddls.map(_.dropStatements), scriptDirectory, DropScript)
-    }
+		  val scriptDirectory = application.getFile(ScriptDirectory + database)
+		  Files.createDirectory(scriptDirectory)
+
+		  writeScript(ddls.map(_.createStatements), scriptDirectory, CreateScript)
+		  writeScript(ddls.map(_.dropStatements), scriptDirectory, DropScript)
+		}
+	  }
+	}
+  }
+
+  /**
+   * Writes the given DDL statements to a file.
+   */
+  private def writeScript(ddlStatements: Seq[Iterator[String]], directory: File, 
+	fileName: String): Unit = {
+	
+	val createScript = new File(directory, fileName)
+	val createSql = ddlStatements.flatten.mkString("\n\n")
+	Files.writeFileIfChanged(createScript, ScriptHeader + createSql)
   }
 }
-....
+----
 
-}
-
-/** * Writes the given DDL statements to a file. */ private def
-writeScript(ddlStatements: Seq[Iterator[String]], directory: File,
-fileName: String): Unit = \{
-
-....
-val createScript = new File(directory, fileName)
-val createSql = ddlStatements.flatten.mkString("\n\n")
-Files.writeFileIfChanged(createScript, ScriptHeader + createSql)
-....
-
-} } \{% endhighlight %}
 
 This will create or update both scripts in the `conf/evolutions/default`
 directory (if changed). Add these files to version control, even though
@@ -301,7 +341,7 @@ they are generated, so that you get SQL diffs when you make changes.
 Now you have created an initial database and populated it with test
 data, you can:
 
-* http://blog.lunatech.com/2013/10/04/play-slick-executing-queries[execute
+* https://blog.lunatech.com/posts/2013-10-04-play-slick-executing-queries[execute
 database queries]
-* http://blog.lunatech.com/2014/01/24/slick-insert-data[insert], update
+* https://blog.lunatech.com/posts/2014-01-24-slick-insert-data[insert], update
 and delete data.

@@ -26,12 +26,12 @@ Source code: https://github.com/lunatech-labs/play-slick-examples.
 
 The most common way to insert data is probably to use mapped case
 classes, such as the ones in the
-http://blog.lunatech.com/tags/slick[previous tutorials]. Let’s start
+https://blog.lunatech.com/tags/slick[previous tutorials]. Let’s start
 with the table mapping from
-http://blog.lunatech.com/2013/11/21/slick-case-classes[Mapping Slick
+https://blog.lunatech.com/posts/2013-11-21-slick-case-classes[Mapping Slick
 query results to case classes], and paste this into a Play/Slick
 application’s Scala console (see
-http://blog.lunatech.com/2013/08/13/play-slick-scala-console[Using the
+https://blog.lunatech.com/posts/2013-08-13-play-slick-scala-console[Using the
 Scala console with Play and Slick]). First, add the case class:
 
 [source,scala,linenums]

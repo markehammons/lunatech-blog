@@ -1,3 +1,11 @@
+= Lunatech feeds Happy Melly  
+hilton
+v1.0, 2013-08-05
+:title: Lunatech feeds Happy Melly
+:tags: [case-study]
+
+Lunatech has started working with http://www.happymelly.com/[Happy Melly] to build a collaboration platform for their new business. Although we’re building software, CEO Jurgen Appelo thinks we’re more like food.
+
 Jurgen writes that you should
 http://www.noop.nl/2013/07/treat-your-suppliers-like-potato-wedges.html[Treat
 Your Suppliers Like Potato Wedges], in which he explains the benefits of

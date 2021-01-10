@@ -1,25 +1,13 @@
-[cols="",]
-|===
-|layout: article
+= Sdu Uitgevers - Sdu Web Services
+targeter
+v1.0, 2013-03-08
+:title: Sdu Uitgevers - Sdu Web Services
+:tags: [case-study,rest,xml]
 
-|title: Sdu Uitgevers - Sdu Web Services
-
-|tags: case-study REST XML
-
-|author: Sietse de Kaper
-
-|signature: Sietse de Kaper is a software developer at Lunatech.
-
-|summary: "Sdu Uitgevers hired Lunatech to design and develop a way to
-
-|unlock publications for use in their customers’ IT infrastructure. The
-main
-
-|goals were easy integration and full flexibility for customers. The
-result is
-
-|_Sdu WebServices_ (SWS)."
-|===
+Sdu Uitgevers hired Lunatech to design and develop a way to
+unlock publications for use in their customers' IT infrastructure. The main
+goals were easy integration and full flexibility for customers. The result is
+_Sdu WebServices_ (SWS).
 
 SWS is a REST-based web service hosted by Sdu Uitgevers that allows
 (third-party) client-applications to access the content of most core

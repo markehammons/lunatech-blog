@@ -1,10 +1,12 @@
-= Blog retrospective 2013
+= Lunatech blog retrospective - 2013
 hilton
 v1.0, 2014-06-13
-:title: Blog retrospective 2013
-:tags: [blog]
+:title: Lunatech blog retrospective - 2013
+:tags: [opinion]
 
-image::http://blog.lunatech.com/2013/05/27/sdu-royal-ten.jpg[Sdu Royal
+2013 brought even more firsts for projects, consultancy, technology and events than the previous year.
+
+image:../media/2013-05-27-sdu-royal-ten/sdu-royal-ten.jpg[Sdu Royal
 Ten - 10km business run]
 
 If there’s a pattern to what was new in 2013, it is perhaps increasing
@@ -14,21 +16,21 @@ than only using Scala, and more conferences than just Devoxx.
 
 == Software development
 
-http://blog.lunatech.com/2013/08/05/lunatech-feeds-happy-melly[Lunatech
+https://blog.lunatech.com/posts/2013-08-05-lunatech-feeds-happy-melly[Lunatech
 feeds Happy Melly] was, I think, the most import new thing in software
 development for us (as a company and as an industry) last year. Working
 with Happy Melly was our first taste of a different kind of
 customer-supplier relationship, combined with the next level of agile
 software development beyond Scrum, using Kanban with #NoEstimates.
 
-http://blog.lunatech.com/2013/07/22/playframework-training-certification[Fast
+https://blog.lunatech.com/posts/2013-07-22-playframework-training-certification[Fast
 Track to Play training certification] was perhaps a final step in
 applying our Play framework experience, followed only by finally
 publishing the http://www.manning.com/hilton/[Play for Scala] book in
 October 2013. Typesafe’s training certification is the formalised
 version of the Play consultancy that we were already selling.
 
-http://blog.lunatech.com/2013/04/19/good-bug-reports-come-in-four-parts[Good
+https://blog.lunatech.com/posts/2013-04-19-good-bug-reports-come-in-four-parts[Good
 bug reports come in four parts] was 2013’s entry in the `how everyone
 can do a thing better but unfortunately don’t care about' category. It
 would be nice if software development project team members did actually
@@ -38,7 +40,7 @@ IT.
 
 == Coding tutorials
 
-http://blog.lunatech.com/2013/01/24/ios-core-data-sqlite-full-text-search[iOS
+https://blog.lunatech.com/posts/2013-01-24-ios-core-data-sqlite-full-text-search[iOS
 full-text search with Core Data and SQLite] is Wolfert’s tutorial for
 iOS developers, based on work on an iOS application for one of our
 customers. This is the kind of technique that is probably too specific
@@ -65,15 +67,15 @@ is left as an exercise for the reader.
 
 == Events
 
-http://blog.lunatech.com/2013/03/07/summary-of-joy-of-coding-2013[The
+https://blog.lunatech.com/posts/2013-03-07-summary-of-joy-of-coding-2013[The
 Joy of Coding 2013] was the year’s first first - a cool new conference
 in Rotterdam that we really enjoyed.
 
-http://blog.lunatech.com/2013/05/27/sdu-royal-ten[Sdu Royal Ten - 10km
+https://blog.lunatech.com/posts/2013-05-27-sdu-royal-ten[Sdu Royal Ten - 10km
 business run] followed the previous team running event with another in
 the Hague, this time with an official photo (above).
 
-http://blog.lunatech.com/2013/04/28/clojure-meetup-at-lunatech[Lunatech
+https://blog.lunatech.com/posts/2013-04-28-clojure-meetup-at-lunatech[Lunatech
 Hosts and Sponsors Clojure Meetup] was the other first: Clojure
 developer events at Lunatech. Because there’s always a more obscure
 programming language with a single supporter in the company (Vijay) than

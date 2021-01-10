@@ -1,3 +1,13 @@
+= Executing database queries with Slick 1.0.1
+hilton
+v1.0, 2013-10-04
+:title: Executing database queries with Slick 1.0.1
+:tags: [slick,playframework]
+
+This tutorial shows you how to execute database queries in a
+    [Slick](http://slick.typesafe.com) application by building on the
+    [previous Slick tutorials](https://blog.lunatech.com/tags/slick).
+
 Once you’ve configured a Play application to use a database and defined
 a database table mapping, you don’t have to do much more to get a
 database connection and execute the query. The final ingredients are
@@ -21,7 +31,7 @@ Source code: https://github.com/lunatech-labs/play-slick-examples.
 == Creating a Play application with a database table
 
 First, follow the instructions in
-http://blog.lunatech.com/2013/08/08/play-slick-getting-started[Getting
+https://blog.lunatech.com/posts/2013-08-08-play-slick-getting-started[Getting
 started with Play and Slick], to create a new application, configure a
 database and set-up https://github.com/freekh/play-slick[play-slick].
 
@@ -29,13 +39,18 @@ In addition, add a database table mapping. For this example, keep things
 simple by defining a trivial table, in
 `app/models/database/Cocktails.scala`:
 
-\{% highlight scala %} package models.database
+[source,scala,linenums]
+----
+package models.database
 
 import play.api.db.slick.Config.driver.simple._
 
-private[models] class Cocktails extends Tablelink:%22COCKTAIL%22[(Long,
-String)] \{ def id = columnlink:%22ID%22[Long] def name =
-columnlink:%22NAME%22[String] def * = id ~ name } \{% endhighlight %}
+private[models] class Cocktails extends Table[(Long, String)]("COCKTAIL") {
+  def id = column[Long]("ID")
+  def name = column[String]("NAME")
+  def * = id ~ name
+}
+----
 
 Structurally, it’s useful to think of the `models.database` package as
 the part of the application model that interfaces with the database.
@@ -53,22 +68,24 @@ query results won’t be very interesting if you don’t have any data.
 To add data to the database, you could work out how to execute insert
 statements if you haven’t already, but it’s actually easier to run SQL
 scripts that load test data. To do this, follow the instructions in
-http://blog.lunatech.com/2013/08/29/play-slick-evolutions[Using Play
+http:s//blog.lunatech.com/posts/2013-08-29-play-slick-evolutions[Using Play
 framework database evolutions with Slick] to run the following
 `conf/evolutions/default/1.sql` evolutions script:
 
-\{% highlight sql %} # — !Ups
+[source,sql,linenums]
+----
+# --- !Ups
 
-create table ``COCKTAIL'' (``ID'' BIGINT NOT NULL,``NAME'' VARCHAR NOT
-NULL);
+create table "COCKTAIL" ("ID" BIGINT NOT NULL,"NAME" VARCHAR NOT NULL);
 
-insert into COCKTAIL values (1, `Margarita'); insert into COCKTAIL
-values (2, `Caipirinha'); insert into COCKTAIL values (3, `Piña
-colada');
+insert into COCKTAIL values (1, 'Margarita');
+insert into COCKTAIL values (2, 'Caipirinha');
+insert into COCKTAIL values (3, 'Piña colada');
 
-== — !Downs
+# --- !Downs
 
-drop table ``COCKTAIL''; \{% endhighlight %}
+drop table "COCKTAIL";
+----
 
 === Executing a simple query
 
@@ -76,19 +93,26 @@ Now you can add a simple model layer that will act as a facade for data
 access, by adding finder methods.
 
 In
-http://blog.lunatech.com/2013/09/25/play-slick-defining-queries[Defining
+https://blog.lunatech.com/posts/2013-09-25
+-play-slick-defining-queries[Defining
 database queries with Slick], you saw that you can define a simple query
 to select the name for each cocktail in the table:
 
-\{% highlight scala %} val query = Query(new Cocktails).map(_.name) \{%
-endhighlight %}
+
+[source,scala,linenums]
+----
+val query = Query(new Cocktails).map(_.name)
+----
 
 Defining the query like this doesn’t execute the query - there is no
 connection to the database yet. This only happens when you use the Slick
 API to access results:
 
-\{% highlight scala %} val names: List[String] = query.list \{%
-endhighlight %}
+[source,scala,linenums]
+----
+val names: List[String] = query.list
+----
+
 
 Note that since the query returns values for a single column, there is
 no need to think about how to map result rows to Scala objects. In this
@@ -110,10 +134,14 @@ that provides access to database connections in a Play application.
 
 Provide a Slick session to your query using `play.api.db.slick.DB`:
 
-\{% highlight scala %} import play.api.Play.current val names =
-play.api.db.slick.DB.withSession \{ implicit session:
-scala.slick.session.Session => Query(Cocktail.table).map(_.name).list }
-\{% endhighlight %}
+[source,scala,linenums]
+----
+import play.api.Play.current
+val names = play.api.db.slick.DB.withSession { implicit session: scala.slick.session.Session =>
+  Query(Cocktail.table).map(_.name).list
+}
+----
+
 
 You need the import statement to bring the current application into
 scope - as an implicit parameter to `play.api.db.slick.DB`, to provide
@@ -124,17 +152,25 @@ access to its database configuration.
 A good way to structure this in your application is to make this a
 _finder_ method in a model object. Create `app/models/Cocktail.scala`:
 
-\{% highlight scala %} package models
+[source,scala,linenums]
+----
+package models
 
-import models.database.Cocktails import play.api.Play.current import
-play.api.db.slick.Config.driver.simple._ import play.api.db.slick.DB
+import models.database.Cocktails
+import play.api.Play.current
+import play.api.db.slick.Config.driver.simple._
+import play.api.db.slick.DB
 import scala.slick.session.Session
 
-object Cocktail \{ val table = new Cocktails
+object Cocktail {
+  val table = new Cocktails
 
-def findNames: List[String] = DB.withSession \{ implicit session:
-Session => Query(Cocktail.table).map(_.name).list } } \{% endhighlight
-%}
+  def findNames: List[String] = DB.withSession { implicit session: Session =>
+	Query(Cocktail.table).map(_.name).list
+  }
+}
+----
+
 
 This approach allows you to separate the database table mapping in
 `models.database.Cocktails` from the higher-level data access layer that
@@ -147,18 +183,26 @@ layer, and that the query API already provides a natural data access
 layer. In that case, especially for the small application, you could
 just execute queries in the controller layer directly.
 
-\{% highlight scala %} def cocktails = Action \{ DB.withSession \{
-implicit session: Session => val names = Query(new
-Cocktails).map(_.name).list Ok(views.html.cocktails(names)) } } \{%
-endhighlight %}
+[source,scala,linenums]
+----
+def cocktails = Action {
+	DB.withSession { implicit session: Session =>
+		val names = Query(new Cocktails).map(_.name).list
+		Ok(views.html.cocktails(names))
+	}
+}
+----
 
 There’s lots of clutter there, which is why play-slick provides a
 `DBAction` that combines the `Action` and the call to `DB.withSession`:
 
-\{% highlight scala %} def cocktails = DBAction \{ implicit
-requestSession: DBSessionRequest => val names = Query(new
-Cocktails).map(_.name).list Ok(views.html.cocktails(names)) } \{%
-endhighlight %}
+[source,scala,linenums]
+----
+def cocktails = DBAction { implicit requestSession: DBSessionRequest =>
+  val names = Query(new Cocktails).map(_.name).list
+  Ok(views.html.cocktails(names))
+}
+----
 
 The implicit `DBSessionRequest` parameter is a wrapper for the
 `scala.slick.session.Session` together with the `play.api.mvc.Request`.
@@ -167,9 +211,9 @@ The implicit `DBSessionRequest` parameter is a wrapper for the
 
 Now you can execute queries, you can:
 
-* http://blog.lunatech.com/2013/11/21/slick-case-classes[map query
+* https://blog.lunatech.com/posts/2013-11-21-slick-case-classes[map query
 result tuples to case classes]
 * define join queries
 * define aggregate and group-by queries
-* http://blog.lunatech.com/2014/01/24/slick-insert-data[insert], update
+* https://blog.lunatech.com/posts/2014-01-24-slick-insert-data[insert], update
 and delete data.

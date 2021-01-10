@@ -1,3 +1,11 @@
+= iOS full-text search with Core Data and SQLite
+Wolfert
+v1.0, 2013-01-24
+:title: iOS full-text search with Core Data and SQLite
+:tags: [ios,full-text]
+
+This article will discuss the implementation of SQLite's FTS engine in an Core Data-based iOS application.
+
 == Introduction
 
 In a http://en.wikipedia.org/wiki/Full_text_search[full-text search],
@@ -41,7 +49,7 @@ containg the IDs retrieved by the FTS query. Results are displayed by a
 `searchDisplayController` in a `tableView`, ordered(`DESC`) based on
 their relevance ranking to the search query.
 
-Global architecture
+image:../media/2013-01-24-ios-core-data-sqlite-full-text-search/FTSArchitecture.png[Global architecture]
 
 == Pre-requisites:
 
@@ -81,9 +89,10 @@ virtual table should be created and filled simultaneously to the initial
 creation of the Core Data-database. When creating the virtual table
 specify that FTS is used:
 
-\{% highlight objectivec %} BOOL tableCreated = [_db
-executeUpdate:@``CREATE VIRTUAL TABLE ZUSERINDEX USING fts4(displayName,
-aboutMe, id);'']; \{% endhighlight %}
+[source,objectivec,linenums]
+----
+BOOL tableCreated = [_db executeUpdate:@"CREATE VIRTUAL TABLE ZUSERINDEX USING fts4(displayName, aboutMe, id);"];
+----
 
 The `_db` variable is an instance of FMDatabase. For convenience this
 instance could be placed in an Singleton object so that is accessible
@@ -93,15 +102,21 @@ From the searchDisplayController delegate method
 `shouldReloadTableForSearchString` I trigger the custom search method
 which executes an FTS select query on the virtual table.
 
-\{% highlight objectivec %} _result = [_db executeQuery:[NSString
-stringWithFormat:@"SELECT displayName, id FROM ZUSERINDEX WHERE
-ZUSERINDEX MATCH ’*%@*’ ORDER BY CustomRank(matchinfo(ZUSERINDEX))
-DESC;", searchText]]; \{% endhighlight %}
+
+[source,objectivec,linenums]
+----
+_result = [_db executeQuery:[NSString stringWithFormat:@"SELECT displayName, id FROM ZUSERINDEX WHERE ZUSERINDEX MATCH '*%@*' ORDER BY CustomRank(matchinfo(ZUSERINDEX)) DESC;", searchText]];
+
+----
 
 The function `CustomRank` is added to SQLite using following statement:
 
-\{% highlight objectivec %} sqlite3_create_function(db, ``CustomRank'',
-1, SQLITE_UTF8, NULL, &CustomRank, NULL, NULL); \{% endhighlight %}
+
+[source,objectivec,linenums]
+----
+sqlite3_create_function(db, "CustomRank", 1, SQLITE_UTF8, NULL, &CustomRank, NULL, NULL);
+
+----
 
 The db variable is the sqlite handle, which is exposed as a
 property(`sqliteHandle`) by FMDB. Following arguments are the name of
@@ -114,24 +129,26 @@ http://www.sqlite.org/fts3.html#matchinfo[`Matchinfo`] is an auxiliary
 function provided by SQLite which contains (amongst others), the column
 in which the phrase hit a match and the number of phrases:
 
-\{% highlight objectivec %} static void CustomRank(sqlite3_context
-*context, int argc, sqlite3_value **argv) \{ if (argc != 1)
-sqlite3_result_null(context); if (sqlite3_value_type(argv[0]) ==
-SQLITE_NULL) sqlite3_result_null(context);
 
-....
-int weight = 0;
-unsigned int *blob = (unsigned int *)sqlite3_value_blob(argv[0]);
+[source,objectivec,linenums]
+----
+static void CustomRank(sqlite3_context *context, int argc, sqlite3_value **argv) {
+	if (argc != 1)
+		sqlite3_result_null(context);
+	if (sqlite3_value_type(argv[0]) == SQLITE_NULL)
+		sqlite3_result_null(context);
 
-unsigned int numberOfPhrases = blob[0];
-unsigned int numberOfColumns = blob[1];
+	int weight = 0;
+	unsigned int *blob = (unsigned int *)sqlite3_value_blob(argv[0]);
+	
+	unsigned int numberOfPhrases = blob[0];
+	unsigned int numberOfColumns = blob[1];
+ 
+	// Ranking details left out.
 
-// Ranking details left out.
-
-sqlite3_result_int(context, weight);
-....
-
-} \{% endhighlight %}
+	sqlite3_result_int(context, weight);
+}
+----
 
 For each matching phrase in each column the weight is increased. Our
 ranking function `CustomRank` is written in C. It is of course possible
@@ -141,20 +158,28 @@ tricky to convert the arguments to the right types.
 This returns a FMDBResultset with the `id` column sorted by relevance as
 I defined it. I added the results in a `NSArray`.
 
-\{% highlight objectivec %} FMResultSet *rs = [_database
-executeQuery:SQLFetchRequest]; _displayNameArray = [NSMutableArray
-array]; _idArray = [NSMutableArray array]; while ([rs next]) \{
-[_displayNameArray addObject:[rs stringForColumn:@``displayname'']];
-[_idArray addObject:[rs stringForColumn:@``id'']]; } \{% endhighlight %}
+
+[source,objectivec,linenums]
+----
+FMResultSet *rs = [_database executeQuery:SQLFetchRequest];
+_displayNameArray = [NSMutableArray array];
+_idArray = [NSMutableArray array];
+while ([rs next]) {
+	[_displayNameArray addObject:[rs stringForColumn:@"displayname"]];
+	[_idArray addObject:[rs stringForColumn:@"id"]];
+}
+----
 
 The `TableViewDatasource` can be implemented to use these arrays as
 datasource and display their content in cells based on `indexPath.row`.
 When a cell is selected I query Core Data for the actual object based on
 the object id from `_idArray` using the following predicate:
 
-\{% highlight objectivec %} [NSPredicate
-predicateWithFormat:@``identifier = %@'', [_idArray
-objectAtIndex:indexPath.row]]; \{% endhighlight %}
+
+[source,objectivec,linenums]
+----
+[NSPredicate predicateWithFormat:@"identifier = %@", [_idArray objectAtIndex:indexPath.row]];
+----
 
 The result is a `tableView` with search option that responsively
 displays full-text search results in order of their relevance.
@@ -172,7 +197,17 @@ was given.
 The screenshots below show the perfomance gain over the Core Data
 queries:
 
+image:../media/2013-01-24-ios-core-data-sqlite-full-text-search/FTSMATCH.png[FTS Match performance]
+
+image:../media/2013-01-24-ios-core-data-sqlite-full-text-search/FTSMatch_allocs.png[FTS Match memory usage]
+
 SQLites Full-text search.
+
+image:../media/2013-01-24-ios-core-data-sqlite-full-text-search/CoreDataCD.png[Coredata CONTAINS\[\cd] performance]
+
+
+image:../media/2013-01-24-ios-core-data-sqlite-full-text-search/CoreDataCD_allocs.png[Coredata CONTAINS\[cd\] memory usage]
+
 
 Core Data with `contains[cd]` predicate.
 
