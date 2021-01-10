@@ -1,12 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Validation in Scala" tags: Scala validation author:
-Bart Schuller summary: "When you start your journey in the land of
+= Validation in Scala
+bastschuller
+v1.0, 2012-03-02
+:title: Validation in Scala
+:tags: [scala,validation]
+
+
+When you start your journey in the land of
 Scala, you’ll often receive the friendly advice to not wander in the
-woods of [Scalaz](http://code.google.com/p/scalaz/) (pronounced
+woods of http://code.google.com/p/scalaz/[Scalaz] (pronounced
 Scala-*zed*), because there’s nothing of interest for beginners there
 and you’ll most likely get lost. It’s certainly possible to get lost,
 but this article will show you that it’s possible to pick just a few
-things that give you immediate benefit." ---
+things that give you immediate benefit.
 
 The subject of this trip is _Validation_: how to represent a computation
 which can either give a result, or a failure message. Or rather: how to
@@ -20,8 +25,13 @@ birth date and an address:
 
 === Person.scala
 
-\{% highlight scala %} import java.util.Date case class Person(name:
-String, birthDate: Date, address: List[String]) \{% endhighlight %}
+
+[source,scala,linenums]
+----
+import java.util.Date
+case class Person(name: String, birthDate: Date, address: List[String])
+----
+
 
 We would now like to construct `Person` objects given a string with
 components separated by a semicolon, for instance a CSV file. You can
@@ -33,9 +43,12 @@ imagine this parse failing in a number of ways:
 
 Our test data looks like this:
 
-\{% highlight scala %} val bad = "Name Only" val partial = "Joe
-Colleague;1974-??-??;Rotterdam" val good = "Bart
-Schuller;2012-02-29;Some Street 123, Some Town" \{% endhighlight %}
+[source,scala,linenums]
+----
+val bad = "Name Only"
+val partial = "Joe Colleague;1974-??-??;Rotterdam"
+val good = "Bart Schuller;2012-02-29;Some Street 123, Some Town"
+----
 
 == Types
 
@@ -75,11 +88,16 @@ normal java way of parsing a `Date`, where failure is indicated by
 returning `null`. We test for that and generate a nice failure message
 instead:
 
-\{% highlight scala %} def parseDate(in: String): ValidationNEL[String,
-Date] = \{ val sdf = new SimpleDateFormat("yyyy-MM-dd") sdf.parse(in,
-new ParsePosition(0)) match \{ case null => ("Can’t parse ["+in+"] as a
-date").failNel[Date] case date => date.successNel[String] } } \{%
-endhighlight %}
+[source,scala,linenums]
+----
+def parseDate(in: String): ValidationNEL[String, Date] = {
+  val sdf = new SimpleDateFormat("yyyy-MM-dd")
+  sdf.parse(in, new ParsePosition(0)) match {
+    case null => ("Can’t parse ["+in+"] as a date").failNel[Date]
+    case date => date.successNel[String]
+  }
+}
+----
 
 As you can see, you can create a `Failure` from anything, by calling
 `failNel[B]` on it, where B is the type you’d rather have. Conversely,
@@ -104,22 +122,29 @@ For each component we now want to specify what to return when we have a
 string, and what failure to generate when we have nothing. The `fold`
 method which Scalaz adds to `Option` does just that.
 
-\{% highlight scala %} def parsePerson(in: String):
-ValidationNEL[String, Person] = \{ val components = in.split(';').lift
-val name = components(0).fold(_.successNel[String], "No name
-found".failNel[String]) val date = components(1).fold(parseDate(_), "No
-date found".failNel[Date]) val address =
-components(2).fold(parseAddress(_), "No address
-found".failNel[List[String]]) … \{% endhighlight %}
+[source,scala,linenums]
+----
+def parsePerson(in: String): ValidationNEL[String, Person] = {
+  val components = in.split(';').lift
+  val name = components(0).fold(_.successNel[String], "No name found".failNel[String])
+  val date = components(1).fold(parseDate(_), "No date found".failNel[Date])
+  val address = components(2).fold(parseAddress(_), "No address found".failNel[List[String]])
+  …
+----
 
 `parseAddress` splits the given string again on comma and whitespace,
 checking that we have at least two address lines:
 
-\{% highlight scala %} def parseAddress(in: String):
-ValidationNEL[String,List[String]] = \{ val address = in.split(",\\s*")
-if (address.length > 1) address.toList.successNel[String] else ("An
-address needs to have a street and a city, separated by a comma; found
-["+in+"]").failNel[List[String]] } \{% endhighlight %}
+[source,scala,linenums]
+----
+def parseAddress(in: String): ValidationNEL[String,List[String]] = {
+  val address = in.split(",\\s*")
+  if (address.length > 1)
+    address.toList.successNel[String]
+  else
+    ("An address needs to have a street and a city, separated by a comma; found ["+in+"]").failNel[List[String]]
+}
+----
 
 [[combining]]
 == Combining Validations
@@ -133,8 +158,10 @@ expression should be something like
 
 === parsePerson, continued
 
-\{% highlight scala %} (name |@| date |@| address) \{ Person(_, _, _) }
-\{% endhighlight %}
+[source,scala,linenums]
+----
+(name |@| date |@| address) { Person(_, _, _) }
+----
 
 The `|@|` operator (sometimes written as the unicode character `⊛`) is
 the combinator we’re looking for: it combines validations into a single
@@ -147,11 +174,20 @@ constructor.
 
 To wrap it up, here’s how to call parsePerson and handle the result:
 
-\{% highlight scala %} def tryParse(s: String) \{ parsePerson(s) match
-\{ case Success(p) => \{ println("Succesfully parsed a person: " + p) }
-case Failure(f) => \{ println("Parsing failed, with the following
-errors:") f foreach \{ error => println(" " + error) } } } } \{%
-endhighlight %}
+[source,scala,linenums]
+----
+def tryParse(s: String) {
+  parsePerson(s) match {
+    case Success(p) => {
+      println("Succesfully parsed a person: " + p)
+    }
+    case Failure(f) => {
+      println("Parsing failed, with the following errors:")
+      f foreach { error => println("  " + error) }
+    }
+  }
+}
+----
 
 [[conclusion]]
 == Contrast and Conclusion
@@ -175,8 +211,5 @@ You don’t need to know the fancy names to use the library though.
 The complete source code for this tutorial is available on github:
 https://github.com/bartschuller/scalaz-validation-example
 
-link:/author/bart-schuller[Bart Schuller]
-(https://twitter.com/BartSchuller[@BartSchuller]) works at Lunatech
-Research.
 
 http://news.ycombinator.com/item?id=3656152[This article] at Hacker News

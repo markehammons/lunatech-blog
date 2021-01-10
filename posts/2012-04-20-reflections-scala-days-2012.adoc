@@ -1,3 +1,11 @@
+= Reflections on Scala Days 2012
+eamelink
+v1.0, 2012-04-20
+:title: Reflections on Scala Days 2012
+:tags: [playframework,scala,event]
+
+This week was the week of http://days2012.scala-lang.org/[Scala Days 2012]. Rainy London was the stage for almost two full days of Scala talks, discussions, meets and greets with the people you know mostly by their Twitter name and chats with other Scala developers.
+
 Or daytime Java developers doing Scala for personal projects, because it
 turns out that a fair chunk of the attendees can’t use Scala (yet) in
 their daily work. Especially consultants that join teams on existing

@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Transparent development and the project management
-renaissance" tags: project-management author: Peter Hilton summary: "In
-his [Reinventing Business](http://www.reinventing-business.com/)
-presentation at [geecon](http://2012.geecon.org/) last month, Bruce
+= Transparent development and the project management
+hilton
+v1.0, 2012-06-04
+:title: Transparent development and the project management
+:tags: [project-management,methodology]
+
+
+In his http://www.reinventing-business.com/[Reinventing Business]
+presentation at http://2012.geecon.org[geecon] last month, Bruce
 Eckel suggested that improving how companies operate requires
 experimentation. Since then, I’ve been wondering whether the absence of
 dedicated project management at Lunatech is a reproducible experiment,
-rather than a random exception to the norm in software development." ---
+rather than a random exception to the norm in software development.
 
 Hypothesis: transparency and better communication let development teams
 be self-managing.
@@ -122,10 +126,4 @@ about this particular experiment, or would you need more detail on which
 specific practices can make this possible, such as exactly how you get
 rid of status meetings and customer status reports?
 
-_link:/author/peter-hilton[Peter Hilton], who only has one stamp in his
-merchant seaman’s discharge book, will be presenting
-http://topconf.com/Conference/Abstracts/Transparentdevelopmentandtheprojectmanagement/tabid/141/language/en-US/Default.aspx[Transparent
-development and the project management renaissance] at Topconf Tallinn
-2012 in November. Peter is a senior software developer and Operations
-Director at Lunatech Research, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._
+

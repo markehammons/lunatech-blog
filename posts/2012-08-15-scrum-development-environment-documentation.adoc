@@ -1,8 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Scrum project documentation - development
-environment set-up" tags: delivery Scrum author: Peter Hilton summary:
-"A software development team needs ‘development environment set-up
-guide’ documentation; if they’re good it’ll be short." ---
+
+= Scrum project documentation - development environment set-up
+hilton
+v1.0, 2012-08-15
+:title: Scrum project documentation - development
+environment set-up
+:tags: [scrum,methodology]
+
+A software development team needs ‘development environment set-up
+guide’ documentation; if they’re good it’ll be short.
 
 [[new]]
 == Documentation for new team members
@@ -87,8 +92,3 @@ word-processors and paper - we mean a project wiki. Obviously.
 
 https://plus.google.com/107170847819841716154/posts/7CdQQN661q2[Comments
 on Google+]
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._

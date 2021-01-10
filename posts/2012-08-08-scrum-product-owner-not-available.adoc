@@ -1,8 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Scrum when the product owner is not available" tags:
-delivery Scrum author: Peter Hilton summary: "Scrum theory tells you to
+= Scrum when the product owner is not available
+hilton
+v1.0, 2012-08-08
+:title: Scrum when the product owner is not available
+environment set-up
+:tags: [scrum,methodology]
+
+Scrum theory tells you to
 expect the Product Owner to be in the room; in practice, team members
-may need to stalk the Product Owner." ---
+may need to stalk the Product Owner.
 
 In theory, the Product Owner is ‘always available’. Ain’t gonna happen.
 
@@ -74,7 +79,3 @@ later.
 https://plus.google.com/107170847819841716154/posts/gSACGVpSo6E[Comments
 on Google+]
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._

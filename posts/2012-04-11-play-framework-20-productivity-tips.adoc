@@ -1,3 +1,11 @@
+= Play Framework 2.0 productivity tips
+ludofischer
+v1.0, 2012-04-11
+:title: Play Framework 2.0 productivity tips
+:tags: [playframework,scala]
+
+Curious about http://www.playframework.org/documentation/2.0/Philosophy[Play 2.0] but not sure where to start? Here are some tips to make the most of your experience developing with Play 2.0.
+
 == Use continuous compilation mode
 
 In development mode, Play 2.0 automatically checks if the code has been

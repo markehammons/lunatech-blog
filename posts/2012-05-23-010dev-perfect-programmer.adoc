@@ -1,17 +1,22 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Lunatech presents at 010DEV" tags: presentation
-event author: Peter Hilton summary: "This week, on 25 May 2012, Peter
-Hilton will present *In search of the perfect programmer* at
-[010DEV](http://010dev.nl/). In Rotterdam, obviously." ---
+= Lunatech presents at 010DEV
+hilton
+v1.0, 2012-05-23
+:title: Lunatech presents at 010DEV
+renaissance
+:tags: [event]
 
-http://010dev.nl/[image:010dev-banner.jpg[010DEV]]
+This week, on 25 May 2012, Peter
+Hilton will present *In search of the perfect programmer* at
+http://010dev.nl/[010DEV]. In Rotterdam, obviously.
+
+http://010dev.nl/[image:../media/2012-05-23-010dev-perfect-programmer/010dev-banner.jpg[010DEV]]
 
 The perfect programmer is something a lot of people have an opinion
 about. Being able to code is the only non-optional skill, but here are
 plenty other things you can be sufficiently bad at to make your project
 fail. What is the ideal background for a programmer?
 
-image:perfect-programmer.jpg[In search of the perfect programmer]
+image:../media/2012-05-23-010dev-perfect-programmer/perfect-programmer.jpg[In search of the perfect programmer]
 
 These days, it’s somewhat obvious to people in the software development
 industry that good software gets built by multidisciplinary teams. The
@@ -25,7 +30,3 @@ software developer to do?
 _In search of the perfect programmer_ asks these questions and more.
 Come and join the conversation at 010DEV.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project and
-co-author of the book http://bit.ly/playforscala[Play for Scala]
-(Manning)._

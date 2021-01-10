@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Øredev - recommended presentations" tags:
-presentation conference author: Peter Hilton summary: "While [I was at
-Øredev](http://blog.lunatech.com/2012/11/14/oredev-2012-playframework-video)
+= Øredev - recommended presentations
+hilton
+v1.0, 2012-11-22
+:title: Øredev - recommended presentations
+:tags: [conference]
+
+While http://blog.lunatech.com/2012/11/14/oredev-2012-playframework-video[I was at
+Øredev]
 earlier this month I took the opportunity to talk to the other speakers
 and catch some good presentations. For everyone who wasn’t there, Øredev
-have published the slides and video from the presentations at [Øredev
-Conference on Vimeo](http://vimeo.com/user4280938). Here are some
-recommendations." ---
+have published the slides and video from the presentations at http://vimeo.com/user4280938[Øredev
+Conference on Vimeo]. Here are some
+recommendations.
 
 Note that some of the presentations take several slides to get going,
 and the track hosts’ introductions don’t really add much, so the
@@ -141,8 +145,3 @@ excellent conversations when you were actually there.
 
 https://plus.google.com/107170847819841716154/posts/EVLVfk1Emz9[Comments
 on Google+]
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, committer on the Play open-source project and
-co-author of the book http://bit.ly/playforscala[Play for Scala]
-(Manning)._

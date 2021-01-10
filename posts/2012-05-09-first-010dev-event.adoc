@@ -1,4 +1,12 @@
-http://010dev.nl/[image:010dev-banner.jpg[010dev]]
+= First 010DEV event
+hilton
+v1.0, 2012-05-09
+:title: First 010DEV event
+:tags: [event]
+
+This month we are launching the first 010DEV event, a new social-tech event for software developers. The goal of 010DEV is to create a vibrant software development community in the Rotterdam area. Our first event includes a hard-core technical presentation by Trisha Gee, a less serious presentation by Peter Hilton, and plenty of free* beer.
+
+http://010dev.nl/[image:../media/2012-05-09-first-010dev-event/010dev-banner.jpg[010dev]]
 
 Event details:
 

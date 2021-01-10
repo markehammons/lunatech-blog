@@ -1,10 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Essential Scrum hardware - lots of whiteboards"
-tags: delivery Scrum author: Peter Hilton summary: "In case you’re
-wondering how many whiteboards your Scrum team members need, the correct
-answer is ‘one each’." ---
+= Essential Scrum hardware - lots of whiteboards
+hilton
+v1.0, 2012-08-10
+:title: Essential Scrum hardware - lots of whiteboards
+environment set-up
+:tags: [scrum,methodology]
 
-image:whiteboard.jpg[One person’s whiteboard]
+In case you’re
+wondering how many whiteboards your Scrum team members need, the correct
+answer is ‘one each’.
+
+image:../media/2012-08-10-scrum-hardware-whiteboards/whiteboard.jpg[One person’s whiteboard]
 
 [[scrum]]
 == The Scrum board is not a whiteboard
@@ -62,7 +67,3 @@ have fewer whiteboards than people then you don't have enough.
 https://plus.google.com/107170847819841716154/posts/VDBWUNxc3wN[Comments
 on Google+]
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._

@@ -61,25 +61,25 @@ start using new technology on their new projects.
 
 == Events
 
-http://blog.lunatech.com/2011-08-02-first-playground-netherlands[First
+https://blog.lunatech.com/posts/2011-08-02-first-playground-netherlands[First
 Play!ground in the Netherlands] was the first of several Play Framework
 events, after we moved our focus from Java EE technologies, with largely
 the same format (and attendees) as previous JBoss User Group events.
 
-http://blog.lunatech.com/2011-10-04-duse-xiv-meetup[Duse XIV at Lunatech
+https://blog.lunatech.com/posts/2011-10-04-duse-xiv-meetup[Duse XIV at Lunatech
 Research], meanwhile, was the first Scala event at Lunatech, reflecting
 growing interest and experimentation and the first small-case use of
 Scala on customer projects.
 
-http://blog.lunatech.com/2011-09-05-playframework-javazone-2011[Lunatech
+https://blog.lunatech.com/posts/2011-09-05-playframework-javazone-2011[Lunatech
 presents Play Framework at JavaZone 2011] was another first - the first
 of many international Play Framework presentations, for which Nicolas
 and I travelled to Norway. JavaZone turned out to be an excellent
 conference, although the local beer at the speakers’ dinner was perhaps
 too good.
 
-http://blog.lunatech.com/2011-08-15-riviera-dev[Riviera DEV] was a new
+https://blog.lunatech.com/posts/2011-08-15-riviera-dev[Riviera DEV] was a new
 RivieraJUG event in the South of France that was also the next outing
 for a Play presentation, by Nicolas. See
-http://blog.lunatech.com/2011-10-24-lunatech-rivieradev[Lunatech at the
+https://blog.lunatech.com/posts/2011-10-24-lunatech-rivieradev[Lunatech at the
 RivieraDEV] for the slides.

@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "The double-sided Scrum board" tags: delivery
-Scrum-guide author: Peter Hilton summary: "In theory, Scrum is a
+= The double-sided Scrum board
+hilton
+v1.0, 2012-07-29
+:title: The double-sided Scrum board
+:tags: [scrum,methodology]
+
+In theory, Scrum is a
 collection of simple practices. It sounds easy, but Reality Scrum™ is a
 game of compromise and adapting Scrum principles to the situation at
 hand. Constraints breed creativity, and that’s where interesting new
-ideas come from. Like the double-sided Scrum board." ---
+ideas come from. Like the double-sided Scrum board.
 
-image:double-sided-scrum-board.jpg[A double-sided scrum board]
+image:../media/2012-07-29-double-sided-scrum-bord/double-sided-scrum-board.jpg[A double-sided scrum board]
 
 [[room]]
 == The Scrum Board doesn’t fit in the room
@@ -99,7 +103,4 @@ information.
 https://plus.google.com/107170847819841716154/posts/ja13Pf1t7hC[Comments
 on Google+]
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._
+

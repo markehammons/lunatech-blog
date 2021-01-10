@@ -197,6 +197,8 @@ Here’s the SQL for a trivial query:
 
 [source,scala,linenums]
 ----
+scala> Query(new Cocktails).selectStatement
+res2: String = select x2."ID", x2."NAME" from "COCKTAIL" x2
 ----
 
 Note: table names are quoted, which makes the names case-sensitive in

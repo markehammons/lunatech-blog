@@ -1,10 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Fact Type Hierarchies in Drools" tags: Drools
-author: Sander Ufkes summary: "Although Drools is Java-oriented and
+= Fact Type Hierarchies in Drools
+ufkes
+v1.0, 2012-03-21
+:title: Fact Type Hierarchies in Drools
+:tags: [drools,java]
+
+
+Although Drools is Java-oriented and
 provides the ability to handle facts in an object-oriented manner thanks
 to the ReteOO optimized algorithm, there is always room for improvement.
 Drools 5.3+ offers us *Traits* for solving some emergent limitations of
-Drools: Fact Type hierarchies." ---
+Drools: Fact Type hierarchies.
 
 This article describes an experimental new Drools Rule Language feature
 in Drools 5.3.
@@ -79,6 +84,3 @@ work in a more complicated project.
 
 Since the feature is also still 'experimental', it may be too soon to
 judge the syntax. Fortunately it does look quite promising.
-
-_link:/author/sander-ufkes[Sander Ufkes] is a software developer at
-Lunatech Research._

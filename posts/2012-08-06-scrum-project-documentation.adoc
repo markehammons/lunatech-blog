@@ -1,8 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Scrum software project documentation" tags: delivery
-Scrum author: Peter Hilton summary: "A Scrum development team doesn’t
+= Scrum software project documentation
+hilton
+v1.0, 2012-08-06
+:title: Scrum software project documentation environment set-up
+:tags: [scrum,methodology]
+
+A Scrum development team doesn’t
 (necessarily) need any documentation, but there are usually other
-stakeholders who do." ---
+stakeholders who do.
 
 Scrum is concerned with getting working software built. Like other agile
 software development methods, Scrum prioritises ‘working software’ over
@@ -107,7 +111,3 @@ this is one of them.
 https://plus.google.com/107170847819841716154/posts/McycFSutKFX[Comments
 on Google+]
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._

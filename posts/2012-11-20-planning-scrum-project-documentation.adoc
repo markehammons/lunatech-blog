@@ -1,8 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Planning Scrum project documentation" tags: Scrum
-documentation author: Peter Hilton summary: "A Scrum team and external
+= Planning Scrum project documentation
+hilton
+v1.0, 2012-11-20
+:title: Planning Scrum project documentation
+:tags: [scrum,methodology]
+
+A Scrum team and external
 stakeholders must agree how much time to spend on documentation; ‘none’
-is almost certainly the wrong answer." ---
+is almost certainly the wrong answer
 
 [[where]]
 == Where’s the documentation?

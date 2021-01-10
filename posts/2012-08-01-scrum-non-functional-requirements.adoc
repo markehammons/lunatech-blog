@@ -1,8 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Scrum and non-functional requirements" tags:
-delivery Scrum author: Peter Hilton summary: "Scrum doesn’t help you
+= Scrum and non-functional requirements
+hilton
+v1.0, 2012-08-01
+:title: Scrum and non-functional requirements
+:tags: [scrum,methodology]
+
+Scrum doesn’t help you
 with non-functional requirements, but that doesn’t mean you’re supposed
-to ignore them" ---
+to ignore them
 
 When you work on a Scrum project, you tend to focus on implementing the
 next set of features. After all, that’s pretty much the whole point of
@@ -89,8 +93,3 @@ sprint, and ‘performance improvements’ in every release.
 
 https://plus.google.com/107170847819841716154/posts/Q1fe53bufso[Comments
 on Google+]
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research, currently coaching a Scrum team for one of
-Lunatech’s customers, and co-author of the book
-http://bit.ly/playforscala[Play for Scala] (Manning)._

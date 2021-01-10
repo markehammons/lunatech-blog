@@ -1,10 +1,18 @@
+= Review - Drools Developer’s Cookbook
+hilton
+v1.0, 2012-05-06
+:title: Review - Drools Developer’s Cookbook
+:tags: [drools,books]
+
+This article is a review of http://www.packtpub.com/drools-developers-using-jboss-cookbook/book[Drools Developer’s Cookbook], a new book from Pack Publishing’s Open Source brand by http://lucazamador.wordpress.com/[Lucas Amador], based on Drools 5.2.0-Final.
+
 *Despite issues with the cookbook format, this is a useful book full of
 rich technical content: recommended for any Java developer working on a
 JBoss Rules implementation project.*
 
 == Introduction
 
-http://www.packtpub.com/drools-developers-using-jboss-cookbook/book[image:drools-developers-cookbook-cover.jpg[Drools
+http://www.packtpub.com/drools-developers-using-jboss-cookbook/book[image:../media/2012-05-07-review-drools-developer-cookbook/drools-developers-cookbook-cover.jpg[Drools
 Developer’s Cookbook]]
 
 This book is the latest in a handful of books about the JBoss Rules
