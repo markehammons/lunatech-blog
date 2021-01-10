@@ -1,14 +1,18 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Logging rule activation with Drools" tags: Drools
-cookbook author: Peter Hilton summary: "This article shows another
+= Logging rule activation with Drools
+hilton
+v1.0, 2011-09-26
+:title: Logging rule activation with Drools
+:tags: [java,drools]
+
+This article shows another
 simple Drools logging technique. This is a recipe from the *Lunatech
 Drools Cookbook* - recipes for effective
-[Drools](http://www.jboss.org/drools) use." ---
+http://www.jboss.org/drools[Drools] use.
 
 == Problem
 
 One of the reasons that you want to
-http://blog.lunatech.com/2011/09/02/logging-debug-drools[log debug
+https://blog.lunatech.com/posts/2011-09-02-logging-debug-drools[log debug
 messages] from your rules is that you just want to see which rules are
 activated, how many times and in which order. This is frequently part of
 debugging a set of rules and part of understanding how a particular rule
@@ -93,5 +97,4 @@ it easy to filter the logging in the Log4J configuration. You can
 configure the log output to only include the subset of rules you are
 interested in.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research._
+

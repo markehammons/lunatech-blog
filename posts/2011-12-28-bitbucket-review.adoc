@@ -1,13 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "BitBucket review" tags: review code-hosting
-collaboration author: Sietse de Kaper summary:
-"[BitBucket](http://www.bitbucket.org) is a source code repository
-hosting solution by [Atlassian](http://www.atlassian.com). Besides
-repository hosting, it also offers issue tracking and wikis. We are
-currently considering BitBucket as a [Gitorious](http://gitorious.org/
-\"Gitorious\") replacement." ---
+= BitBucket review
+targeter
+v1.0, 2011-12-28
+:title: BitBucket review
+:tags: [code-hosting]
 
-[[structure]]
+
+http://www.bitbucket.org[BitBucket] is a source code repository
+hosting solution by http://www.atlassian.com[Atlassian]. Besides
+repository hosting, it also offers issue tracking and wikis. We are
+currently considering BitBucket as a http://gitorious.org/[Gitorious] replacement." ---
+
+
 == Hierarchical structure
 
 The main hierarchical unit in BitBucket is a repository. That’s also the
@@ -25,7 +28,7 @@ that repository (see below). Users with access to a repository can fork
 and/or watch it. Forking allows users to create pull requests for the
 original repository.
 
-[[access]]
+
 == Access control
 
 Access to the repositories is configured per-repository, by the owning
@@ -47,7 +50,7 @@ checking out the wiki as a git repository, or through an editor built
 into Bitbucket. There’s a pretty decent Creole editor and preview
 functionality.
 
-[[tracker]]
+
 == Issue tracker
 
 A BitBucket repo can have issue tracker. On creation, tickets have

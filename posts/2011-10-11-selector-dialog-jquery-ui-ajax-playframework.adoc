@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Selector dialogue with jQuery UI, Ajax and Play"
-tags: playframework JQuery author: Peter Hilton summary: "This article
-shows you how to use a [jQuery UI](http://jqueryui.com/) component and
+= Selector dialogue with jQuery UI, Ajax and Play
+hilton
+v1.0, 2011-10-11
+:title: Selector dialogue with jQuery UI, Ajax and Play
+:tags: [playframework,jquery]
+
+This article
+shows you how to use a http://jqueryui.com/[jQuery UI] component and
 Ajax to implement a dialogue box (a.k.a. ‘a dialog’) that contains a
-selector in a [Play framework](http://www.playframework.org/) web
+selector in a http://www.playframework.org/[Play framework] web
 application. You frequently need one of these for web page forms where
 you need to select something for a list of thousands of values, such as
-selecting a person from a table of ten thousand employees." ---
+selecting a person from a table of ten thousand employees.
 
 This follows on from two earlier articles about jQuery UI components:
 http://blog.lunatech.com/2011/07/05/jquery-ui-ajax-autocomplete-playframework[jQuery
@@ -17,7 +21,7 @@ loading page content with jQuery UI, Ajax and Play].
 For this article, we use the simpler example of selecting a time zone
 from a table:
 
-image:jqueryui-dialog.png[Screen shot: input field and selector dialog]
+image:../media/2011-10-11-selector-dialog-jquery-ui-ajax-playframework/jqueryui-dialog.png[Screen shot: input field and selector dialog]
 
 This article’s examples and source code are available as part of the
 Play framework http://www.playframework.org/modules/jqueryui[jQuery UI
@@ -132,5 +136,4 @@ useful technique - a specific example of making a richer more
 sophisticated user-interface, but in a simple way that any developer can
 understand.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
+

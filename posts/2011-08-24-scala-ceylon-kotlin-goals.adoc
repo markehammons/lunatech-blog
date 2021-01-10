@@ -1,18 +1,23 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Own goals - Scala vs Ceylon vs Kotlin" tags: Scala
-author: Peter Hilton summary: "For various reasons, there is a lot of
+
+= Own goals - Scala vs Ceylon vs Kotlin
+hilton
+v1.0, 2011-08-24
+:title: Own goals - Scala vs Ceylon vs Kotlin
+:tags: [ceylon,scala,kotlin,opinion]
+
+For various reasons, there is a lot of
 discussion going on about new programming languages that run on the Java
 Virtual Machine (JVM). Some of the discussion about
-[Scala](http://en.wikipedia.org/wiki/Scala_(programming_language)),
-[Ceylon](http://en.wikipedia.org/wiki/Ceylon_Project) and
-[Kotlin](http://en.wikipedia.org/wiki/Kotlin_(programming_language))
+http://en.wikipedia.org/wiki/Scala_(programming_language)[Scala],
+http://en.wikipedia.org/wiki/Ceylon_Project[Ceylon] and
+http://en.wikipedia.org/wiki/Kotlin_(programming_language)[Kotlin]
 includes the idea that we do not need all three. After all, if you want
-to use a better language than Java, one will do, right?" ---
+to use a better language than Java, one will do, right?
 
 For example, the following joke task (now pulled) on the Kotlin
 project’s issue tracker suggests merging with Ceylon.
 
-image:merge-with-ceylon.png[Merge with Ceylon - Kotlin issue tracker]
+image:../media/2011-08-24-scala-ceylon-kotlin-goals/merge-with-ceylon.png[Merge with Ceylon - Kotlin issue tracker]
 
 As far as I can tell, the many discussions comparing the languages
 aren’t really going anywhere because language design is about tradeoffs.

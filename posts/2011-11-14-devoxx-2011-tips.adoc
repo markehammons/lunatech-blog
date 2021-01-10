@@ -1,10 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Devoxx 2011 tips" tags: conference author: Peter
-Hilton summary: "Last year I published [10 Devoxx
-tips](http://blog.lunatech.com/2010/11/23/10-devoxx-tips). You probably
-need these tips again this week, as well as updates for this year." ---
+= Devoxx 2011 tips
+hilton
+v1.0, 2011-11-14
+:title: Devoxx 2011 tips
+:tags: [event]
 
-image:kulminator.jpg[image]
+
+Last year I published https://blog.lunatech.com/posts/2010-11-23-10-devoxx-tips[10 Devoxx
+tips]. You probably
+need these tips again this week, as well as updates for this year.
+
+image:../media/2011-11-14-devoxx-2011-tips/kulminator.jpg[image]
 
 == Kulminator closed!
 
@@ -35,5 +40,3 @@ with Play/Scala, CoffeeScript and Jade], room 5, Thursday 14:00
 * http://blog.lunatech.com/2011/11/11/play-framework-meet-devoxx[Play
 framework meet-up], AXXES Café, Thursday 20:00
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

@@ -1,12 +1,18 @@
+= Play 2.0 demo - live coding script
+hilton
+v1.0, 2011-12-08
+:title: Play 2.0 demo - live coding script
+:tags: [java,playframework]
+
 --- layout: article drupal-format: Unfiltered HTML, with syntax
 highlighter title: "Play 2.0 demo - live coding script" tags:
 playframework author: Peter Hilton summary: "The best way to introduce
 Play to an audience is to show them how it works in the kind of
 live-coding demo that lets people see for themselves how easy it is.
 Here is a Play 2.0 (Java) version of last year’s [Play 1.x live coding
-script](http://blog.lunatech.com/2010/06/14/how-demo-play-framework-live-coding-script),
+script](https://blog.lunatech.com/posts/2010-06-14-how-demo-play-framework-live-coding-script),
 in which you will code a simple but functional to-do list application,
-using Play 2.0, Java and Ebean." ---
+using Play 2.0, Java and Ebean.
 
 == Getting started
 
@@ -425,5 +431,3 @@ After the form’s submit button, add a line to display error messages:
 *The `play.api.i18n.Messages` Scala object is being used for message key
 look-up.*
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._

@@ -1,19 +1,22 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Processing EDIFACT messages with Smooks" tags:
-author: Ludovico Fischer summary: "[Smooks](http://www.smooks.org) is a
+= Processing EDIFACT messages with Smooks
+ludofischer
+v1.0, 2011-12-30
+:title: Processing EDIFACT messages with Smooks
+:tags: [java]
+
+http://www.smooks.org[Smooks] is a
 set of tools written in the Java programming language to assist you in
 parsing a variety of formats such as XML, CSV, fixed width formats and
 making the information accessible from your Java code. My interest in
 Smooks was related to the fact that it is one of the few open source
 projects which offer facilities for accessing data in EDI formats. In
 fact, Smooks might be the only actively-maintained open source project
-that offers this." ---
+that offers this.
 
 In this article, I am going to share the results of my investigation on
 using Smooks to process EDI data, and in particular messages that follow
 the UN/EDIFACT standards.
 
-[[ProcessingEDIFACTmessageswithSmooks-WhatisUN%2FEDIFACTanyway%3F]]
 == What is UN/EDIFACT anyway?
 
 EDI generally refers to a set of standards for exchanging electronic
@@ -26,7 +29,7 @@ fields of expertise. In fact, Lunatech has developed over the years its
 own set of tools for EDIFACT processing, and we were interested in
 comparing our home-grown solutions with what others have done.
 
-[[ProcessingEDIFACTmessageswithSmooks-TheSmooksprocessingmodel]]
+
 == The Smooks processing model
 
 Usually, Smooks maps its input onto an XML stream, which can then be
@@ -45,7 +48,7 @@ Smooks, to generate Java classes that allow you to access the content of
 the EDI messages as fields. Smooks also provides a complete set of
 generated Java classes for the whole of the UN/EDIFACT specification.
 
-[[ProcessingEDIFACTmessageswithSmooks-Evaluationprocess]]
+
 == Evaluation process
 
 My evaluation involved attempting to perform some of the common EDIFACT
@@ -74,7 +77,6 @@ generated code is wont to be, and you are forced to use a different
 class for every EDIFACT message type, even though the syntax and the
 structure of the different messages are very similar.
 
-[[ProcessingEDIFACTmessageswithSmooks-Conclusion]]
 == Conclusion
 
 I feel that Smooks EDIFACT processing is a bit too rigid for our
@@ -92,6 +94,3 @@ Nevertheless, Smooks is the only game in town at the moment if you are
 looking for open source, and it might be good enough if your worklow is
 limited to ingesting large quantities of EDI messages, without much
 further processing.
-
-_link:/author/ludovico-fischer[Ludovico Fischer] is a software developer
-at Lunatech Research._

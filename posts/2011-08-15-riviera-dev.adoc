@@ -1,10 +1,14 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Riviera DEV" tags: Java event author: Stéphane
-Épardaud summary: "Lunatech Research, with the [Riviera
-JUG](http://rivierajug.org) and the [INRIA](http://inria.fr) French
-research institute are organising the [Riviera
-DEV](http://rivieradev.fr) conference in Sophia-Antipolis on the 20/21
-of October 2011." ---
+= Riviera DEV
+FroMage
+v1.0, 2011-08-15
+:title: Riviera DEV
+:tags: [event,java]
+
+Lunatech Research, with the http://rivierajug.org[Riviera
+JUG] and the http://inria.fr[INRIA] French
+research institute are organising the http://rivieradev.fr[Riviera
+DEV] conference in Sophia-Antipolis on the 20/21
+of October 2011.
 
 As you all know the Riviera JUG has been holding monthly conferences for
 more than two years now with an average of 50 java developers every

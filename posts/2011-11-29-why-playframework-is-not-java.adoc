@@ -1,7 +1,11 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Why Play isn’t a Java web framework" tags: Java
-playframework author: Peter Hilton summary: "Play isn’t really a Java
-web framework. Java’s involved, but that isn’t the whole story." ---
+= Why Play isn’t a Java web framework
+hilton
+v1.0, 2011-11-29
+:title: Why Play isn’t a Java web framework
+:tags: [java,playframework]
+
+Play isn’t really a Java
+web framework. Java’s involved, but that isn’t the whole story.
 
 ‘Java’ refers to two different things these days, and only one of them’s
 a programming language. Increasingly, when people talk about ‘Java’ they

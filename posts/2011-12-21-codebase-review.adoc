@@ -1,15 +1,18 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Codebase review" tags: review code-hosting
-collaboration author: Sietse de Kaper summary:
-"[Codebase](http://codebasehq.com) is a project hosting solution by
-[aTech Media](http://atechmedia.com/). It tries to be a complete
+= Codebase review
+targeter
+v1.0, 2011-12-21
+:title: Codebase review
+:tags: [code-hosting]
+
+http://codebasehq.com[Codebase] is a project hosting solution by
+http://atechmedia.com/[aTech Media]. It tries to be a complete
 solution, including repository hosting, issue and time tracking, wiki
 and discussion forum. We are currently considering it as a
-[Gitorious](http://gitorious.org/) replacement in the near future, and
-as a lightweight replacement for [Jira
-](http://www.atlassian.com/software/jira/overview) and
-[Confluence](http://www.atlassian.com/software/confluence/overview)
-later. " ---
+http://gitorious.org/[Gitorious] replacement in the near future, and
+as a lightweight replacement for http://www.atlassian.com/software/jira/overview[Jira
+] and
+http://www.atlassian.com/software/confluence/overview[Confluence]
+later. 
 
 [[structure]]
 == Hierarchical structure

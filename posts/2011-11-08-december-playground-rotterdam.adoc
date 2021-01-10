@@ -1,9 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "December Play!ground in Rotterdam" tags: playground
-playframework event author: Peter Hilton summary: "Following a break for
-Devoxx and busy projects, we are now planning the next [Play
-Framework](http://www.playframework.org/) event, for software developers
-and technical managers." ---
+= December Play!ground in Rotterdam
+hilton
+v1.0, 2011-11-08
+:title: December Play!ground in Rotterdam
+:tags: [event,playframework,playground]
+
+Following a break for
+Devoxx and busy projects, we are now planning the next http://www.playframework.org/[Play
+Framework] event, for software developers
+and technical managers.
 
 This event is the perfect opportunity to learn practical techniques,
 learn more about Play’s advanced features and meet other Play
@@ -19,12 +23,10 @@ http://maps.google.com/maps?q=Lunatech+Research,rotterdam[Heemraadssingel
 == Programme
 
 This event will focus on Play 2.0, with presentations by
-link:/author/peter-hilton[Peter Hilton] and
-link:/author/nicolas-leroux[Nicolas Leroux]:
+Peter Hilton and Nicolas Leroux:
 
 * 16:30 - arrival and drinks
-* 17:00 - Play 1.2.4/2.0 news and the story behind the Devoxx
-announcements
+* 17:00 - Play 1.2.4/2.0 news and the story behind the Devoxx announcements
 * 17:30 - break
 * 17:45 - Play 2.0 live coding example
 * 18:15 - drinks, networking

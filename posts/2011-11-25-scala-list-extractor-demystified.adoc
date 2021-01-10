@@ -1,8 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "The Scala List extractor demystified" tags: Scala
-author: Francisco José Canedo Dominguez summary: "This article explains
+= The Scala List extractor demystified
+fcanedo
+v1.0, 2011-11-25
+:title: The Scala List extractor demystified
+:tags: [scala]
+
+This article explains
 and demystifies Scala list extraction, which is a technique for
-extracting lists from larger lists." ---
+extracting lists from larger lists.
 
 In Scala code, you'll often come across list extraction, as in, for
 example, a pattern in a variable definition:
@@ -125,5 +129,4 @@ start using punctuation characters to name their classes. Learn more
 from http://www.artima.com/shop/programming_in_scala[_Programming in
 Scala_] chapter _Case Classes and Pattern Matching_.
 
-_link:/author/francisco-jose-canedo-dominguez[Francisco José Canedo
-Dominguez] is a software developer at Lunatech Research._
+

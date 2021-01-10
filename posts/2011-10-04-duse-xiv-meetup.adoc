@@ -1,8 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Duse XIV at Lunatech Research" tags: Scala event
-author: "Francisco José Canedo Dominguez" summary: "Lunatech Research is
+= Duse XIV at Lunatech Research
+fcanedo
+v1.0, 2011-10-04
+:title: Duse XIV at Lunatech Research
+:tags: [scala,event]
+
+Lunatech Research is
 proudly hosting the fourteenth Duse meetup, a fun gathering of
-developers interested in Scala." ---
+developers interested in Scala.
 
 == Details
 

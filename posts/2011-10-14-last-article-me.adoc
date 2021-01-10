@@ -1,7 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Last article from me" tags: fun author: Stéphane
-Épardaud summary: "Today is my last day as a Lunatech Research employee,
-so this is my last blog entry on this site." ---
+= Last article from m
+FroMage
+v1.0, 2011-10-14
+:title: Last article from m
+:tags: [fun]
+
+
+"Today is my last day as a Lunatech Research employee,
+so this is my last blog entry on this site.
 
 [[Lastarticlefromme-Lookingback]]
 == Looking back

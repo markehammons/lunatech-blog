@@ -1,12 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "What’s wrong with the Java Servlet API" tags:
-playframework web-applications author: Peter Hilton summary: "Before
+= What’s wrong with the Java Servlet API
+hilton
+v1.0, 2011-12-08
+:title: What’s wrong with the Java Servlet API
+:tags: [java,servlet]
+
+
+Before
 Play, Java web frameworks were based on the Java Servlet API, the part
 of the Java Enterprise Edition (Java EE) stack that provides the HTTP
 interface. The Play framework is unusual in that it does not use the
 Java Servlet API. However, what's really unusual is that there are not
 more such Java web frameworks that avoid the Servlet API, considering
-how terrible it is from a web development perspective." ---
+how terrible it is from a web development perspective.
 
 Java’s design and evolution seems to be based on the idea that the
 platform itself is more important than other systems that it might be
@@ -131,8 +136,6 @@ the Servlet API. Take it for granted even. However, you quickly realise
 that HTTP can be easier to use with the APIs provided by PHP and Ruby on
 Rails. Or the Play framework.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
 
 https://plus.google.com/107170847819841716154/posts/9rbWwmjrV7R[Comments
 on Google+]

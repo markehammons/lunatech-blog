@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "URL-centric web application design" tags:
-web-applications author: Peter Hilton summary: "One good way to start
+= URL-centric web application design
+hilton
+v1.0, 2012-01-09
+:title: URL-centric web application design
+:tags: [web-applications]
+
+One good way to start
 building a web application is to plan its HTTP interface - its URLs.
 This URL-centric design is an alternative to a data model-centric design
 that starts with the application’s data, or a UI-centric design that is
 based on how users will interact with the application’s user-interface.
-URL-centric design is a kind of API design." ---
+URL-centric design is a kind of API design.
 
 [[design]]
 == URL-centric design
@@ -111,9 +115,6 @@ client and server, which can be the basis for supporting multiple client
 devices, such as a combination of desktop and mobile web interfaces. The
 same interface can also be the basis of an REST API used in a
 service-oriented architecture.
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
 
 https://plus.google.com/107170847819841716154/posts/PGerfjon2sZ[Comments
 on Google+]

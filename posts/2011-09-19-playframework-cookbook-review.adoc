@@ -1,11 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Review - Play Framework Cookbook" tags:
-playframework review book author: Peter Hilton summary: "This article is
-a review of [Play Framework
-Cookbook](http://www.packtpub.com/play-framework-cookbook/book) - a new
-book about the [Play framework](http://www.playframework.org/) from
-[Packt Publishing](http://www.packtpub.com/) under the Packt Open Source
-brand." ---
+= Review - Play Framework Cookbook
+hilton
+v1.0, 2011-09-19
+:title: Review - Play Framework Cookbook
+:tags: [book,playframework]
+
+
+This article is
+a review of http://www.packtpub.com/play-framework-cookbook/book[Play Framework
+Cookbook] - a new
+book about the http://www.playframework.org/[Play framework] from
+http://www.packtpub.com/[Packt Publishing] under the Packt Open Source
+brand.
 
 *This book goes way beyond the Play framework documentation, and
 includes useful practical techniques and source code for Play developers
@@ -255,6 +260,3 @@ there are recipes in _Play Framework Cookbook_.
 http://www.lunatech-research.com/books[our own books about Play 2]*)
 
 Meanwhile, every Play developer should read _Play Framework Cookbook_.
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._

@@ -1,9 +1,14 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Logging debug messages with Drools" tags: Drools
-cookbook author: Peter Hilton summary: "This article shows a neat way to
+
+= Logging debug messages with Drools
+hilton
+v1.0, 2011-09-02
+:title: Logging debug messages with Drools
+:tags: [java,drools]
+
+This article shows a neat way to
 log debug messages from rules in Drools Rule Language (DRL). This is a
 recipe from the *Lunatech Drools Cookbook* - recipes for effective
-[Drools](http://www.jboss.org/drools) use." ---
+http://www.jboss.org/drools[Drools] use.
 
 == Problem
 
@@ -94,6 +99,3 @@ Secondly, the log function uses `java.lang.String.format` to format the
 log message using the placeholders and arguments.
 
 Finally, the log function uses Log4J to output the log message.
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research._

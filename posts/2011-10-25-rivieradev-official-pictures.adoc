@@ -1,22 +1,24 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "RivieraDEV - the official pictures" tags:
-playframework event author: Nicolas Leroux summary: "Thanks to [Nicolas
-Martignole](http://touilleur-express.fr) I can now show some pictures
-from the [RivieraDEV](http://rivieradev.fr) event." ---
+= RivieraDEV - the official pictures
+pepite
+v1.0, 2011-10-25
+:title: RivieraDEV - the official pictures
+:tags: [event]
 
-image:rivieradev-1.jpg[image]
+Thanks to http://touilleur-express.fr[Nicolas
+Martignole] I can now show some pictures
+from the http://rivieradev.fr[RivieraDEV] event.
 
-image:rivieradev-2.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-1.jpg[image]
 
-image:rivieradev-3.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-2.jpg[image]
 
-image:rivieradev-4.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-3.jpg[image]
 
-image:rivieradev-5.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-4.jpg[image]
 
-image:rivieradev-6.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-5.jpg[image]
 
-image:rivieradev-7.jpg[image]
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-6.jpg[image]
 
-_mailto:nicolas%20_at-this-fine-place_%20lunatech.com[Nicolas Leroux] is
-is a solution architect and technical director at Lunatech._
+image:../media/2011-10-25-rivieradev-official-pictures/rivieradev-7.jpg[image]
+
