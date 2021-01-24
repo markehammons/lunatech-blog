@@ -1,9 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Lunatech attending the 2nd Paris JUG anniversary "
-tags: Java playframework fun JEE event Paris author: Nicolas Leroux
-summary: "Stephane, Peter and myself will be attending the 2nd [Paris
-JUG](http://parisjug.org) anniversary Tuesday the 9th of February 2010.
-We will not only attend as we will be giving 2 presentations:" ---
+= Lunatech attending the 2nd Paris JUG anniversary
+pepite
+v1.0, 2010-02-05
+:title: Lunatech attending the 2nd Paris JUG anniversary
+:tags: [jug,event,jax-doclets,playframework]
+
+
+Stephane, Peter and myself will be attending the 2nd http://parisjug.org[Paris JUG] anniversary Tuesday the 9th of February 2010.
+We will not only attend as we will be giving 2 presentations:
 
 * Stephane will be presenting
 http://www.lunatech-labs.com/open-source/jax-doclets[jax-doclets], his

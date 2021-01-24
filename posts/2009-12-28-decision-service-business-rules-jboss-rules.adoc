@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Decision service business rules in JBoss Rules"
-tags: Drools author: Peter Hilton summary: "This article describes the
+= Decision service business rules in JBoss Rules
+PeterHilton
+v1.0, 2009-12-28
+:title: Decision service business rules in JBoss Rules
+:tags: [java,drools]
+
+This article describes the
 kinds of business rules that you might implement in a decision service,
-with a simple example; this is essentially a functional design." ---
+with a simple example; this is essentially a functional design.
 
 This article is part 2 of a series:
 
-. link:/2009/12/14/decision-service-architecture-jboss-rules[Decision
+. link:https://blog.lunatech.com/posts/2009-12-14-decision-service-architecture-jboss-rules[Decision
 service architecture with JBoss Rules] - what a decision service is and
 gave a high-level technical overview how you can use the JBoss Rules
 Execution Server to build one
@@ -63,7 +67,7 @@ For this example, we shall use the following data model. This includes
 the input data for the user selections, the reference data for the items
 in the lists of available components, and additional output data.
 
-image:decision-service-domain-model.png[Domain model diagram]
+image:../media/2009-12-28-decision-service-business-rules-jboss-rules/decision-service-domain-model.png[Domain model diagram]
 
 `Selection` has properties for the selected motherboard type and
 processor type. In addition, there is a separate `MemorySelection` for
@@ -95,7 +99,7 @@ facts that the rules will use to reason about the user's selection. In
 this example, we can use additional rules to insert the facts from
 within the rules session:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 rule "Insert motherboards"
    when
@@ -120,7 +124,7 @@ end
 In practice, however, you would be more likely to do this using the rule
 session's Java API:
 
-[source,brush:java;,gutter:false]
+[source,java]
 ----
 final List<Command> commands = new ArrayList<Command>();
 
@@ -134,7 +138,7 @@ session.execute(CommandFactory.newBatchExecution(commands));
 This means that the following rule would be activated - for example,
 there are motherboards facts:
 
-[source,brush:java;,gutter:false]
+[source,java]
 ----
 rule "Motherboard reference data loaded"
 when
@@ -147,7 +151,7 @@ end
 To make the lists of these components available as output data, we
 define queries:
 
-[source,brush:java;,gutter:false]
+[source,java]
 ----
 query "motherboards"
    value : Motherboard()
@@ -162,7 +166,7 @@ For this, we define a new JavaBean type inline in the rules file that
 has properties for the message text, and a message type that we can use
 to identify which kinds of messages to include in the output:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 declare Message
    type : String
@@ -176,7 +180,7 @@ inserts a new message "Found first motherboard" when there is a
 the left-hand side also checks that the message itself is not yet in
 working memory.
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 rule "First motherboard reference data loaded"
 when
@@ -194,7 +198,7 @@ Since the `Message` type only has a default constructor, it is somewhat
 verbose to insert the message; it is more convenient to define a
 function in the rules file:
 
-[source,brush:java;,gutter:false]
+[source,java]
 ----
 import org.drools.spi.KnowledgeHelper
 
@@ -209,7 +213,7 @@ function void insertDebugMessage(KnowledgeHelper drools, String text) {
 To make a certain type of messages available in the output, we just
 define another query:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 query "messages"
    value : Message(type == "RESULT")
@@ -222,7 +226,7 @@ end
 The user selections are `String` properties in the `Selection` type. The
 first validation is simply to check that the selection is not empty:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 rule "No motherboard selected"
 when
@@ -239,7 +243,7 @@ means that the message duplicates the rule name, which is bad. We can
 easily avoid the duplication by adding another utility function that
 gets the rule name from the `drools` helper object:
 
-[source,brush:java;,gutter:false]
+[source,java]
 ----
 function void insertRuleNameMessage(KnowledgeHelper drools) {
    insertMessage(drools, drools.getRule().getName());
@@ -250,7 +254,7 @@ Next, using the new `insertRuleNameMessage` function, the selection's
 `motherboardType` should match the `type` property value of an available
 motherboard:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 rule "Selected motherboard type does not exist"
 when
@@ -273,7 +277,7 @@ In PC configuration, selecting one component may affect what you may
 choose for another component. In our example, selecting a particular
 processor rules out motherboards with an incompatible processor socket.
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 rule "Filter motherboards for selected processor socket type"
 when
@@ -331,7 +335,7 @@ must be an even number of each size selected. In our model, each
 individual memory module is a separate `MemorySelection` fact, so we
 count them using the built-in collect function:
 
-[source,brush:java;,gutter:false]
+[source]
 ----
 import java.util.ArrayList
 
@@ -381,5 +385,3 @@ http://downloads.jboss.com/drools/docs/5.0.1.26597.FINAL/drools-guvnor/html/ch01
 Server] to load the rules file, so that you can execute the rules using
 its web services interface.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

@@ -1,18 +1,23 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Automatic resource link discovery with RESTEasy and
-Atom links" tags: Java REST author: Stéphane Épardaud summary: "This
-article describes how to use [RESTEasy](http://www.jboss.org/resteasy/)
-to inject [Atom](http://tools.ietf.org/html/rfc4287) links in your
+= Automatic resource link discovery with RESTEasy and Atom links
+UnFromage
+v1.0, 2010-04-19
+:title: Automatic resource link discovery with RESTEasy and Atom links
+:tags: [resteasy,java,rest]
+
+
+This
+article describes how to use http://www.jboss.org/resteasy/[RESTEasy]
+to inject http://tools.ietf.org/html/rfc4287[Atom] links in your
 resource representations, in order to secure your
-[RESTful](/editorials/tags/rest) web services clients, and produce more
-RESTful web services with link auto-discovery." ---
+/editorials/tags/rest[RESTful] web services clients, and produce more
+RESTful web services with link auto-discovery.
 
 == Of resources and links
 
 When doing link:/editorials/tags/rest[RESTful] web services, there's
 always a big debate when it comes to linking resources together. The
 non-RESTful way of doing things is to define
-link:/2009/02/03/what-every-web-developer-must-know-about-url-encoding[URL]s,
+link:https://blog.lunatech.com/posts/2009-02-03-what-every-web-developer-must-know-about-url-encoding[URL]s,
 hand them over to the client and call it the API. But the real RESTful
 way is to document your resources, a vocabulary of relations to link
 them with one another, and insert links with their relations inside your
@@ -345,7 +350,7 @@ public class Comment {
 }
 ----
 
-[#d0e791]## Given the previous book store service augmented with
+Given the previous book store service augmented with
 comments:
 
 [[d0e791]]
@@ -394,19 +399,19 @@ public interface BookStore {
 }
 ----
 
-[#d0e791]## Whenever we need to make links for a `Book` entity, we look
+ Whenever we need to make links for a `Book` entity, we look
 up the ID in the `Book`'s `@XmlID` property. Whenever we make links for
 `Comment` entities, we have a list of values taken from the `Comment`'s
 `@XmlID` and its `@ParentResource`: the `Book` and its `@XmlID`.
 
-[#d0e791]## For a `Comment` with `id` `"1"` on a `Book` with `title`
+ For a `Comment` with `id` `"1"` on a `Book` with `title`
 `"foo"` we will therefore get a list of URI template values of
 `{"foo", "1"}`, to be replaced in the URI template, thus obtaining
 either `"/book/foo/comments"` or `"/book/foo/comment/1"`.
 
-==== [#d0e874]####Specifying path parameters manually
+==== Specifying path parameters manually
 
-[#d0e874]## If you do not want to annotate your entities with `@XmlID`
+If you do not want to annotate your entities with `@XmlID`
 and `@ParentResource`, you can also specify the URI template values
 inside the `@LinkResource` annotation, using Unified Expression Language
 expressions:
@@ -420,12 +425,12 @@ obtain the URI template values. |Defaults to using `@XmlID` and
 `@ParentResource` annotations to extract the values from the model.
 |===
 
-[#d0e874]## The UEL expressions are evaluated in the context of the
+The UEL expressions are evaluated in the context of the
 entity, which means that any unqualified variable will be taken as a
 property for the entity itself, with the special variable `this` bound
 to the entity we're generating links for.
 
-[#d0e874]## The previous example of `Comment` service could be declared
+The previous example of `Comment` service could be declared
 as such:
 
 [[d0e874]]
@@ -477,14 +482,14 @@ public interface BookStore {
 }
 ----
 
-==== [#d0e943]####Securing entities
+==== Securing entities
 
-[#d0e943]## You can restrict which links are injected in the resource
+You can restrict which links are injected in the resource
 based on security restrictions for the client, so that if the current
 client doesn't have permission to delete a resource he will not be
 presented with the `"delete"` link relation.
 
-[#d0e943]## Security restrictions can either be specified on the
+Security restrictions can either be specified on the
 `@LinkResource` annotation, or using RESTEasy and EJB's security
 annotation `@RolesAllowed` on the JAX-RS method.
 
@@ -497,9 +502,9 @@ inject this method's link in the response entity. |Defaults to using
 `@RolesAllowed` from the JAX-RS method.
 |===
 
-==== [#d0e999]####Extending the UEL context
+==== Extending the UEL context
 
-[#d0e999]## We've seen that both the URI template values and the
+We've seen that both the URI template values and the
 security constraints of `@LinkResource` use UEL to evaluate expressions,
 and we provide a basic UEL context with access only to the entity we're
 injecting links in, and nothing more.
@@ -510,7 +515,7 @@ method, its class, or its package. This annotation's value should point
 to a class that implements the `ELProvider` interface, which wraps the
 default `ELContext` in order to add any missing functions.
 
-[#d0e999]## For example, if you want to support the Seam annotation
+For example, if you want to support the Seam annotation
 `s:hasPermission(target, permission)` in your security constraints, you
 can add a `package-info.java` file like this:
 
@@ -569,7 +574,7 @@ public class SeamELProvider implements ELProvider {
 }
 ----
 
-[#d0e999]## And then use it as such:
+And then use it as such:
 
 [[d0e999]]
 [source,brush:,java;,gutter:,false]
@@ -620,20 +625,20 @@ public interface BookStore {
 }
 ----
 
-==== [#d0e1036]####Resource facades
+==== Resource facades
 
-[#d0e1036]## Sometimes it is useful to add resources which are just
+Sometimes it is useful to add resources which are just
 containers or layers on other resources. For example if you want to
 represent a collection of `Comment` with a start index and a certain
 number of entries, in order to implement paging. Such a collection is
 not really an entity in your model, but it should obtain the `"add"` and
 `"list"` link relations for the `Comment` entity.
 
-[#d0e1036]## This is possible using resource facades. A resource facade
+This is possible using resource facades. A resource facade
 is a resource which implements the `ResourceFacade` interface for the
 type `T`, and as such, should receive all links for that type.
 
-[#d0e1036]## Since in most cases the instance of the `T` type is not
+Since in most cases the instance of the `T` type is not
 directly available in the resource facade, we need another way to
 extract its URI template values, and this is done by calling the
 resource facade's `pathParameters()` method to obtain a map of URI
@@ -641,7 +646,7 @@ template values by name. This map will be used to fill in the URI
 template values for any link generated for `T`, if there are enough
 values in the map.
 
-[#d0e1036]## Here is an example of such a resource facade for a
+Here is an example of such a resource facade for a
 collection of `Comment`s:
 
 [[d0e1036]]
@@ -673,7 +678,7 @@ public class ScrollableCollection implements ResourceFacade<Comment> {
 }
 ----
 
-[#d0e1036]## This will produce such an XML collection:
+This will produce such an XML collection:
 
 [[d0e1036]]
 [source,brush:,xml;,gutter:,false]

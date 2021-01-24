@@ -1,9 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "10 Devoxx tips" tags: conference fun author: Peter
-Hilton summary: "Last week we were at [Devoxx](http://devoxx.com/) in
+= 10 Devoxx tips
+PeterHilton
+v1.0, 2010-11-23
+:title: 10 Devoxx tips
+:tags: [playframework,event]
+
+Last week we were at http://devoxx.com/[Devoxx] in
 Antwerp. This means that there are now 51 weeks until Devoxx 2011, which
 means that this is the perfect time to start preparing. Here are ten top
-tips to help you get the most out of the conference next year." ---
+tips to help you get the most out of the conference next year.
 
 [[go]]
 == 1. Make sure you can actually go
@@ -27,7 +31,7 @@ conference. Note that this tip is originally from Nicolas Martignole
 [[cards]]
 == 2. Take lots of business cards
 
-image:devoxx-card.png[image]
+image:../media/2010-11-23-10-devoxx-tips/devoxx-card.png[image]
 
 Some people are surprised that Devoxx conference-goers do not use their
 iPhones for absolutely everything, and still swap business cards, while
@@ -52,7 +56,7 @@ to meet cool people to have lunch with on Friday before you head home.
 [[sociable]]
 == 4. Be sociable in the evening
 
-image:kulminator.jpg[image]
+image:../media/2010-11-23-10-devoxx-tips/kulminator.jpg[image]
 
 Kulminator, Vleminckveld 32, Antwerp
 
@@ -77,7 +81,7 @@ account, right?
 [[beer]]
 == 5. Drink beer
 
-image:devoxx-beer.jpg[image]
+image:../media/2010-11-23-10-devoxx-tips/devoxx-beer.jpg[image]
 
 Freshly-poured Westvleteren at Kulminator
 
@@ -95,7 +99,7 @@ you can still go to Frituur No 1 for chips and gravy.
 [[warm]]
 == 6. Keep warm
 
-image:decathlon-metropolis.jpg[image]
+image:../media/2010-11-23-10-devoxx-tips/decathlon-metropolis.jpg[image]
 
 Decathlon: they sell hats and gloves in here somewhere
 
@@ -121,7 +125,7 @@ so you have less to carry.
 [[valerie]]
 == 8. Be nice to Valérie
 
-image:devoxx-team-2008.jpg[image]
+image:../media/2010-11-23-10-devoxx-tips/devoxx-team-2008.jpg[image]
 
 Valérie Hillewaere and Stephan Janssen at Devoxx '08.
 
@@ -138,7 +142,7 @@ instead.*
 [[swag]]
 == 9. Collect swag
 
-image:devoxx-swag.jpg[image]
+image:../media/2010-11-23-10-devoxx-tips/devoxx-swag.jpg[image]
 
 Maximise your swag-collecting efficiency at each stand in the exhibition
 hall by simply starting with 'Can I have a t-shirt please?', which
@@ -159,5 +163,4 @@ If you are at the conference with colleagues, don't act like you are
 joined at the hip: go off on your own and find interesting people to
 introduce your colleagues to.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+

@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Unit-testing AJAX code with Maven" tags: Java
-JavaScript Maven author: Stéphane Épardaud summary: "This article
-presents a way to use [Maven](http://maven.apache.org) to write
-fully-automated [JavaScript](http://en.wikipedia.org/wiki/JavaScript)
+= Unit-testing AJAX code with Maven
+UnFromage
+v1.0, 2010-03-01
+:title: Unit-testing AJAX code with Maven
+:tags: [java,javascript,maven]
+
+This article
+presents a way to use http://maven.apache.org[Maven] to write
+fully-automated http://en.wikipedia.org/wiki/JavaScript[JavaScript]
 integration tests that invoke
-[RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer)
+http://en.wikipedia.org/wiki/Representational_State_Transfer[RESTful]
 services on the server using
-[JAX-RS](https://jsr311.dev.java.net)/[RESTEasy](http://jboss.org/resteasy)."
+https://jsr311.dev.java.net[AX-RS]/http://jboss.org/resteasy[RESTEasy]."
 ---
 
 While adding a new feature to
@@ -91,9 +95,9 @@ Our winners are thus:
 * Testlol
 * Jetty
 
-== [#Unit-testingAJAXcodewithMaven-Settingupthetools]####Setting up the tools
+== Setting up the tools
 
-=== [#Unit-testingAJAXcodewithMaven-Rhino]####Rhino
+=== Rhino
 
 The latest Rhino version released is
 [.nobr]#http://www.mozilla.org/rhino/download.html[1.7R2]# which has
@@ -129,7 +133,7 @@ $ mvn install:install-file -Dfile=build/rhino1_7R3pre/js.jar -DgroupId=rhino \
 
 We now have a JSON-enabled Rhino version in our local Maven repository.
 
-=== [#Unit-testingAJAXcodewithMaven-Testlol]####Testlol
+=== Testlol
 
 Testlol is the Maven plugin that lets us run AJAX-enabled JavaScript
 unit tests in Maven. When I started using it, it did not support loading
@@ -155,9 +159,9 @@ $ mvn install
 We now have all the tools ready in our local Maven repository to write
 the first AJAX-enabled JavaScript unit tests.
 
-== [#Unit-testingAJAXcodewithMaven-Writingourunittests]####Writing our unit tests
+== Writing our unit tests
 
-=== [#Unit-testingAJAXcodewithMaven-Thesetup]####The setup
+=== The setup
 
 In order to test our AJAX code, we need to:
 
@@ -186,7 +190,7 @@ The following directory structure is proposed:
 +- pom.xml
 ----
 
-=== [#Unit-testingAJAXcodewithMaven-TheMavenPOM]####The Maven POM
+=== The Maven POM
 
 This Maven POM will cause all your JS unit tests run in the
 _integration-test_ phase:
@@ -292,7 +296,7 @@ _integration-test_ phase:
 </project>
 ----
 
-=== [#Unit-testingAJAXcodewithMaven-TheJAXRSresource]####The JAX-RS resource
+=== The JAX-RS resource
 
 Let's make a very simple JAX-RS resource which responds to the `GET`
 method with "ok":
@@ -367,7 +371,7 @@ While we wait for a [.nobr]#http://jcp.org/en/jsr/detail?id=315[Servlet
 </web-app>
 ----
 
-=== [#Unit-testingAJAXcodewithMaven-TheJavaScripttestfile]####The JavaScript test file
+=== The JavaScript test file
 
 Since testlol requires that I load an HTML file (in my case I'm only
 testing JavaScript, so loading a JavaScript file would have been
@@ -413,7 +417,7 @@ And _voilà_, that is all there is to it, just type
 `mvn integration-test` and in the middle of tons of useless verbosity
 you will see if your tests pass or not (in our case they do).
 
-== [#Unit-testingAJAXcodewithMaven-Conclusion]####Conclusion
+== Conclusion
 
 It took me quite a bit of time to find the appropriate tools and setup,
 but now I am very happy to have this working, and I hope to be able to

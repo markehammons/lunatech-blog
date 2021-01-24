@@ -1,15 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to demo the Play framework - live coding script
-(in Scala)" tags: playframework Scala author: Francisco José Canedo
-Dominguez summary: "If you want someone to know how fast and
-straightforward it is to build a Scala web application with the [Play
-framework](http://www.playframework.org/), then *show*, don't *tell*.
+= How to demo the Play framework - live coding script (in Scala)
+fcanedo
+v1.0, 2010-08-09
+:title: How to demo the Play framework - live coding script (in Scala)
+:tags: [playframework,java]
+
+If you want someone to know how fast and
+straightforward it is to build a Scala web application with the http://www.playframework.org/[Play framework], then *show*, don't *tell*.
 The most compelling way to do this is to download Play and start coding
 a web application from scratch, while they watch. This article is a
-script for a five-minute live-coding Play demo." ---
+script for a five-minute live-coding Play demo.
 
 This script is based on Peter Hilton's demo, but with Scala. See
-link:/2010/06/14/how-demo-play-framework-live-coding-script[his article]
+link:https://blog.lunatech.com/posts/2010-06-14-how-demo-play-framework-live-coding-script[his article]
 for more information.
 
 [[Summary]]
@@ -195,24 +197,48 @@ runtime from within Eclipse.
 
 *Edit* `app/models` - create class:
 
-\{% highlight scala %} package models import javax.persistence.Entity
-import play.db.jpa.Model import play.db.jpa.QueryOn @Entity class Task(
-var title: String ) extends Model \{ override def toString = title }
-object Task extends QueryOn[Task] \{% endhighlight %}
+[source,scala]
+----
+package models
+
+import javax.persistence.Entity
+
+import play.db.jpa.Model
+import play.db.jpa.QueryOn
+
+@Entity
+class Task(
+   var title: String
+) extends Model {
+   override def toString = title
+}
+
+object Task extends QueryOn[Task]
+----
 
 *Edit* `app/controllers/Application.scala` - Change the `index` method
 to
 
-\{% highlight scala %} import models.Task … def index \{ val tasks =
-Task.findAll render(tasks) } \{% endhighlight %}
+[source,scala]
+----
+import models.Task
+…
+def index {
+   val tasks = Task.findAll
+   render(tasks)
+}
+----
 
 *Edit* `app/views/Application/index.html` - After the heading, add:
 
-\{% highlight html %}
-
-* $\{task.title}
-
-\{% endhighlight %}
+[source,html]
+----
+<ul>
+#{list tasks, as:'task'}
+   <li>${task.title}</li>
+#{/list}
+</ul>
+----
 
 *Open* http://localhost:9000/ - Show the JPA error.
 
@@ -230,14 +256,22 @@ ____
 
 *Edit* `app/views/Application/index.html` - After the list, add:
 
-\{% highlight html %} #\{form @add()}
-
-#\{/form} \{% endhighlight %}
+[source,html]
+----
+#{form @add()}
+<p><input name="task.title"></p> <p><input type="submit" value="Add Task"></p>
+#{/form}
+----
 
 *Edit* `app/controllers/Application.scala` - Add the method:
 
-\{% highlight scala %} def add(task: Task) \{ task.save index } \{%
-endhighlight %}
+[source,scala]
+----
+def add(task: Task) {
+   task.save
+   index
+}
+----
 
 *Open* http://localhost:9000/ - Add tasks.
 
@@ -247,8 +281,10 @@ endhighlight %}
 *Edit* `app/views/Application/index.html` - Inside the `<li>` add a
 link:
 
-\{% highlight html %} link:@%7Bdelete(task.id)%7D[delete] \{%
-endhighlight %}
+[source,html]
+----
+<a href="@{delete(task.id)}">delete</a>
+----
 
 ____
 As for forms, there is also a tag for generating links; this way just
@@ -260,8 +296,13 @@ ____
 *Edit* `app/controllers/Application.scala` - Add the method, noting the
 `id` parameter:
 
-\{% highlight scala %} def delete(id: Long) \{
-Task.findById(id).foreach(_.delete()) index } \{% endhighlight %}
+[source,scala]
+----
+def delete(id: Long) {
+   Task.findById(id).foreach(_.delete())
+   index
+}
+----
 
 The `foreach` idiom is because `findById` returns a Scala `Option` which
 can behave like an empty list or one filled with one entry. This means
@@ -275,11 +316,10 @@ query string parameter.
 
 *Edit* `app/views/Application/index.html` - Change the heading to:
 
-\{% highlight html %}
-
-== $\{tasks.size()} Task$\{tasks.pluralize()}
-
-\{% endhighlight %}
+[source,html]
+----
+<h1>${tasks.size()} Task${tasks.pluralize()}</h1>
+----
 
 *Open* http://localhost:9000/ - Add/delete tasks to show singular and
 plural forms.
@@ -303,17 +343,26 @@ field.
 to the `add` method's `Task` parameter, replace the first line of the
 method body (`Task.save`) with the following.
 
-\{% highlight scala %} import play.data.validation._ … if
-(Validation.hasErrors) \{ Validation.keep } else \{ task.save } \{%
-endhighlight %}
+[source,scala]
+----
+import play.data.validation._
+…
+if (Validation.hasErrors) {
+   Validation.keep
+}
+else {
+   task.save
+}
+----
 
 *Edit* `app/views/Application/index.html` - before the form, add:
 
-\{% highlight html %} #\{errors}
-
-$\{error}
-
-#\{/errors} \{% endhighlight %}
+[source,html]
+----
+#{errors}
+    <p style="color:red">${error}</p>
+#{/errors}
+----
 
 *Open* http://localhost:9000/ - Show the validation error when
 submitting an empty name.
@@ -342,18 +391,20 @@ ____
 
 *Edit* `app/views/Application/index.html` - Replace the errors tag with:
 
-\{% highlight html %} #\{ifErrors}
-
-Validation failed
-
-#\{/ifErrors} \{% endhighlight %}
+[source,html]
+----
+#{ifErrors}
+    <p style="color:red">Validation failed</p>
+#{/ifErrors}
+----
 
 … and after the text input, before the closing `</p>` tag, add:
 
-\{% highlight html %} *#\{error 'task.title' /}* \{% endhighlight %}
+
+[source,html]
+----
+<strong style="color:red">#{error 'task.title' /}</strong>
+----
 
 *Open* http://localhost:9000/ - Show the new validation error.
 
-Original article by _link:/author/peter-hilton[Peter Hilton]_, adapted
-for Scala by _link:/author/francisco-jose-canedo-dominguez[Francisco
-José Canedo Dominguez], software developer at Lunatech Research._

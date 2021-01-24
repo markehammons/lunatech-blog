@@ -1,13 +1,18 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "JBoss Rules (Drools) implementation" tags:
-case-study Drools author: Peter Hilton summary: "In 2009,
-[BBned](http://www.bbned.nl/) hired Lunatech to assist with their first
-[JBoss Rules](http://www.jboss.org/drools/) (Drools) implementation.
+= JBoss Rules (Drools) implementation Execution Server
+PeterHilton
+v1.0, 2010-01-11
+:title: JBoss Rules (Drools) implementation Execution Server
+:tags: [java,drools,case-study]
+
+
+In 2009,
+http://www.bbned.nl/[BBned] hired Lunatech to assist with their first
+http://www.jboss.org/drools/[JBoss Rules] (Drools) implementation.
 Lunatech provided a technical expert whose task was to ensure the smooth
 introduction of the open-source JBoss Rules product and to reduce
 project technical risk. The work included writing technical design
 documentation, building part of the software, and coaching BBned's own
-staff with the new technology." ---
+staff with the new technology.
 
 Lunatech's expert successfully applied JBoss Rules as planned, within
 the project constraints, and ensured that BBned's initial lack of
@@ -34,5 +39,3 @@ means that business requirements are implemented as clearly identifiable
 independent rules in the decision service, which results in software
 that is easier to understand, debug and maintain.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

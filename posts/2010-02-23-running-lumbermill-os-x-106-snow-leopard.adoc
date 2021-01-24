@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Running Lumbermill on OS X 10.6 Snow Leopard" tags:
-logging author: Peter Hilton summary:
-"[Lumbermill](http://traxel.com/lumbermill/) is a log viewer that useful
+= Running Lumbermill on OS X 10.6 Snow Leopard
+PeterHilton
+v1.0, 2010-02-23
+:title: Running Lumbermill on OS X 10.6 Snow Leopard
+:tags: [logging]
+
+
+http://traxel.com/lumbermill/[Lumbermill] is a log viewer that useful
 when you need to view and filter large quantities of *java.util.logging*
 or Log4J logging that uses the `SocketAppender`. Unfortunately,
 Lumbermill stopped working on OS X after the Snow Leopard upgrade.
-Here's how to get it working again." ---
+Here's how to get it working again.
 
 [[Symptoms]]
 == Symptoms
@@ -15,14 +19,14 @@ dist/lib/lumbermill.jar* then there is a problem after you select the
 _New Server Mill_ menu option, and enter a port number under _Please
 enter the port to listen on_
 
-image:lumbermill-1.png[Lumbermill - attempting to create a New Server
+image:../media/2010-02-23-running-lumbermill-os-x-106-snow-leopard/lumbermill-1.png[Lumbermill - attempting to create a New Server
 Mill]
 
 … the window doesn't open - nothing happens. Instead of opening the log
 output window, Lumbermill silently fails with the following
 NullPointerException (NPE):
 
-....
+----
 Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
     at com.traxel.lumbermill.desk.MillFrameControl.<init>(MillFrameControl.java:98)
     at com.traxel.lumbermill.Mill.<init>(Mill.java:44)
@@ -57,7 +61,7 @@ Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
     at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:196)
     at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:188)
     at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
-....
+----
 
 [[Cause]]
 == Cause
@@ -79,7 +83,5 @@ dist/lib/lumbermill.jar*
 This starts Lumbermill with Swing's 'Metal' look and feel, and the
 server mill window now opens normally.
 
-image:lumbermill-2.png[New server window]
+image:../media/2010-02-23-running-lumbermill-os-x-106-snow-leopard/lumbermill-2.png[New server window]
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

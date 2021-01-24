@@ -1,8 +1,12 @@
---- layout: article drupal-format: Wordpress format title: "Benelux
-JBoss User Group, 27 February 2009" tags: event JBUG author: Nicolas
-Leroux summary: "We would like to invite you to our **fifth Benelux
+= Benelux JBoss User Group, 27 February 2009
+pepite
+v1.0, 2009-02-03
+:title: Benelux JBoss User Group, 27 February 2009
+:tags: [java,event,jbug]
+
+We would like to invite you to our **fifth Benelux
 JBoss User Group meeting**: an evening of free technical sessions
-presented by JBoss and RealDolmen developers." ---
+presented by JBoss and RealDolmen developers.
 
 We will meet in the Lunatech Research's office in Rotterdam.
 

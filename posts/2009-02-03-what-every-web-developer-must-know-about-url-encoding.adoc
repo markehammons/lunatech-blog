@@ -1,17 +1,23 @@
---- layout: article drupal-format: Wordpress format title: "What every
-web developer must know about URL encoding" tags: Java web-applications
-author: Stéphane Épardaud summary: "This article describes common
+
+= What every web developer must know about URL encoding
+FroMage
+v1.0, 2009-02-03
+:title: What every web developer must know about URL encoding
+:tags: [java,web-applications]
+
+This article describes common
 misconceptions about *Uniform Resource Locator*
-([URL](http://en.wikipedia.org/wiki/URL)) encoding, then attempts to
-clarify [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding)
-for [HTTP](http://en.wikipedia.org/wiki/HTTP), before presenting
+(http://en.wikipedia.org/wiki/URL[URL]) encoding, then attempts to
+clarify http://en.wikipedia.org/wiki/Percent-encoding[URL encoding]
+for http://en.wikipedia.org/wiki/HTTP[HTTP], before presenting
 frequent problems and their solutions. While this article is not
 specific to any programming language, we illustrate the problems in
-[Java](http://en.wikipedia.org/wiki/Java_(programming_language)) and
+http://en.wikipedia.org/wiki/Java_(programming_language)[Java] and
 finish by explaining how to fix URL encoding problems in Java, and in a
-web application at several levels." ---
+web application at several levels." 
 
-== [#Tableofcontents]####Table of contents
+[#Tableofcontents]
+== Table of contents
 
 * link:#Introduction[Introduction]
 ** link:#GeneralURLsyntax[General URL syntax]
@@ -46,7 +52,8 @@ your URL-rewrite filters deal with URLs correctly]
 correctly]
 * link:#Conclusion[Conclusion]
 
-== [#Introduction]####Introduction
+[#Introduction]
+== Introduction
 
 There are a number of technologies we use everyday when we browse the
 http://en.wikipedia.org/wiki/World_Wide_Web[web]. There is the data
@@ -55,7 +62,8 @@ transport mechanism which allows us to retrieve this data, and there is
 the foundation, the root, the thing that makes the web _a web_: links
 from one page to the other. These links are URLs.
 
-=== [#GeneralURLsyntax]####General URL syntax
+[#GeneralURLsyntax]
+=== General URL syntax
 
 Everyone by now has seen a URL at least once in his life. Take
 "http://www.google.com" for instance. This is a URL. A URL is a _Uniform
@@ -99,7 +107,8 @@ and port, followed by a scheme-specific part. This common part deals
 with authentication and being able to know where to connect in order to
 request data.
 
-=== [#HTTPURLsyntax]####HTTP URL syntax
+[#HTTPURLsyntax]
+=== HTTP URL syntax
 
 For HTTP URLs (with the _http_ or _https_ schemes), the scheme-specific
 part of the URL defines the _path_ to the data, followed by an optional
@@ -149,7 +158,8 @@ on a link and the browser automatically scrolls down to display a part
 which was not visible from the top of the page, you have clicked a URL
 with a _fragment_ part.
 
-=== [#URLgrammar]####URL grammar
+[#URLgrammar]
+=== URL grammar
 
 The _http_ URL scheme was first defined in
 http://tools.ietf.org/html/rfc1738[RFC 1738] (actually even before in
@@ -190,13 +200,15 @@ means users are almost never aware of such encoding.
 Developers, or web page authors on the other hand have to be aware of
 it, because there are many pitfalls.
 
-== [#CommonpitfallsofURLs]####Common pitfalls of URLs
+[#CommonpitfallsofURLs]
+== Common pitfalls of URLs
 
 If you are working with URLs, it pays to know some of the most common
 traps you should avoid. Here we give a non-exhaustive list of some of
 those traps.
 
-=== [#Whichcharacterencoding%3F]####Which character encoding?
+[#Whichcharacterencoding%3F]
+=== Which character encoding?
 
 URL-encoding does not define any particular character encoding for
 percent-encoded bytes. Generally
@@ -227,7 +239,8 @@ names_ (even on existing schemes) also use this encoding, which really
 rouses my suspicion: can the _host name_ and the _path_ parts really use
 different encodings?
 
-=== [#Thereservedcharactersaredifferentforeachpart]####The reserved characters are different for each part
+[#Thereservedcharactersaredifferentforeachpart]
+=== The reserved characters are different for each part
 
 Yes they are. Yes they are. Yes they are. (Yes they are).
 
@@ -263,7 +276,8 @@ to take a URL substring from one _part_ into another without proper
 encoding care. It is *impossible* to encode a URL without knowing about
 its specific parts.
 
-=== [#Thereservedcharactersarenotwhatyouthinktheyare]####The reserved characters are not what you think they are
+[#Thereservedcharactersarenotwhatyouthinktheyare]
+=== The reserved characters are not what you think they are
 
 Most people ignore that "+" is allowed in a _path_ part and that it
 designated the plus character and not a space. There are other
@@ -299,7 +313,8 @@ For the curious, the previous URL expands to:
 
 Nuts.
 
-=== [#AURLcannotbeanalysedafterdecoding]####A URL cannot be analysed after decoding
+[#AURLcannotbeanalysedafterdecoding]
+=== A URL cannot be analysed after decoding
 
 The syntax of the URL is only meaningful *before* it is URL-decoded:
 after URL-decoding, reserved characters may appear.
@@ -338,7 +353,8 @@ filters should never decode a URL before attempting to match it *iff*
 reserved characters are allowed to be URL-encoded (which may or may not
 be the case depending on you application).
 
-=== [#DecodedURLscannotbereencodedtothesameform]####Decoded URLs cannot be reencoded to the same form
+[#DecodedURLscannotbereencodedtothesameform]
+=== Decoded URLs cannot be reencoded to the same form
 
 If you decode "http://example.com/blue%2Fred%3Fand+green" to
 "http://example.com/blue/red?and+green" and proceed to encode it (even
@@ -347,14 +363,16 @@ get "http://example.com/blue/red?and+green" because that is a _valid_
 URL. It just happens to be very different from the original URL we
 decoded.
 
-== [#HandlingURLscorrectlyinJava]####Handling URLs correctly in Java
+[#HandlingURLscorrectlyinJava]
+== Handling URLs correctly in Java
 
 When you have mastered your black belt in _URL-fu_ you will notice that
 there are still quite a few Java-specific pitfalls when it comes to
 URLs. The road to URL handling correctness is not for the faint of
 heart.
 
-=== [#Donotuse%7B%7Bjava.net.URLEncoder%7D%7Dor%7B%7Bjava.net.URLDecoder%7D%7DforwholeURLs]####Do not use `java.net.URLEncoder` or `java.net.URLDecoder` for whole URLs
+[#Donotuse%7B%7Bjava.net.URLEncoder%7D%7Dor%7B%7Bjava.net.URLDecoder%7D%7DforwholeURLs]
+=== Do not use `java.net.URLEncoder` or `java.net.URLDecoder` for whole URLs
 
 We are not kidding. These classes are not made to encode or decode URLs,
 as their API documentation
@@ -375,7 +393,8 @@ the standard JDK had a standard class to deal with URL encoding properly
 it, which lures a lot of people into using `URLEncoder` for the wrong
 purpose.
 
-=== [#DonotconstructURLswithoutencodingeachpart]####Do not construct URLs without encoding each part
+[#DonotconstructURLswithoutencodingeachpart]
+=== Do not construct URLs without encoding each part
 
 As we have already stated: fully constructed URLs cannot be URL-encoded.
 
@@ -416,7 +435,8 @@ String url = "http://example.com/?query=" + value;
 This will give you "http://example.com/?query=a&b==c" which is a valid
 URL, but not the "http://example.com/?query=a%26b==c" we wanted.
 
-=== [#DonotexpectURI.getPath%28%29]####Do not expect http://download.java.net/jdk7/docs/api/java/net/URI.html#getPath()[URI.getPath()] to give you structured data
+[#DonotexpectURI.getPath%28%29]
+=== Do not expect http://download.java.net/jdk7/docs/api/java/net/URI.html#getPath()[URI.getPath()] to give you structured data
 
 Since once a URL has been decoded, syntactical information is lost, the
 following code is wrong:
@@ -446,7 +466,8 @@ for(String pathSegment : uri.getRawPath().split("/"))
 Do note that path parameters will still be present: deal with them if
 required.
 
-=== [#DonotexpectApacheCommonsHTTPClient%27s%7B%7BURI%7D%7Dclasstogetthisright]####Do not expect Apache Commons HTTPClient's `URI` class to get this right
+[#DonotexpectApacheCommonsHTTPClient%27s%7B%7BURI%7D%7Dclasstogetthisright]
+=== Do not expect Apache Commons HTTPClient's `URI` class to get this right
 
 The http://hc.apache.org/httpclient-3.x/[Apache Commons HTTPClient 3]'s
 http://hc.apache.org/httpclient-3.x/apidocs/org/apache/commons/httpclient/URI.html[URI]
@@ -459,13 +480,15 @@ also
 http://svn.apache.org/repos/asf/httpcomponents/oac.hc3x/trunk/src/java/org/apache/commons/httpclient/URI.java[decodes
 each part as if they all had the same reserved set].
 
-== [#FixingURLencodingateverylevelinawebapplication]####Fixing URL encoding at every level in a web application
+[#FixingURLencodingateverylevelinawebapplication]
+== Fixing URL encoding at every level in a web application
 
 We have had to fix quite a few URL-encoding issues in our application
 lately. From support in Java, down to the lower level of URL rewriting.
 We will here list a few of changes which were required.
 
-=== [#AlwaysencodeURLsasyoubuildthem]####Always encode URLs as you build them
+[#AlwaysencodeURLsasyoubuildthem]
+=== Always encode URLs as you build them
 
 In our HTML files, we replaced all occurrences of this:
 
@@ -483,7 +506,8 @@ var url = "#{contextPath}/view/#{vl:encodeURLPathSegment(resource.name)}";
 
 And similarly for query parameters.
 
-=== [#MakesureyourURLrewritefiltersdealwithURLscorrectly]####Make sure your URL-rewrite filters deal with URLs correctly
+[#MakesureyourURLrewritefiltersdealwithURLscorrectly]
+=== Make sure your URL-rewrite filters deal with URLs correctly
 
 http://tuckey.org/urlrewrite/[Url Rewrite Filter] is a URL rewriting
 filter we use in http://www.seamframework.org[Seam] to transform pretty
@@ -562,7 +586,8 @@ opposed to globally in `<urlrewrite>`.
 
 As soon as we get the time, we will send a second patch.
 
-=== [#UsingApachemodrewritecorrectly]####Using Apache mod-rewrite correctly
+[#UsingApachemodrewritecorrectly]
+=== Using Apache mod-rewrite correctly
 
 http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html[Apache
 mod-rewrite] is an http://httpd.apache.org/[Apache web server] module
@@ -601,7 +626,8 @@ RewriteCond %{THE_REQUEST} "^[a-zA-Z]+ /(.*) HTTP/\d\.\d$"
 RewriteRule ^(.*)$ http://our-internal-server:8080/vl/%1 [P,L,NE]
 ----
 
-== [#Conclusion]####Conclusion
+[#Conclusion]
+== Conclusion
 
 We hope to have clarified some URL myths and common mistakes. Short of
 clarifying them, making it obvious that it is not as simple as some
@@ -610,8 +636,4 @@ and in the whole chain of a web application deployment. Now everyone is
 a URL expert and we hope never to see related bugs again. Please SUN,
 please: add standard support for URL encoding/decoding *part by part*.
 
-_mailto:editorial@lunatech.com[Stéphane "FroMage" Épardaud] is a senior
-software developer at Lunatech Research. He enjoys
-http://en.wikipedia.org/wiki/The_Argument_Skit[good arguments],
-especially if he will win them or/and learn something, so don't hesitate
-to comment by dropping him a mail._
+

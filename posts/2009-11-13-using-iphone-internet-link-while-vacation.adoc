@@ -1,10 +1,14 @@
---- layout: article drupal-format: Full HTML title: "Using the iPhone as
-internet link while on vacation" tags: opinion fun author: Stéphane
-Épardaud summary: "This year I bit the bullet and got myself rid of a
+= Using the iPhone as internet link while on vacation
+UnFromage
+v1.0, 2009-11-13
+:title: Support for original language in Accept-Language header
+:tags: [opinion,fun]
+
+This year I bit the bullet and got myself rid of a
 decade-old relationship with Nokia to get a phone with a good Internet
 experience. I then used this new phone on vacation instead of the usual
 laptop to stay connected. Here's a list of things I've learned during
-this experiment." ---
+this experiment.
 
 I've always been a big fan of [.nobr]#http://www.nokia.com/[Nokia]#. I
 was blown away in 1999 when I could trigger calls by voice on my first

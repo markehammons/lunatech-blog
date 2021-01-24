@@ -1,13 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play Framework 1.2 Security: Fighting Cross Site
-Request Forgery" tags: playframework security author: Erik Bakker
-summary: "Play Framework 1.2 has built-in protection against cross-site
+= Play Framework 1.2 Security - Fighting Cross Site Request Forgery
+eamelink
+v1.0, 2011-02-22
+:title: Play Framework 1.2 Security- Fighting Cross Site Request Forgery
+:tags: [playframework,security]
+
+Play Framework 1.2 has built-in protection against cross-site
 request forgery (CSRF). Unfortunately, it is not enabled by default and
 the developer of a Play application has to take steps to be fully
 protected. This article explains how to utilize Play's protection in a
-proper way and the pitfalls to avoid." ---
+proper way and the pitfalls to avoid.
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-TheoreticalsolutiontoCSRF]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-TheoreticalsolutiontoCSRF]]
 == Theoretical solution to CSRF
 
 To prevent CSRF, an application must verify that a request that modifies
@@ -20,14 +23,14 @@ every form, that is only valid for the current session. When the form is
 submitted, the application verifies the token. An attacker website can
 not obtain a valid token for the user's session.
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Play%27simplementation]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Play%27simplementation]]
 == Play's implementation
 
 If you create a form using Play's \{`form`} tag, Play will automatically
 add such a token in a hidden form field with the name
 `authenticityToken`:
 
-[source,brush:,html;,gutter:,false]
+[source,html]
 ----
 {form @User.create}
 <input type="text" name="name" />
@@ -36,7 +39,7 @@ add such a token in a hidden form field with the name
 
 This template gives the following html output:
 
-[source,brush:,html;,gutter:,false]
+[source,html]
 ----
 <form action="/users/create" method="POST" accept-charset="utf-8" 
  enctype="application/x-www-form-urlencoded" >
@@ -51,7 +54,7 @@ the application, where it can be verified. Unfortunately, Play does not
 verify the token by default. You have to explicitly check for it in your
 controller, like this:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public class Users extends Controller {
     
@@ -71,7 +74,7 @@ forget a `checkAuthenticity()` somewhere, leaving your application
 vulnerable to CSRF. If your forget the check, everything works fine
 during development, you are just not protected.
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Abetterapproach]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Abetterapproach]]
 == A better approach
 
 A well designed application should not change state on GET requests. Web
@@ -93,7 +96,7 @@ controller.
 
 An example of the base controller:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public class Base extends Controller {
 
@@ -115,7 +118,7 @@ responds with:
 
 `Bad authenticity token`
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Ajax]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Ajax]]
 == Ajax
 
 For Ajax requests, it is not required to check for the authenticity
@@ -125,7 +128,7 @@ the `X-Requested-With` header to `XMLHttpRequest`, and Play has a
 built-in check for this: `request.isAjax()`. To exclude Ajax requests
 from our token checking interceptor, modify it as follows:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 @Before
     public static void csrfProtection() {
@@ -138,12 +141,12 @@ from our token checking interceptor, modify it as follows:
 Now we don't have to add the authenticity token to all the Ajax requests
 we use in our application.
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Pitfall]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Pitfall]]
 == Pitfall
 
 We are using the following controller and action to create users:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public class Users extends Base {
 
@@ -159,7 +162,7 @@ public class Users extends Base {
 
 The Play routes file has the following line in it by default:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 # Catch-all
 *       /{controller}/{action}                  {controller}.{action}
@@ -178,7 +181,7 @@ explicit route, which is a huge advantage over the manual
 `checkAuthenticity()` call, which you can easily forget without it
 getting noticed.
 
-[[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Conclusion]]
+[PlayFrameworkSecurityFightingCrossSiteRequestForgery-Conclusion]]
 == Conclusion
 
 The play framework has a decent CSRF protection built in, but it is not
@@ -186,6 +189,3 @@ enabled by default. For the best security, write an interceptor that
 automatically checks the authenticity of every POST request. The default
 catch-all route should be removed from routes.conf to prevent the
 accessing of state-modifying actions with GET requests.
-
-_link:/author/eamelink[Erik Bakker] is a software developer at Lunatech
-Research._

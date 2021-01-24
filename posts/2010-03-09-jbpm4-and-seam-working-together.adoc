@@ -1,11 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "jBPM4 and Seam working together" tags: JBoss jBPM
-Seam BPM JEE author: Nicolas Leroux summary: "So you wonder why there is
+= jBPM4 and Seam working together
+pepite
+v1.0, 2010-03-09
+:title: jBPM4 and Seam working together
+:tags: [jboss,jbpm,seam,jsf]
+
+
+So you wonder why there is
 no integration between Seam and jBPM4? Actually it is quite simple to
 build you own integration layer. This article describes a simple way to
 integrate jBPM 4 with JBoss Seam 2." ---
 
-== [#jBPM4andSeamworkingtogether-Gettingstarted]####Getting started
+== Getting started
 
 Download the latest jBPM 4.3 package and unzip it. In your Seam project,
 copy the jBPM library jar files. Setup an XA datasource for jBPM and one
@@ -44,7 +49,7 @@ transactions that go over multiple databases. This is our case, we want
 to have a database for our application and a database for jBPM to
 maintain the state of business processes.
 
-== [#jBPM4andSeamworkingtogether-GlueingSeamandjBPM4]####Glueing Seam and jBPM4
+== Glueing Seam and jBPM4
 
 Because we do not want jBPM3 anymore, we need to override the default
 Seam jBPM component. So let's do that:
@@ -161,7 +166,7 @@ executionService.startProcessInstanceByKey("confirm_registration", variables, co
 This is all good, but now how do I make Seam and JBPM 4 interact with
 each other? Well let's have a look.
 
-== [#jBPM4andSeamworkingtogether-jBPM4andSeaminteraction]####jBPM4 and Seam interaction
+== jBPM4 and Seam interaction
 
 Let's first review our jBPM business process:
 
@@ -347,7 +352,7 @@ public void approveMembership() throws Exception {
 }
 ----
 
-== [#jBPM4andSeamworkingtogether-Whatnext%3F]####What next?
+== What next?
 
 As you can see, this is a very basic activity component. The
 processExecution and the signaling could be automated.
@@ -364,7 +369,7 @@ executionService to signal my process anyway.
 But you are more than welcome to extend this component to fit your
 needs...
 
-== [#jBPM4andSeamworkingtogether-Inanutshell]####In a nutshell
+== In a nutshell
 
 Something worth nothing, the jBPM4 API is easy to use and readable. It
 allows to easily manipulate you business processes. I had no difficulty

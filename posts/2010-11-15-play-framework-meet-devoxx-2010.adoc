@@ -1,12 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play framework meet-up at Devoxx 2010" tags:
-playframework author: Peter Hilton summary: "Peter Hilton and Nicolas
-Leroux joined thousands of Java developers at [Devoxx
-2010](http://devoxx.com/display/Devoxx2K10/Home), for technical talks,
+= Play framework meet-up at Devoxx 2010
+PeterHilton
+v1.0, 2010-11-15
+:title: Play framework meet-up at Devoxx 2010
+:tags: [playframework,event]
+
+Peter Hilton and Nicolas
+Leroux joined thousands of Java developers at http://devoxx.com/display/Devoxx2K10/Home[Devoxx 2010], for technical talks,
 networking and Belgian beer. About 60 people went to our Wednesday
-evening for a [Play framework](http://www.playframework.org/) meet-up,
+evening for a http://www.playframework.org/[Play framework] meet-up,
 to talk to us about Play (Nicolas and Peter are both committers on the
-project), get free drinks and meet other developers." ---
+project), get free drinks and meet other developers.
 
 image:devoxx-2010-play-meetup.jpg[About 60 people turned up at the Play
 framework meet-up at Axxes Café, sponsored by Lunatech and Zenexity] +
@@ -53,6 +56,3 @@ picking the venue.
 
 See http://hilton.org.uk/antwerp/[Eating & drinking in Antwerp].
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research and committer on the Play open-source
-project._

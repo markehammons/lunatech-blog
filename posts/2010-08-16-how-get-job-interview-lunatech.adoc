@@ -1,10 +1,14 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to get a job interview at Lunatech" tags:
-employment author: Peter Hilton summary: "Our previous article on [how
-to get a job at Lunatech](/2010/08/05/how-get-job-lunatech) explained
+= How to get a job interview at Lunatech
+PeterHilton
+v1.0, 2010-08-16
+:title: How to get a job interview at Lunatech
+:tags: [employment,opinion]
+
+
+Our previous article on https://blog.lunatech.com/posts/2010-08-05-how-get-job-lunatech[how to get a job at Lunatech] explained
 why going through a recruiter makes it less likely that you will get an
 interview. Having explained how not to get an interview, this article
-explains what definitely will get you one." ---
+explains what definitely will get you one.
 
 [[sixways]]
 == Six ways to get an interview at Lunatech without writing a CV
@@ -142,5 +146,3 @@ In fact, if you really could put one of the bullets above on your CV,
 then you can probably just skip the CV and tell us where to find details
 on-line. Either way, send your e-mail to employment@lunatech.com.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

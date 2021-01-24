@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play framework 1.0 built-in validations" tags:
-playframework validation author: Peter Hilton summary: "The Play
+= Play framework 1.0 built-in validations
+PeterHilton
+v1.0, 2010-08-30
+:title: Play framework 1.0 built-in validations
+:tags: [playframework,java]
+
+The Play
 framework (version 1.0) provides flexible and easy-to-use functionality
-for [HTTP request data
-validation](http://www.playframework.org/documentation/1.0.3/validation),
+for http://www.playframework.org/documentation/1.0.3/validation[HTTP request data
+validation],
 for validating form data. This article provides an overview of the
-framework's built-in validation rules." ---
+framework's built-in validation rules.
 
 [[overview]]
 == Validation overview
@@ -32,7 +36,7 @@ not empty using the first approach - calling a
 http://www.playframework.org/@api/play/data/validation/Validation.html[play.data.validation.Validation]
 method.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 public static void save(String value) {
     
@@ -50,7 +54,7 @@ The second approach - adding a
 http://www.playframework.org/@api/play/data/validation/package-summary.html[play.data.validation]
 annotation:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 public static void save(@Required String value) {
     
@@ -67,7 +71,7 @@ properties, and annotating the parameter with the
 http://www.playframework.org/@api/play/data/validation/Valid.html[@Valid]
 annotation:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 public static void save(@Valid Data data) {
     
@@ -113,14 +117,14 @@ message files for other languages.
 
 Checks that the value is a valid e-mail address.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.email(address);
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Email String address
 ----
@@ -133,14 +137,14 @@ Checks that the value is equal to another parameter's value, using the
 value's `equals` method, e.g. for checking for a password confirmation
 field.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.equals(password, passwordConfirmation);
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Equals("passwordConfirmation") String password
 ----
@@ -153,7 +157,7 @@ Checks that the value is a date in the future. If a second date is
 specified as a reference, then the value must be in the future with
 respect to the reference date - i.e. after it.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.future(dueDate);
 validation.future(dueDate, shipmentDate);
@@ -161,7 +165,7 @@ validation.future(dueDate, shipmentDate);
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @InFuture String dueDate
 @InFuture("1979-12-31") String birthDate
@@ -177,14 +181,14 @@ Checks that the value is a `String` or `Boolean` that evaluates to
 checked, or a non-zero `Number`. Null values are considered
 false/invalid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.isTrue(agree);
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @IsTrue String agree
 ----
@@ -196,14 +200,14 @@ Message key: `validation.isTrue`
 Checks that the value is a string that matches the given regular
 expression. Empty strings are considered valid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.match(abbreviation, "[A-Z]{3}"); // TLA
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Match("[A-Z]{3}") String abbreviation
 ----
@@ -215,14 +219,14 @@ Message key: `validation.match`
 Checks that the value is a `String` or `Number` that is no greater than
 the given number. Null values are considered valid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.max(wordCount, 7500); // Short story
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Max(7500) String wordCount
 ----
@@ -235,14 +239,14 @@ Message key: `validation.max`
 Checks that the value is a `String` whose length is no greater than the
 given length. Empty strings are considered valid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.maxSize(url, 2083); // IE 4.0 - 8
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @MaxSize(2083) String value
 ----
@@ -254,14 +258,14 @@ Message key: `validation.maxSize`
 Checks that the value is a `String` or `Number` that is no less than the
 given number. Null values are considered valid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.min(age, 18); // Adult
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Min(18) Long age
 ----
@@ -274,14 +278,14 @@ Message key: `validation.min`
 Checks that the value is a `String` whose length is no less than the
 given length. Empty strings are considered valid.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.minSize(value, 42);
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @MinSize(42) String value
 ----
@@ -294,7 +298,7 @@ Checks that the value is a date in the future. If a second date is
 specified as a reference, then the value must be in the past with
 respect to the reference date - i.e. before it.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.past(actualDepartureDate);
 validation.past(expectedDepartureDate, expectedArrivalDate);
@@ -302,7 +306,7 @@ validation.past(expectedDepartureDate, expectedArrivalDate);
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Past String actualDepartureDate
 @Past("1980-01-01") String birthDate
@@ -315,14 +319,14 @@ Message key: `validation.past`
 Checks that the value is a number within the range (inclusive) specified
 by the two given numbers.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.range(wordCount, 17500, 40000); // Novella
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Range(min = 17500, max = 40000) String wordCount
 ----
@@ -334,14 +338,14 @@ Message key: `validation.past`
 Checks that the value is a non-empty `String`, `Collection`, `File` or
 array.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 validation.required(value);
 ----
 
 Annotation syntax:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @Required String value
 ----
@@ -355,13 +359,10 @@ valid. There is no
 http://www.playframework.org/@api/play/data/validation/Validation.html[play.data.validation.Validation]
 method for this validation.
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 @URL String address
 ----
 
 Message key: `validation.url`
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research and committer on the Play open-source
-project._

@@ -1,10 +1,15 @@
---- layout: article drupal-format: Full HTML title: "Generating scalable
-barcodes with iText and Seam" tags: iText Java PDF JSF Seam author:
-Stéphane Épardaud summary: "This article explains how to use Seam's JSF
-mapping for iText to generate a sheet of product barcodes with scalable
-barcodes." ---
+= Generating scalable barcodes with iText and Seam
+UnFromage
+v1.0, 2009-11-23
+:title: Generating scalable barcodes with iText and Seam
+:tags: [java,pdf,itext,seam,jsf]
 
-== [#GeneratingscalablebarcodeswithiTextandSeam-Theproblem]####The problem
+
+This article explains how to use Seam's JSF
+mapping for iText to generate a sheet of product barcodes with scalable
+barcodes.
+
+== The problem
 
 We want to generate a PDF with 11 rows by 3 columns of product labels.
 Those labels consist of:
@@ -20,7 +25,7 @@ table, a naïve approach to the problem will have us generate the
 following table cell for one label (with all margins and alignment
 removed for clarity and borders added for visibility):
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="73.7"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -28,18 +33,18 @@ removed for clarity and borders added for visibility):
 </p:cell>
 ----
 
-[.image-wrap]#image:small_barcode8.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode8.gif[image]#
 
 Aside from my bad cropping to extract the image from the example sheet,
 this seems about right.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Whatiftheproductreferenceislonger?]####What if the product reference is longer?
+=== What if the product reference is longer?
 
 Now suppose (as in our case) that the sheet is generated from values
 that can vary in length. Let's try our solution with a longer product
 reference:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="73.7"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -47,7 +52,7 @@ reference:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode6.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode6.gif[image]#
 
 You notice right away that the barcode is longer and the bars are
 shorter. The reason why this is so is that in both cases iText made a
@@ -61,11 +66,11 @@ scan because the laser needs to be aligned much more precisely.
 
 This is not good.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Whatiftheproductreferenceisshorterthen?]####What if the product reference is shorter then?
+=== What if the product reference is shorter then?
 
 Let's try our solution with a shorter product reference:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="73.7"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -73,7 +78,7 @@ Let's try our solution with a shorter product reference:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode4.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode4.gif[image]#
 
 Obviously this doesn't work. But why? The answer is simple once you know
 how it works in iText: it's simply the opposite effect of scaling. When
@@ -85,7 +90,7 @@ disappears.
 To illustrate this, look at this example with a product code just long
 enough for the barcode to fit, while still being zoomed in:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="73.7"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -93,12 +98,12 @@ enough for the barcode to fit, while still being zoomed in:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode7.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode7.gif[image]#
 
 This is not good, since the barcode can disappear from screen depending
 on its width.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Can'tweadjustthebarcode'swidthandheightthen?]####Can't we adjust the barcode's width and height then?
+=== Can't we adjust the barcode's width and height then?
 
 Not directly. In iText you can specify the barcode's height, but since
 there is scaling that depends on the width it is useless. What you can
@@ -111,11 +116,11 @@ mapping, so we have to tweak it. Also this approach breaks down when the
 product reference is too wide to be contained in the cell, which will
 make the barcode overflow left and right, so still not enough.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Dowehaveanyotherproblemsthen?]####Do we have any other problems then?
+=== Do we have any other problems then?
 
 Yes we do. Let's try with a longer product name:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="73.7"> 
  <p:paragraph>A much long bit of text that might possibly not fit. A much long bit of text  
@@ -124,14 +129,14 @@ Yes we do. Let's try with a longer product name:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode5.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode5.gif[image]#
 
 What you see here is that if the product name is too long it pushes the
 barcode outside of the cell which makes it disappear.
 
 Also not good.
 
-== [#GeneratingscalablebarcodeswithiTextandSeam-Thesolution]####The solution
+== The solution
 
 Now that we have identified all the shortcomings let's list the features
 we're missing:
@@ -154,11 +159,11 @@ scaling it with the barcode
 
 For this we need to extend Seam's barcode JSF mapping.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-ThenewJSFbarcodecomponent]####The new JSF barcode component
+=== The new JSF barcode component
 
 Here is the code necessary to extend Seam's JSF barcode component:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 package com.lunatech.jsf; 
 
@@ -261,7 +266,7 @@ public class UIBarCode extends org.jboss.seam.pdf.ui.UIBarCode {
 Once you have that, you need a taglib.xml file to declare your tag and
 namespace:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <facelet-taglib> 
  <namespace>http://com.lunatech/pdf</namespace> 
@@ -277,7 +282,7 @@ namespace:
 And a faces-config.xml for… well what the hell is that for really? It
 looks pretty lame:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <faces-config> 
  <component> 
@@ -290,17 +295,17 @@ looks pretty lame:
 Now you just need to define your prefix to use the new JSF component in
 your views:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 xmlns:l="http://com.lunatech/pdf" 
 ----
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Testingoursolutiononshortproductcodes]####Testing our solution on short product codes
+=== Testing our solution on short product codes
 
 This time setting the barcode's height is meaningful since scaling won't
 affect it.
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="25"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -313,16 +318,16 @@ affect it.
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode1.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode1.gif[image]#
 
 It works as expected: the barcode is as high as possible while not being
 scaled length-wise.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Testingoursolutionwithlongerproductnames]####Testing our solution with longer product names
+=== Testing our solution with longer product names
 
 Let's confirm that longer product names do not impact our barcode:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="25"> 
  <p:paragraph>A much long bit of text that might possibly not fit.  
@@ -337,15 +342,15 @@ Let's confirm that longer product names do not impact our barcode:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode2.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode2.gif[image]#
 
 So far so good.
 
-=== [#GeneratingscalablebarcodeswithiTextandSeam-Testingoursolutionwithlongerproductcodes]####Testing our solution with longer product codes
+=== Testing our solution with longer product codes
 
 Now let's see what happens when the product code is super long:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:cell borderWidth="1" fixedHeight="25"> 
  <p:paragraph>A bit of text</p:paragraph> 
@@ -359,18 +364,18 @@ Now let's see what happens when the product code is super long:
 </p:cell> 
 ----
 
-[.image-wrap]#image:small_barcode3.gif[image]#
+[.image-wrap]#image:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/small_barcode3.gif[image]#
 
 This time the barcode is scaled length-wise to fit the cell's width and
 not overflow left and right. Notice that the barcode height is constant
 while the human-readable product code is not scaled.
 
-== [#GeneratingscalablebarcodeswithiTextandSeam-ThefullJSFviewforthecurious]####The full JSF view for the curious
+== The full JSF view for the curious
 
 Since we have removed all margins for clarity, let's see what the final
 label page looks like:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <p:document xmlns:p="http://jboss.com/products/seam/pdf" 
   xmlns:l="http://com.lunatech/pdf" 
@@ -406,10 +411,10 @@ label page looks like:
 </p:document>
 ----
 
-If you want you can look at the [.nobr]#link:barcode-sheet.pdf[final
+If you want you can look at the [.nobr]#link:../media/2009-11-23-generating-scalable-barcodes-itext-and-seam/barcode-sheet.pdf[final
 results in PDF]#.
 
-== [#GeneratingscalablebarcodeswithiTextandSeam-Conclusion]####Conclusion
+== Conclusion
 
 We have managed to use and extend Seam's JSF components for PDF using
 iText to generate exactly what we needed. Everything looks good and

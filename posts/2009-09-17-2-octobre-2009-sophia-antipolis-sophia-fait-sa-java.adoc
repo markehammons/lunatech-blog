@@ -1,14 +1,14 @@
---- layout: article drupal-format: Full HTML title: "2 octobre 2009 @
-Sophia-Antipolis : Sophia fait sa Java" tags: Java event author:
-Stéphane Épardaud summary: "[2nd October 2009 @ Sophia-Antipolis :
-Sophia fait sa
-Java](http://www.rivierajug.org/xwiki/bin/view/Main/20091002) The
-[Riviera JUG](http://www.rivierajug.org) will host its fifth **free**
-conference the 2nd October of 2009 in collaboration with [Polytech
-Nice](http://www.polytechnice.fr) and [Telecom
-Valley](http://www.telecom-valley.fr) at
-[Polytech](http://www.polytechnice.fr) à Sophia-Antipolis ([Google
-Maps](http://maps.google.fr/maps?f=q&source=s_q&hl=en&geocode=&q=polytech+nice&sll=46.75984,1.738281&sspn=10.629961,17.094727&ie=UTF8&ll=43.616831,7.073522&spn=0.010967,0.024869&t=h&z=16&iwloc=A))."
+= 2 octobre 2009 @Sophia-Antipolis - Sophia fait sa Java
+UnFromage
+v1.0, 2009-09-17
+:title: 2 octobre 2009 @Sophia-Antipolis - Sophia fait sa Java
+:tags: [event]
+
+http://www.rivierajug.org/xwiki/bin/view/Main/20091002[2nd October 2009 @ Sophia-Antipolis - Sophia fait sa Java] The
+http://www.rivierajug.org[Riviera JUG] will host its fifth **free**
+conference the 2nd October of 2009 in collaboration with http://www.polytechnice.fr[Polytech Nice] and http://www.telecom-valley.fr[Telecom Valley] at
+http://www.polytechnice.fr[Polytech] à Sophia-Antipolis (http://maps.google.fr/maps?f=q&source=s_q&hl=en&geocode=&q=polytech+nice&sll=46.75984,1.738281&sspn=10.629961,17.094727&ie=UTF8&ll=43.616831,7.073522&spn=0.010967,0.024869&t=h&z=16&iwloc=A[Google
+Maps])."
 ---
 
 Réservez votre journée car nous aurons pas moins de quatre présentations

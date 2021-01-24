@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Confluence as an enterprise Facebook" tags:
-Confluence collaboration author: Peter Hilton summary: "Large
+= Confluence as an enterprise Facebook
+PeterHilton
+v1.0, 2009-12-10
+:title: Confluence as an enterprise Facebook
+:tags: [confluence,opinion]
+
+Large
 organisations are starting to consider deploying an internal
-[Facebook](http://www.facebook.com/) clone, in their quest for
-[Enterprise 2.0](http://en.wikipedia.org/wiki/Enterprise_2.0). This
+http://www.facebook.com/[Facebook] clone, in their quest for
+http://en.wikipedia.org/wiki/Enterprise_2.0[Enterprise 2.0]. This
 article considers what you need to achieve this, and how far you can get
-with [Atlassian
-Confluence](http://www.atlassian.com/software/confluence/)." ---
+with http://www.atlassian.com/software/confluence/[Atlassian
+Confluence].
 
 [[Facebookcorefunctionality]]
 == Facebook core functionality
@@ -152,5 +156,3 @@ a top-down hierarchical org-chart and acknowledge that each individual
 employee works with a network of concentric circles of trusted
 colleagues with himself at the centre.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

@@ -1,13 +1,18 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Plan Cruncher - Play! in production" tags:
-playframework web-applications author: Peter Hilton summary: "At
+= Plan Cruncher - Play! in production
+PeterHilton
+v1.0, 2010-03-29
+:title: Plan Cruncher - Play! in production
+:tags: [playframework,web-applications]
+
+
+At
 Lunatech, we recently decided to build a small web application to
 implement one of our ideas for generating business plan summaries. We
 needed to get this running on-line as quickly as possible, with minimal
 time spent coding, so we chose to build it using the Play! framework.
 The result was fast development, clean code, easy deployment and an
 instantly popular web application -
-[http://plancruncher.com/](http://plancruncher.com/)." ---
+http://plancruncher.com/[http://plancruncher.com/].
 
 [[born]]
 == Plan Cruncher is born
@@ -65,7 +70,7 @@ production at http://plancruncher.com/ within a couple of weeks, after
 spending about two days each on design, coding and testing. It was fun
 as well.
 
-image:plancruncher.png[plancruncher.com]
+image:../media/2010-03-29-plan-cruncher-play-production/plancruncher.png[plancruncher.com]
 
 After the first release, we released a new version every day for a week
 or so, to incorporate initial user feedback, as

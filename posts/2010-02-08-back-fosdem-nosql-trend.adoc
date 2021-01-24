@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Back from FOSDEM: the NoSQL trend" tags: Java
-conference author: Nicolas Leroux summary: "This week end, I went to
-[FOSDEM](http://fosdem.org). Even if it was a bit too geeky for my
+= Back from FOSDEM - the NoSQL trend
+pepite
+v1.0, 2010-02-08
+:title: Back from FOSDEM - the NoSQL trend
+:tags: [fosdem,event]
+
+
+This week end, I went to
+http://fosdem.org[FOSDEM]. Even if it was a bit too geeky for my
 taste, it was certainly worth going. I attended quite a few talks and
-met the [JBoss](http://jboss.org) team, the [play!
-framework](http://playframework.org) team and [JBUG.be](http://jbug.be)
-people." ---
+met the http://jboss.org[JBoss] team, the http://playframework.org[play! framework] team and http://jbug.be[JBUG.be]
+people.
 
 I was actually quite surprised by the number of people attending the
 http://en.wikipedia.org/wiki/NoSQL[NoSQL] tracks. While I understand the
@@ -53,4 +57,3 @@ In conclusion, I think this latest hype might bring new solutions that
 can be used for small projects helping us to develop quicker solutions,
 even if we are not quite there yet.
 
-Nicolas

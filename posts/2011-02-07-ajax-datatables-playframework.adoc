@@ -1,14 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Ajax DataTables with the Play framework 1.2" tags:
-playframework JQuery author: Peter Hilton summary: "This article is a
-follow-on to [Integrating Play framework with jQuery
-DataTables](http://blog.lunatech.com/2011/01/28/playframework-jquery-datatables
-\"Integrating Play framework with jQuery DataTables\"), which describes
-how to integrate [DataTables](http://www.datatables.net/) with a [Play
-framework](http://playframework.com/) 1.2 web application. This time, we
+= Ajax DataTables with the Play framework 1.2
+PeterHilton
+v1.0, 2011-02-07
+:title: Ajax DataTables with the Play framework 1.2
+:tags: [playframework,jquery]
+
+This article is a
+follow-on to http://blog.lunatech.com/posts/2011-01-28-playframework-jquery-datatables[Integrating Play framework with jQuery DataTables], which describes
+how to integrate http://www.datatables.net/[DataTables] with a http://playframework.com/[Play framework] 1.2 web application. This time, we
 show how to load the table data from the server using
-[Ajax](http://en.wikipedia.org/wiki/Ajax_(programming)), rather than
-decorating an existing (populated) HTML table." ---
+http://en.wikipedia.org/wiki/Ajax_(programming)[Ajax], rather than
+decorating an existing (populated) HTML table.
 
 [[architecture]]
 == Architectural considerations
@@ -54,7 +55,7 @@ Ajax calls. To do this, add a new
 `crud-datatables/app/controllers/CrudJson.java` controller to your Play
 module:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 package controllers;
 
@@ -118,7 +119,7 @@ public class CrudJson extends CRUD {
 To use the new controller, add a corresponding route for each CRUD
 controller in `crud-datatables/conf/routes`
 
-[source,brush:,plain;,gutter:,false]
+[source]
 ----
 #{crud.types}
 GET /${type.controllerName}.json ${type.controllerClass.name.substring(12).replace('$','')}.listJson
@@ -128,7 +129,7 @@ GET /${type.controllerName}.json ${type.controllerClass.name.substring(12).repla
 … and change the example application’s controller to use the new JSON
 controller as its super-class:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 package controllers;
 
@@ -148,7 +149,7 @@ things: change the DataTables configuration, and remove the generated
 HTML table in `crud-datatables-example/app/views/CRUD/list.html`. First,
 replace the DataTables initialisation script:
 
-[source,brush:,javascript;,gutter:,false]
+[source,javascript]
 ----
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
@@ -172,7 +173,7 @@ tag to generate a list of field names from the CRUD type.
 Next, replace the `crud.table` template tag with an empty HTML table,
 which DataTables will populate:
 
-[source,brush:,html;,gutter:,false]
+[source,html]
 ----
 <div id="crudListTable">
    <table></table>
@@ -207,7 +208,7 @@ To parse these parameters into the form that the CRUD module needs, we
 can use a new inner class in the
 `crud-datatables/app/controllers/CrudJson.java` controller:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static class DataTablesParameters {
   private final ObjectType type;
@@ -242,7 +243,7 @@ public static class DataTablesParameters {
 
 We can now change the controller’s `listJson` method:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static void listJson() {
    ObjectType type = ObjectType.get(getControllerClass());
@@ -292,5 +293,4 @@ column filtering] - ‘advanced search’
 data] to fetch more than one page at a time, to reduce the number of
 Ajax requests.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
+

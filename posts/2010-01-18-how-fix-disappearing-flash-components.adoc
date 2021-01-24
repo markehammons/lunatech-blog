@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to fix disappearing Flash components" tags:
-Flash author: Sietse de Kaper summary: "While working on the video
-player for the [Minoto Video Platform](http://www.minoto-video.com/), I
+= How to fix disappearing Flash components
+targeter
+v1.0, 2010-01-18
+:title: How to fix disappearing Flash component
+:tags: [flash]
+
+While working on the video
+player for the http://www.minoto-video.com/[Minoto Video Platform], I
 ran into a serious issue with Flash player and the ComboBox component
 that comes with Flash CS4. I thought I'd share the story and solution to
-help others that are in a similar hair-pulling situation." ---
+help others that are in a similar hair-pulling situation.
 
-== [#HowtofixdisappearingFlashcomponents-Thehunt]####The hunt
+== The hunt
 
 For the video player we wanted to replace the existing quality toggle
 button (similar to YouTube's "HD" button) with a ComboBox, because the
@@ -37,7 +41,7 @@ with the same problem]#, but no solution. A
 I posted on Stack Overflow]# got no response, and earned me the
 Tumbleweed badge.
 
-== [#HowtofixdisappearingFlashcomponents-Theculprit]####The culprit
+== The culprit
 
 Eventually it dawned on me (thanks Nicolas, for putting me on the right
 track) that the difference between my tests and the test environment was
@@ -54,7 +58,7 @@ floats above all other things on the page. This is not an option for us,
 since a lot of our publishers use DHTML (i.e. JavaScript) menus for
 their navigation, and they would no longer work.
 
-== [#HowtofixdisappearingFlashcomponents-Thefix]####The fix
+== The fix
 
 Eventually, I found
 [.nobr]#http://rufuswhite.blogspot.com/2007/09/youre-having-laugh.html[this
@@ -64,7 +68,7 @@ not to dispatch `RENDER` events anymore. The solution is to dispatch
 that event manually on key moments, to allow the component to re-render
 itself. My code ended up looking like this:
 
-....
+----
 private function renderStage(e:Event=null){
  stage.dispatchEvent(new Event(Event.RENDER));
 }
@@ -74,9 +78,9 @@ myComboBox.addEventListener(ListEvent.ITEM_DOUBLE_CLICK, renderStage);
 myComboBox.addEventListener(ListEvent.ITEM_ROLL_OUT, renderStage);
 myComboBox.addEventListener(ListEvent.ITEM_ROLL_OVER, renderStage);
 myComboBox.addEventListener(Event.CHANGE, renderStage);
-....
+----
 
-== [#HowtofixdisappearingFlashcomponents-Conclusion]####Conclusion
+== Conclusion
 
 It is just insane that I have to jump through these hoops to avoid a
 critial bug (or maybe design flaw) in something as omnipresent as Flash

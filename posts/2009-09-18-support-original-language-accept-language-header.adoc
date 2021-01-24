@@ -1,7 +1,10 @@
---- layout: article drupal-format: Unfiltered, Full HTML title: "Support
-for original language in Accept-Language header" tags: web-applications
-UX localization internationalization author: Francisco José Canedo
-Dominguez summary: "In most browers' preferences dialogs, you can find
+= Support for original language in Accept-Language header
+fcanedo
+v1.0, 2009-09-18
+:title: Support for original language in Accept-Language header
+:tags: [localization,internationalization,web-applications]
+
+In most browers' preferences dialogs, you can find
 settings for which language to display if the content is available in
 more than one language. What happens is, that your browser and the
 server negotiate over which language to show you. Your browser tells the
@@ -10,9 +13,8 @@ preference. For instance, if you tell your browser that you understand
 English and French, but prefer English, the server will serve you an
 English version of the text and a French one only if it doesn't have an
 English one. If it doesn't have either version, it will serve you the
-original language, I presume. The [HTTP 1.1
-specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4)
-explains how this should work." ---
+original language, I presume. The http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4[HTTP 1.1 specification]
+explains how this should work.
 
 This doesn't work really well for me. You see, I am fluent in English,
 Dutch, Spanish and

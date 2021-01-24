@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to demo the Play framework 1.2 - live coding
-script" tags: playframework author: Peter Hilton summary: "If you want
+= How to demo the Play framework 1.2 - live coding script
+PeterHilton
+v1.0, 2010-06-08
+:title: How to demo the Play framework 1.2 - live coding script
+:tags: [playframework,java]
+
+If you want
 someone to know how fast and straightforward it is to build a Java web
-application with the [Play framework](http://www.playframework.org/),
+application with the http://www.playframework.org/[Play framework],
 then *show*, don't *tell*. The most compelling way to do this is to
 download Play 1.2 and start coding a web application from scratch, while
 they watch. This article is a script for a five-minute live-coding Play
-demo." ---
+demo.
 
 This script is based on how I have seen Play's creator, Guillaume Bort,
 demonstrate Play to introduce it to a small audience. More or less the

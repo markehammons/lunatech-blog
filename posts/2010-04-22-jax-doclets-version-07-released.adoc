@@ -1,8 +1,11 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "jax-doclets version 0.7 released" tags: jax-doclets
-Java documentation REST open-source author: Stéphane Épardaud summary:
-"Did you know we have an [open-source web
-site](http://www.lunatech-labs.com)?" ---
+= jax-doclets version 0.7 released
+UnFromage
+v1.0, 2010-04-22
+:title: jax-doclets version 0.7 released
+:tags: [resteasy,java,rest,documentation]
+
+Did you know we have an http://www.lunatech-labs.com[open-source web
+site]?
 
 We release all our open-source projects there, as a way to give back to
 the open-source community we use and abuse every day and without which

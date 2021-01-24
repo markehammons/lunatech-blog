@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Decision service architecture with JBoss Rules"
-tags: Drools author: Peter Hilton summary: "This article describes an
-architecture for implementing a decision service with [JBoss
-Rules](http://www.jboss.org/drools/), a [business rules
-engine](http://en.wikipedia.org/wiki/Business_rules_engine). This is a
+= Decision service architecture with JBoss Rules
+PeterHilton
+v1.0, 2009-12-10
+:title: Decision service architecture with JBoss Rules
+:tags: [java,drools]
+
+This article describes an
+architecture for implementing a decision service with http://www.jboss.org/drools/[JBoss
+Rules], a http://en.wikipedia.org/wiki/Business_rules_engine[business rules
+engine]. This is a
 high-level description, without code, for architects who are considering
-using JBoss Rules or implementing a decision service." ---
+using JBoss Rules or implementing a decision service.
 
 This article is part 1 of a series:
 
@@ -200,5 +204,4 @@ decisions service in a Java application, or to customise the decision
 service's external interface by making it into a new Java application
 with a Java web-services interface.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+

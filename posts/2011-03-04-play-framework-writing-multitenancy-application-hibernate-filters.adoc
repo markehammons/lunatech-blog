@@ -1,9 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play Framework 1.2: Writing a Multitenancy
-Application with Hibernate Filters" tags: playframework author: Erik
-Bakker summary: "This article describes a method to simplify the
+= Play Framework 1.2 - Writing a Multitenancy Application with Hibernate Filters
+eamelink
+v1.0, 2011-03-04
+:title: Play Framework 1.2 - Writing a Multitenancy Application with Hibernate Filters
+:tags: [playframework,hibernate]
+
+This article describes a method to simplify the
 construction of a Play 1.2 application with multiple users that have
-little or no shared data, using Hibernate Filters." ---
+little or no shared data, using Hibernate Filters.
 
 A multitenancy application is characterized by having multiple users
 that have independent data in the system. An example could be a todo
@@ -21,7 +24,7 @@ this case, every record in the database, and every database mapped Java
 class, must have a property that keeps track of the user to which it
 belongs, like in the following example:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public class Task extends Model {
     public String description;
@@ -34,7 +37,7 @@ public class Task extends Model {
 
 On the other side of the relationship, we have the User class:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 @Entity
 public class User extends Model {
@@ -48,7 +51,7 @@ public class User extends Model {
 Now, to get a list of all the Tasks for the user that is logged in, we
 must do something like:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 List<Task> tasks = Task.find("byUser", loggedInUser).fetch();
 ----
@@ -56,7 +59,7 @@ List<Task> tasks = Task.find("byUser", loggedInUser).fetch();
 And to search for Tasks for the user that is logged in and that are not
 done yet, we can do:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 List<Task> tasks = Task.find("byUserAndDone", loggedInUser, false).fetch();
 ----
@@ -85,7 +88,7 @@ We want to use the filter in the entire package, so we specify them on a
 package level in in the file `package-info.java`, residing in the
 `models` package:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 @FilterDef(name="user", parameters= { @ParamDef( name="user_id", type="long") }, defaultCondition=":user_id = user_id", )
 package models;
@@ -111,7 +114,7 @@ in Hibernate may cause you trouble in that case.
 Now that the filter is defined, we can apply it on an entity class, for
 example on our `Task`:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 @Entity
 @Filter(name="user")
@@ -124,7 +127,7 @@ Finally, we must enable this particular filter. It is convenient to have
 it automatically applied on every request, so we can do that in an
 `@Before` interceptor:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 @Before
 public static void setFilters() {
@@ -191,5 +194,3 @@ repetition of a query criterium that selects only data for the current
 user, you can use Hibernate filters. With the Play framework, it is very
 easy to enable such a filter in an interceptor.
 
-_link:/author/eamelink[Erik Bakker] is a software developer at Lunatech
-Research._

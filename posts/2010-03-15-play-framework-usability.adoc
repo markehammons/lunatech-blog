@@ -1,11 +1,14 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play framework usability" tags: playframework
-web-applications author: Peter Hilton summary: "Perhaps the most
-striking thing about about the [Play!
-framework](http://www.playframework.org/) 1.0 is that its biggest
+= Play framework usability
+PeterHilton
+v1.0, 2010-03-15
+:title: Play framework usability
+:tags: [playframework]
+
+Perhaps the most
+striking thing about about the http://www.playframework.org/[Play! framework] 1.0 is that its biggest
 advantage over other Java web application development frameworks does
 not fit into a neat feature list, and is only apparent after you have
-used it to build something. That advantage is usability." ---
+used it to build something. That advantage is usability.
 
 Note that usability is separate from functionality. In what follows, I
 am not suggesting that you cannot do this in some other framework: I
@@ -163,7 +166,7 @@ application shows the last line of code within the application that
 appears in the stack trace. After all, what you really want to know is
 where things first went wrong _in your own code_.
 
-image:play-exception.png[image,title="Play! error page"]
+image:../media/2010-03-15-play-framework-usability/play-exception.png[image,title="Play! error page"]
 
 This kind of usability does not happen by itself; the Play! framework
 goes to considerable effort to filter out duplicate and irrelevant
@@ -183,5 +186,4 @@ We recommend that you go to http://www.playframework.org/, download the
 latest binary release, and spend half an hour on the
 http://www.playframework.org/documentation/1.0.1/guide1[tutorial].
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+

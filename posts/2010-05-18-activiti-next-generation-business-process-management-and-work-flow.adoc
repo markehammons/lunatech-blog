@@ -1,9 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Activiti: next-generation Business Process
-Management and work-flow" tags: BPM author: Peter Hilton summary:
-"[Yesterday's
-launch](http://www.alfresco.com/media/releases/2010/05/activiti_bpm/) of
-[Activiti](http://www.activiti.org/) starts a new generation of business
+= Activiti next-generation Business Process Management and work-flow
+PeterHilton
+v1.0, 2010-05-18
+:title: Activiti next-generation Business Process Management and work-flow
+:tags: [bpm,java]
+
+http://www.alfresco.com/media/releases/2010/05/activiti_bpm/[Yesterday's
+launch] of
+http://www.activiti.org/[Activiti] starts a new generation of business
 process management (BPM) software that will disrupt the existing BPM
 engine landscape. Activiti promises to be the ideal choice for using BPM
 in commercial application development, because it is both based on
@@ -12,7 +15,7 @@ than anything else, these two aspects of Activiti make it more
 interesting for commercial software development than either other open
 source BPM platforms that have more restrictive licenses, or
 closed-source commercial offerings that carry the heavy price of vendor
-lock-in." ---
+lock-in.
 
 The benefits of an open-source solution require no explanation; the
 http://www.activiti.org/faq.html[Activiti FAQ] explains the license
@@ -50,5 +53,3 @@ will be more commercial organisations that require an embeddable BPM
 solution with a more liberal open-source license.
 http://www.activiti.org/[Activiti] is that solution.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

@@ -1,15 +1,18 @@
---- layout: article drupal-format: Full HTML title: "Using Hibernate on
-old Solid databases" tags: Java JEE JPA author: Stéphane Épardaud
-summary: "Lately I've had to program an application that accesses an old
-[Solid database](http://en.wikipedia.org/wiki/SolidDB) that we use for
+= Using Hibernate on old Solid databases
+UnFromage
+v1.0, 2009-11-17
+:title: Using Hibernate on old Solid databases
+:tags: [java,jpa,solid,hibernate]
+
+Lately I've had to program an application that accesses an old
+http://en.wikipedia.org/wiki/SolidDB[Solid database] that we use for
 “hysterical raisins” (as my co-worker on the project calls it), and
 found that our preferred
-[JPA](http://en.wikipedia.org/wiki/Java_Persistence_API) implementation
-[Hibernate](http://www.hibernate.org) needed a little nudge to let you
-use it properly. This article explains the tricks to get you started."
----
+http://en.wikipedia.org/wiki/Java_Persistence_API[JPA] implementation
+http://www.hibernate.org[Hibernate] needed a little nudge to let you
+use it properly. This article explains the tricks to get you started.
 
-== [#UsingHibernateonoldSoliddatabases-DoesHibernatesupportSolid?]####Does Hibernate support Solid?
+== Does Hibernate support Solid?
 
 Yes of course, Hibernate supports
 [.nobr]#https://www.hibernate.org/80.html[tons of databases]# including…
@@ -35,7 +38,7 @@ Solid dialect]#, save it in your JAR and tell Hibernate to use it in
 your `persistence.xml` by setting the `hibernate.dialect` property to
 the fully-qualified name of the Solid Dialect.
 
-== [#UsingHibernateonoldSoliddatabases-SowhatelsedoIneed?]####So what else do I need?
+== So what else do I need?
 
 You also need to find the Solid
 [.nobr]#http://en.wikipedia.org/wiki/Java_Database_Connectivity[JDBC]#
@@ -55,7 +58,7 @@ direct type (which doesn't work here) or as a string (“2009-09-28
 15:23:00.00” for example) and luckily it is possible to define custom
 type mappings in Hibernate so this is what we will do.
 
-== [#UsingHibernateonoldSoliddatabases-DefiningacustomHibernatetypetofixaSolidJDBCbug]####Defining a custom Hibernate type to fix a Solid JDBC bug
+== Defining a custom Hibernate type to fix a Solid JDBC bug
 
 Defining the
 [.nobr]#http://docs.jboss.org/hibernate/stable/annotations/reference/en/html_single/#d0e3340[custom
@@ -177,7 +180,7 @@ public class Foo {
 }
 ----
 
-== [#UsingHibernateonoldSoliddatabases-Conclusion]####Conclusion
+== Conclusion
 
 We've been using Solid 4.5 with Hibernate for a while now and have never
 had any problem other than the initial surprises described above. If you

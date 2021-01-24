@@ -1,11 +1,16 @@
---- layout: article drupal-format: Unfiltered, Full HTML title:
-"Debugging deadlocks in JPA and PostgreSQL" tags: Java JPA author:
-Stéphane Épardaud summary: "In this article I describe a recent problem
+= Debugging deadlocks in JPA and PostgreSQL
+UnFromage
+v1.0, 2009-05-26
+:title: Debugging deadlocks in JPA and PostgreSQL
+:tags: [java,jpa,postgres]
+
+In this article I describe a recent problem
 I had with PostgreSQL, where a deadlock caused my application to crash
 for unclear reasons. Naturally I also describe how to debug such
-problems and the reason for the deadlock." ---
+problems and the reason for the deadlock.
 
-== [#DebuggingdeadlocksinJPAandPostgreSQL-Ourapplication]####Our application
+[#DebuggingdeadlocksinJPAandPostgreSQL-Ourapplication]
+== Our application
 
 We have a large transaction doing batch uploads which inserts rows of
 `item_component`. Every 100 entities inserted it will flush the session
@@ -23,7 +28,8 @@ For each item inserted we create a separate transaction which:
 Because our batch insertion transaction does not need to lock the
 `person` table, this _should_ work fine.
 
-== [#DebuggingdeadlocksinJPAandPostgreSQL-Findingthedeadlock]####Finding the deadlock
+[#DebuggingdeadlocksinJPAandPostgreSQL-Findingthedeadlock]
+== Finding the deadlock
 
 Our code does not work: the first 100 items are created fine, the
 `person` objects are locked and incremented 100 times, but when I flush
@@ -114,14 +120,16 @@ happens only if the transaction changes the state of the database), it
 also holds an exclusive lock on its permanent transaction ID until it
 ends_
 
-== [#DebuggingdeadlocksinJPAandPostgreSQL-Thediagnosis]####The diagnosis
+[#DebuggingdeadlocksinJPAandPostgreSQL-Thediagnosis]
+== The diagnosis
 
 My lock/increment transaction is waiting for the batch insertion
 transaction to release its lock on the `person` row it is trying to
 lock. We now have to find out why it acquired this lock since I did not
 do it manually.
 
-== [#DebuggingdeadlocksinJPAandPostgreSQL-PostgreSQLimplicitlocks]####PostgreSQL implicit locks
+[#DebuggingdeadlocksinJPAandPostgreSQL-PostgreSQLimplicitlocks]
+== PostgreSQL implicit locks
 
 After trying it myself in a PostgreSQL console, the following SQL causes
 a `ROW SHARE` lock to be obtained on the `person` row referenced by
@@ -146,11 +154,13 @@ finding this out.
 
 Now I need to find a better strategy for my code.
 
-== [#DebuggingdeadlocksinJPAandPostgreSQL-Appendix]####Appendix
+[#DebuggingdeadlocksinJPAandPostgreSQL-Appendix]
+== Appendix
 
 [#DebuggingdeadlocksinJPAandPostgreSQL-tid]##
 
-=== [#DebuggingdeadlocksinJPAandPostgreSQL-DisplayVirtualTransactionIDinJPA]####Display Virtual Transaction ID in JPA
+[#DebuggingdeadlocksinJPAandPostgreSQL-DisplayVirtualTransactionIDinJPA]
+ === Display Virtual Transaction ID in JPA
 
 Use this code to find out your PostgreSQL virtual transaction ID:
 
@@ -165,7 +175,8 @@ Use this code to find out your PostgreSQL virtual transaction ID:
 
 [#DebuggingdeadlocksinJPAandPostgreSQL-query]##
 
-=== [#DebuggingdeadlocksinJPAandPostgreSQL-Listingalllocksandtheirtransactions]####Listing all locks and their transactions
+[#DebuggingdeadlocksinJPAandPostgreSQL-Listingalllocksandtheirtransactions]
+==== Listing all locks and their transactions
 
 Use this SQL to list all locks and their transactions:
 
@@ -188,8 +199,3 @@ from pg_locks
 order by pid;
 ----
 
-_mailto:editorial@lunatech.com[Stéphane "FroMage" Épardaud] is a senior
-software developer at Lunatech Research. He enjoys
-http://en.wikipedia.org/wiki/The_Argument_Skit[good arguments],
-especially if he will win them or/and learn something, so don't hesitate
-to comment by dropping him a mail._

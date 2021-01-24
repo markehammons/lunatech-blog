@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Panzano Sandwich Cruncher" tags: fun author: Peter
-Hilton summary: "Panzano is an Italian deli that sells the best
+= Panzano Sandwich Cruncher
+PeterHilton
+v1.0, 2010-07-02
+:title: Panzano Sandwich Cruncher
+:tags: [fun]
+
+Panzano is an Italian deli that sells the best
 sandwiches in Rotterdam, and even delivers, which makes it the perfect
 catering for a business lunch. However, you cannot order on-line and,
 bizarrely, Panzano does not even have a web site, which makes it
 difficult to order by phone or fax for a group if you neglected to
 memorise all 28 sandwiches. Here is a copy of the menu (as of 1 July
-2010), and an idea." ---
+2010), and an idea.
 
 [[menu]]
 == Sandwich menu
@@ -76,7 +80,7 @@ a|
 
 |===
 
-image:panzano-bari.jpg[image]
+image:../media/2010-07-02-panzano-sandwich-cruncher/panzano-bari.jpg[image]
 
 Photo: the _Bari_, with Parma ham, green pesto and mozzarella.
 
@@ -133,6 +137,3 @@ Until then, a Twitter feed will do, e.g.
 http://twitter.com/dailywok[@dailywok],
 http://twitter.com/picknickrdam[@picknickrdam] and
 http://twitter.com/sijf[@sijf].
-
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

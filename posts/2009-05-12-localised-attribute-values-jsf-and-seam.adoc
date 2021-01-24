@@ -1,11 +1,13 @@
---- layout: article drupal-format: Full HTML title: "Localised attribute
-values in JSF and Seam" tags: Java JSF Seam localization
-web-applications author: Peter Hilton summary: "There are various
-features for [Language localisation in JSF and
-Seam](/2009/03/31/jsf-seam-localization). However, these features do not
-provide any way to localise text in an attribute value that contains a
+= Localised attribute values in JSF and Seam
+PeterHilton
+v1.0, 2009-05-12
+:title: Localised attribute values in JSF and Seam
+:tags: [java,seam,jsf,localization,web-applications]
+
+There are various features for /2009/03/31/jsf-seam-localization[Language localisation in JSF and
+Seam]. However, these features do not provide any way to localise text in an attribute value that contains a
 placeholder in a Facelets view, without writing extra code. This article
-shows how." ---
+shows how.
 
 [[Localisedattributevaluescontainingplaceholders]]
 == Localised attribute values containing placeholders
@@ -223,5 +225,3 @@ comment.added = Comment posted {0,relativedate}
 
 The code for this is left as an exercise for the reader.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

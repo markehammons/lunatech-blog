@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play framework 1.0 content negotiation" tags: Java
-playframework author: Peter Hilton summary: "One thing that the [Play
-framework](http://www.playframework.org/) 1.0 has in common with other
+= Play framework 1.0 content negotiation
+PeterHilton
+v1.0, 2010-07-26
+:title: Play framework 1.0 content negotiation
+:tags: [playframework,java]
+
+One thing that the http://www.playframework.org/[Play
+framework] 1.0 has in common with other
 RESTful architectures is the direct use of HTTP functionality, instead
 of trying to hide HTTP or put an abstraction layer on top of it. This
 article shows you how to use HTTP content negotiation in a Play
-framework web application." ---
+framework web application.
 
 [[Contentnegotiation]]
 == Content negotiation
@@ -59,7 +63,7 @@ format, in one of several ways, you can select an alternate template.
 Play has built-in support for a few formats: `html`, `txt`, `json` and
 `xml`. For example, define a controller method that renders some data:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
  public static void index() {
    final String name = "Peter Hilton";
@@ -78,7 +82,7 @@ Play responds to a request with the header `Accept: text/xml` by setting
 the request format to `xml` and rendering an `index.xml` template, such
 as:
 
-[source,brush:,xml;,gutter:,false]
+[source,xml]
 ----
 <?xml version="1.0"?>
 <contact>
@@ -137,7 +141,7 @@ set that format when the HTTP request selects the corresponding media
 type. In your controller, check for your custom format before all
 requests:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
  @Before
 static void setFormat() {
@@ -195,7 +199,3 @@ such as the following.
 With this route, a request for `/index.xml` will set the format to `xml`
 and render the XML template, while `/index.txt` will render the plain
 text template.
-
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research and committer on the Play open-source
-project._

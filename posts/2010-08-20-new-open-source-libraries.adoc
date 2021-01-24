@@ -1,8 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "New open-source libraries" tags: Java playframework
-author: Stéphane Épardaud summary: "Today we’ve released three new OSS
-libraries for the [Play! Framework](http://www.playframework.org/) in
-our OSS section:" ---
+= New open-source libraries
+UnFromage
+v1.0, 2010-08-20
+:title: New open-source libraries
+:tags: [java,playframework]
+
+
+Today we’ve released three new OSS
+libraries for the http://www.playframework.org/[Play! Framework] in
+our OSS section:
 
 * http://www.lunatech-labs.com/open-source/resteasy-play-module[RESTEasy
 Play! module]: Define your Play! Framework RESTful web services in

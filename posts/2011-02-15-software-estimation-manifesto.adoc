@@ -1,11 +1,15 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "The Software Estimation Manifesto" tags: estimation
-author: Peter Hilton summary: "Making estimates for how long a software
+= The Software Estimation Manifesto
+PeterHilton
+v1.0, 2011-02-07
+:title: The Software Estimation Manifesto
+:tags: [estimation,methodology]
+
+Making estimates for how long a software
 development task will take is the closest that commercial software
 developers come to performing a black art. And a black art it is,
 because software estimation is a minefield of mis-information and
 misunderstandings, unrealistic expectations and wishful thinking, risk
-and reward." ---
+and reward.
 
 == 28 theses
 

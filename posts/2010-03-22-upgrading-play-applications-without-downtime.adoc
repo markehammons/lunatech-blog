@@ -1,13 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Upgrading Play 1.0 applications without downtime"
-tags: playframework web-applications author: Nicolas Leroux summary:
-"You have your Play 1.0 application deployed on production. It is a real
+= Upgrading Play 1.0 applications without downtime
+pepite
+v1.0, 2010-03-22
+:title: Upgrading Play 1.0 applications without downtime
+:tags: [playframework,apache,web-applications]
+
+
+You have your Play 1.0 application deployed on production. It is a real
 success and you have loads of users. You are really happy, and because
 Play! is quite fast you do not have any performance issues yet :)
 However, you are receiving feature requests. Being agile developers, you
 implement them quickly, test them in acceptance and you are ready to let
 your users enjoy them. But, your web applications is so successful that
-you do not really want to plan any downtime…" ---
+you do not really want to plan any downtime…
 
 Tough choice: new features to keep your users happy or 100 per cent
 uptime? Well it is quite simple to do both using Play! This is because
@@ -96,5 +100,4 @@ Play! instances. As we have seen, that is really easy to do.
 
 Happy Play!
 
-_This article was originally published on
-http://playframework.blogspot.com/2010/03/upgrading-your-play-applications.html[playframework.blogspot.com]._
+

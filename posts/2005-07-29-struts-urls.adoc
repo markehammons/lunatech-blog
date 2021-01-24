@@ -41,7 +41,8 @@ In the http://jcp.org/aboutJava/communityprocess/final/jsr154/index.html[Servlet
 
 The trick is to only use the third and fourth rules: use the third rule to map static files by their extensions, and the fourth rule to map all other requests to the Struts action Servlet.
 
-```
+[source,xml]
+----
 <!-- Extension mappings to static content -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
@@ -61,7 +62,7 @@ The trick is to only use the third and fourth rules: use the third rule to map s
 		<url-pattern>/</url-pattern>
 	</servlet-mapping></pre>
 
-```
+----
 
 Now you can use `/customer?method=edit&id=42` instead of `/customer.do?method=edit&id=42`
 
@@ -73,11 +74,12 @@ Unfortunately, this solution only works in Tomcat and JBoss: the extension mappi
 The action mapping is like this (and might be the only one you need):
 
 
-```
+[source,xml]
+----
 <action path="/*/*" 
         type="com.example.web.{1}Action"
 		parameter="{2}" />
-```
+----
 
 The asterisks match paths like `/customer/` or `/customer/edit`. The first downside is that if you want to have lower-case URLs then the action class needs to be called `customerAction` instead of `CustomerAction` - legal but unconventional. Still, I personally think it would be worse to include upper-case letters in the URL, although that is probably unavoidable with form parameter names later on.
 
@@ -86,13 +88,14 @@ The second asterisk is something like 'view' or 'edit' - the `DispatchAction` me
 
 With the wildcards in the mapping, you can just get the method name from the URL and specify it in as the parameter directly by `using parameter="{2}"`in the mapping configuration. Then all you need to do is override the http://struts.apache.org/api/org/apache/struts/actions/DispatchAction.html#getMethodName(org.apache.struts.action.ActionMapping,%20org.apache.struts.action.ActionForm,%20javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20java.lang.String)[DispatchAction.getMethodName] method with:
 
-```
+[source,java]
+----
 	protected String getMethodName(ActionMapping m, ActionForm f,
 		HttpServletRequest req, HttpServletResponse res, String p) throws Exception
 	{
 		return parameter;
 	}
-```
+----
 
 This means that that Struts calls the method in your action class whose name is the `parameter` value in the action mapping, which in turn is the second part of the path.
 
@@ -100,7 +103,8 @@ Now you can use `/customer/edit&id=42` instead of `/customer?method=edit&id=42`.
 
 An advantage of this scheme is that you can use the same wildcard parameters to specify the form name and the JSP path for forwards. For example, if you use the mapping:
 
-```
+[source,xml]
+----
 	<action
 		path="/*/*"
 		type="com.example.web.{1}Action"
@@ -110,7 +114,7 @@ An advantage of this scheme is that you can use the same wildcard parameters to 
 		parameter="{2}">
 		<forward name="success" path="/WEB-INF/{1}{2}.jspx"/>
 	</action>
-```
+----
 
 then the URL path `/customer/edit` will map to `customerForm` and `customeredit.jspx`. 
 
@@ -123,22 +127,24 @@ To get a URL like `/customer/edit/42` we need to avoid using a query string para
 
 This time we will appropriate the Struts mapping parameter for this, and use a normal `Action` instead of a `DispatchAction`. This gives us the Struts mapping:
 
-```
+[source,xml]
+----
 	<action path="/customer/edit/*"
 		type="com.example.web.CustomerEditAction"
 		parameter="{1}">
 		<forward name="success" path="/WEB-INF/customer-edit.jspx"/>
 	</action>
-```
+----
 
 Then you can use the URL `/customer/edit/42` and in the `Action`, do `id = mapping.getParameter()` to get the ID. You can, of course, combine this with the generic action mapping technique, to get:
 
-```
+[source,xml]
+----
 	<action path="/*/*/*"
 		type="com.example.web.{1}Action"
 		parameter="{3}">
 		<forward name="success" path="/WEB-INF/{1}{2}.jspx"/>
 	</action>
-```
+----
 
 Perfect.

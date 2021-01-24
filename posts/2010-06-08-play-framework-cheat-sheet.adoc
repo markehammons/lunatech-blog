@@ -1,15 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play framework 1.0 cheat sheet" tags: playframework
-author: Peter Hilton summary: "Now that you are getting started with the
-[Play framework](http://www.playframework.org/) 1.0, you need a handy
-quick reference. Here is a [Play framework cheat
-sheet](play-cheat-sheet.pdf) (A4 PDF, 53 KB), with the essential
+= Play framework 1.0 cheat sheet
+PeterHilton
+v1.0, 2010-06-08
+:title: Play framework 1.0 cheat sheet
+:tags: [playframework,java]
+
+Now that you are getting started with the
+http://www.playframework.org/[Play framework] 1.0, you need a handy
+quick reference. Here is a link:../media/2010-06-08-play-framework-cheat-sheet/play-cheat-sheet.pdf[Play framework cheat
+sheet] (A4 PDF, 53 KB), with the essential
 commands, tags and extensions." ---
 
-link:play-cheat-sheet.pdf[image:play-cheat-sheet.png[Cheat sheet]]
+link:../media/2010-06-08-play-framework-cheat-sheet/play-cheat-sheet.pdf[image:../media/2010-06-08-play-framework-cheat-sheet/play-cheat-sheet.png[Cheat sheet]]
 
 If you want to know why we like Play, then read about
-link:/2010/03/15/play-framework-usability[Play framework usability].
-
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+link:https://blog.lunatech.com/posts/2010-03-15/play-framework-usability[Play framework usability].

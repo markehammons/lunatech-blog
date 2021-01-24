@@ -1,15 +1,19 @@
---- layout: article drupal-format: Full HTML title: "VisibleLogistics -
-Supply Chain Visibility SaaS" tags: SaaS product-development case-study
-author: Peter Hilton summary: "Lunatech Research is the technology team
-behind [BitLogistics](http://bitlogistics.com/), and have developed
-their [VisibleLogistics](http://www.visiblelogistics.com/) platform - a
+= VisibleLogistics - Supply Chain Visibility SaaS
+PeterHilton
+v1.0, 2009-05-11
+:title: VisibleLogistics - Supply Chain Visibility SaaS
+:tags: [saas,case-study]
+
+Lunatech Research is the technology team
+behind http://bitlogistics.com/[BitLogistics], and have developed
+their http://www.visiblelogistics.com/[VisibleLogistics] platform - a
 SaaS supply chain management solution. Lunatech implemented
 VisibleLogistics using a cutting-edge open-source technology stack,
-based on the [Java Enterprise
-platform](http://en.wikipedia.org/wiki/Java_ee). The project team,
+based on the http://en.wikipedia.org/wiki/Java_ee[Java Enterprise
+platform]. The project team,
 distributed across three countries, used an agile software development
 approach and Internet-based collaboration tools to maximise progress
-while controlling risk and costs." ---
+while controlling risk and costs.
 
 The data model is flexible enough to fit a wide variety of business
 processes and different interpretations of common concepts. The

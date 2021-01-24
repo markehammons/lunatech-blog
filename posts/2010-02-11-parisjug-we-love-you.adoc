@@ -1,8 +1,11 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "ParisJUG we love you!" tags: jax-doclets JUG
-playframework Paris open-source author: Nicolas Leroux summary:
-"Stephane, Peter and I went to Paris for 2 days. Our agenda was quite
-full and we really had a great time." ---
+= Lunatech attending the 2nd Paris JUG anniversary
+pepite
+v1.0, 2010-02-11
+:title: Lunatech attending the 2nd Paris JUG anniversary
+:tags: [jug,event,jax-doclets,playframework]
+
+Stephane, Peter and I went to Paris for 2 days. Our agenda was quite
+full and we really had a great time.
 
 The http://parisjug.org[Paris JUG] starred
 http://sacha.labourey.com/[Sacha Labourey] in a great presentation about

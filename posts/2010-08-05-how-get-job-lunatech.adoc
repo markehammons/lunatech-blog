@@ -1,14 +1,18 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to get a job at Lunatech" tags: employment
-author: Peter Hilton summary: "[How to Get a Job at
-Cloudera](http://www.cloudera.com/blog/2010/07/how-to-get-a-job-at-cloudera/)
+= How to get a job at Lunatech
+PeterHilton
+v1.0, 2010-08-05
+:title: How to get a job at Lunatech
+:tags: [employment,opinion]
+
+http://www.cloudera.com/blog/2010/07/how-to-get-a-job-at-cloudera/[How to Get a Job at
+Cloudera]
 is an excellent article that explains to job candidates how to be more
 interesting than just a CV in the mail, and why going through a
 recruitment agency puts you at a big disadvantage. You could just read
 the article with Lunatech in mind, because the same things are true here
-as well, and because we are also interviewing people for our [Java EE
+as well, and because we are also interviewing people for our http://www.lunatech-research.com/content/java-ee-developer-vacancies[Java EE
 developer
-vacancies](http://www.lunatech-research.com/content/java-ee-developer-vacancies)
+vacancies]
 at the moment. However, it is worth re-telling the story from our point
 of view, which is what this article is." ---
 
@@ -131,5 +135,3 @@ As a job applicant you are welcome to give your CV to a recruiter and
 see what you end up with, but if you want to get a job at Lunatech, it
 is far faster and simpler to send your CV to employment@lunatech.com.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

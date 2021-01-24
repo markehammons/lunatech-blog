@@ -1,15 +1,20 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to localise a Play framework 1.0 web
-application" tags: playframework localization internationalization
-web-applications author: Peter Hilton summary: "This article is about
+= How to localise a Play framework 1.0 web application
+PeterHilton
+v1.0, 2010-04-12
+:title: How to localise a Play framework 1.0 web application
+:tags: [playframework,web-applications,localization]
+
+
+
+This article is about
 web application
-[internationalisation](http://en.wikipedia.org/wiki/Internationalization_and_localization)
-(internationalization, `I18N`) and [language
-localisation](http://en.wikipedia.org/wiki/Language_localisation)
+http://en.wikipedia.org/wiki/Internationalization_and_localization[internationalisation]
+(internationalization, `I18N`) and http://en.wikipedia.org/wiki/Language_localisation[language
+localisation]
 (localization, `L10N`). This article shows you how to localise a Play
 framework 1.0 web application, with an example based on the 'Yet Another
-Blog Engine' example application, used in the [Play
-tutorial](http://www.playframework.org/documentation/1.0.1/guide1)." ---
+Blog Engine' example application, used in the http://www.playframework.org/documentation/1.0.1/guide1[Play
+tutorial].
 
 [[i18n]]
 == Internationalisation and localisation
@@ -45,7 +50,7 @@ The starting point is the code in the Play distribution's
 internationalise the application, and add several language
 localisations.
 
-image:yabe.png[image]
+image:../media/2010-04-12-how-localise-play-framework-web-application/yabe.png[image]
 
 To get started, see the instructions in the Play manual's
 http://www.playframework.org/documentation/1.0.2/i18n[Setting up i18n]
@@ -170,7 +175,7 @@ _Preferences » Content » Languages » Choose…_, add _French [fr]_ and
 _Dutch [nl]_ if they are not already in the list, change which one is at
 the top of the list, close the dialogue box and reload the page.
 
-image:languages.png[image]
+image:../media/2010-04-12-how-localise-play-framework-web-application/languages.png[image]
 
 [[model]]
 == Application model localisation
@@ -226,7 +231,7 @@ Users = Utilisateurs
 You will notice that this does not change the rounded purple navigation
 links:
 
-image:yabe-admin-links.png[image]
+image:../media/2010-04-12-how-localise-play-framework-web-application/yabe-admin-links.png[image]
 
 Those are defined `views/admin.html` which you can internationalise to
 use the same localisations simply by surrounding the existing text with
@@ -502,12 +507,11 @@ The end result of applying the above steps is a localised version of the
 French:
 link:/confluence/download/attachments/33259831/yabe-l10n-1.0.2.zip?version=1&modificationDate=1270572211397[yabe-l10n-1.0.2.zip^image:/confluence/images/icons/link_attachment_7.gif[image,width=7,height=7]^]
 
-image:yabe-beheer.png[image]
+image:../media/2010-04-12-how-localise-play-framework-web-application/yabe-beheer.png[image]
 
 The 'Yet Another Blog Engine' admin interface in Dutch (above) and
 French (below).
 
-image:yabe-administration.png[image]
+image:../media/2010-04-12-how-localise-play-framework-web-application/yabe-administration.png[image]
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._
+

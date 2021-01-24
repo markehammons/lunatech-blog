@@ -1,14 +1,15 @@
---- layout: article drupal-format: Wordpress format title: "Language
-localisation in JSF and Seam" tags: Java Seam author: Peter Hilton
-summary: "This article introduces the mechanisms for
-[internationalising](http://en.wikipedia.org/wiki/Internationalization_and_localization)
+= Language localisation in JSF and Seam
+PeterHilton
+v1.0, 2009-03-31
+:title: Language localisation in JSF and Seam
+:tags: [java,jsf,seam]
+
+This article introduces the mechanisms for
+http://en.wikipedia.org/wiki/Internationalization_and_localization[internationalising]
 a web application built using JavaServer Faces (JSF) application and the
-[Seam Framework](http://www.seamframework.org/) for [language
-localisation](http://en.wikipedia.org/wiki/Language_localisation)
+http://www.seamframework.org/[Seam Framework] for http://en.wikipedia.org/wiki/Language_localisation[language localisation]
 (L10N), expanding on the brief introduction in the Seam manual,
-[Chapter 16. Internationalization, localization and
-themes](http://docs.jboss.com/seam/2.1.1.GA/reference/en-US/html/i18n.html)."
----
+http://docs.jboss.com/seam/2.1.1.GA/reference/en-US/html/i18n.html[Chapter 16. Internationalization, localization and themes].
 
 [[Simplelabels]]
 == Simple labels
@@ -134,5 +135,3 @@ https://javaserverfaces-spec-public.dev.java.net/issues/show_bug.cgi?id=517[java
 issue 517] and wait for a new version of JSF 2, or you can write your
 own implementations.
 
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

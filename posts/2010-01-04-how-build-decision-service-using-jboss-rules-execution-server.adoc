@@ -1,16 +1,22 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "How to build a decision service using JBoss Rules
-Execution Server" tags: Drools author: Peter Hilton summary: "This
+= How to build a decision service using JBoss Rules
+Execution Server
+PeterHilton
+v1.0, 2010-01-04
+:title: How to build a decision service using JBoss Rules
+Execution Server
+:tags: [java,drools]
+
+This
 article shows you exactly how to get this working, with example rules -
-a RESTful decision service with no Java code required." ---
+a RESTful decision service with no Java code required.
 
 This article is part 3 of a series:
 
-. link:/2009/12/14/decision-service-architecture-jboss-rules[Decision
+. link:https://blog.lunatech.com/posts/2009-12-14-decision-service-architecture-jboss-rules[Decision
 service architecture with JBoss Rules] - what a decision service is and
 gave a high-level technical overview how you can use the JBoss Rules
 Execution Server to build one
-. link:/2009/12/28/decision-service-business-rules-jboss-rules[Decision
+. link:https://blog.lunatech.com/posts/2009-12-28-decision-service-business-rules-jboss-rules[Decision
 service business rules in JBoss Rules] - how to implement the decision
 service logic
 . How to build a decision service using JBoss Rules Execution Server -
@@ -27,7 +33,7 @@ http://downloads.jboss.com/drools/docs/5.0.1.26597.FINAL/drools-guvnor/html/ch01
 Server] as part of the standard distribution. We will configure this to
 provide a decision service using the following architecture.
 
-image:decision-service-architecture-3.png[Decision service architecture
+image:../media/2010-01-04-how-build-decision-service-using-jboss-rules-execution-server/decision-service-architecture-3.png[Decision service architecture
 diagram]
 
 The Execution Server is a standard web application WAR that includes the
@@ -45,7 +51,7 @@ First, check that you have the following pre-requisites:
 * a Servlet container, e.g. http://tomcat.apache.org/[Apache Tomcat]
 * a http://www.jboss.org/drools/downloads.html[Drools 5.0 Binaries]
 download.
-* the pc-configuration.zip source files for this example
+* the link:/media/2010-01-04-how-build-decision-service-using-jboss-rules-execution-server/pc-configuration.zip[pc-configuration.zip] source files for this example
 
 Expand (i.e. unzip) the Drools Execution Server WAR and deploy it to the
 Servlet container.
@@ -295,6 +301,3 @@ allow direct Java API access to the decision server rules. Accessing the
 rules engine's Java API directly is especially useful for writing unit
 tests, so that they execute as fast as possible - you can expect a few
 hundred milliseconds per rules session execution.
-
-_http://hilton.org.uk/about_ph.phtml[Peter Hilton] is a senior software
-developer at Lunatech Research._

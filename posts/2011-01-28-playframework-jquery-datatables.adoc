@@ -1,15 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Integrating Play framework 1.2 with jQuery
-DataTables" tags: playframework JQuery author: Peter Hilton summary:
-"This article describes how to integrate
-[DataTables](http://www.datatables.net/) with a [Play
-framework](http://playframework.com/) web 1.2 application. DataTables is
+= Integrating Play framework 1.2 with jQuery DataTables
+PeterHilton
+v1.0, 2011-01-28
+:title: Integrating Play framework 1.2 with jQuery DataTables
+:tags: [playframework,jquery]
+
+This article describes how to integrate
+http://www.datatables.net/[DataTables] with a http://playframework.com/[Play framework] web 1.2 application. DataTables is
 a jQuery plug-in for adding sorting, paging and search functionality to
 tables on a web page. This kind of JavaScript client solution is a good
 fit with the Play framework, because Play does not interfere with
 anything you might want to do in your web application’s
 HTML/CSS/JavaScript layer, and also provides server-side support for
-Ajax integration." ---
+Ajax integration.
 
 == Overview
 
@@ -59,7 +61,7 @@ get started with.
 
 First, create a new play application:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play new crud-datatables-example
 ----
@@ -69,7 +71,7 @@ application’s `conf/application.conf` uncomment the `db=mem` in-memory
 database configuration, and add this line under `# ---- MODULES ----`
 near the top:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 module.crud=${play.path}/modules/crud
 ----
@@ -77,7 +79,7 @@ module.crud=${play.path}/modules/crud
 If you are using Eclipse, Idea or NetBeans, run the relevant command to
 configure the project build path, e.g.:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play eclipsify crud-datatables-example
 ----
@@ -85,7 +87,7 @@ play eclipsify crud-datatables-example
 Add a model class that we will use to populate our database with data to
 display:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 package models;
 
@@ -114,7 +116,7 @@ public class LocalisedTimeZone extends Model {
 Add an application bootstrap class to load data at start-up, using data
 built into the JDK for convenience:
 
-[source,brush:java;gutter:false]
+[source,java]
 ----
 import java.util.Locale;
 import java.util.TimeZone;
@@ -142,7 +144,7 @@ public class Bootstrap extends Job {
 
 Now run the application, which should start-up without errors:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play eclipsify crud-datatables-example
 ----
@@ -156,7 +158,7 @@ the CRUD functionality for sorting, pagination and search.
 First, copy the CRUD 'list' template so we can over-ride it. In the
 application directory:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play crud:ov --template CRUD/list
 ----
@@ -164,7 +166,7 @@ play crud:ov --template CRUD/list
 Now simplify the new template, removing search and pagination, which
 will come from DataTables.
 
-[source,brush:xml;gutter:false]
+[source,html]
 ----
 #{extends 'CRUD/layout.html' /}
 
@@ -191,14 +193,14 @@ Finally, we need to disable paging by setting a large page size so that
 the table displays all of the rows from the database. In
 `crud-datatables-example/conf/application.conf`, add the line:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 crud.pageSize=2000
 ----
 
 Finally, navigate to http://localhost:9000/localisedtimezones
 
-image:datatables-1.png[CRUD module table view]
+image:../media/2011-01-28-playframework-jquery-datatables/datatables-1.png[CRUD module table view]
 
 [[module]]
 == Add the DataTables module
@@ -209,14 +211,14 @@ it is time to create our new module.
 Create the module next to the example application - in the directory
 that contains the Play application:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play new-module crud-datatables
 ----
 
 Add the module to `crud-datatables-example/conf/application.conf`
 
-[source,brush:plain;gutter:false]
+[sourcee]
 ----
 module.crud-datatables=../crud-datatables
 ----
@@ -229,7 +231,7 @@ these instructions simple, add the whole `DataTables-1.7.5` folder into
 
 Add a static route to `crud-datatables/conf/routes`
 
-[source,brush:perl;gutter:false]
+[source]
 ----
 # DataTables distribution resources
 GET        /datatables/        staticDir:DataTables-1.7.5/media
@@ -238,7 +240,7 @@ GET        /datatables/        staticDir:DataTables-1.7.5/media
 Import the module routes by adding a line in
 `crud-datatables-example/conf/routes` *above* the CRUD module import:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 *      /          module:crud-datatables
 ----
@@ -247,7 +249,7 @@ Now customise the CRUD module page template so we can add script
 sections for DataTables. First, override the layout template - in the
 application folder:
 
-[source,brush:plain;gutter:false]
+[source]
 ----
 play crud:ov --layout
 ----
@@ -256,7 +258,7 @@ Edit the new `crud-datatables-example/app/views/CRUD/layout.html`
 template and add the following lines just before the HTML `</head>`
 closing tag:
 
-[source,brush:xml;gutter:false]
+[source,html]
 ----
 #{get 'moreCss' /}
 <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
@@ -266,7 +268,7 @@ closing tag:
 Enable DataTables by adding a JQuery script section to the top of
 `crud-datatables-example/app/views/CRUD/list.html`
 
-[source,brush:xml;gutter:false]
+[source,html]
 ----
 #{set 'moreCss'}
 <link rel="stylesheet" type="text/css" media="screen" href="/datatables/css/demo_page.css">
@@ -286,7 +288,7 @@ Enable DataTables by adding a JQuery script section to the top of
 The three lines of JavaScript in the third `script` tag use jQuery to
 apply DataTables to the existing HTML table on the page.
 
-image:datatables-2.png[DataTables view]
+image:../media/2011-01-28-playframework-jquery-datatables/datatables-2.png[DataTables view]
 
 [[next]]
 == Next steps
@@ -304,5 +306,3 @@ described in the follow-on to this article:
 http://blog.lunatech.com/2011/02/07/ajax-datatables-playframework[Ajax
 DataTables with the Play framework].
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._

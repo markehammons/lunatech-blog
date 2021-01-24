@@ -1,10 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Localized Play framework 1.0 validation messages"
-tags: playframework validation author: Peter Hilton summary: "My
-previous Play framework 1.0 article discussed [HTTP form data
-validation](/2010/08/30/playframework-builtin-validations), but did not
+= Localized Play framework 1.0 validation messages
+PeterHilton
+v1.0, 2010-09-28
+:title: Localized Play framework 1.0 validation messages
+:tags: [playframework,java]
+
+My
+previous Play framework 1.0 article discussed https://blog.lunatech.com/posts/2010-08-30-playframework-builtin-validations[HTTP form data validation], but did not
 cover validation messages. This article describes how to customise and
-localise validation error messages with Play." ---
+localise validation error messages with Play.
 
 The http://www.playframework.org/documentation/1.0.3/validation[Play
 validation guide] describes three ways to validate form (HTTP request)
@@ -36,7 +39,7 @@ are defined in the file `$PLAY_HOME/resources/messages`.
 For example, the following action method parameter’s `@Required`
 annotation generates the default validation message 'Required':
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static void save(@Required String name) {
    …
@@ -47,7 +50,7 @@ To override one of these messages, simply use the same message key for a
 message in your application’s `conf/messages` file. For example - in
 `conf/messages`:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.required = Please enter a value
 ----
@@ -62,7 +65,7 @@ localise a Play framework web application].
 
 You can use a placeholder in the message for the error key:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.required = Please enter the %s
 ----
@@ -71,7 +74,7 @@ This error key defaults to the parameter name, and is itself used to
 look up a message. For example, the `name` parameter in the `save`
 action method above could be localised with:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 name = customer name
 ----
@@ -84,7 +87,7 @@ validation defines a second `String` parameter for the specified regular
 expression, which differs from the `%s` placeholder above in that it
 specifies the parameter index '2':
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.match=Must match %2$s
 ----
@@ -92,7 +95,7 @@ validation.match=Must match %2$s
 Similarly, the 'range' validation defines two additional numeric
 parameters, with indices 2 and 3:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.range=Not in the range %2$d through %3$d
 ----
@@ -105,10 +108,10 @@ validations have parameters.
 
 The validation messages in `$PLAY_HOME/resources/messages` use the
 default message key for each of Play’s
-link:/2010/08/30/playframework-builtin-validations[built-in
+link:https://blog.lunatech.com/posts/2010-08-30-playframework-builtin-validations[built-in
 validations]. You can specify a different message key. For example:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.required.emphasis = You must enter the %s!
 ----
@@ -116,14 +119,14 @@ validation.required.emphasis = You must enter the %s!
 Use this new message key for the message, for manual validation in the
 action method:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.required(manualKey).message("validation.required.emphasis");
 ----
 
 Alternatively, use the key in the annotation’s `message` parameter:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static void save(@Required(message = "validation.required.emphasis") String name) {
    …
@@ -133,7 +136,7 @@ public static void save(@Required(message = "validation.required.emphasis") Stri
 You can use the same technique with validation annotations on POJO
 properties:
 
-[source,brush:,java;,gutter:,false]
+[source,bjava]
 ----
 public static void save(@Valid Person person) {
    …
@@ -153,14 +156,14 @@ message defined for the key, which means you can also just use a literal
 message instead of the message key if you prefer. Using the same
 examples as above, for manual validation:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 validation.required(manualKey).message("Give us a name!");
 ----
 
 For action method parameter annotations:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static void save(@Required(message = "Give us a name!") String name) {
    …
@@ -169,7 +172,7 @@ public static void save(@Required(message = "Give us a name!") String name) {
 
 For JavaBean property annotations:
 
-[source,brush:,java;,gutter:,false]
+[source,java]
 ----
 public static void save(@Valid Person person) {
    …
@@ -188,6 +191,3 @@ Play’s validation framework is flexible when it comes to validation
 error messages, and makes it possible for you to cover a wide variety of
 use cases with a minimum of fuss or verbose syntax. Furthermore,
 providing multiple language localisations is just as convenient.
-
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
