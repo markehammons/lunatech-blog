@@ -1,5 +1,5 @@
 = Automatic resource link discovery with RESTEasy and Atom links
-UnFromage
+Fromage
 v1.0, 2010-04-19
 :title: Automatic resource link discovery with RESTEasy and Atom links
 :tags: [resteasy,java,rest]
@@ -14,7 +14,7 @@ RESTful web services with link auto-discovery.
 
 == Of resources and links
 
-When doing link:/editorials/tags/rest[RESTful] web services, there's
+When doing RESTful web services, there's
 always a big debate when it comes to linking resources together. The
 non-RESTful way of doing things is to define
 link:https://blog.lunatech.com/posts/2009-02-03-what-every-web-developer-must-know-about-url-encoding[URL]s,

@@ -1,5 +1,5 @@
 = jax-doclets version 0.7 released
-UnFromage
+Fromage
 v1.0, 2010-04-22
 :title: jax-doclets version 0.7 released
 :tags: [resteasy,java,rest,documentation]

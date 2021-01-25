@@ -1,5 +1,5 @@
 = Using Hibernate on old Solid databases
-UnFromage
+Fromage
 v1.0, 2009-11-17
 :title: Using Hibernate on old Solid databases
 :tags: [java,jpa,solid,hibernate]
