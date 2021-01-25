@@ -1,5 +1,5 @@
 = Unit-testing AJAX code with Maven
-Fromage
+FroMage
 v1.0, 2010-03-01
 :title: Unit-testing AJAX code with Maven
 :tags: [java,javascript,maven]

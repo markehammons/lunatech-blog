@@ -1,5 +1,5 @@
 = Debugging deadlocks in JPA and PostgreSQL
-Fromage
+FroMage
 v1.0, 2009-05-26
 :title: Debugging deadlocks in JPA and PostgreSQL
 :tags: [java,jpa,postgres]

@@ -1,5 +1,5 @@
 = 2 octobre 2009 @Sophia-Antipolis - Sophia fait sa Java
-Fromage
+FroMage
 v1.0, 2009-09-17
 :title: 2 octobre 2009 @Sophia-Antipolis - Sophia fait sa Java
 :tags: [event]

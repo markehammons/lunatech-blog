@@ -1,5 +1,5 @@
 = Generating scalable barcodes with iText and Seam
-Fromage
+FroMage
 v1.0, 2009-11-23
 :title: Generating scalable barcodes with iText and Seam
 :tags: [java,pdf,itext,seam,jsf]
