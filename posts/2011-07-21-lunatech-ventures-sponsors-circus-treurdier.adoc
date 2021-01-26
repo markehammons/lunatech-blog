@@ -1,7 +1,11 @@
---- author: Peter Kaas tags: ventures published: true title: Lunatech
-Ventures sponsors Circus Treurdier type: post layout: article meta: \{}
-status: publish summary: Lunatech Ventures is a proud sponsor of the
-[Circus Treurdier](http://www.circustreurdier.nl/) collective of young
+= Lunatech Ventures sponsors Circus Treurdier
+kaas
+v1.0, 2011-07-21
+:title: Lunatech Ventures sponsors Circus Treurdier
+:tags: [ventures]
+
+Lunatech Ventures is a proud sponsor of the
+http://www.circustreurdier.nl/[Circus Treurdier] collective of young
 professional theatre entrepreneurs and their “Iedereen te Koop”
 production. To be seen in The Netherlands at various locations, check
-their site. ---
+their site. 

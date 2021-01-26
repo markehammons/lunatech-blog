@@ -1,17 +1,21 @@
---- layout: article drupal-format: Filtered HTML title: "Turkish Play
-framework community" tags: playframework author: Peter Hilton summary:
-"Last week a new Play framework discussion group was announced on Google
+= Turkish Play framework community
+PeterHilton
+v1.0, 2011-07-27
+:title: Turkish Play framework community
+:tags: [playframework]
+
+Last week a new Play framework discussion group was announced on Google
 Groups. There is already a
-[play-framework](https://groups.google.com/forum/#!forum/play-framework)
+https://groups.google.com/forum/#!forum/play-framework[play-framework]
 group - the new
-[play-framework-tr](https://groups.google.com/forum/#!forum/play-framework-tr)
+https://groups.google.com/forum/#!forum/play-framework-tr[play-framework-tr]
 group is in Turkish. It turns out that there have also been attempts to
 start groups in other languages:
-[playframework-cn](https://groups.google.com/forum/#!forum/playframework-cn)
-(Chinese), [play-ja](https://groups.google.com/forum/#!forum/play_ja)
+https://groups.google.com/forum/#!forum/playframework-cn[playframework-cn]
+(Chinese), https://groups.google.com/forum/#!forum/play_ja[play-ja]
 (Japanese) and
-[ru-play-framework](https://groups.google.com/forum/#!forum/ru-play-framework)
-(Russian)." ---
+https://groups.google.com/forum/#!forum/ru-play-framework[ru-play-framework]
+(Russian).
 
 *Update: since this article was published, a
 https://groups.google.com/forum/#!forum/play-latam[play-latam]
@@ -32,5 +36,4 @@ it is early days for the Chinese-, Japanese-, Turkish- and
 Russian-language communities. In any case, it is exciting to see Play
 well on the way to world-domination.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
+

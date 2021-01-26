@@ -1,9 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "The myth of the on-site customer" tags: presentation
-Scrum author: Peter Hilton summary: "On 24 May 2011, Peter Hilton gave a
-talk about agile software development at a [Talk About IT
-event](http://talkabout-it.nl/detail/?id=9) in Amsterdam. Here are the
-[presentation slides](myth-on-site-customer.pdf) (PDF, 1.4 MB)." ---
+= The myth of the on-site customer
+PeterHilton
+v1.0, 2011-05-25
+:title: The myth of the on-site customer
+:tags: [scrum,methodology,event]
+
+On 24 May 2011, Peter Hilton gave a
+talk about agile software development at a http://talkabout-it.nl/detail/?id=9[Talk About IT event] in Amsterdam. Here are the
+link:../media/2011-05-25-myth-site-customer/myth-on-site-customer.pdf[presentation slides] (PDF, 1.4 MB).
 
 link:myth-on-site-customer.pdf[image:myth-on-site-customer.png[presentation
 slides]]
@@ -16,5 +19,4 @@ weren’t ‘in the room’, how this compromised agile software development,
 how we communicated with the customer instead, and why Scrum still had
 something to offer.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research._
+

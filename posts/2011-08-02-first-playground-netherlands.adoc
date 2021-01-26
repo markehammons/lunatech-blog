@@ -1,9 +1,12 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "First Play!ground in the Netherlands" tags:
-playground playframework Scala event author: Nicolas Leroux summary:
-"Join us for the first Play!ground in the Netherlands. We love the Play
+= First Play!ground in the Netherlands
+pepite
+v1.0, 2011-08-02
+:title: First Play!ground in the Netherlands
+:tags: [playframework]
+
+Join us for the first Play!ground in the Netherlands. We love the Play
 framework so much that we decided it was time to organise an event to
-share our passion." ---
+share our passion.
 
 This is also the perfect opportunity to discover Play with Java and
 Scala or to ask more about Play’s advanced features. But most of all, a

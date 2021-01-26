@@ -1,13 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play Framework 1.2 - Using relative dates in
-fixtures" tags: playframework author: Erik Bakker summary: "When writing
+= Play Framework 1.2 - Using relative dates in fixtures
+eamelink
+v1.0, 2011-04-06
+:title: Play Framework 1.2 - Using relative dates in fixtures
+:tags: [playframework,hibernate]
+
+When writing
 Play 1.2 applications, you often use a set of fixtures to use as inital
 or test data. For some applications, you want your models to have
 datetime fields that are in the near future, or in the near past, for
 example when you want to list recent news items. The problem is that you
 have to keep updating these fixtures on a regular basis, or all the
 dates will be progressively further in the past. This article shows how
-you can use dates relative to the current date in your fixtures." ---
+you can use dates relative to the current date in your fixtures.
 
 [[Objective]]
 == Objective
@@ -203,6 +207,3 @@ public class DateTimeBinder implements TypeBinder<DateTime> {
 By creating a custom binder you can accept dates relative to the current
 date in your fixtures, that might help you during development of your
 Play application.
-
-_link:/author/eamelink[Erik Bakker] is a software developer at Lunatech
-Research._

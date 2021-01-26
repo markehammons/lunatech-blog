@@ -1,13 +1,17 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "A functional programming puzzle" tags: JavaScript
-functional-programming author: Stéphane Épardaud summary: "This article
+= A functional programming puzzle
+FroMage
+v1.0, 2011-03-21
+:title: A functional programming puzzle
+:tags: [javascript]
+
+This article
 describes a functional programming puzzle that we had to solve in order
 to implement a JavaScript templating system. It is a very simple problem
 (to explain), with a very simple solution (in size and complexity) that
 was not easy to find. We will describe the problem and its solution here
 because it is not specific to JavaScript (it is mostly
 functional-language neutral) and the solution has been a
-[eureka](http://en.wikipedia.org/wiki/Eureka_(word)) moment to most
+http://en.wikipedia.org/wiki/Eureka_(word)[eureka] moment to most
 people who found it or learned about it." ---
 
 Although this article will be easier to read if you have a functional
@@ -478,6 +482,3 @@ Oh, and of course, we’ve published our JavaScript client-side templating
 system, it’s called http://stampsjs.org[Stamps.js] and it’s open-source.
 
 Check it out, this piece of magic code is used in there.
-
-_Stéphane Épardaud is a senior software developer at Lunatech Research
-and author of the http://stampsjs.org[Stamps.js] open-source project._

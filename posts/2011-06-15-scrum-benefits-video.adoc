@@ -1,9 +1,14 @@
---- layout: article drupal-format: Unfiltered, Full HTML title: "Three
-Scrum benefits (video)" tags: Scrum author: Peter Hilton summary: "After
-the recent [Talk About IT](http://talkabout-it.nl/) event in Amsterdam,
+= Three Scrum benefits (video)
+PeterHilton
+v1.0, 2011-06-15
+:title: Three Scrum benefits (video)
+:tags: [scrum,methodology,event]
+
+After
+the recent http://talkabout-it.nl/[Talk About IT] event in Amsterdam,
 Hugo Messer interviewed me and asked, ‘What are the three biggest
 benefits for software companies and IT departments who implement Scrum?’
-([video - YouTube](http://www.youtube.com/v/eRC2-q8YCjQ))" ---
+http://www.youtube.com/v/eRC2-q8YCjQ)([video - YouTube]
 
 == tldw?
 
@@ -25,5 +30,3 @@ three biggest benefits of:
 . customer control and influence over project direction
 . customer responsibility for setting business priorities.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-and Operations Director at Lunatech Research._

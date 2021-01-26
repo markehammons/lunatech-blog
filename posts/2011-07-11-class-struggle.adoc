@@ -1,10 +1,14 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Class Struggle" tags: front-end UX author: Egor
-Kloos summary: "I'm irked by the fact that I keep running into web sites
+= Class Struggle
+dutchcelt
+v1.0, 2011-07-11
+:title: Class Struggle
+:tags: [front-end,ux]
+
+
+I'm irked by the fact that I keep running into web sites
 that use mark-up class names that follow the content language. The web
 and its mark-up are open to the world, to both humans and machines. For
-better or for worse in terms of mark-up, English is the lingua franca."
----
+better or for worse in terms of mark-up, English is the lingua franca.
 
 The Dutch government's web guidelines on
 http://www.webrichtlijnen.overheid.nl/richtlijnen/webrichtlijnen-1/r-pd-3-15[descriptive

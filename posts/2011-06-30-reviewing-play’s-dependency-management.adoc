@@ -1,8 +1,13 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Reviewing Play 1.2’s dependency management" tags:
-playframework Maven author: Sietse de Kaper summary: "Play version 1.2
-introduced [dependency
-management](http://www.playframework.org/documentation/1.2.1/dependency)
+= Reviewing Play 1.2’s dependency management
+targeter
+v1.0, 2011-06-30
+:title: Reviewing Play 1.2’s dependency management
+:tags: [playframework,maven,java]
+
+
+Play version 1.2
+introduced http://www.playframework.org/documentation/1.2.1/dependency[dependency
+management]
 to the framework. I'm a big fan of dependency management, and I think
 it's a necessary tool for any software project. Play's approach is
 pretty elegant and easy to use, but there's a few catches and things I
@@ -11,9 +16,10 @@ and my opinion of what could be better. I'll repeat some of the
 information in the manual, but no more than needed to illustrate a few
 points. I'll also deliberately ignore a few points (such as module
 dependencies), so it's still a good idea to read the manual if you don't
-know anything about Play dependency management yet." ---
+know anything about Play dependency management yet.
 
-== [#ReviewingPlay%E2%80%99sDependencyManagement-Dependencymanagement%2CPlaystyle]####Dependency management, Play-style
+[Dependencymanagement%2CPlaystyle]
+==  Dependency management, Play-style
 
 With Play being a Java framework, it only makes sense that its
 dependency management makes use of http://maven.apache.org[Maven]
@@ -54,7 +60,8 @@ dependencies (that's a fancy way of saying ‘dependencies of
 dependencies’) though, so depending on the complexity of the
 dependencies it included, the whole process may still take a while.
 
-== [#ReviewingPlay%E2%80%99sDependencyManagement-FeaturesintroducedbyPlay]####Features introduced by Play
+[FeaturesintroducedbyPlay]
+== Features introduced by Play
 
 Play wouldn't be Play if it didn't introduce some features to make your
 life easier.
@@ -78,7 +85,8 @@ in a single custom repository. It's a pretty cool concept, but
 unfortunately, the implementation of this feature leaves a lot to be
 desired.
 
-== [#ReviewingPlay%E2%80%99sDependencyManagement-Whatwentwrong%28imho%29]####What went wrong (imho)
+[Whatwentwrong%28imho%29]
+== What went wrong (imho)
 
 Like I said in the introduction, dependency management is a must for me.
 Unfortunately, I haven't been able to convince all of my colleagues just
@@ -111,7 +119,8 @@ dependencies not in Maven Central, you have to figure out exactly what
 transitive dependencies it uses, and instruct Play where to get them
 (usually the same repository).
 
-== [#ReviewingPlay%E2%80%99sDependencyManagement-Examplesituation]####Example situation
+[Examplesituation]
+== Example situation
 
 The Play manual uses the jbpm-persistence-jpa dependency to illustrate
 how to specify a Maven 2 repository. The JBoss Maven repository happens
@@ -262,7 +271,8 @@ repositories:
 Now, finally, `play dependencies` no longer complains, and you can start
 using your new library.
 
-== [#ReviewingPlay%E2%80%99sDependencyManagement-Conclusion]####Conclusion
+[Conclusion]
+== Conclusion
 
 Overall, I still like the Play dependency management mechanism. It
 doesn't mix building and dependency management, and the YAML
@@ -281,5 +291,3 @@ improvement. When I list an additional repository, just use it to try
 and resolve artifacts that couldn't be resolved using any of the other
 repositories. It would make life so much easier.
 
-_link:/author/sietse-de-kaper[Sietse de Kaper] is a software developer
-at Lunatech Research and uses Play on several customer projects._

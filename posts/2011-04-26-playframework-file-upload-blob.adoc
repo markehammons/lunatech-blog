@@ -1,10 +1,13 @@
---- layout: article title: "Play framework 1.2 file upload with
-play.db.jpa.Blob" tags: playframework author: Peter Hilton summary:
-"This article describes how to use the [Play
-framework](http://www.playframework.org/)’s built-in features for
+= Play framework 1.2 file upload with play.db.jpa.Blob
+PeterHilton
+v1.0, 2011-04-26
+:title: Play framework 1.2 file upload with play.db.jpa.Blob
+:tags: [playframework,json,java]
+
+This article describes how to use the http://www.playframework.org/[Play framework]’s built-in features for
 handling HTTP file uploads and saving the data in files on the server’s
 file system, in Play 1.2. This is frequently-used in web applications
-for things like allowing users to upload photos of themselves." ---
+for things like allowing users to upload photos of themselves.
 
 Source code for this article is available at
 https://github.com/hilton/play-blob.
@@ -246,8 +249,3 @@ need to work out how to use JPA’s `@Lob` annotation.
 _Thanks to http://learn-to-play.tumblr.com/[Niko Schmuck] for additional
 review comments on this article._
 
-_http://www.lunatech-research.com/users/peter-hilton[Peter Hilton] is a
-senior software developer at Lunatech Research and committer on the Play
-open-source project._
-
-_Please send comments on this article to editorial@lunatech.com._

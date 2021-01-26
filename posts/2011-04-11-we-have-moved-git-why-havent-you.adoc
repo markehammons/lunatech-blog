@@ -1,12 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "We have moved on to git, why haven't you?" tags: git
-author: Stéphane Épardaud summary: "We have moved from a historical mix
-of [CVS](http://en.wikipedia.org/wiki/Concurrent_Versions_System) and
-[SVN](http://en.wikipedia.org/wiki/Apache_Subversion) to
-[git](http://git-scm.com) several months ago. The whole company. Why did
+= We have moved on to git, why haven't you?
+FroMage
+v1.0, 2011-04-11
+:title: We have moved on to git, why haven't you?
+:tags: [git]
+
+We have moved from a historical mix
+of http://en.wikipedia.org/wiki/Concurrent_Versions_System[CVS] and
+http://en.wikipedia.org/wiki/Apache_Subversion[SVN] to
+http://git-scm.com[git] several months ago. The whole company. Why did
 we switch and what have we gained? This article will give you a
 first-person overview of that change and how I feel about it. The huge
-spoiler is that I feel damn good about it." ---
+spoiler is that I feel damn good about it.
 
 [[Wehavemovedontogit%2Cwhyhaven%27tyou%3F-Theprequel]]
 == The prequel

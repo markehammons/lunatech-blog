@@ -1,7 +1,11 @@
---- layout: article drupal-format: Filtered HTML title: "A two month
-internship at Lunatech" tags: internship author: Ludovico Fischer
-summary: "I moved to Rotterdam at the beginning of February 2011 to
-start a two month internship as a software developer at Lunatech." ---
+= A two month internship at Lunatech
+ludofischer
+v1.0, 2011-03-31
+:title: A two month internship at Lunatech
+:tags: [opinion]
+
+I moved to Rotterdam at the beginning of February 2011 to
+start a two month internship as a software developer at Lunatech.
 
 When you get to the Lunatech office (about twenty minutes distance form
 Rotterdam Central station), you will be struck by how much the site
@@ -52,6 +56,3 @@ I want to thank everybody who made this experience possible, and in
 special manner Sietse de Kaper and Erik Bakker, who provided patiently
 provided me with advice throughout the period.
 
-_http://ludovf.net/[Ludovico Fischer], based in Brussels, did a
-two-month programming internship at Lunatech in 2011, during the final
-year of his Open University degree course in mathematics._

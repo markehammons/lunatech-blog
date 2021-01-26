@@ -1,13 +1,16 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "Play Framework 1.2 - Better JSON serialization with
-FlexJSON" tags: Java playframework JSON author: Erik Bakker summary:
-"When writing rich interfaces, you often have to generate a JSON
-representation of your data to be used in your HTML templates. [Play
-framework](http://www.playframework.org/) 1.2 comes bundled with
-Google’s JSON library [Gson](http://code.google.com/p/google-gson/), but
+= Play Framework 1.2 - Better JSON serialization with FlexJSON
+eamelink
+v1.0, 2011-04-20
+:title: Play Framework 1.2 - Better JSON serialization with FlexJSON
+:tags: [playframework,json,java]
+
+
+When writing rich interfaces, you often have to generate a JSON
+representation of your data to be used in your HTML templates. http://www.playframework.org/[Play framework] 1.2 comes bundled with
+Google’s JSON library http://code.google.com/p/google-gson/[Gson], but
 the developers of this library have made some design choices that keep
 it from being ideal for generating JSON that is going to be sent to the
-HTTP client." ---
+HTTP client.
 
 [[PlayFramework-BetterJSONserializationwithFlexJSON-Objective]]
 == Objective
@@ -243,5 +246,3 @@ data, which is extremely useful in web applications. With custom Java
 extensions, FlexJSON serialization can be used seamlessly from your
 templates.
 
-_link:/author/eamelink[Erik Bakker] is a software developer at Lunatech
-Research, and http://twitter.com/#!/eamelink[@eamelink] on Twitter._

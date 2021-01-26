@@ -1,18 +1,21 @@
---- layout: article drupal-format: Unfiltered HTML, with syntax
-highlighter title: "jQuery UI Ajax autocomplete with Play 1.2" tags:
-playframework JQuery author: Peter Hilton summary: "When Matt Raible
-[compared JVM web
-frameworks](http://raibledesigns.com/rd/entry/my_comparing_jvm_web_frameworks)
-last December, he gave the [Play
-framework](http://www.playframework.org/) (version 1.2) *null points*
-for ‘components’. Aside from [other
-criticism](http://ptrthomas.wordpress.com/2010/12/04/comparing-jvm-web-frameworks-a-response-to-matt-raible/)
+= jQuery UI Ajax autocomplete with Play 1.2
+PeterHilton
+v1.0, 2011-07-05
+:title: jQuery UI Ajax autocomplete with Play 1.2
+:tags: [jquery,ajax,javascript,playframework]
+
+
+When Matt Raible http://raibledesigns.com/rd/entry/my_comparing_jvm_web_frameworks[compared JVM web
+frameworks]
+last December, he gave the (http://www.playframework.org/)[Play framework] (version 1.2) *null points*
+for ‘components’. Aside from http://ptrthomas.wordpress.com/2010/12/04/comparing-jvm-web-frameworks-a-response-to-matt-raible/[other
+criticism]
 of Raible’s comparison or the lack of definition of what a ‘component’
 is in this context, it is worth mentioning that this evaluation is
 either inaccurate, misleading or both. It is accurate to say that Play
 does not have ‘components’, in the sense that Play does not ship with a
 UI component toolkit/library/framework/whatever, but it also misses the
-point somewhat." ---
+point somewhat.
 
 I hereby declare that all http://jqueryui.com/[jQuery UI] components are
 Play UI components. After all, Play is designed to make it easy to
@@ -170,7 +173,7 @@ public static void autocompleteLabel(final String term) {
 The result is an input field that displays a list of location names that
 match the user input.
 
-image:autocomplete.png[image]
+image:../media/2011-07-05-jquery-ui-ajax-autocomplete-playframework/autocomplete.png[image]
 
 [[entity]]
 == Autocomplete for selecting a JPA entity
@@ -312,5 +315,4 @@ client interfaces are no longer scary or too difficult. The bad news is
 that you now how have less excuse for not learning to use JavaScript and
 jQuery. And if you don't, someone else will.
 
-_link:/author/peter-hilton[Peter Hilton] is a senior software developer
-at Lunatech Research and committer on the Play open-source project._
+
