@@ -1,5 +1,5 @@
 = Creating Telegram bot for rental notifications in Spring Boot
-Daria Pindus <daria.pindus@lunatech.nl>
+Daria Pindus
 v1.0, 2020-12-14
 :title: Creating Telegram bot for rental notifications in Spring Boot
 :tags: [java, spring boot, telegram, bot]

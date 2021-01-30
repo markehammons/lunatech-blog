@@ -1,0 +1,5 @@
+= Fast Track to Scala - Training
+fcanedo
+v1.0, 2016-01-18
+:title: Fast Track to Scala - Training
+:tags: [scala]
