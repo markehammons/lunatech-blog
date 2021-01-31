@@ -1,5 +1,5 @@
 = Functional IO with FS2 Streams
-Pepite
+haribageski
 v1.0, 2016-11-14
 :title: Functional IO with FS2 Streams
 :tags: [fp, scala]

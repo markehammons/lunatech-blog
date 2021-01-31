@@ -65,7 +65,6 @@ If you haven't already done so, it would be good to start by first creating a wo
 Once in your working directory, run the following commands to clone the project repository and make it the current directory in your preferred command line tool.
 
 [source,bash]
-
 ----
 $ git clone https://github.com/dcos/dcos-vagrant
 
