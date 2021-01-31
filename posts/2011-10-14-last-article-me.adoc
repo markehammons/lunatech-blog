@@ -1,7 +1,7 @@
-= Last article from m
+= Last article from me
 FroMage
 v1.0, 2011-10-14
-:title: Last article from m
+:title: Last article from me
 :tags: [fun]
 
 

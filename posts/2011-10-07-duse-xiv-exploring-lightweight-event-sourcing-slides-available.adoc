@@ -1,7 +1,7 @@
-= Duse XIV \"Exploring Lightweight Event Sourcing\"
+= Duse XIV - Exploring Lightweight Event Sourcing 
 eamelink
 v1.0, 2011-10-07
-:title: Duse XIV \"Exploring Lightweight Event Sourcing\"
+:title: Duse XIV - Exploring Lightweight Event Sourcing 
 :tags: [scala,event]
 
 The
