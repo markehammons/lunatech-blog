@@ -4,8 +4,6 @@ nMoncho
 :title: Senior - To be, or not to be
 :tags: [opinion]
 
-
-
 During a recent interview we touched the concept of seniority, which is a concept that we also discussed at length with several colleagues, and I thought it would be a good time to share my opinion on the subject. SPOILER ALERT: Seniors don’t exist.
 
 When reviewing a resume we always wonder, Is she/he a senior or a junior, or maybe something in between? It’s almost inevitable to put tags or labels, we as humans are obsessed with categorical concepts. It’s our way of abstracting the world, how we make sense of it. And as much as I understand the need for such constructs in our daily life, and even if I don’t agree with deconstructing everything, I beg to wonder: What is a senior? How does a person become one? What are its differences with, say, a mid-level?
@@ -30,4 +28,4 @@ _Caveat: Categorization is useful mostly for external purposes, for example, sal
 * https://paperswelove.org/[Papers We Love]
 * https://blog.codonomics.com/2020/11/ten-commandments-of-egoless-programming.html[Ten Commandments of Egoless Programming]
 
-Stock picture from CC: “https://www.rawpixel.com/image/680871/computer-code[Computer code]” by Markus Spiske is marked with https://creativecommons.org/licenses/cc0/1.0/?ref=ccsearch&atype=rich[CC0 1.0]
+Stock picture from CC: https://www.rawpixel.com/image/680871/computer-code[Computer code] by Markus Spiske is marked with https://creativecommons.org/licenses/cc0/1.0/?ref=ccsearch&atype=rich[CC0 1.0]

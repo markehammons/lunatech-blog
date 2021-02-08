@@ -587,7 +587,6 @@ On the kubernetes UI, we see 2 executors running, as expected:
 image:../media/2019-01-14-running-the-spark-notebook-on-a-kubernetes-google-cloud-cluster/executor-pods.png[]
 
 
-
 == Takeaways
 
 The work of deploying the spark-notebook on kubernetes got us to cover a range of features of kubernetes like pods, services, roles, service accounts, some networking, port forwarding.

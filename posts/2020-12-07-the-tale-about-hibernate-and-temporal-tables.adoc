@@ -3,14 +3,6 @@ smthelusive
 v1.0, 2020-12-07
 :title: The tale about Hibernate and Temporal Tables
 :tags: [hibernate, java, temporal, mssql]
-ifdef::backend-html5[]
-:in-between-width: width='85%'
-:half-width: width='50%'
-:half-size:
-:thumbnail: width='60'
-endif::[]
-
-_thanks Willem-Jan Glerum for introducing me to this interesting behaviour_
 
 == Foreword
 
@@ -158,3 +150,5 @@ entityManager.find(...)
 ----
 
 In order to make a clean solution you will need to think about the way to generate unique IDs on the Java side. One more thing to keep in mind is that row ID is not a reliable identifier, so it's not recommended to use it for your unique ID.
+
+_thanks Willem-Jan Glerum for introducing me to this interesting behaviour_

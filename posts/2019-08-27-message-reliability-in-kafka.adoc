@@ -4,7 +4,6 @@ v1.0, 2019-08-27
 :title: Message Reliability In Kafka
 :tags: [kafka,messaging,scala]
 
-
 == Outline
 
 - Introduction to message delivery semantics in Kafka

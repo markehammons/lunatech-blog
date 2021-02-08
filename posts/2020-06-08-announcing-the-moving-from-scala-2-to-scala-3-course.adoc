@@ -3,12 +3,6 @@ eloots
 v1.0, 2020-06-08
 :title: Announcing the Moving from Scala 2 to Scala 3 course
 :tags: [dotty, akka, scala]
-ifdef::backend-html5[]
-:in-between-width: width='85%'
-:half-width: width='50%'
-:half-size:
-:thumbnail: width='60'
-endif::[]
 
 == Moving From Scala 2 to Scala 3
 

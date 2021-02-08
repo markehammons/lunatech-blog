@@ -3,12 +3,6 @@ nicmarti
 v1.0, 2020-01-27
 :title: Quarkus - an open-source tool to write your Java applications
 :tags: [java, framework]
-ifdef::backend-html5[]
-:in-between-width: width='85%'
-:half-width: width='50%'
-:half-size:
-:thumbnail: width='60'
-endif::[]
 
 We are in 2020, Java is one of the most widely used languages for developing applications. And above all, there is https://quarkus.io/[Quarkus].
 
