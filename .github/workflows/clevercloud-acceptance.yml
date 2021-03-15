@@ -21,6 +21,7 @@ jobs:
       - uses: 47ng/actions-clever-cloud@v1
         with:
           alias: lunatech-blog-engine-acceptance
+          timeout: 180
         env:
           CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
           CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}
