@@ -1,0 +1,23 @@
+name: Push to acceptance
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      # Push events on acceptance branch
+      - accceptance
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # This action requires an unshallow working copy,
+      # so the following prerequisites are necessary:
+      - uses: actions/checkout@v2
+      - run: git fetch --prune --unshallow
+
+      # Deploy your application
+      - uses: 47ng/actions-clever-cloud@v1
+        with:
+          alias: lunatech-blog-engine-acceptance
+        env:
+          CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
+          CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}
