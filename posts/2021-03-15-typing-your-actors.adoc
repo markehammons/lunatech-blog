@@ -6,7 +6,7 @@ v1.0, 2021-03-15
 
 == Background
 
-After some frustration with our project's choice for a planning poker solution, I did what any reasonable developer would do. No, I didn't search for a more suitable solution, I decided to write my own and do a blog post about it. 
+After some frustration with our project's choice for a planning poker solution, I did what any reasonable developer would do. No, I didn't search for a more suitable solution, I decided to write my own and do a blog post about it.
 
 The main idea is to build a simple application that uses some features of the following core Akka libraries:
 
