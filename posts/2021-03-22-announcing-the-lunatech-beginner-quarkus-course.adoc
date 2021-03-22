@@ -1,8 +1,8 @@
 = Announcing the Lunatech Beginner Quarkus Course
-Neil Benn <neil.benn@lunatech.fr>
+njlbenn
 v1.0, 2021-03-22
 :title: Announcing the Lunatech Beginner Quarkus Course
-:tags: [quarkus, training]
+:tags: [quarkus, java, training]
 
 == Betting on Java for the cloud-native era
 
