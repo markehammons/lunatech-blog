@@ -18,7 +18,7 @@ jobs:
       - run: git fetch --prune --unshallow
 
       # Deploy your application
-      - uses: 47ng/actions-clever-cloud@v1
+      - uses: lunatech-labs/actions-clever-cloud@master
         with:
           alias: lunatech-blog-engine-acceptance
           timeout: 180
