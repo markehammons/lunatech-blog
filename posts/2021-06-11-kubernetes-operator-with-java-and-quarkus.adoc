@@ -1,12 +1,12 @@
 = Kubernetes Operator with Java and Quarkus
 
-===== TL;DR
+== The purpose of this article
+The purpose of this article is to demonstrate how to quickly write and deploy a simple Kubernetes operator using Java, and provide an example of tasks that can be performed using an operator.
 
-Even though Kubernetes provides extensive support for multiple container management operations, it doesn't cover all potential cases related to application management. Some applications need the manual intervention of a human operator. An kubernetes operator is an application that runs in the cluster and manages resources.
+Even though Kubernetes provides extensive support for multiple container management operations, it doesn't cover all potential cases related to application management. Some applications need the manual intervention of a human operator. An Kubernetes operator is an application that runs in the cluster and manages resources.
 It allows transferring of operational knowledge of the human operator into software components. Operators can be used for multiple purposes such as restoring data, creating cloud resources, resilience testing, and many others.
 
-
-==== Why java?
+==== Why Java?
 
 * Being able to develop operators in Java can bring a lot of benefits for companies and individuals that are focused mainly on the Java stack.
 * Quarkus with the main focus on cloud-native, and microservice solutions looks like a good fit for building an operator.
@@ -16,7 +16,7 @@ https://github.com/fabric8io/kubernetes-client/tree/master/kubernetes-examples/s
 
 == What this operator does?
 
-An Operator can be used for various reasons and one of the most common tasks of an operator is to manage database clusters, preparing database schemas, restoring backups, etc. This simple hello world operator demonstrates how to create a stateful set  via kubernetes API and make sure that the data is loaded into each pod and consumed by the application before creating new pods.
+An Operator can be used for various reasons and one of the most common tasks of an operator is to manage database clusters, preparing database schemas, restoring backups, etc. This simple hello world operator demonstrates how to create a stateful set via Kubernetes API and make sure that the data is loaded into each pod and consumed by the application before creating new pods.
 
 image::../media/2021-06-11-kubernetes-operator-with-java-and-quarkus/image-2021-04-18-22-56-52-151.png[width=40%, align="center"]
 
