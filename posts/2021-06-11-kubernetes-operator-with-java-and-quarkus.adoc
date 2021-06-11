@@ -85,7 +85,7 @@ quarkus.kubernetes-client.namespace=default
 quarkus.kubernetes-client.master-url=http://127.0.0.1:8001/
 ----
 
-== Creating kubernetes custom resource definitions
+== Kubernetes custom resource definitions
 
 It is possible to extend the Kubernetes API with custom resources, in order to store and modify the desired object specification and state.
 
@@ -159,7 +159,7 @@ kubectl create -f hello-world-example.yaml
 ----
 
 
-== Create a client to connect to Kubernetes API
+== A client to connect to Kubernetes API
 
 .KubernetesClientProducer.java
 [,java]
