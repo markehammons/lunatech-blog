@@ -353,7 +353,7 @@ if (!logs.contains("Example of injected data")) {
 echo "Example of injected data" > /tmp/data.txt
 ----
 
-After executing a command, the operator checks the log of the current pod  again. If the application has consumed the data, it adds one pod to the replica set cluster and repeats this operation until all desired pods are present and contain the data.
+After executing a command, the operator checks the log of the current pod again. If the application has consumed the data, it adds one pod to the replica set cluster and repeats this operation until all desired pods are present and contain the data.
 
 .PodWatcher.java
 [,java]
