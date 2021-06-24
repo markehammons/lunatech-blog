@@ -160,7 +160,7 @@ kubectl create -f hello-world-example.yaml
 ----
 
 
-== A client to connect to Kubernetes API
+== A client to connect to the Kubernetes API
 
 .KubernetesClientProducer.java
 [,java]
