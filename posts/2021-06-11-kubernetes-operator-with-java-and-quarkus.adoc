@@ -196,7 +196,7 @@ public class HelloWorldController  implements ResourceController<HelloWorld> {
 
 == Some logic to give an example of what can be done with an operator
 
-When the custom resource HelloWorld is created or updated operator receives an event and based on this event it creates a stateful set according to custom object content.
+When the custom resource HelloWorld is created or updated the operator receives an event. Based on this event it creates a stateful set according to custom object content.
 
 image::../media/2021-06-11-kubernetes-operator-with-java-and-quarkus/image-2021-04-18-22-37-49-046.png[width=50%, align="center"]
 
