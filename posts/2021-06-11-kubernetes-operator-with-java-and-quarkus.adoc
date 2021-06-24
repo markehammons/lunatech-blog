@@ -513,7 +513,7 @@ src/main/docker/Dockerfile.jvm \
 -t user/k8-operator-quarkus-hello-world:1.0.0-SNAPSHOT .
 ----
 
-Deploy cluster role and role binding
+Deploy the cluster role and role binding
 
 .cluster-rolebinding.yaml
 [%collapsible]
