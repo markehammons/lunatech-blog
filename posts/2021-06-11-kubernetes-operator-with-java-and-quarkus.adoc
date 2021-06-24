@@ -23,11 +23,11 @@ image::../media/2021-06-11-kubernetes-operator-with-java-and-quarkus/image-2021-
 
 It performs the following operations with Kubernetes API using the java  https://github.com/kubernetes-client/java[kubernetes-client] and https://github.com/quarkiverse/quarkus-operator-sdk[quarkus-operator-sdk] :
 
-* watch custom resource creation/modification
-* watch pod creation/modification
-* create and scale statefulsets
-* check content of log output
-* execute commands in a container
+* watches custom resource creation/modification
+* watches pod creation/modification
+* creates and scales statefulsets
+* checks content of log output
+* executes commands in a container
 
 == Project setup
 
