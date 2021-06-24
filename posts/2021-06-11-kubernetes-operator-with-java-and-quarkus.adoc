@@ -88,7 +88,7 @@ quarkus.kubernetes-client.master-url=http://127.0.0.1:8001/
 
 == Kubernetes custom resource definitions
 
-It is possible to extend the Kubernetes API with custom resources, in order to store and modify the desired object specification and state.
+It's possible to extend the Kubernetes API with custom resources in order to store and modify the desired object specification and state.
 
 Based on the content of classes below application generates https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/[custom-resource-definitions] which can be used to create https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/[custom-resources]. During the start application outputs yaml of custom resource definitions to a file in the directory _./target/kubernetes/_.
 
