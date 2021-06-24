@@ -31,7 +31,7 @@ It performs the following operations with Kubernetes API using the java  https:/
 
 == Project setup
 
-An official webpage to Generate Quarkus application https://code.quarkus.io. The generated project also includes https://docs.docker.com/engine/reference/builder/[Dockerfile] for building https://docs.docker.com/engine/reference/commandline/images/[Docker images].
+An official webpage to Generate Quarkus application https://code.quarkus.io. The generated project also includes a https://docs.docker.com/engine/reference/builder/[Dockerfile] for building https://docs.docker.com/engine/reference/commandline/images/[Docker images].
 
 .Dockerfile
 [%collapsible]
