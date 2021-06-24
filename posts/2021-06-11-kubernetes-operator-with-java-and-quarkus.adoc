@@ -271,7 +271,7 @@ public UpdateControl<HelloWorld> createOrUpdateResource(HelloWorld helloWorldReq
 ----
 ====
 
-Containers are running following command to check if the data is present in the container, and outputs an error to a log if data is not present.
+Containers are running the following command to check if the data is present in the container, and outputs an error to a log if data is not present.
 
 ----
 "while sleep 5; do cat /tmp/data.txt; done"
