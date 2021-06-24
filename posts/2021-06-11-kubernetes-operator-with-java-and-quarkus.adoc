@@ -92,7 +92,7 @@ It's possible to extend the Kubernetes API with custom resources in order to sto
 
 Based on the content of the classes in the below application, it generates https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/[custom-resource-definitions] which can be used to create https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/[custom-resources]. When the application starts it outputs yaml, which is the custom resource definitions to a file in the _./target/kubernetes/_ directory.
 
-Create custom resource definition
+Create a custom resource definition
 
 .HelloWorld.java
 [,java]
