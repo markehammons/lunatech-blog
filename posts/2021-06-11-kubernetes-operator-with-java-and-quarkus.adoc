@@ -1,16 +1,16 @@
 = Kubernetes Operator with Java and Quarkus
 
 == The goal of this blog post
-A Kubernetes operator is an application that runs
+An Operator can be used for various reasons. The most common purposes of operators are managing database clusters, preparing database schemas, restoring backups, etc.
 Even though Kubernetes provides extensive support for multiple container management operations, it doesn't cover all potential cases related to application management. Some applications need the manual intervention of a human operator. A Kubernetes operator is an application that runs in the cluster and manages resources.
 It allows transferring of operational knowledge of the human operator into software components. Operators can be used for multiple purposes such as restoring data, creating cloud resources, resilience testing, and many others.
 
 The purpose of this blog post is to demonstrate how to quickly write and deploy a simple Kubernetes operator using Java, and provide an example of tasks that can be performed using an operator.
 
-==== Why Java?
+==== The benefits of choosing Java and Quarkus
 
 * Being able to develop operators in Java can bring a lot of benefits for companies and individuals that are focused mainly on the Java stack.
-* Quarkus with the main focus on cloud-native, and microservice solutions looks like a good fit for building an operator.
+* Technologies such as containers, microservices, immutable infrastructure, deployed via declarative code are common elements cloud-native computing approach. It is a good fit for writing an operator which needs to be deployed in a container (utilizes the concept of immutable infrastructure) and the state of resources managed by an operator is defined in a declarative way. Quarkus with the main focus on cloud-native, and microservice solutions looks like a good fit for building an operator.
 * Operator SDK also has neat features such as generating Kubernetes resources for operator deployment and creating custom resource definition yaml files based on the Java code.
 * Java kubernetes-client supports multiple operations: such as creating resources, patching, copying files,  executing commands, fetching logs and
 https://github.com/fabric8io/kubernetes-client/tree/master/kubernetes-examples/src/main/java/io/fabric8/kubernetes/examples[many others].
