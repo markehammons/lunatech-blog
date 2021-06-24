@@ -194,7 +194,7 @@ public class HelloWorldController  implements ResourceController<HelloWorld> {
 }
 ----
 
-== Some logic to give an example what can be done with an operator
+== Some logic to give an example of what can be done with an operator
 
 When the custom resource HelloWorld is created or updated operator receives an event and based on this event it creates a stateful set according to custom object content.
 
