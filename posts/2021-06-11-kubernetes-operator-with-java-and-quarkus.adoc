@@ -12,7 +12,7 @@ The purpose of this blog post is to demonstrate how to quickly write and deploy 
 * Being able to develop operators in Java can bring a lot of benefits for companies and individuals that are focused mainly on the Java stack.
 * Technologies such as containers, microservices, immutable infrastructure, deployed via declarative code are common elements of cloud-native computing approach. An Operator needs to be deployed in a container, and the state of resources managed by an operator is defined in a declarative way. Quarkus with the main focus on cloud-native, and microservice solutions looks like a good fit for building an operator.
 * The operator SDK also has neat features such as generating Kubernetes resources for operator deployments and creating custom resource definition yaml files based on the Java code.
-* Java kubernetes-client supports multiple operations: such as creating resources, patching, copying files,  executing commands, fetching logs and
+* The Java kubernetes-client supports multiple operations: such as creating resources, patching, copying files,  executing commands, fetching logs and
 https://github.com/fabric8io/kubernetes-client/tree/master/kubernetes-examples/src/main/java/io/fabric8/kubernetes/examples[many others].
 
 == What this operator does?
