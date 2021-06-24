@@ -582,7 +582,7 @@ roleRef:
 kubectl apply -f deployment/cluster-rolebinding.yaml
 ----
 
-Deploy an operator in a cluster using auto-generated kubernetes resources such as https://kubernetes.io/docs/reference/access-authn-authz/rbac/[RBAC], https://kubernetes.io/docs/concepts/services-networking/service/[Service], https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/[ServiceAccount], https://kubernetes.io/docs/concepts/workloads/controllers/deployment/[Deployment].
+Deploy an operator in a cluster using auto-generated kubernetes resources such as https://kubernetes.io/docs/reference/access-authn-authz/rbac/[RBAC], https://kubernetes.io/docs/concepts/services-networking/service/[Service], https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/[ServiceAccount], or/and https://kubernetes.io/docs/concepts/workloads/controllers/deployment/[Deployment].
 
 ----
 kubectl apply -f target/kubernetes/kubernetes.yml
