@@ -21,7 +21,7 @@ This simple hello world operator demonstrates how to create a stateful set via K
 
 image::../media/2021-06-11-kubernetes-operator-with-java-and-quarkus/image-2021-04-18-22-56-52-151.png[width=40%, align="center"]
 
-It performs following operations with Kubernetes API using java  https://github.com/kubernetes-client/java[kubernetes-client] and https://github.com/quarkiverse/quarkus-operator-sdk[quarkus-operator-sdk] :
+It performs the following operations with Kubernetes API using the java  https://github.com/kubernetes-client/java[kubernetes-client] and https://github.com/quarkiverse/quarkus-operator-sdk[quarkus-operator-sdk] :
 
 * watch custom resource creation/modification
 * watch pod creation/modification
