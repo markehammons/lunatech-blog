@@ -1,7 +1,9 @@
 = Kubernetes Operator with Java and Quarkus
 
 == The goal of this blog post
-An Operator can be used for various reasons. The most common purposes of operators are managing database clusters, preparing database schemas, restoring backups, etc.
+An Operator can be used for various reasons. The most common purposes of operators are managing database clusters, preparing database schemas, and restoring backups.
+
+I'd avoid using `etc` in your leading sentence.
 Even though Kubernetes provides extensive support for multiple container management operations, it doesn't cover all potential cases related to application management. Some applications need the manual intervention of a human operator. A Kubernetes operator is an application that runs in the cluster and manages resources.
 It allows the transfer of operational knowledge of the human operator into software components. Operators can be used for multiple purposes such as restoring data, creating cloud resources, resilience testing, and many others.
 
