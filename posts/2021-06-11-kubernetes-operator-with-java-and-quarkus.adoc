@@ -7,7 +7,7 @@ It allows the transfer of operational knowledge of the human operator into softw
 
 The purpose of this blog post is to demonstrate how to quickly write and deploy a simple Kubernetes operator using Java, and provide an example of tasks that can be performed using an operator.
 
-==== The benefits of choosing Java and Quarkus
+I decided to use a Quarkus service written in Java for the following reasons:
 
 * Being able to develop operators in Java can bring a lot of benefits for companies and individuals that are focused mainly on the Java stack.
 * Technologies such as containers, microservices, immutable infrastructure, deployed via declarative code are common elements of cloud-native computing approach. An Operator needs to be deployed in a container, and the state of resources managed by an operator is defined in a declarative way. Quarkus with the main focus on cloud-native, and microservice solutions looks like a good fit for building an operator.
