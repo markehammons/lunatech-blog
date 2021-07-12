@@ -337,7 +337,7 @@ public class Main implements QuarkusApplication {
 }
 ----
 
-When pod is created, the operator fetches logs and
+When a pod is created, the operator fetches logs and
 checks if the data from the custom object is present in the pod, in case if it is not present operator outputs data to a file in the pod.
 
 [,java]
