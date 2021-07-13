@@ -56,7 +56,7 @@ CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
 ----
 ====
 
-==== Add dependencies into a project:
+=== Add dependencies into a project:
 
 The next step is to add following dependencies:
 
