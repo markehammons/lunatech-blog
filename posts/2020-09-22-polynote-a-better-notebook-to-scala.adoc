@@ -2,7 +2,7 @@
 VincentBrule
 2020-09-22
 :title: Polynote, a better notebook for Scala
-:tags: [scala,big-data]
+:tags: [scala,big-data,notebook]
 
 Polynote is a _polyglot_ notebook with first-class _Scala_ support. Nowadays, multiple solutions exist to use Scala inside a Notebook. I will explain why I switched from Jupyter to Polynote for all my notebooks.
 
@@ -12,9 +12,8 @@ This blog post has two parts. We will start by explaining what is a Notebook and
 
 == Notebook and its use cases
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/schema-notebook.png[Schema notebook {in-between-width}]
-
-_Figure 1: Summary of how a notebook works (Jupyter + Almond)_
+.Summary of how a notebook works (Jupyter + Almond)
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/schema-notebook.png[Schema notebook,width=950,height=510]
 
 A *notebook* is composed of two parts:
 
@@ -37,8 +36,8 @@ Notebooks are popular for these reasons and many more. There are https://en.wiki
 
 == Polynote
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/logo-polynote.png[Polynote’s logo {in-between-width}]
-_Figure 2: Polynote’s logo_
+.Polynote’s logo
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/logo-polynote.png[Polynote’s logo, 350]
 
 In this part, I will explain the two main advantages of https://polynote.org/[Polynote] for me. Then, I will show you other useful features of this solution.
 
@@ -53,10 +52,10 @@ The main advantage of this solution is to be polyglot. For the moment, https://p
 
 You can use these *five languages* in the *same notebook*.
 
+.Interaction between Python and Scala inside a Polynote notebook
 image::../media/2020-09-22-polynote-a-better-notebook-to-scala/python-scala.png[Interaction between Python and Scala inside a Polynote notebook]
 
 
-_Figure 3: Interaction between Python and Scala inside a Polynote notebook_
 
 As you can see in _figure 3_, we can easily share Scala data into Python and vice versa. You can find the entire notebook in https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/2_scala_python.ipynb[GitHub]. In this example, we receive a list of weather’s data from the https://openweathermap.org/api[OpenWeather API]. The Scala variable `datas` can be used transparently in Python. To make these interactions possible, you have some restrictions (for example it is easier to use *case class*). Once again, I advise you to take a look at the https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/2_scala_python.ipynb[notebooks] at the same time since they contain more explanations. In addition, you have great interactions between https://spark.apache.org/docs/latest/sql-programming-guide.html[Spark DataFrame] and https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html[Python Pandas DataFrame].
 
@@ -65,44 +64,42 @@ As you can see in _figure 3_, we can easily share Scala data into Python and vic
 Polynote wraps the results in HTML and adds some additional visualization features for specific types. *Spark DataFrame* and *Pandas DataFrame* have a many options for that.
 
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-visualization.png[HMTL Output of a Spark DataFrame {in-between-width}]
+.HTML Output of a Spark DataFrame
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-visualization.png[HMTL Output of a Spark DataFrame]
 
-_Figure 4: HMTL Output of a Spark DataFrame_
 
 For example, in the output of a Spark DataFrame or Pandas Dataframe, you have a summary of your DataFrame and two buttons with additional options (the icons with a blue circle in _figure 4_). These buttons will open the popup that you can see in _figure 5_.
 
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-polynote-screen1.png[Extra tools for visualization inside Polynote
-{in-between-width}]
+.Tools to investigate on your DataFrames
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-polynote-screen1.png[Extra tools for visualization inside Polynote]
 
-_Figure 5: Tools to investigate on your DataFrames_
 
 In my opinion, the most interesting options are *View data* and *Plot data*. In the first one, you can display all your data in a stylesheet style. In the second one, you can easily plot your data by simply selecting your axes and the type of plot as you can see in _figure 6_. It will generate the corresponding block of https://vega.github.io/vega/[Vega] code for you.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-polynote-screen2.png[Extra tools for visualization inside Polynote (Plot section) {in-between-width}]
+.Plot data option
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dataframe-polynote-screen2.png[Extra tools for visualization inside Polynote (Plot section)]
 
-_Figure 6: Plot data option_
 
 Vega is a declarative language that allows you to create a lot of different designs as you can see in their https://vega.github.io/vega/examples/[examples]. If you do not want to use Vega, you can add any plotting libraries such as https://matplotlib.org/[Matplotlib] in Python. But I advise you to try https://vega.github.io/vega/examples[Vega and their examples] because you can make powerful and fancy plots to identify edge cases in your data (_figure 7_). Moreover, Vega works out of the box with Polynote.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/vega.png[Vega plot example {in-between-width}]
+.Vega plot example
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/vega.png[Vega plot example, width=500]
 
-_Figure 7: Vega plot example_
 
 Last thing I want to talk about in this section is the WYSIWYG editor (_figure 8_).
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/wysiwyg.png[Polynote's wysiwyg editor{in-between-width}]
+.Polynote’s WYSIWYG editor
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/wysiwyg.png[Polynote's wysiwyg editor]
 
-_Figure 8: Polynote’s WYSIWYG editor_
 
 It looks like a small feature but it is useful when you need to style your Markdown snippet and you do not know much about https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet[Markdown syntax].
 
-In this menu, you can also open the https://www.latex-project.org/about/[Latex
-] editor (_figure 9_) to write your formulas in an interactive way.
+In this menu, you can also open the https://www.latex-project.org/about/[Latex] editor (_figure 9_) to write your formulas in an interactive way.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/latex-polynote.gif[Polynote's Latex editor {in-between-width}]
+.Polynote’s Latex editor
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/latex-polynote.gif[Polynote's Latex editor]
 
-_Figure 9: Polynote’s Latex editor_
 
 All these features allow you to make your notebooks understandable and maintainable over time.
 
@@ -114,9 +111,9 @@ Polyglot and a lot of visualization features made me prefer Polynote compared to
 
 With Jupyter, all cells work with the same global state. If you work with a big notebook, you can quickly mess up with the order of your logic (_figure 10_). If you want your Jupyter notebooks to be organized and maintainable, you have to manage everything yourself and be very rigorous if you work with other people on the same notebook.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/order-jupyter.gif[Order is not important with Jupyter {in-between-width}]
+.Order is not important with Jupyter
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/order-jupyter.gif[Order is not important with Jupyter]
 
-_Figure 10: Order is not important with Jupyter_
 
 Polynote does not use a global state. Each cell has its state defined by all the cells above. As indicated in the https://polynote.org/docs/02-basic-usage.html[documentation]:
 
@@ -125,47 +122,47 @@ This is a powerful way to enforce reproducibility in a notebook; it is far more 
 
 The symbol table will summarize all variables defined in the current state. As you can see in _figure 11_, at the beginning of your notebook, the symbol table is either empty or contains the Spark Session if you have enabled support for Spark in this notebook.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/table-empty.png[The symbol table at the beginning of the notebook {in-between-width}]
+.The symbol table at the beginning of this https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/1_introduction.ipynb[notebook]
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/table-empty.png[The symbol table at the beginning of the notebook]
 
-_Figure 11: The symbol table at the beginning of this https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/1_introduction.ipynb[notebook]_
 
 If you run all the cells of https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/1_introduction.ipynb[this notebook], you will have the same symbol table than in the _figure 12_.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/table-full.png[The symbol table at the end of the notebook {in-between-width}]
+.The symbol table at the end of https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/1_introduction.ipynb[this notebook]
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/table-full.png[The symbol table at the end of the notebook]
 
-_Figure 12: The symbol table at the end of https://github.com/VincentBrule/polynote-talk/blob/master/notebooks/1_introduction.ipynb[this notebook]_
 
 You can see the name of the variable and its type. In addition, you can click on a variable to visualize your data with Polynote’s tools. Python types are wrapped with `TypedPythonObject`.
 
 If we try the same experiment as we did with Jupyter (_figure 10_), we get *not found error* as expected (_figure 13_).
 
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/polynote-order.gif[Order is not important with Polynote {in-between-width}]
+.Order is important with Polynote
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/polynote-order.gif[Order is not important with Polynote]
 
-_ Figure 13: Order is important with Polynote_
 
 ==== Highlighting running code
 
 Polynote will highlight the current running block until it is completed (_figure 14_). It is a small feature but it was handy when I used Tensorflow with Polynote to quickly detect parts that were taking a long time.
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/running-code.png[Highlighting running code {in-between-width}]
+.Highlighting of running code
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/running-code.png[Highlighting running code]
 
-_Figure 14: Highlighting of running code_
 
 ==== Code editing
 
 With the previous solution like Jupyter, I used to have an IDE open for new libraries because you do not have code editing at all. Polynote implements code editing capabilities to facilitate your development, such as autocomplete feature (_figure 15_).
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/autocomplete.png[Autocomplete of Scala and Python code {in-between-width}]
+.Autocomplete of Scala and Python code
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/autocomplete.png[Autocomplete of Scala and Python code]
 
-_Figure 15: Autocomplete of Scala and Python code_
 
 ===== Organization of the dependencies
 
 The last thing I want to talk about is how the dependencies are organized inside a Polynote’s notebook. Everything is at the top of the notebook in the part Configuration & dependencies (_figure 16_).
 
-image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dependencies-management.png[Dependencies management {in-between-width}]
-_Figure 16: Configuration & dependencies section_
+.Configuration & dependencies section
+image::../media/2020-09-22-polynote-a-better-notebook-to-scala/dependencies-management.png[Dependencies management]
 
 It is a powerful feature to organize our notebooks. With Jupyter, you have to define your dependencies in a cell as you do with your code, so everything can get mixed up (code + dependencies) and become confusing if you are not rigorous enough. With Almond and Jupyter, you have to know how to use https://github.com/coursier/coursier[Coursier] while Polynote takes care of everything for you.
 
