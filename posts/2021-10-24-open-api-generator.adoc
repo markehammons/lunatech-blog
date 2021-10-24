@@ -1,0 +1,155 @@
+= OpenAPI Generator: Generate your SDKs automatically
+VincentBrule
+v1.0, 2021-10-24
+:title: OpenAPI Generator: Generate your SDKs automatically
+:imagesdir: ../media/2021-10-24-open-api-generator
+:tags: [openAPI, tool, SDK]
+
+For one of our customers, a simple question arose: how to generate an SDK automatically without having to maintain a new project. 
+After comparing several options, we found the ideal solution: https://github.com/OpenAPITools/openapi-generator[OpenApi Generator].
+
+We will see how this tool works, how to customise it and how to integrate it into our CI/CD pipeline.
+
+== OpenAPI
+Before we dive into how this generator works, we need to clarify one point, what is https://swagger.io/specification/[OpenAPI]? 
+The official definition is:
+
+`_The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined, a consumer can understand and interact with the remote service with a minimal amount of implementation logic._`
+
+This standard allows us to document our REST APIs in *JSON* or *YAML*. 
+Using this specification, we can describe the operation of our API in detail such as the *available endpoints*, their *parameters*, the *type of authentication required*, etc. 
+If you are not familiar with this tool, I really advise you to look into implementing it in your projects in order to have a clear documentation in a format adopted by all! 
+Moreover, depending on the structure of your project, this documentation can be generated automatically thanks to https://swagger.io/tools/open-source/open-source-integrations/[many available tools].
+
+You can test the commands presented in this article with the Pet Store, it is the most famous example. 
+You can view it here: https://petstore3.swagger.io/[https://petstore3.swagger.io/] or download the JSON file: https://petstore3.swagger.io/api/v3/openapi.json[https://petstore3.swagger.io/api/v3/openapi.json].
+
+== OpenAPI Generator
+OpenAPI Generator will use this JSON or YAML file to generate an *SDK*, server code or HTML documentation for example. 
+The number of supported languages is impressive as you can see in the image below:
+
+.https://github.com/OpenAPITools/openapi-generator[Languages available with OpenAPI Generator]
+[cols="1,1"]
+|===
+|
+|Languages/Framework
+
+|API clients
+|ActionScript, Ada, Apex, Bash, C, C# (.net 2.0, 3.5 or later, .NET Standard 1.3 - 2.0, .NET Core 2.0, .NET 5.0. Libraries: RestSharp, HttpClient), C++ (Arduino, cpp-restsdk, Qt5, Tizen, Unreal Engine 4), Clojure, Crystal, Dart, Elixir, Elm, Eiffel, Erlang, Go, Groovy, Haskell (http-client, Servant), Java (Apache HttpClient, Jersey1.x, Jersey2.x, OkHttp, Retrofit1.x, Retrofit2.x, Feign, RestTemplate, RESTEasy, Vertx, Google API Client Library for Java, Rest-assured, Spring 5 Web Client, MicroProfile Rest Client), k6, Kotlin, Lua, Nim, Node.js/JavaScript (ES5, ES6, AngularJS with Google Closure Compiler annotations, Flow types, Apollo GraphQL DataStore), Objective-C, OCaml, Perl, PHP, PowerShell, Python, R, Ruby, Rust (hyper, reqwest, rust-server), Scala (akka, http4s, scalaz, sttp, swagger-async-httpclient), Swift (2.x, 3.x, 4.x, 5.x), Typescript (AngularJS, Angular (2.x - 11.x), Aurelia, Axios, Fetch, Inversify, jQuery, Nestjs, Node, redux-query, Rxjs)
+
+|Server stubs
+|Ada, C# (ASP.NET Core, NancyFx), C++ (Pistache, Restbed, Qt5 QHTTPEngine), Erlang, F# (Giraffe), Go (net/http, Gin, Echo), Haskell (Servant, Yesod), Java (MSF4J, Spring, Undertow, JAX-RS: CDI, CXF, Inflector, Jersey, RestEasy, Play Framework, PKMST, Vert.x), Kotlin (Spring Boot, Ktor, Vertx), PHP (Laravel, Lumen, Mezzio (fka Zend Expressive), Slim, Silex, Symfony), Python (FastAPI, Flask), NodeJS, Ruby (Sinatra, Rails5), Rust (rust-server), Scala (Akka, Finch, Lagom, Play, Scalatra)
+
+|API documentation generator
+|HTML, Confluence Wiki, Asciidoc, Markdown, PlantUML
+
+|Configuration files
+|Apache2
+
+|Others
+|GraphQL, JMeter, Ktorm, MySQL Schema, Protocol Buffer, WSDL
+|===
+
+We will see the steps to *generate an SDK*. 
+The first thing to do is to install the command line tool or import the corresponding plugin for your project.
+In our Scala project, we used this SBT: https://github.com/OpenAPITools/sbt-openapi-generator[https://github.com/OpenAPITools/sbt-openapi-generator] plugin, which is simply a wrapper around the command line tool. 
+This allowed us to integrate the code generation easily into *our existing CI/CD pipeline*.
+
+In this post we will use the *command line tool*, we can install it with: https://openapi-generator.tech/docs/installation[https://openapi-generator.tech/docs/installation] and we will generate an SDK in _Scala-Akka_.
+
+=== Steps to generate your SDK
+==== Validate the OpenAPI file
+You can do this simply with the command:
+
+[source,bash]
+----
+openapi-generator validate -i PATH_TO_YOUR_FILE.[json | yaml]
+----
+
+Your file will be parsed and the tool will validate that the file conforms to the *OpenAPI specification*. 
+If it is not, it can detect problems upstream in your CI/CD pipeline for example.
+In the case of a valid file, you should see: *No validation issues detected.*
+Otherwise, any recommendations or errors to be resolved in your file such as:
+
+[source,bash]
+----
+Errors:
+	- attribute info.title is missing
+Warnings:
+	- Unused model: Address
+	- Unused model: Customer
+----
+
+==== Generate code
+Again, a single command is enough to generate all your code, options are available to customise the rendering, but we will come back to this in the next part.
+
+[source,bash]
+----
+openapi-generator generate -g scala-akka -o NAME_OUTPUT_FOLDER -i PATH_TO_YOUR_FIILE
+----
+
+You can find your code under the *NAME_OUTPUT_FOLDER* folder.
+
+=== Customization
+==== Templating 
+As you can see from the steps above, this solution is extremely easy to use. 
+However, most of the time, the code generated without customisation will not be *100% adapted to your needs*. 
+To solve this problem, you have to understand that the internal logic of the generator has been made to be *flexible and scalable*. 
+Indeed, the generator will only use http://mustache.github.io/[*Mustache templates*] by replacing all the keys with the values present in your *YAML or JSON file*. 
+Therefore, we can modify these templates to fit our needs. 
+You can find them all https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources[here] or more simply, download the templates of your language directly with this command:
+
+[source,bash]
+----
+openapi-generator author template -g YOUR_LANGUAGE
+----
+
+For example, for our client, we had to change the *build.sbt* file with some information to publish our jar. 
+With templates, this is really convenient. All we had to do was to modify this: 
+https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/resources/scala-akka-client/build.sbt.mustache[https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/resources/scala-akka-client/build.sbt.mustache]
+Then when generating the code, specify the folder containing our modified templates with the *-t* or *--template* parameter:
+
+[source,bash]
+----
+openapi-generator generate -g scala-akka -t PATH_TO_FOLDER_WITH_CUSTOM_TEMPLATES -o NAME_OUTPUT_FOLDER -i PATH_TO_YOUR_FIIL
+----
+
+Small precision, you don't need to keep all the downloaded templates. 
+You can leave only the modified ones and the generator will use the default templates if they are not present.
+
+==== Personalization
+The generator accepts parameters directly from a configuration file. 
+For example, for _scala-akka_, we have all these parameters available: https://openapi-generator.tech/docs/generators/scala-akka/[https://openapi-generator.tech/docs/generators/scala-akka/].
+An example of using these parameters, for _scala-akka_: 
+the generator will convert the *date-time* type of the OpenAPI specification to *java.time.OffsetDateTime*. 
+But we wanted a *java.time.Instant* instead. 
+You can use the configuration to specify this mapping, which will be taken into consideration later. 
+Thus, you can specify for each type of your JSON or YAML file, the equivalent in the target language, if the default choice does not suit you.
+There are different parameters for each language, so take a look at this https://openapi-generator.tech/docs/generators/[page].
+
+=== CI/CD pipeline integration
+In this project we are using Scala with SBT and Jenkins to automate our CI/CD.  
+As said before, we chose to use an SBT plugin which is a wrapper around the command line tool in order to facilitate the integration into our process.
+The diagram below summarizes the whole process:
+
+.Integration of the tool into our process
+image::cicd.jpg[open api generator in our process, width = 700]
+
+Thanks to the SBT plugin, the flow is quite simple as we can generate our SDKs and publish them directly from SBT. 
+At each release of our private project, we generate the OpenAPI specification during compilation thanks to different tools. 
+Then, we use OpenAPI Generator to validate our specification. 
+If the file is valid, we generate client code in Scala, Java and Python. Extending to other languages is as simple as adding your name to the list of languages and restarting the process. 
+Once an SDK is generated, tests are also automatically generated. 
+Therefore, we run these tests to check the validity of the code. 
+Once all these steps have been successfully completed, the SDKs are made available on a public site like Nexus for example. 
+For each release, we have an SDK in each language that follows the same versions as the target project. 
+
+== Conclusion
+
+*OpenAPI Generator* is a simple solution to implement if you already have an OpenAPI specification for your project. 
+We can, with minimal effort, provide our customers with SDKs in many languages. 
+These SDKs greatly simplify the effort required to integrate our APIs by our customers without adding a maintenance burden on our side since everything is automated from start to end!
+
+I hope I have inspired you to try this tool and I remain at your disposal for any questions.
+
+
