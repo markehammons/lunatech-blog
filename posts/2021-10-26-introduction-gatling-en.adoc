@@ -7,12 +7,12 @@ v1.0, 2021-10-26
 :tags: [gatling, load testing, opensource]
 
 In essence, load testing is the process of verifying whether an application can handle an expected load. It is done by injecting a defined number of users into the application.
-A typical example is to do a load test on your APIs to see the maximum number of requests supported. 
-That allows us to test the robustness of our applications and their reaction to a large number of users. 
-Thanks to this, we can identify bottlenecks and fine-tune our applications's sizing.
+A typical example is to do a load test on your APIs to see if the maximum number of requests can be supported. 
+This allows us to test the robustness of applications and how they react under a load by many users. 
+Thanks to this, we can identify bottlenecks, potentially fixing design issues and fine-tune our applications's sizing.
 
-In this article, we will introduce Gatling. 
-Then, we will see a tool provided by this solution which will be very useful to create our load tests: Gatling Recorder. 
+In this article, we will introduce Gatling as load testing tool. 
+After that, we will talk about Gatling Recorder, a tool which is very useful to create our load tests.
 Finally, we will set up a simple load test in Scala with the SBT Gatling plugin.
 
 == Gatling
@@ -26,7 +26,7 @@ We can find different types of performance tests for our applications:
 * _endurance test_: simulates a large load over a long period of time to check that our application does not degrade performance
 
 Gatling is an Open Source solution that allows us to set up *performance tests*.
-This solution developed in France works on all operating systems. 
+It was created in 2012 by Stéphane Landelle in France and is supported on a broad range of operations systems 
 The tests are defined in Scala thanks to a simple and intuitive DSL _(Domain Specific Language)_. 
 The first publication dates from _13 January 2012_. 
 Gatling benefits from a large community and regular updates. 
