@@ -6,7 +6,7 @@ v1.0, 2021-10-26
 :lang: en
 :tags: [gatling, load testing, opensource]
 
-Load testing is the process of injecting a defined number of users into your application to see if it can withstand the load. 
+In essence, load testing is the process of verifying whether an application can handle an expected load. It is done by injecting a defined number of users into the application.
 A typical example is to do a load test on your APIs to see the maximum number of requests supported. 
 That allows us to test the robustness of our applications and their reaction to a large number of users. 
 Thanks to this, we can identify bottlenecks and fine-tune our applications's sizing.
