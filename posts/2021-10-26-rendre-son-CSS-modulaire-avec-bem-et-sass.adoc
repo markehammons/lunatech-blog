@@ -14,22 +14,25 @@ Si cette pratique n'a pas d'impact sur le visuel de notre application, elle peut
 
 == L'approche BEM
 
+.Source : https://unsplash.com/
+[caption=""]
 image::modularite_css4.png[]
 
-La méthodologie que nous allons utiliser ici est la méthodologie BEM qui signifie Bloc, Element, Modifier.
+La méthodologie que nous allons utiliser ici est la méthodologie BEM qui signifie Bloc, Élément, Modifier.
+Pour plus d'informations, n'hésitez pas à consulter la documentation officielle : http://getbem.com/
 
 * Bloc pour composant parent qui contient un ou plusieurs de nos éléments. (Header, nav, footer, etc)
-* Elements pour composants enfants de notre bloc (liens d'une nav, titre, texte, etc.)
+* Éléments pour composants enfants de notre bloc (liens d'une nav, titre, texte, etc.)
 * Modifier pour un changement de style sur nos composants (active, changement de couleur au clic, etc.) 
 
-Cette méthodologie va nous permettre de mieux identifier et d'organiser les composants de notre application avec uniquement ces 3 entités. J'insiste sur "uniquement ces 3 entités" car au-delà du fait d'apporter une cohérence au nommage de nos classes, cette méthodologie permet également de nous éclairer sur la nécessité de créer un nouveau composant et de ne pas dépendre de la div parente. En clair, si vous avez besoin d'une 4ème entité pour votre nommage c'est que le découpage de votre composant est peut être à revoir.
+Cette méthodologie va nous permettre de mieux identifier et d'organiser les composants de notre application avec uniquement ces 3 entités. J'insiste sur "uniquement ces 3 entités" car au-delà du fait d'apporter une cohérence au nommage de nos classes, cette méthodologie permet également de nous éclairer sur la nécessité de créer un nouveau composant et de ne pas dépendre de la div parente. En clair, si vous avez besoin d'une 4ème entité pour votre nommage c'est que le découpage de votre composant est peut-être à revoir.
 
 == La convention de nommage
 
 Les 3 entités de cette méthodologie comportent une syntaxe particulière qui est la suivante :
 
 * Bloc : Toutes les classes commenceront par le nom du bloc parent (ex: .menu)
-* Elements : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "__" (ex: .menu__link)
+* Éléments : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "__" (ex: .menu__link)
 * Modificateur : Les modificateurs de nos éléments commenceront par "--" (ex : .menu__link--active)
 
 Comme une image vaut mieux qu'un long discours, prenons donc Elty, notre mascotte, et décortiquons nos classes :
@@ -38,9 +41,9 @@ image::modularite_css1.png[]
 
 Nous avons donc :
 
-* En jaune notre bloc
-* En vert nos elements
-* En bleu notre modificateur
+* En jaune, notre bloc
+* En vert, nos éléments
+* En bleu, notre modificateur
 
 En html nous avons le code suivant :
 [source,html]
@@ -133,9 +136,9 @@ Simplifions cela grâce au nesting et aux raccourcis offerts par SASS :
 }
 ----
 
-Ici, nous n'avons plus de duplication de nos sélecteurs, SASS permet une meilleure lisibilité de notre code. Chaque élément BEM que nous avons déclaré au préalable en HTML est visible grâce à l'indentation. Nous pouvons voir notre bloc parent en tête de code puis nos différents éléments imbriquer directement à l'intérieur de notre classe avec "&__" et enfin notre modificateur à l'intérieur de notre élément ciblé avec "&--".
+Ici, nous n'avons plus de duplication de nos sélecteurs, SASS permet une meilleure lisibilité de notre code. Chaque élément BEM que nous avons déclaré au préalable en HTML est visible grâce à l'indentation. Nous pouvons voir notre bloc parent en tête de code puis nos différents éléments imbriqués directement à l'intérieur de notre classe avec "&__" et enfin notre modificateur à l'intérieur de notre élément ciblé avec "&--".
 
 == Conclusion
 
-Nous avons donc vu comment rendre notre CSS modulaire grâce à la méthodologie BEM et à son utilisation avec la syntaxe en SASS. Sachez qu'il existe beaucoup d'autres méthodologies (OOCSS, MCSS, SMACSS, etc.).
+Nous avons donc vu comment rendre notre CSS modulaire grâce à la méthodologie BEM et à son utilisation avec la syntaxe en SCSS grâce au préprocesseur SASS. Sachez qu'il existe beaucoup d'autres méthodologies (OOCSS, MCSS, SMACSS, etc.).
 Outre le fait de trouver une logique de nommage à nos classes et donc une bonne méthodologie, la combinaisons de ces 2 éléments nous permet également de voir les limites de nos composants, de réduire le risque de conflits entre les classes mais aussi de mieux découper et modeler notre application.
