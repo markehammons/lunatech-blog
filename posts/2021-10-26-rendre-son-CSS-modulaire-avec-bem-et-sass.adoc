@@ -109,7 +109,7 @@ Si nous continuons notre exemple avec notre mascotte Elty, cela donne en CSS :
 Notre nomenclature de nommage est certes plus claire et plus cohérente grâce à BEM mais nous pouvons voir une lecture redondante dans la façon d'écrire au format CSS.
 
 Simplifions cela grâce au nesting et aux raccourcis offerts par SASS :
-[source,scss]
+[source,css]
 ----
 .elty {
     width: 450px;
