@@ -31,8 +31,8 @@ Cette méthodologie va nous permettre de mieux identifier et d'organiser les com
 Les 3 entités de cette méthodologie comportent une syntaxe particulière qui est la suivante :
 
 * Bloc : Toutes les classes commenceront par le nom du bloc parent (ex: .menu)
-* Éléments : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "\\__" (ex: .menu\\__link)
-* Modificateur : Les modificateurs de nos éléments commenceront par "--" (ex : .menu\\__link--active)
+* Éléments : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "\\__" (ex: .menu__link)
+* Modificateur : Les modificateurs de nos éléments commenceront par "--" (ex : .menu__link--active)
 
 Comme une image vaut mieux qu'un long discours, prenons donc Elty, notre mascotte, et décortiquons nos classes :
 
