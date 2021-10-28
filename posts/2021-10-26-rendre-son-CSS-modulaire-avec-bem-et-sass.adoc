@@ -136,7 +136,7 @@ Simplifions cela grâce au nesting et aux raccourcis offerts par SASS :
 }
 ----
 
-Ici, nous n'avons plus de duplication de nos sélecteurs, SASS permet une meilleure lisibilité de notre code. Chaque élément BEM que nous avons déclaré au préalable en HTML est visible grâce à l'indentation. Nous pouvons voir notre bloc parent en tête de code puis nos différents éléments imbriqués directement à l'intérieur de notre classe avec "\&\_\_" et enfin notre modificateur à l'intérieur de notre élément ciblé avec "\&--".
+Ici, nous n'avons plus de duplication de nos sélecteurs, SASS permet une meilleure lisibilité de notre code. Chaque élément BEM que nous avons déclaré au préalable en HTML est visible grâce à l'indentation. Nous pouvons voir notre bloc parent en tête de code puis nos différents éléments imbriqués directement à l'intérieur de notre classe avec "&__" et enfin notre modificateur à l'intérieur de notre élément ciblé avec "&--".
 
 == Conclusion
 
