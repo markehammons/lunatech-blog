@@ -31,10 +31,11 @@ Cette méthodologie va nous permettre de mieux identifier et d'organiser les com
 Les 3 entités de cette méthodologie comportent une syntaxe particulière qui est la suivante :
 
 * Bloc : Toutes les classes commenceront par le nom du bloc parent (ex: .menu)
-* Éléments : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "\\__" (ex: .menu__link)
+* Éléments : Tous les éléments du bloc parent commenceront par le nom du parent suivi de "\__" (ex: .menu__link)
 * Modificateur : Les modificateurs de nos éléments commenceront par "--" (ex : .menu__link--active)
 
 Comme une image vaut mieux qu'un long discours, prenons donc Elty, notre mascotte, et décortiquons nos classes :
+
 
 image::../media/2021-10-26-rendre-son-CSS-modulaire-avec-bem-et-sass/modularite_css1.png[]
 
@@ -61,13 +62,13 @@ image::../media/2021-10-26-rendre-son-CSS-modulaire-avec-bem-et-sass/modularite_
 
 Nous voyons que sur le premier screenshot, toutes les classes dépendent de la classe parente et que la nomenclature commence à ne plus respecter la méthodologie :
 
-* header\_\_user
-* header\_\_user-details
+* header__user
+* header__user-details
 
 On sent le besoin d'une entité supplémentaire ou d'une identification plus précise. Cela peut alerter sur le besoin de concevoir un nouveau composant avec sa propre nomenclature pour ne pas dépendre du bloc parent. Sur le second screenshot nous voyons la création de ce nouveau composant :
 
 * user
-* user\_\_details
+* user__details
 
 L'utilisation d'une méthodologie permet également d'empêcher d'avoir des conflits sur des classes communes comme un titre du fait de son nommage et de son arborescence en partant du bloc parent. Les classes sont isolées et propres à leur composant respectif.
 
