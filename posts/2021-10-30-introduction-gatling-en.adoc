@@ -77,7 +77,7 @@ image::gatling-recorder-3.png[Gatling Recorder after performing a GET on google.
 Once all your interactions are complete, you can end the recording by clicking on _"Stop and Save"_. 
 The tool will then generate a Scala file that will allow you to restart all your queries with the same attributes as during the recording.
 
-This tool is very useful to have a first draft that we can refine later to match exactly the desired result.
+This tool is very useful to have a first draft that we can refine later to exactly match the desired result.
 
 In the next section, we will explore the definition of these tests in more detail.
 
@@ -100,7 +100,7 @@ lazy val testBlog = project.enablePlugins(GatlingPlugin)
 The plugin exposes several tasks, but the two most important for our example are:
 
 * *sbt gatling:startRecorder* : starts the recorder as in the previous section
-* *sbt gatling:test* : allows to launch the load tests and generate a report with the results
+* *sbt gatling:test* : launches the load tests and generates a report with the results
 
 It is possible to configure Gatling much more specifically but I will not go into detail in this article. 
 If you are interested, I refer you to the documentation: https://gatling.io/docs/gatling/tutorials/[https://gatling.io/docs/gatling/tutorials/]
