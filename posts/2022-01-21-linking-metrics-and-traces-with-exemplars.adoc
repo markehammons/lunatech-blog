@@ -12,6 +12,7 @@ Meet Exemplars. They are displayed as diamonds in the graph shown below.
 .Grafana graph with Exemplars
 image::grafana_dashboard.png[Exemplar, width = 400]
 
+
 By the end of this blog post you will be able to set up a complete docker-compose with Grafana, Tempo, Prometheus and a simple application that produces metrics and traces and links them with exemplars.
 
 == What are Exemplars
