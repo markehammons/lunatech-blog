@@ -1,6 +1,6 @@
 = Linking metrics and traces with Exemplars
 LeonorLunatech
-v1.0, 2022-01-26
+v1.0, 2022-01-27
 :title: Linking metrics and traces with Exemplars
 :imagesdir: ../media/2022-01-21-linking-metrics-and-traces-with-exemplars
 :lang: en
@@ -33,7 +33,7 @@ image::grafana_exemplar.png[Exemplar, width = 400]
 The example is a candy factory run by a couple of Akka Typed Actors.
 It produces candy every few milliseconds by receiving a `MakeCandy` message, together with a metric and a trace that shows how long the production of candy takes.
 If you are not familiar with Akka Actors, don't worry, as it is not the focus of this post.
-All the source code shown in this post can be found at https://github.com/lunatech-labs/lunatech-traces-metrics-exemplars[lunatech-traces-metrics-exemplars repository]
+All the source code shown in this post can be found at https://github.com/lunatech-labs/lunatech-traces-metrics-exemplars[lunatech-traces-metrics-exemplars repository].
 
 [source,scala]
 ----
@@ -95,7 +95,7 @@ In order to create the Exemplars visualization a few components are needed:
 The complete setup can be found in https://github.com/lunatech-labs/lunatech-traces-metrics-exemplars/tree/master/docker[the docker folder]. I will only point out a few important details needed to bring Examplars together.
 
 ==== Prometheus
-The following command has to be passed in the docker setup
+The following command has to be passed in the docker setup:
 [source,text]
 ----
 --enable-feature=exemplar-storage
