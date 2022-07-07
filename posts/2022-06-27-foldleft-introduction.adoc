@@ -68,6 +68,8 @@ Résultat final : `newList = List(1, 3, 6, 10)``
 
 Une écriture possible peut s'appuyer sur un pattern matching avec une condition dédiée à la première itération. Comme nous n'avons rien à additionner au début, nous remplissons simplement la liste avec le premier chiffre. Si nous ne considérons pas ce cas, nous démarrons avec une liste vide qui donnera une erreur à l'exécution car nous feront `accumulator.last` sur une liste vide. 
 
+Cette implémentation comporte quelques problèmes de performances que nous aborderons à la fin de l'article.
+
 [source, scala]
 ----
 val numbers = List(1, 2, 3, 4)
@@ -319,6 +321,45 @@ acc.andThen { players =>
 
 Là encore, il s'agit de la version Cats de left.map(...)
 Enfin, nous enveloppons notre bloc de `EitherT.fromEither[Future] { { ... }.toEither }` pour passer du type `Validated` au type `EitherT`
+
+== Performances
+
+Si vous vous souvenez, j'ai proposé cette implémentation au début de l'article :
+
+[source, scala]
+----
+val numbers = List(1, 2, 3, 4)
+val newList: Seq[Int] = numbers.foldLeft[Seq[Int]](Seq.empty) {
+    case (accumulator, number) if accumulator.isEmpty => accumulator :+ number
+    case (accumulator, number) => accumulator :+ (accumulator.last + number)
+}
+println(newList)
+// Result => List(1, 3, 6, 10)
+----
+
+En réalité, on a initialisé l'accumulateur avec `Seq.empty[Int]` alors que la liste proposée est de type `List`. Comme le type est générique (foldLeft prend une `Seq[Int]`), le compilateur va attribuer le type `List` de notre liste de nombres à l'accumulateur. Le problème pour les performances vient du fait que le type `List` va se retrouver à chaque étape du traitement des éléments de la liste :
+
+1. lors de la récupération du dernière élément de la liste (`accumulator.last`)
+
+2. lors de l'ajout du nouvel élément à la fin de la list (`accumulator :+ ...`)
+
+Pour le `accumulator.last`, l'implémentation dans Scala supprime le premier élément, puis regarde combien il y a d'éléments restant dans la liste. Il va recommencer de cette manière jusqu'à ce qu'il ne reste plus qu'un seul élément à retourner.
+
+Si on se réfère à la documentation scala sur les https://docs.scala-lang.org/overviews/collections-2.13/performance-characteristics.html[performances des collections], l'opération d'ajout d'éléments à une collection de type `List` prend d'autant plus de temps que la liste est grande.
+
+Pour régler ce problème tout en restant générique, on peut réecrire notre méthode de cette façon :
+
+[source, scala]
+----
+List(1,2,3,4).foldLeft(Seq.empty[Int]) {
+  case (Nil, element) => Seq(element)
+  case (accumulator, element) => (accumulator.head + element) +: accumulator
+}.reverse
+----
+
+De cette manière, accéder ou ajouter un élément à l'accumulateur se fera selon une opération à temps constant (rapide). Mais comme cette implémentation produit un résultat inversé, il suffit d'ajouter un `.reverse` à la fin, ou d'utiliser un foldRight, dont on remarquera qu'il s'agit juste d'un foldLeft inversé.
+
+`def foldRight[B](z: B)(op: (A, B) => B): B = reversed.foldLeft(z)((b, a) => op(a, b))`
 
 == Conclusion
 
