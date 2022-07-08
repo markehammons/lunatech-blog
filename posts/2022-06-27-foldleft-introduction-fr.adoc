@@ -64,7 +64,7 @@ Nous allons parcourir la liste "List(1, 2, 3, 4)" et à chaque itération, faire
 
 4. accumulateur (1, 3, 6) et chiffre courant = 4. Résultat : accumulateur = List(1, 3, 6, 4+6)
 
-Résultat final : `newList = List(1, 3, 6, 10)``
+Résultat final : `newList = List(1, 3, 6, 10)`
 
 Une écriture possible peut s'appuyer sur un pattern matching avec une condition dédiée à la première itération. Comme nous n'avons rien à additionner au début, nous remplissons simplement la liste avec le premier chiffre. Si nous ne considérons pas ce cas, nous démarrons avec une liste vide qui donnera une erreur à l'exécution car nous feront `accumulator.last` sur une liste vide. 
 
