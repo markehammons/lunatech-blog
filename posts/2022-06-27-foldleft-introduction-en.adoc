@@ -20,11 +20,11 @@ def foldLeft[B](z: B)(op: (B, A) => B): B
 
 We see several interesting things here :
 
-1. The function is typed B, which is the output type
+1. The method returns an instance of type B, which is the output type
 
-2. It takes as input a first parameter z (zero) of this famous type B. This parameter is important because it is the starting point of the function, it is used to initialise it and to collect the results. This will be our accumulator
+2. *foldLeft* has two parameter lists. The first one is a single parameter `z` the aforementioned type B. This parameter is important because it is the starting point of the iteration, and it is used to initialise it and to collect the results. We will refer to this as the accumulator (sometimes, people refer to it as a tally which records intermediate values of the iteration through all input values).
 
-3. And in the second parameter "op" (operation) a function which takes two parameters (B, the output type and A, the type of the elements of the list) and which makes it possible to obtain this famous output type B.
+3. And in the second parameter "op" (operation) is a function which takes two parameters (B, the output type and A, the type of the elements of the list) and which makes it possible to obtain this famous output type B.
 
 To summarise, this function will go through all the elements of the list [A] and will collect the result in the accumulator [B]. At the end, we end up with [B].
 
@@ -91,7 +91,7 @@ Let's take this a step further. Let's imagine that our output type is different 
 
 In this case, the user would enter a name and date of birth in a GUI and the system would calculate the age and age difference with its predecessor before saving it.
 
-The calculation of the interval is not really interesting, but it will allow us to make some calculations and to observe that *foldLeft* and *foldRight* do not systematically give the same results even if we give them the same input data.
+The calculation of the interval is not really interesting, but it will allow us to make some calculations and to observe that *foldLeft* and *foldRight* do not systematically give the same results even if we give them the same input data (the condition for these two functions to return the same result is that the function `op` needs to be both commutative and associative).
 
 A possible way of writing this could be as follows :
 
@@ -262,7 +262,7 @@ The flatMap allows you to access the Player Sequence located in the Right of the
 ----
 If there is no Right, then Left is considered a return type. As there is only one possible Left in our return type Either[Exception, Seq[Player]], then processing is stopped as soon as it is filled in.
 
-With the Cats library, the result would be as follows :
+With the Cats library, we can code this up as follows :
 
 [source, scala]
 ----
@@ -314,7 +314,7 @@ Left(java.lang.IllegalArgumentException: Unable to delete the task due to status
 */
 ----
 
-Précisions :
+Attentive users may have noticed this piece of code :
 
 [source, scala]
 ----
@@ -324,7 +324,7 @@ acc.andThen { players =>
 ----
 
 Again, this is the Cats version of left.map(...)
-Finally, we wrap our block with `EitherT.fromEither[Future] { { ... }.toEither }` to change the type from `Validated` to `EitherT`.
+Finally, we wrap our block with `EitherT.fromEither[Future] { { ... }.toEither }` to change the type from `Validated` to `EitherT`. Note that we have used `EitherT` and `Validated`, two Cats specific types.
 
 == Performances
 
@@ -367,8 +367,8 @@ In this way, accessing or adding an element to the accumulator will be a constan
 
 == Conclusion
 
-As we have seen, *foldLeft* and *foldRight* are kind of all-purpose boxes when you want to go through a list in a given order and compare the entries with each other while returning a different type if needed. 
+As demonstrated in this article, *foldLeft* and *foldRight* are very powerful methods that can be considered the equivalent of the Swiss Army knife in the Scala collection library: it operates on a collection of elements of some type A and can generate a value that is the same type A or a completely different type B.
 
 I hope this article has enlightened you on how to use them simply and convinced you to use and even abuse them !
 
-Thanks to Vincent and Eric for their review and contribution to the performance section.
+Thanks to Vincent and Eric for their accurate review and contribution.

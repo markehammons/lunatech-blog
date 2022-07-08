@@ -19,13 +19,14 @@ def foldLeft[B](z: B)(op: (B, A) => B): B
 
 Nous voyons ici plusieurs choses intéressantes :
 
-1. La fonction est typée B, qui est le type de sortie
+1. La fonction retourne une instance de type B, qui est le type de sortie
 
-2. Elle prend en entrée un premier paramètre z (zéro) de ce fameux type B. Ce paramètre est important car c'est le point de départ de la fonction, il sert à l'initialiser et à collecter les résultats. Ce sera notre accumulateur
+2. *foldLeft* a deux listes de paramètres. Le premier est un seul paramètre `z` du type B mentionné ci-dessus. Ce paramètre est important car il est le point de départ de l'itération, et il est utilisé pour l'initialiser et pour collecter les résultats. Nous nous y référerons comme à l'accumulateur
 
 3. Et en second paramètre "op" (opération) une fonction qui prend deux paramètres (B, le type de sortie et A , le type des éléments de la liste) et qui permet d'obtenir ce fameux type de sortie B.
 
 Pour résumer, cette fonction va parcourir tous les éléments de la liste [A] et va collecter le résultat dans l'accumulateur [B]. A la fin, on se retrouve avec [B].
+
 Commençons par un exemple simple. Nous allons additionner chaque chiffre d'une liste avec son prédécesseur pour obtenir la somme de cette liste.
 
 image::foldleft-decomposition-fr.png[FoldLeft decomposition, width = 700]
@@ -87,7 +88,7 @@ Allons un peu plus loin. Imaginons que notre type de sortie soit différent de n
 
 Dans le cas présent, l'utilisateur renseignerait un nom et une date de naissance dans une interface graphique et le système calcule l'âge et la différence d'âge avec son prédécesseur avant de le sauvegarder.
 
-Le calcul de l'intervalle n'a pas vraiment d'intérêt, mais ça va nous permettre de faire quelques calculs et d'observer que *foldLeft* et *foldRight* ne donnent pas systématiquement les mêmes résultats même si nous leur donnons les mêmes données en entrée.
+Le calcul de l'intervalle n'a pas vraiment d'intérêt, mais ça va nous permettre de faire quelques calculs et d'observer que *foldLeft* et *foldRight* ne donnent pas systématiquement les mêmes résultats même si nous leur donnons les mêmes données en entrée (la condition pour que ces deux méthodes retournent le même résultat vient du fait que la fonction `op` doit être à la fois commutative et associative).
 
 Une écriture possible pourrait être la suivante :
 
@@ -258,7 +259,7 @@ Le flatMap permet d'accéder à la Séquence de Player située dans le Right du 
 ----
 S'il n'y a pas de Right, alors le Left est considéré comme un type de retour. Comme il n'y a qu'un seul Left possible dans notre type de retour Either[Exception, Seq[Player]], alors le traitement est interrompu dès qu'il est renseigné.
 
-Avec la librairie Cats, le résultat serait le suivant :
+Avec la librairie Cats, nous pouvons écrire le code de la manière suivante :
 
 [source, scala]
 ----
@@ -310,7 +311,7 @@ Left(java.lang.IllegalArgumentException: Unable to delete the task due to status
 */
 ----
 
-Précisions :
+Peut-être avez-vous remarqués cette portion de code :
 
 [source, scala]
 ----
@@ -320,7 +321,7 @@ acc.andThen { players =>
 ----
 
 Là encore, il s'agit de la version Cats de left.map(...)
-Enfin, nous enveloppons notre bloc de `EitherT.fromEither[Future] { { ... }.toEither }` pour passer du type `Validated` au type `EitherT`
+Enfin, nous enveloppons notre bloc de `EitherT.fromEither[Future] { { ... }.toEither }` pour passer du type `Validated` au type `EitherT`. Notez que  que `EitherT` and `Validated` sont deux types spécifiques à Cats.
 
 == Performances
 
@@ -363,8 +364,8 @@ De cette manière, accéder ou ajouter un élément à l'accumulateur se fera se
 
 == Conclusion
 
-Comme nous l'avons vu, *foldLeft* et *foldRight* sont un peu les boîtes à tout faire lorsqu'on veut parcourir une liste dans un ordre donné et comparer les entrées entre elles tout en retournant un type différent au besoin. 
+Comme nous l'avons vu dans cet article, *foldLeft* et *foldRight* sont des méthodes très puissantes qui peuvent être considérées comme l'équivalent du couteau suisse de la bibliothèque de collections de Scala : elles opèrent sur une collection d'éléments d'un certain type A et peuvent générer une valeur qui est du même type A ou d'un type B complètement différent.
 
 J'espère que cet article vous aura éclairé sur la manière de les utiliser simplement et vous aura convaincu d'en user et même d'en abuser !
 
-Merci à Vincent et Eric pour leur relecture et apport à la section sur la performance.
+Merci à Vincent et Eric pour leur contribution et relecture attentive.
