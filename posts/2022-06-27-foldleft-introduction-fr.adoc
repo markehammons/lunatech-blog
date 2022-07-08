@@ -366,3 +366,5 @@ De cette manière, accéder ou ajouter un élément à l'accumulateur se fera se
 Comme nous l'avons vu, *foldLeft* et *foldRight* sont un peu les boîtes à tout faire lorsqu'on veut parcourir une liste dans un ordre donné et comparer les entrées entre elles tout en retournant un type différent au besoin. 
 
 J'espère que cet article vous aura éclairé sur la manière de les utiliser simplement et vous aura convaincu d'en user et même d'en abuser !
+
+Merci à Vincent et Eric pour leur relecture et apport à la section sur la performance.

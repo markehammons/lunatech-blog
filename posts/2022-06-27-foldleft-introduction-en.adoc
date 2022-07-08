@@ -369,4 +369,6 @@ In this way, accessing or adding an element to the accumulator will be a constan
 
 As we have seen, *foldLeft* and *foldRight* are kind of all-purpose boxes when you want to go through a list in a given order and compare the entries with each other while returning a different type if needed. 
 
-I hope this article has enlightened you on how to use them simply and convinced you to use and even abuse them!
+I hope this article has enlightened you on how to use them simply and convinced you to use and even abuse them !
+
+Thanks to Vincent and Eric for their review and contribution to the performance section.
