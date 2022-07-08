@@ -28,7 +28,7 @@ Nous voyons ici plusieurs choses intéressantes :
 Pour résumer, cette fonction va parcourir tous les éléments de la liste [A] et va collecter le résultat dans l'accumulateur [B]. A la fin, on se retrouve avec [B].
 Commençons par un exemple simple. Nous allons additionner chaque chiffre d'une liste avec son prédécesseur pour obtenir la somme de cette liste.
 
-image::foldleft-decomposition.png[FoldLeft decomposition, width = 700]
+image::foldleft-decomposition-fr.png[FoldLeft decomposition, width = 700]
 
 [source, scala]
 ----

@@ -30,7 +30,7 @@ To summarise, this function will go through all the elements of the list [A] and
 
 Let's start with a simple example. We will add each number in a list with its predecessor to get the sum of the list.
 
-image::foldleft-decomposition.png[FoldLeft decomposition, width = 700]
+image::foldleft-decomposition-en.png[FoldLeft decomposition, width = 700]
 
 [source, scala]
 ----
