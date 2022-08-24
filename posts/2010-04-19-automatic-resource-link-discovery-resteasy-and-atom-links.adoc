@@ -123,7 +123,7 @@ the given book:
 The following article is in fact the very documentation for this module,
 that will appear in the 2.0 release of RESTEasy.
 
-[#d0e541]## RESTEasy allows you to inject
+RESTEasy allows you to inject
 http://tools.ietf.org/html/rfc4287#section-4.2.7[Atom links] directly
 inside the entity objects you are sending to the client, via
 auto-discovery.
@@ -138,9 +138,9 @@ Atom links directly over the concerned resources, for any number of
 resources in the response. For example, you can have Atom links for the
 root response entity, and also for each of its children entities.
 
-==== [#d0e554]####Configuration
+==== Configuration
 
-[#d0e554]## There is no configuration required to be able to inject Atom
+There is no configuration required to be able to inject Atom
 links in your resource representation, you just have to have this maven
 artifact in your path:
 
@@ -151,23 +151,22 @@ artifact in your path:
 |org.jboss.resteasy |resteasy-links |2.0-beta-2
 |===
 
-==== [#d0e586]####Your first links injected
+==== Your first links injected
 
-[#d0e586]## You need three things in order to tell RESTEasy to inject
+You need three things in order to tell RESTEasy to inject
 Atom links in your entities:
 
-* [#d0e586]## Annotate the JAX-RS method with `@AddLinks` to indicate
+* Annotate the JAX-RS method with `@AddLinks` to indicate
 that you want Atom links injected in your response entity.
-* [#d0e586]## Add `RESTServiceDiscovery` fields to the resource classes
+* Add `RESTServiceDiscovery` fields to the resource classes
 where you want Atom links injected.
-* [#d0e586]## Annotate the JAX-RS methods you want Atom links for with
+* Annotate the JAX-RS methods you want Atom links for with
 `@LinkResource`, so that RESTEasy knows which links to create for which
 resources.
 
-[#d0e586]## The following example illustrates how you would declare
+The following example illustrates how you would declare
 everything in order to get the Atom links injected in your book store:
 
-[[d0e586]]
 [source,brush:,java;,gutter:,false]
 ----
 @Path("/")
@@ -204,9 +203,8 @@ public interface BookStore {
 }
 ----
 
-[#d0e586]## And this is the definition of the Book resource:
+And this is the definition of the Book resource:
 
-[[d0e586]]
 [source,brush:,java;,gutter:,false]
 ----
 @Mapped(namespaceMap = 
@@ -227,10 +225,9 @@ public class Book {
 }
 ----
 
-[#d0e586]## If you do a GET /order/foo you will then get this XML
+If you do a GET /order/foo you will then get this XML
 representation:
 
-[[d0e586]]
 [source,brush:,xml;,gutter:,false]
 ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -244,9 +241,8 @@ representation:
 </book>
 ----
 
-[#d0e586]## And in JSON format:
+And in JSON format:
 
-[[d0e586]]
 [source,brush:,javascript;,gutter:,false]
 ----
 {
@@ -266,16 +262,16 @@ representation:
 }
 ----
 
-==== [#d0e626]####Customising how the Atom links are serialised
+==== Customising how the Atom links are serialised
 
-[#d0e626]## Because the `RESTServiceDiscovery` is in fact a JAXB type
+Because the `RESTServiceDiscovery` is in fact a JAXB type
 which inherits from `List` you are free to annotate it as you want to
 customise the JAXB serialisation, or just rely on the default with
 `@XmlElementRef`.
 
-==== [#d0e640]####Specifying which JAX-RS methods are tied to which resources
+==== Specifying which JAX-RS methods are tied to which resources
 
-[#d0e640]## This is all done by annotating the methods with the
+This is all done by annotating the methods with the
 `@LinkResource` annotation. It supports the following optional
 parameters:
 
@@ -302,23 +298,23 @@ method's return type. This default does not work with `Response` or
 
 |===
 
-[#d0e640]## You can add several `@LinkResource` annotations on a single
+You can add several `@LinkResource` annotations on a single
 method by enclosing them in a `@LinkResources` annotation. This way you
 can add links to the same method on several resource types. For example
 the `/order/foo/comments` operation can belongs on the `Order` resource
 with the `comments` relation, and on the `Comment` resource with the
 `list` relation.
 
-==== [#d0e780]####Specifying path parameter values for URI templates
+==== Specifying path parameter values for URI templates
 
-[#d0e780]## When RESTEasy adds links to your resources it needs to
+When RESTEasy adds links to your resources it needs to
 insert the right values in the URI remplate. This is done either
 automatically by guessing the list of values from the entity, or by
 specifying the values in the `@LinkResource` `pathParameters` parameter.
 
-==== [#d0e791]####Loading URI template values from the entity
+==== Loading URI template values from the entity
 
-[#d0e791]## URI template values are extracted from the entity by
+URI template values are extracted from the entity by
 annotating a field or Java Bean property with the `@XmlID` annotation.
 If there are more than one URI template value to find, we try to find
 the parent of the entity in a field of Java Bean property annotated with
@@ -326,10 +322,9 @@ the parent of the entity in a field of Java Bean property annotated with
 `@ParentResource` is then reversed and used as the list of values for
 the URI template.
 
-[#d0e791]####For example, let's consider the previous Book example, and
+For example, let's consider the previous Book example, and
 a list of comments:
 
-[[d0e791]]
 [source,brush:,java;,gutter:,false]
 ----
 @XmlRootElement
@@ -353,7 +348,6 @@ public class Comment {
 Given the previous book store service augmented with
 comments:
 
-[[d0e791]]
 [source,brush:,java;,gutter:,false]
 ----
 @Path("/")
@@ -433,7 +427,6 @@ to the entity we're generating links for.
 The previous example of `Comment` service could be declared
 as such:
 
-[[d0e874]]
 [source,brush:,java;,gutter:,false]
 ----
 @Path("/")
@@ -509,7 +502,7 @@ security constraints of `@LinkResource` use UEL to evaluate expressions,
 and we provide a basic UEL context with access only to the entity we're
 injecting links in, and nothing more.
 
-[#d0e999]## If you want to add more variables or functions in this
+If you want to add more variables or functions in this
 context, you can by adding a `@LinkELProvider` annotation on the JAX-RS
 method, its class, or its package. This annotation's value should point
 to a class that implements the `ELProvider` interface, which wraps the
@@ -519,7 +512,6 @@ For example, if you want to support the Seam annotation
 `s:hasPermission(target, permission)` in your security constraints, you
 can add a `package-info.java` file like this:
 
-[[d0e999]]
 [source,brush:,java;,gutter:,false]
 ----
 @LinkELProvider(SeamELProvider.class)
@@ -528,9 +520,8 @@ package org.jboss.resteasy.links.test;
 import org.jboss.resteasy.links.*;
 ----
 
-[#d0e999]## With the following provider implementation:
+With the following provider implementation:
 
-[[d0e999]]
 [source,brush:,java;,gutter:,false]
 ----
 package org.jboss.resteasy.links.test;
@@ -576,7 +567,6 @@ public class SeamELProvider implements ELProvider {
 
 And then use it as such:
 
-[[d0e999]]
 [source,brush:,java;,gutter:,false]
 ----
 @Path("/")
@@ -649,7 +639,6 @@ values in the map.
 Here is an example of such a resource facade for a
 collection of `Comment`s:
 
-[[d0e1036]]
 [source,brush:,java;,gutter:,false]
 ----
 @XmlRootElement
@@ -680,7 +669,6 @@ public class ScrollableCollection implements ResourceFacade<Comment> {
 
 This will produce such an XML collection:
 
-[[d0e1036]]
 [source,brush:,xml;,gutter:,false]
 ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
