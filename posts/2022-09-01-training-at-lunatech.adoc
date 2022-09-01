@@ -1,0 +1,50 @@
+= Training at Lunatech
+eloots
+v1.0, 2022-09-01
+:title: Training at Lunatech
+:lang: en
+:tags: [training, scala, akka, streaming, stream, java]
+:docinfo: shared
+
+[.float-group]
+--
+[.center]
+.Image A
+image::../media/2022-09-01-training-at-lunatech/training-akka-streams-with-scala-chessy.png[A, width=60%,float="float",align="center", title="Teaching Akka Streams at Lunatech France"]
+--
+
+After having delivered the Lightbend Akka Streams with Scala Professional training to
+colleagues at the Lunatech France office in Chessy, I thought it was a good time as any
+do a quick update on training at Lunatech.
+
+We consider training to be a crucial element in bringing and keeping
+consultants up-to-date on the continuously evolving technology space in our industry sector.
+
+We leverage existing trainings, such as the Scala and Akka courses from Lightbend and
+we are also licensing the excellent https://www.fp-tower.com/courses/foundations[Foundations of Functional Programming in Scala] training course developed by Julien Truffaut at
+https://www.fp-tower.com[FP-Tower]. On top of that, we continue to develop and maintain
+courses ourselves on topics where as specific need exists. Here are a few examples of the latter
+
+- https://github.com/lunatech-labs/lunatech-scala-2-to-scala3-course[Moving from Scala 2 to Scala 3]
+- https://github.com/lunatech-labs/lunatech-akka-streams-with-scala[Lunatech Akka Streams with Scala Expert]
+- https://github.com/lunatech-labs/kubernetes-troubleshooting-scenarios[Troubleshooting Kubernetes workshop]
+- https://github.com/eloots/Pi-Akka-Cluster[Understanding Akka Cluster with Raspberry Pi]
+
+Of course, there are the Lightbend courses that we can offer:
+
+- https://academy.lightbend.com/courses/course-v1:lightbend+Scala-Language-Professional+Instructor-Led/about[Lightbend Scala Language Professional]
+- https://academy.lightbend.com/courses/course-v1:lightbend+Scala-Language-Expert+Instructor-Led/about[Lightbend Scala Language Expert]
+- https://academy.lightbend.com/courses/course-v1:lightbend+LTS-P+v1/about[Lightbend Akka Streams with Scala Professional]
+- https://academy.lightbend.com/courses/course-v1:lightbend+Reactive-Architecture-Professional+Instructor-Led/about[Lightbend Reactive Architecture Professional]
+
+If you're reading this post as a non-Lunatech person, you may be asking yourself, +
+_"Sounds interesting, how does this help me?"_
+
+Well, the good news is that we're opening these courses to external participants!
+
+
+
+
+
+
+
