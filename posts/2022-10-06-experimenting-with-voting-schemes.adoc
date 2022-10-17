@@ -167,12 +167,12 @@ A possible consequence is that some malicious voters can collude against another
 
 As it often happens with cryptography related algorithms or protocols, some properties and security guarantees can seem a bit magic at first glance. A method to get some global understanding and intuition about why something works can be to go through each step with simple parameters and to observe the result. Translating these steps into an executable computer program is the next step to verify that this understanding leads to a concrete application.
 
-This repo contains a simplified implementation of Helios without any dependency: the necessary discrete algebra objects and cryptographic primitives are implemented from scratch. Additionally, the code aims to be as clear and simple as possible in order to show how the different part of the scheme are put together. The strong typing of Scala helps to give expressive signatures to each function and make their role explicit.
+https://github.com/agoetschm/voting-helios-scala[This repo] contains a simplified implementation of Helios without any dependency: the necessary discrete algebra objects and cryptographic primitives are implemented from scratch. Additionally, the code aims to be as clear and simple as possible in order to show how the different part of the scheme are put together. The strong typing of Scala helps to give expressive signatures to each function and make their role explicit.
 
 === Structure
 We will go over the different layers composing the code in a bottom-up approach, going from the basic building blocks up to the final voting scheme.
 
-The lowest layer of this implementation is the link:src/main/scala/algebra/[algebra] package. It contains the logic about https://mathworld.wolfram.com/CyclicGroup.html[cyclic groups] and https://mathworld.wolfram.com/FiniteField.html[finite fields] on which the encryption is based. 
+The lowest layer of this implementation is the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/algebra/[algebra] package. It contains the logic about https://mathworld.wolfram.com/CyclicGroup.html[cyclic groups] and https://mathworld.wolfram.com/FiniteField.html[finite fields] on which the encryption is based. 
 [source,scala]
 ----
 trait Domain[Z: Integral, F <: Field[Z], G <: Group[Z, F], Gen <: Generator[Z, F, G]]:
@@ -180,9 +180,9 @@ trait Domain[Z: Integral, F <: Field[Z], G <: Group[Z, F], Gen <: Generator[Z, F
   val exponent: F
   val generator: Gen
 ----
-The link:src/main/scala/algebra/Domain.scala[Domain] trait englobes a discrete group `base`, which is used later as the ElGamal public key space, with a finite field `exponent`, corresponding to the private key space. The `generator` projects elements of the `exponent` field on a subgroup of the `base` group. Note that `Domain` is "data type agnostic": the type parameter `Z` can be any type representing an integer - such as `Int`, `Long` or `BigInt` - in order to handle different sizes of numbers.
+The https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/algebra/Domain.scala[Domain] trait englobes a discrete group `base`, which is used later as the ElGamal public key space, with a finite field `exponent`, corresponding to the private key space. The `generator` projects elements of the `exponent` field on a subgroup of the `base` group. Note that `Domain` is "data type agnostic": the type parameter `Z` can be any type representing an integer - such as `Int`, `Long` or `BigInt` - in order to handle different sizes of numbers.
 
-On top of this is built the link:src/main/scala/crypto/[crypto] package. It contains an implementation of the link:src/main/scala/crypto/ElGamal.scala[ElGamal encryption scheme] and the link:src/main/scala/crypto/ProofOfKnowledge.scala[proofs of knowledge] needed for Helios.
+On top of this is built the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/crypto/[crypto] package. It contains an implementation of the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/crypto/ElGamal.scala[ElGamal encryption scheme] and the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/crypto/ProofOfKnowledge.scala[proofs of knowledge] needed for Helios.
 [source,scala]
 ----
 trait EncryptionScheme[PT, CT, PK, SK, D, R]:
@@ -198,7 +198,7 @@ class ElGamal extends EncryptionScheme[...] with HomomorphicEncryption[...]:
 ----
 The `EncryptionScheme` trait is an example of the conciseness achievable in Scala: it states that the `enc` function takes a plaintext, the public key, a source of randomness and return a ciphertext.
 
-As last layer, the link:src/main/scala/voting/[voting] package defines the link:src/main/scala/voting/scheme/definition/VotingScheme.scala[VotingScheme] trait and its main implementation link:src/main/scala/voting/scheme/helios/Helios.scala[Helios].
+As last layer, the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/voting/[voting] package defines the https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/voting/scheme/definition/VotingScheme.scala[VotingScheme] trait and its main implementation https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/voting/scheme/helios/Helios.scala[Helios].
 
 === Helios
 
@@ -226,18 +226,13 @@ trait VotingScheme[X, Y, V, B, BB, TR, VR, D, R]:
   val reveal: (BB, TR, X, R) => VR
 ----
 
-The link:src/main/scala/voting/scheme/definition/VotingScheme.scala trait defines the five functions that a scheme has to implement to run a voting process. `setup` takes the domain containing the algebraic objects and a source of randomness to provide a pair of secret/public keys as well as a bulletin board. The `vote` function allows each voter to encrypt her vote and form a ballot, which they add on the bulletin board with the `cast` function. Note here that all objects are immutable in this implementation, thus `cast` returns a new instance of bulletin board which should contain the added ballot. The `tally` function combines the ballots on the bulletin board into an intermediary result, which the `reveal` function decrypts using the secret key. A source of randomness is also needed for `reveal` to generate a randomized proof of decryption.
+The https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/voting/scheme/definition/VotingScheme.scala[VotingScheme] trait defines the five functions that a scheme has to implement to run a voting process. `setup` takes the domain containing the algebraic objects and a source of randomness to provide a pair of secret/public keys as well as a bulletin board. The `vote` function allows each voter to encrypt her vote and form a ballot, which they add on the bulletin board with the `cast` function. Note here that all objects are immutable, thus `cast` returns a new instance of bulletin board which should contain the added ballot. The `tally` function combines the ballots on the bulletin board into an intermediary result, which the `reveal` function decrypts using the secret key. A source of randomness is also needed for `reveal` to generate a randomized proof of decryption.
 
-link:src/main/scala/voting/scheme/helios/Helios.scala[Helios] takes a type parameter `N` representing the number of candidates in an election and defines concrete types for each of the type parameters of `VotingScheme`. The implementation of each function contains the wiring between the encryption scheme and the proofs on knowledge following the description in the previous section.
+https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/voting/scheme/helios/Helios.scala[Helios] takes a type parameter `N` representing the number of candidates in an election and defines concrete types for each of the type parameters of `VotingScheme`. The implementation of each function contains the wiring between the encryption scheme and the proofs on knowledge following the description in the previous section.
 
-TODO merge with demo section
+In order to illustrate how this implementation of Helios can be used, https://github.com/agoetschm/voting-helios-scala/tree/develop/src/main/scala/Main.scala[Main] runs a demo with 3 candidates, 10 voters and one malicious voter. It also displays the content of each data structure to allow inspection from the vote until the result.
 
-In order to illustrate how to use this implementation of Helios can be used, link:src/main/scala/Main.scala[Main] runs a demo with 3 candidates, 10 voters and one malicious voter. It also displays the content of each data structure to allow inspection from the vote until the result.
-
-=== Demo voting session
-The `+sbt run+` command runs a mock election with 3 candidates and 10 voters. The content of the encrypted ballots is displayed along with their corresponding proofs. A duplicated but valid ballot is also included, forged by a malicious voter using the re-randomization of the proof of encryption, which is based on a weak Fiat-Shamir transformation [Bernhard2012]. We will go over each step of the voting process in the next section.
-
-.Result of mock election
+.Result of `+sbt run+`
 [%collapsible]
 ====
   --------------------------------------------------
@@ -299,9 +294,10 @@ The `+sbt run+` command runs a mock election with 3 candidates and 10 voters. Th
 
 == Conclusion
 
-Diving into the subject of voting schemes allowed us to see how some desirable privacy and verifiability properties can be provided by leveraging well known cryptographic constructions. But as we observed, actually understanding such schemes requires some mathematics and computer science background, which raises the question of wider adoption of such systems for large scale elections and how to make the voting result trusted by the population.
+Diving into the subject of voting schemes allowed us to discover some desirable privacy and verifiability properties in voting schemes  and see how they can be provided by leveraging well known cryptographic constructions. But as we observed, actually understanding such schemes requires some mathematics and computer science background, which raises the question of wider adoption of such systems for large-scale elections and how to make the voting result trusted by the population.
 
-TODO expand on this last part
+As with any new technology, the first public usage of a verifiable voting systems will probably be received with scepticism. But the vulgarization of the topic by known experts as well as the advantages of such systems regarding the transparency of the voting process should get the better of people's apprehensions and set a new norm.
+
 
 
 [bibliography]
