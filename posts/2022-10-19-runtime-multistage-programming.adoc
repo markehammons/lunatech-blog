@@ -1,6 +1,6 @@
 # Custom JIT compilation with Runtime Multi-Stage Programming
 
-For a while now I've been fiddling with a library called [Slinc](https://github.com/markehammons/slinc), a way to link C code in Scala. Since my original version, I've been using context values, macros, and other tools to generate code for writing and reading representations of Structs into and out of native memory.
+For a while now I've been fiddling with a library called https://github.com/markehammons/slinc[Slinc], a way to link C code in Scala. Since my original version, I've been using context values, macros, and other tools to generate code for writing and reading representations of Structs into and out of native memory.
 
 If you're not familiar with how macros work in Scala, the most simple way of writing them involves using quotes and splices.
 
