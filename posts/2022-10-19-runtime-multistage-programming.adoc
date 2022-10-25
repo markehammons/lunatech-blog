@@ -2,6 +2,10 @@
 
 For a while now I've been fiddling with a library called https://github.com/markehammons/slinc[Slinc], a way to link C code in Scala. Since my original version, I've been using context values, macros, and other tools to generate code for writing and reading representations of Structs into and out of native memory.
 
+Originally, I was using Scala 3 macros to produce native bindings and helper code, but I recently discovered that Runtime Multi-Stage Programming produces much better code. My Slinc project therefore is a real-world example of the worth of Runtime Multi-Stage Programming
+
+## A review of Macros
+
 If you're not familiar with how macros work in Scala, the most simple way of writing them involves using quotes and splices.
 
 ```scala
@@ -41,14 +45,18 @@ yield '{(j: Int) => println(j + ${Expr(i)})} //${Expr(i)} smuggles the compile t
 
 Compile-time reflection and terms are also a thing in Scala 3 macros, but the usage of those is a story for another time.
 
-Anyway one of my first attempts at generating code to write data to native memory would take case classes like these:
+## Pursuing best-case performance with macros
+
+One of my first attempts at generating code to write data to native memory would take case classes like these:
 
 ```scala
 case class Y(a: Int, b: Int) derives Struct
 case class X(a: Int, y: Y, b: Int) derives Struct
 ```
 
-And produce code like below to write it into native memory:
+`Struct` here is a type-class that provides a number of features related to making a case class an analogue to a C struct, including defining how to copy the case class into native memory, how to pass it into a native method binding, and how to receive it from a native method. The derives keyword indicates to Scala to generate the typeclass, and because of the way I've wired my code, this typeclass is generated via macro expansion.
+
+The above lines produced code like below in order to copy the respective case class data into native memory:
 
 ```scala
 {
@@ -80,8 +88,9 @@ And produce code like below to write it into native memory:
   )
 }
 ```
+The `Encoder` here, as I was calling it back then, was a simple typeclass that indicated how to write a type of data into native memory. `Struct` is an amalgam of many such typeclasses.
 
-This code basically takes the Int Encoder, as I was calling it back then, and calls its "into" method to write a.a, a.y.a, a.y.b, and a.b into native memory. It provides offsets into the native memory by analyzing the layout of a C struct mirroring the layout of X. This code is fairly readable, and though I've removed the usage of full path names, it's something a human might write to record this case class into native memory.
+This code basically creates a new `Encoder` using the `Int` `Encoder` and calls its "into" method to write a.a, a.y.a, a.y.b, and a.b into native memory. It provided offsets into native memory by analyzing the layout of a C struct mirroring the layout of X. This code was fairly readable, and though I've removed the usage of full path names, it's something a human might write to record this case class into native memory.
 
 So how fast was this code?
 
@@ -91,7 +100,7 @@ AssignBench.writeCaseClass  thrpt    5    4.191 ± 0.061  ops/us
 AssignBench.writeInt        thrpt    5  289.714 ± 7.512  ops/us
 ```
 
-Not good. Despite only writing 4 integer values, the Encode for X is something like 70x slower. This is due to the querying the structure for the offsets with which to insert the Int.
+Not good. Despite only writing 4 integer values, the `Encoder` for X is something like 70x slower. This is due to querying the layout structure at runtime for the offsets with which to insert the Int.
 
 In my latest code, I'm using a much simpler approach using plain inline methods instead of macros. Inline methods can't do everything a macro can, but in general they tend to be easier to work with, and simpler to support.
 
@@ -125,7 +134,7 @@ In my latest code, I'm using a much simpler approach using plain inline methods 
       case _: EmptyTuple => ()
 ```
 
-Here, "Send" is my modern equivalent to Encode. I decided that I wasn't actually producing native data, but putting data that was on the jvm into the native space, "Send" is a much better term for the operation. The above code has two parts, the main inline method that takes the Struct representation and offsets for the data placement, and renders a Tuple representation from it, and a recursive inline method that summons the "Send" instance for each element of the tuple, and writes the data to the appropriate place in native memory. For X, these inlines produce the following code:
+Here, `Send` is my modern equivalent to `Encoder`. I decided that I wasn't actually producing native data, but putting data that was on the jvm into the native space, `Send` is a much better term for the operation. The above code has two parts, the main inline method that takes the Struct representation and offsets for the data placement, and renders a Tuple representation from it, and a recursive inline method that summons the "Send" instance for each element of the tuple, and writes the data to the appropriate place in native memory. For X, these inlines produce the following code:
 
 ```scala
 //generated code for: X
@@ -186,7 +195,9 @@ So the new code is around 5x faster than before, but the write speed for Int has
 
 Some of my prototypes using other forms of inline methods and macros got up to 50ops/us, but is it possible to go faster? Well, not really at compile time. One of the reasons writing Int has been so fast is that we know it's size at compile time, and knowing where to write it is relatively simple. On the other hand, knowing where to write the elements of X is really very platform specific. Alignment, and how data for structs is padded depends on the host platform. X itself might be a simple case, but we want a general purpose way to write the data for any Struct, and we don't want to encode alignment and padding rules at compile time that may not apply at runtime.
 
-So we're stuck right? Wrong. Scala 3 has a new feature that will save us: Runtime multi-stage programming. Runtime multi-stage programming in Scala 3 works a lot like macros. The big difference is that it's more limited with regards to what code it can produce, and it can include runtime data inside of code it generates.
+## Enter Runtime Multi-stage Programming
+
+Runtime multi-stage programming in Scala 3 works a lot like macros. The big difference is that it's more limited with regards to what code it can produce, and it can include runtime data inside of code it generates.
 
 Let me repeat that last part one more time: it can include runtime data inside of code it generates. To put it simply, the slowness of our Send implementations were related to the fact that they were reliant on data that was only available at runtime. To write the Send instance perfectly for a case class, we would have to know what platform it would run on in advance, and it would only be available for that platform. Using runtime multi-stage programming, we can avoid this limitation by embedding parsed runtime information into the code we want to generate, allowing us to write something much closer to the perfect implementation for any platform. If this promise sounds a lot like the promises that just-in-time compilation were supposed to bring, you're not far off the mark. The code generation of runtime multi-stage programming lets us write something like our own just-in-time compilation. But enough prattling, lets see the implementation:
 
